@@ -26,8 +26,6 @@ Set up any RSS feed once and let Aggregator do the rest automatically. Create a 
 
 Whether you're [creating a news aggregator](https://www.wprssaggregator.com/how-to-start-a-news-aggregator-site/), sharing related posts, curating videos, or displaying a collection of articles, RSS is still the best way to do it. 
 
-[youtube https://youtu.be/vpQlSZ2z3z0]
-
 == Discover the power of Aggregator and RSS feeds ==
 
 With more than a decade of experience in the aggregator and RSS space, we've built WP RSS Aggregator to be your ideal partner for autoblogging, [content hubs](https://www.wprssaggregator.com/content-hub/), and news aggregators of all kinds. Here are our [main features](https://www.wprssaggregator.com/extensions/):
