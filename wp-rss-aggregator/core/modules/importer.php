@@ -20,7 +20,7 @@ wpra()->addModule(
 		}
 
 		$enablefeedCache = $settings->register( 'enableFeedCache' )->setDefault( false )->get();
-		$feedUserAgent = $settings->register( 'feedUserAgent' )->setDefault( 'Mozilla/5.0 (Linux 10.0; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36' )->get();
+		$feedUserAgent = $settings->register( 'feedUserAgent' )->setDefault( 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.97 Safari/537.36' )->get();
 
 		$rssReader = new SpRssReader(
 			apply_filters( 'wpra.importer.rssReader.timeout', 30 ),

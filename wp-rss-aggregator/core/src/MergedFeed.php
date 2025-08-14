@@ -2,8 +2,8 @@
 
 namespace RebelCode\Aggregator\Core;
 
-use RebelCode\Aggregator\Core\IrPost\IrAuthor;
 use RebelCode\Aggregator\Core\Store\WpPostsStore;
+use RebelCode\Aggregator\Core\IrPost\IrAuthor;
 
 class MergedFeed {
 
@@ -128,19 +128,19 @@ class MergedFeed {
 		$srcName = $post->getSingleMeta( ImportedPost::SOURCE_NAME, '' );
 		$srcUrl = $post->getSingleMeta( ImportedPost::SOURCE_URL, '' );
 
-		if ( ! $srcName || ! $srcUrl ) {
+		if ( ! $srcName && ! $srcUrl ) {
 			return '';
 		}
 
 		$nameTag = '';
 		$urlTag = '';
 
-		if ( $srcName ) {
-			$nameTag = "<title>{$srcName[0]}</title>";
+		if ( $srcUrl ) {
+			$urlTag = "<id>{$srcUrl}</id>";
 		}
 
-		if ( $srcUrl ) {
-			$urlTag = "<id>{$srcUrl[0]}</id>";
+		if ( $srcName ) {
+			$nameTag = "<title>{$srcName}</title>";
 		}
 
 		return "<source>{$nameTag}{$urlTag}</source>";

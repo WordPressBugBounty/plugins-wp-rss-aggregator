@@ -12,7 +12,7 @@ use RebelCode\Aggregator\Core\DataCleanup;
 
 wpra()->addModule(
 	'v4Migration',
-	array( 'settings', 'importer', 'renderer',  'cleanup' ),
+	array( 'settings', 'importer', 'renderer', 'cleanup' ),
 	function ( Settings $settings, Importer $importer, Renderer $renderer, DataCleanup $dataCleanup ) {
 		$v4CoreSettings = get_option( 'wprss_settings_general', array() );
 		$v4FtpSettings = get_option( 'wprss_settings_ftp', array() );
@@ -67,6 +67,9 @@ wpra()->addModule(
 		add_filter( 'wpra.rpc.v4.isPluginsActivated', fn () => fn () => $migrator->isPluginsActivated() );
 		add_filter( 'wpra.rpc.v4.deactivateAddons', fn () => fn () => $migrator->deactivateAddons() );
 		add_filter( 'wpra.rpc.v4.uninstall', fn () => fn () => $migrator->uninstall() );
+
+		add_filter( 'wpra.rpc.v4.isPremiumPluginInstalled', fn () => fn () => $migrator->isPremiumPluginInstalled() );
+		add_filter( 'wpra.rpc.v4.activatePremiumPlugin', fn () => fn () => $migrator->activatePremiumPlugin() );
 
 		return $migrator;
 	}

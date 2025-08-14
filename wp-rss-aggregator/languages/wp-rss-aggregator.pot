@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP RSS Aggregator 5.0.0\n"
+"Project-Id-Version: WP RSS Aggregator 5.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-rss-aggregator\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-24T11:05:21+00:00\n"
+"POT-Creation-Date: 2025-08-12T16:14:28+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-rss-aggregator\n"
@@ -714,13 +714,13 @@ msgstr ""
 msgid "Source with ID %d not found"
 msgstr ""
 
-#: core/src/Store/SourcesStore.php:282
-#: core/src/Store/SourcesStore.php:327
+#: core/src/Store/SourcesStore.php:284
+#: core/src/Store/SourcesStore.php:329
 #, php-format
 msgid "#%d [Missing]"
 msgstr ""
 
-#: core/src/Store/SourcesStore.php:414
+#: core/src/Store/SourcesStore.php:416
 msgid "Cannot replace source with no ID"
 msgstr ""
 
@@ -729,7 +729,7 @@ msgstr ""
 msgid "Post #%s does not exist or is not imported by WP RSS Aggregator"
 msgstr ""
 
-#: core/src/Store/WpPostsStore.php:512
+#: core/src/Store/WpPostsStore.php:551
 #, php-format
 msgctxt "The recorded note when an imported post is deleted and rejected. %s = post title"
 msgid "Rejected after deletion: %s"
@@ -4418,6 +4418,58 @@ msgstr ""
 
 #: core/js/dist/admin.js:113
 msgid "Click this button to complete the migration."
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Before you migrate"
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "We’ve now combined all your premium add-ons into one Premium plugin in v5. Your old add-ons are now considered legacy and will only work with v4."
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "To retain access to your paid features, activate Aggregator Premium now. Migration cannot continue without it."
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Activate Aggregator Premium"
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Download Aggregator Premium from your account, then install and activate it before proceeding. Migration is blocked until the Premium plugin is active."
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "<strong>Need help?</strong> See our guide on how to <a>Install Aggregator Premium</a>"
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Download from Your Account"
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Once you've downloaded the Aggregator Premium plugin, <a>install it on your site</a>:"
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Go to Plugins → Add Plugin → Upload Plugin."
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Choose the file you just downloaded from your account."
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Click Install Now."
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Once installed, click Activate Plugin."
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Go to Plugins Page"
 msgstr ""
 
 #: core/js/dist/admin.js:113

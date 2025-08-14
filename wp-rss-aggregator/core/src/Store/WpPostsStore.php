@@ -476,6 +476,45 @@ class WpPostsStore {
 		return Result::Ok( $result->post_count );
 	}
 
+	/**
+	 * Gets the number of imported WordPress posts for each source.
+	 *
+	 * @param list<int> $srcIds The IDs of the sources.
+	 * @return Result<array<int, int>> A map of source IDs to their post counts.
+	 */
+	public function getCountsBySource( array $srcIds ): Result {
+		if ( empty( $srcIds ) ) {
+			return Result::Ok( array() );
+		}
+
+		try {
+			$args = array( ImportedPost::SOURCE );
+			$idsList = $this->db->prepareList( $srcIds, '%d', $args );
+
+			$sql = "SELECT meta_value as source_id, COUNT(*) as count
+                    FROM {$this->meta}
+                    WHERE meta_key = %s AND meta_value IN ({$idsList})
+                    GROUP BY meta_value";
+
+			$results = $this->db->getResults( $sql, $args );
+
+			$counts = array();
+			foreach ( $results as $row ) {
+				$counts[ (int) $row['source_id'] ] = (int) $row['count'];
+			}
+
+			foreach ( $srcIds as $id ) {
+				if ( ! isset( $counts[ $id ] ) ) {
+					$counts[ $id ] = 0;
+				}
+			}
+
+			return Result::Ok( $counts );
+		} catch ( Throwable $t ) {
+			return Result::Err( $t );
+		}
+	}
+
 	/** @param iterable<IrPost> $posts */
 	public function deleteWpPosts( iterable $posts, bool $reject = false ): int {
 		$num = 0;

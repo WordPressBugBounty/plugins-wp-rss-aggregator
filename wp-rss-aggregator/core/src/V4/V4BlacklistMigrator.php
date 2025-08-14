@@ -76,7 +76,7 @@ class V4BlacklistMigrator {
 						$id,
 						$url,
 						$name,
-						$addResult->getErr()->getMessage() // Assuming getErr() returns an Exception or similar
+						$addResult->error()->getMessage()
 					)
 				);
 			}
