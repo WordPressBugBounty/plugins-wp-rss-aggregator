@@ -35,7 +35,7 @@ class SourcesStore {
 
 	public function __construct( Database $db, string $table ) {
 		$this->db = $db;
-		$this->table = esc_sql( $table );
+		$this->table = $table;
 	}
 
 	/**
@@ -232,15 +232,13 @@ class SourcesStore {
 	/** @return Result<int> */
 	public function getCountErred(): Result {
 		try {
-			$sql = "
-				SELECT COUNT(*) AS count
-				FROM {$this->table}
-				WHERE `last_error` IS NOT NULL
-				AND `last_error` != ''
-			";
+			$result = $this->db->getRow(
+				"SELECT COUNT(*) as count FROM {$this->table}
+                WHERE `last_error` IS NOT NULL AND `last_error` != \"\"
+                "
+			);
 
-			$result = $this->db->getRow( $sql );
-
+			$result ??= array();
 			$count = (int) ( $result['count'] ?? 0 );
 
 			return Result::Ok( $count );

@@ -2,11 +2,11 @@
 
 namespace RebelCode\Aggregator\Core\Rpc\Handlers;
 
-use RebelCode\Aggregator\Core\Utils\Arrays;
-use RebelCode\Aggregator\Core\Source;
-use RebelCode\Aggregator\Core\Renderer;
-use RebelCode\Aggregator\Core\Importer;
 use RebelCode\Aggregator\Core\Display;
+use RebelCode\Aggregator\Core\Importer;
+use RebelCode\Aggregator\Core\Renderer;
+use RebelCode\Aggregator\Core\Source;
+use RebelCode\Aggregator\Core\Utils\Arrays;
 
 /**
  * An RPC handler dedicated to getting and counting relationships between
@@ -48,34 +48,24 @@ class RpcRelsHandler {
 	 */
 	public function getSourceRels( iterable $sources ): array {
 		$ids = Arrays::map( $sources, fn ( Source $s ) => $s->id );
-		if ( empty( $ids ) ) {
-			return [];
-		}
-
 		$rels = array();
-		foreach ( $ids as $sid ) {
-			$rels[ $sid ] = [
-				'imported' => 0,
-				'displays' => [],
-			];
-		}
 
-		$importedCounts = $this->importer->wpPosts->getCountsBySource( $ids )->getOrThrow();
-		foreach ( $importedCounts as $sid => $count ) {
-			if ( isset( $rels[ $sid ] ) ) {
-				$rels[ $sid ]['imported'] = $count;
+		$wpPosts = $this->importer->wpPosts->getFromSources( $ids )->getOrThrow();
+		foreach ( $wpPosts as $post ) {
+			foreach ( $post->sources as $sid ) {
+				$rels[ $sid ]['imported'] ??= 0;
+				$rels[ $sid ]['imported']++;
 			}
 		}
+		unset( $wpPosts );
 
 		$displays = $this->renderer->displays->getWithSources( $ids )->getOrThrow();
 		foreach ( $displays as $display ) {
 			foreach ( $display->sources as $sid ) {
-				if ( isset( $rels[ $sid ] ) ) {
-					$rels[ $sid ]['displays'][] = array(
-						'id' => $display->id,
-						'name' => $display->name,
-					);
-				}
+				$rels[ $sid ]['displays'][] = array(
+					'id' => $display->id,
+					'name' => $display->name,
+				);
 			}
 		}
 		unset( $displays );
