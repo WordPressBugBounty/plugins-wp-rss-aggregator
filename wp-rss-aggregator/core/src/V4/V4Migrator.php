@@ -148,6 +148,47 @@ class V4Migrator {
 		}
 	}
 
+	/**
+	 * Checks if the WP RSS Aggregator Premium plugin is installed.
+	 *
+	 * @since 5.0.1
+	 *
+	 * @return Result Returns Result::Ok(true) if installed, Result::Ok(false) if not, or Result::Err on error.
+	 */
+	public function isPremiumPluginInstalled(): Result {
+		try {
+			$plugins = get_plugins();
+			$isInstalled = isset( $plugins['wp-rss-aggregator-premium/wp-rss-aggregator-premium.php'] );
+
+			return Result::Ok( $isInstalled );
+		} catch ( \Exception $e ) {
+			Logger::error( sprintf( 'Error during %s::isPremiumPluginInstalled: %s', __CLASS__, $e->getMessage() ) );
+			return Result::Err( $e );
+		}
+	}
+
+	/**
+	 * Activates the WP RSS Aggregator Premium plugin.
+	 *
+	 * Attempts to activate the premium plugin programmatically and returns
+	 * a Result object indicating success or failure.
+	 *
+	 * @since 5.0.1
+	 *
+	 * @return Result Returns a Result::Ok(true) on success or Result::Err(error_message) on failure.
+	 */
+	public function activatePremiumPlugin(): Result {
+		try {
+			$result = activate_plugin( 'wp-rss-aggregator-premium/wp-rss-aggregator-premium.php' );
+			if ( is_wp_error( $result ) ) {
+				return Result::Err( $result->get_error_message() );
+			}
+			return Result::Ok( true );
+		} catch ( \Exception $e ) {
+			return Result::Err( $e->getMessage() );
+		}
+	}
+
 	public function uninstall(): void {
 		try {
 			delete_option( 'wprss_settings_general' );
@@ -230,6 +271,9 @@ class V4Migrator {
 		try {
 			$this->reset();
 			update_option( 'wprss_enable_v5', '0' );
+			if ( ! get_option( 'wprss_prev_update_page_version', false ) ) {
+				update_option( 'wprss_prev_update_page_version', '4.23.13' );
+			}
 		} catch ( \Exception $e ) {
 			Logger::error( sprintf( 'Error during V4Migrator::rollback: %s', $e->getMessage() ) );
 		}

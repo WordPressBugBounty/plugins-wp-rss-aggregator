@@ -212,7 +212,6 @@ class IrPost {
 		$irPost->title = $post->post_title;
 		$irPost->excerpt = $post->post_excerpt;
 		$irPost->content = $post->post_content;
-		$irPost->author = IrAuthor::fromWpUserId( (int) $post->post_author );
 		$irPost->datePublished = Time::createAndCatch( $datePublished );
 		$irPost->dateModified = Time::createAndCatch( $dateModified );
 		$irPost->commentsOpen = ( strtolower( $post->comment_status ) === 'open' );
@@ -222,6 +221,20 @@ class IrPost {
 		$irPost->terms = IrTerm::getForWpPost( $post );
 		$irPost->meta = get_post_meta( $post->ID );
 		$irPost->parentId = $post->post_parent;
+
+		if ( 0 === (int) $post->post_author ) {
+			$authorName  = get_post_meta( $post->ID, 'wprss_item_author', true );
+			$authorEmail = get_post_meta( $post->ID, 'wprss_item_author_email', true );
+			$authorLink  = get_post_meta( $post->ID, 'wprss_item_author_link', true );
+
+			if ( ! empty( $authorName ) || ! empty( $authorEmail ) || ! empty( $authorLink ) ) {
+				$irPost->author = new IrAuthor( null, $authorName, $authorEmail, $authorLink );
+			} else {
+				$irPost->author = IrAuthor::fromWpUserId( (int) $post->post_author );
+			}
+		} else {
+			$irPost->author = IrAuthor::fromWpUserId( (int) $post->post_author );
+		}
 
 		return $irPost;
 	}

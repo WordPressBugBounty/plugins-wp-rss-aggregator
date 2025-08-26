@@ -63,11 +63,21 @@ class Licensing {
 		return $license->tier;
 	}
 
+	/**
+	 * Retrieves the EDD item ID for the current license.
+	 *
+	 * @deprecated 5.0.2 Use getItemIds() instead.
+	 *
+	 * @return int|null An int of item ID, or an null if no license is found.
+	 */
 	public function getItemId(): ?int {
+		_deprecated_function( __METHOD__, '5.0.2', __CLASS__ . '::getItemIds()' );
+
 		$license = $this->getLicense();
 		if ( $license === null ) {
 			return null;
 		}
+
 		switch ( $license->tier ) {
 			case Tier::Basic:
 				return 839950;
@@ -78,7 +88,30 @@ class Licensing {
 			case Tier::Elite:
 				return 839954;
 		}
+
 		return null;
+	}
+
+	/**
+	 * Retrieves the EDD item IDs for the current license tier.
+	 *
+	 * @since 5.0.2
+	 *
+	 * @return int[] An array of item IDs, or an empty array if no license is found.
+	 */
+	public function getItemIds(): array {
+		$license = $this->getLicense();
+		if ( $license === null ) {
+			return array();
+		}
+
+		foreach ( $this->plans as $plan ) {
+			if ( $plan['tier'] === $license->tier ) {
+				return $plan['eddIds'];
+			}
+		}
+
+		return array();
 	}
 
 	/** @return Result<License> */

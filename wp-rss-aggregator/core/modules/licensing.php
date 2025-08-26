@@ -11,25 +11,6 @@ wpra()->addModule(
 	function () {
 		$storeUrl = 'https://wprssaggregator.com';
 		$licensing = new Licensing( $storeUrl, getPlans() );
-		$license = $licensing->getLicense();
-
-		if ( $license !== null ) {
-			$wpra = wpra();
-
-			if ( ! class_exists( 'EDD_SL_Plugin_Updater' ) ) {
-				require_once $wpra->path . '/core/edd-sl-updater.php';
-			}
-
-			new EDD_SL_Plugin_Updater(
-				$storeUrl,
-				$wpra->file,
-				array(
-					'version' => $wpra->version,
-					'license' => $license->key,
-					'author' => 'RebelCode',
-				)
-			);
-		}
 
 		$cronJob = new CronJob(
 			'wpra.licensing.update',
@@ -100,7 +81,7 @@ function getPlans() {
 			'mostPopular' => false,
 		),
 		array(
-			'eddIds' => array( 849709, 470409, 774058 ),
+			'eddIds' => array( 470409, 774058 ),
 			'name' => _x( 'Pro', 'Name of the pro plan', 'wp-rss-aggregator' ),
 			'desc' => _x(
 				'Curate RSS feeds as Posts or any CPT and give your visitors all the content they’re after.',
@@ -117,7 +98,7 @@ function getPlans() {
 			'mostPopular' => true,
 		),
 		array(
-			'eddIds' => array( 849709, 694456, 773957 ),
+			'eddIds' => array( 694456, 773957 ),
 			'name' => _x( 'Elite', 'Name of the Elite plan', 'wp-rss-aggregator' ),
 			'desc' => _x(
 				'Import unlimited content from RSS feeds and generate your own original versions.',

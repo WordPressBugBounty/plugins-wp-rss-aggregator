@@ -12,6 +12,7 @@ use RebelCode\WpSdk\Wp\AdminMenu;
 use RebelCode\Aggregator\Core\Utils\WpUtils;
 use RebelCode\Aggregator\Core\Utils\Arrays;
 use RebelCode\Aggregator\Core\Rpc\RpcServer;
+use RebelCode\Aggregator\Core\Licensing\License;
 
 wpra()->addModule(
 	'admin.frame',
@@ -225,10 +226,133 @@ wpra()->addModule(
 					'tokenTypes' => array(),
 					'moduleGraph' => $wpra->getModuleGraph(),
 					'prevVersion' => get_option( 'wprss_prev_update_page_version', '' ),
+					'premiumVersion' => defined( 'WPRA_PREMIUM_VERSION' ) ? WPRA_PREMIUM_VERSION : null,
 				)
 			);
 
 			return new ScriptL10n( 'WpraAdminConfig', $l10n );
 		};
+	}
+);
+
+wpra()->addModule(
+	'manual-update-notice',
+	array('licensing'),
+	function (Licensing $licensing) {
+
+		$shouldShowNotice = null;
+
+		$checkIfShouldShow = function () use ( $licensing, &$shouldShowNotice ) {
+			if ( $shouldShowNotice !== null ) {
+				return $shouldShowNotice;
+			}
+            $license = $licensing->getLicense();
+			$premium_version = defined( 'WPRA_PREMIUM_VERSION' ) ? WPRA_PREMIUM_VERSION : null;
+			$is_premium_vulnerable = in_array( $premium_version, array( '5.0.0', '5.0.1' ), true );
+			$is_free_vulnerable = version_compare( WPRA_VERSION, '5.0.2', '>=' );
+            $is_license_active = $license !== null && $license->status === License::Valid;
+
+            $shouldShowNotice = $is_premium_vulnerable && $is_free_vulnerable && $is_license_active;
+
+			return $shouldShowNotice;
+		};
+
+		add_action(
+			'admin_notices',
+			function () use ( $checkIfShouldShow ) {
+
+				if ( ! $checkIfShouldShow() ) {
+					return;
+				}
+
+				$screen = get_current_screen();
+				if ( ! $screen ) {
+					return;
+				}
+
+				$excluded_screens = array(
+					'toplevel_page_aggregator',
+				);
+
+				if ( in_array( $screen->id, $excluded_screens, true ) ) {
+					return;
+				}
+
+				$dismissed = get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true );
+				if ( in_array( 'wpra_manual_update_dismiss_notice', explode( ',', (string) $dismissed ), true ) ) {
+					return;
+				}
+
+				$premium_version = defined( 'WPRA_PREMIUM_VERSION' ) ? WPRA_PREMIUM_VERSION : null;
+				$download_link = 'https://www.wprssaggregator.com/account/downloads/';
+				$instructions_link = 'https://www.wprssaggregator.com/help/one-time-manual-update-to-v5-0-2/';
+				$title = __( 'One-time only manual update required for Aggregator Premium plugin', 'wp-rss-aggregator' );
+				$subtitle = __( 'You’ve successfully updated the free plugin to v5.0.2.', 'wp-rss-aggregator' );
+
+				$message = sprintf(
+					__( 'However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected.', 'wp-rss-aggregator' ),
+					$premium_version,
+					$premium_version
+				);
+
+				$strong = __( 'This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks.', 'wp-rss-aggregator' );
+
+				$postMessage = sprintf(
+					__(
+						'Your settings and data will remain intact. If you have any questions, please <a href="%1$s" target="_blank" rel="noopener noreferrer">contact support</a> for help.',
+						'wp-rss-aggregator'
+					),
+					esc_url( 'https://www.wprssaggregator.com/contact/' )
+				);
+
+				$reassurance = __( 'After updating Premium to v5.0.2, premium update checks will resume as normal.', 'wp-rss-aggregator' );
+
+				$script = "
+				<script>
+					jQuery( function( $ ) {
+						// On dismissing the notice, make a POST request to store this notice with the dismissed WP pointers so it doesn't display again.
+						$('.wpra-premium-update-notice').on( 'click', '.notice-dismiss', function() {
+							$.post( ajaxurl, {
+								pointer: " . wp_json_encode( 'wpra_manual_update_dismiss_notice' ) . ",
+								action: 'dismiss-wp-pointer'
+							} );
+						} );
+					} )
+				</script>";
+
+				?>
+				<div class="notice is-dismissible wpra-premium-update-notice notice-error" style="display: flex; gap: 20px; padding: 0;">
+					<!-- Icon Div -->
+					<div class="notice-image wpra-premium-update-notice-bee"
+						style="background-color: #FDF3E9; display: flex; align-items: flex-start; justify-content: center; padding: 12px; flex-shrink: 0; width: 40px;">
+						<img src="<?php echo esc_url( WPRA_URL . 'core/imgs/bee.svg' ); ?>"
+							alt="Manual Update Required"
+							/>
+					</div>
+
+					<!-- Content Div -->
+					<div class="notice-content">
+						<h3><?php echo esc_html( $title ); ?></h3>
+						<p><?php echo esc_html( $subtitle ); ?></p>
+						<p><?php echo esc_html( $message ); ?></p>
+						<strong><?php echo esc_html( $strong ); ?></strong>
+						<p><?php echo wp_kses_post( $postMessage ); ?></p>
+
+						<p style="margin-top: 12px; margin-bottom: 0;">
+							<a href="<?php echo esc_url( $download_link ); ?>" class="button button-primary" target="_blank">
+								<?php _e( 'Download Premium v5.0.2', 'wp-rss-aggregator' ); ?>
+							</a>
+							<a href="<?php echo esc_url( $instructions_link ); ?>" class="button-link" style="margin-left: 15px;" target="_blank">
+								<?php _e( 'Step-by-step instructions', 'wp-rss-aggregator' ); ?>
+							</a>
+						</p>
+
+						<p style="font-size:12px; color: #757575;"><?php echo esc_html( $reassurance ); ?></p>
+					</div>
+				</div>
+				<?php
+				echo $script;
+			}
+		);
 	}
 );

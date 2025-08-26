@@ -296,26 +296,28 @@ class RssImageFinder {
 				continue;
 			}
 
-			if ( ! Uri::isAbsolute( $image->url ) ) {
-				$image->url = $baseUrl . $image->url;
-			}
-
-			$image->url = Uri::modifyQuery(
-				$image->url,
-				function ( array $query ) {
-					unset( $query['w'] );
-					unset( $query['h'] );
-					unset( $query['crop'] );
-					return $query;
+			// Only perform URL manipulation on non-data URIs
+			if ( strpos( $image->url, 'data:image' ) !== 0 ) {
+				if ( ! Uri::isAbsolute( $image->url ) ) {
+					$image->url = $baseUrl . $image->url;
 				}
-			);
+
+				$image->url = Uri::modifyQuery(
+					$image->url,
+					function ( array $query ) {
+						unset( $query['w'] );
+						unset( $query['h'] );
+						unset( $query['crop'] );
+						return $query;
+					}
+				);
+			}
 
 			$size = $this->getImageSize( $image->url );
 
 			if ( $size->isAtLeast( $source->settings->minImageSize ) ) {
 				$image->size = $size;
 				yield $image;
-				continue;
 			}
 		}
 	}
@@ -342,7 +344,13 @@ class RssImageFinder {
 		}
 
 		if ( $result === null ) {
-			$imgSize = @getimagesize( $url );
+			if ( strpos( $url, 'data:image' ) === 0 ) {
+				$commaPos = strpos( $url, ',' );
+				$imgData = base64_decode( substr( $url, $commaPos + 1 ) );
+				$imgSize = @getimagesizefromstring( $imgData );
+			} else {
+				$imgSize = @getimagesize( $url );
+			}
 
 			if ( $imgSize !== false ) {
 				$result = new Size( $imgSize[0], $imgSize[1] );
