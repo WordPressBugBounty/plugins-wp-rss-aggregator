@@ -12,8 +12,8 @@ use RebelCode\Aggregator\Core\Importer\IrPostBuilder;
 
 wpra()->addModule(
 	'importer',
-	array( 'db', 'settings' ),
-	function ( Database $db, Settings $settings ) {
+	array( 'db', 'settings', 'licensing' ),
+	function ( Database $db, Settings $settings, Licensing $licensing ) {
 		$sslCertPath = $settings->register( 'sslCertPath' )->setDefault( implode( '/', array( WPINC, 'certificates', 'ca-bundle.crt' ) ) )->get();
 		if ( ! empty( $sslCertPath ) && ! path_is_absolute( $sslCertPath ) ) {
 			$sslCertPath = ABSPATH . $sslCertPath;
@@ -45,7 +45,8 @@ wpra()->addModule(
 		$irPostBuilder = new IrPostBuilder(
 			new RssImageFinder(
 				apply_filters( 'wpra.importer.imageFinder.cache.ttl', 30 * MINUTE_IN_SECONDS )
-			)
+			),
+			$licensing,
 		);
 
 		return new Importer(

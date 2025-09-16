@@ -6,7 +6,7 @@ Commercial: https://www.wprssaggregator.com/pricing/
 Requires at least: 5.5 or higher
 Tested up to: 6.8.2
 Requires PHP: 7.4.0
-Stable tag: 5.0.2
+Stable tag: 5.0.3
 License: GPLv3
 
 The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
@@ -263,6 +263,20 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 
 == Changelog ==
+
+= 5.0.3 (2025-09-16) =
+**Added**
+- Restored embedded content support – imported posts once again include embeds such as the YouTube video player (parity with v4).
+- Version compatibility check – prevents activating mismatched free/premium versions to avoid critical errors.
+
+**Fixed**
+- Conflict when using Aggregator with the BuddyBoss theme.
+- Conflict when using Aggregator with Visual Composer.
+- Conflict with The Events Calendar where “Events > Import” linked to the Aggregator Hub instead of Events’ own import page.
+- Bug where feed publish dates were converted to UTC, causing posts to import as “Scheduled” instead of “Published.”
+- loadtextdomain_just_in_time issue; translations now load correctly.
+- Bug where the “Trim the content” word limit was ignored, displaying full content.
+- Free version importing images into the Media Library even though they weren’t used.
 
 = 5.0.2 (2025-08-26) =
 **Fixed**

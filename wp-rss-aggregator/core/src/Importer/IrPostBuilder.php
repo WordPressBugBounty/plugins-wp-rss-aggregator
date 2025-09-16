@@ -7,12 +7,14 @@ namespace RebelCode\Aggregator\Core\Importer;
 use RebelCode\Aggregator\Plus\Source\AuthorMethod;
 use RebelCode\Aggregator\Core\Utils\Strings;
 use RebelCode\Aggregator\Core\Utils\Html;
+use RebelCode\Aggregator\Core\Tier;
 use RebelCode\Aggregator\Core\Source\FtImageToUse;
 use RebelCode\Aggregator\Core\Source;
 use RebelCode\Aggregator\Core\RssReader\RssNamespace;
 use RebelCode\Aggregator\Core\RssReader\RssItem;
 use RebelCode\Aggregator\Core\RssReader\RssEnclosureType;
 use RebelCode\Aggregator\Core\Logger;
+use RebelCode\Aggregator\Core\Licensing;
 use RebelCode\Aggregator\Core\IrPost\IrImage;
 use RebelCode\Aggregator\Core\IrPost\IrAuthor;
 use RebelCode\Aggregator\Core\IrPost;
@@ -24,9 +26,11 @@ use DateTime;
 class IrPostBuilder {
 
 	public RssImageFinder $imgFinder;
+	public Licensing $licensing;
 
-	public function __construct( RssImageFinder $finder ) {
+	public function __construct( RssImageFinder $finder, Licensing $licensing ) {
 		$this->imgFinder = $finder;
+		$this->licensing = $licensing;
 	}
 
 	public function build( RssItem $item, Source $src ): IrPost {
@@ -198,6 +202,9 @@ class IrPostBuilder {
 
 	/** @return list<IrImage> */
 	public function buildImages( string $content, RssItem $item, Source $src ): array {
+		if ( $this->licensing->getTier() === Tier::Free ) {
+			return array();
+		}
 		if ( ! $src->settings->downloadImages && ! $src->settings->assignFtImage ) {
 			return array();
 		}

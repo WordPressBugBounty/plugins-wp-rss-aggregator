@@ -2,8 +2,8 @@
 
 namespace RebelCode\Aggregator\Core;
 
-use RebelCode\Aggregator\Core\RssReader\RssItem;
 use RebelCode\Aggregator\Core\RssReader\RssUtils;
+use RebelCode\Aggregator\Core\RssReader\RssItem;
 
 wpra()->addModule(
 	'youtube',
@@ -29,16 +29,36 @@ wpra()->addModule(
 							)
 						);
 
+						$description = $content;
 						if ( count( $descNodes ) > 0 ) {
 							foreach ( $descNodes as $node ) {
 								$desc = $node->getValue();
 								if ( $desc ) {
-									return $desc;
+									$description = $desc;
+									break;
 								}
 							}
 						}
 
-						return $content;
+						if ( $post->format === 'video' ) {
+							$queryArgs = array();
+							$queryStr = wp_parse_url( $post->url, PHP_URL_QUERY ) ?: '';
+							parse_str( $queryStr, $queryArgs );
+
+							if ( ! empty( $queryArgs['v'] ) ) {
+								$videoId = sanitize_text_field( $queryArgs['v'] );
+								$embedUrl = esc_url( sprintf( 'https://www.youtube.com/embed/%s', $videoId ) );
+
+								$iframe = sprintf(
+									'<iframe width="560" height="315" src="%s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+									$embedUrl
+								);
+
+								return $iframe . "\n" . wp_kses_post( $description );
+							}
+						}
+
+						return wp_kses_post( $description );
 					},
 					10,
 					4

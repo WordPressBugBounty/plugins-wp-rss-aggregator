@@ -11,7 +11,24 @@ wpra()->addModule(
 		$cpt = new PostType(
 			'wprss_feed_item',
 			array(
-				'labels' => array(
+				'labels' => array(),
+				'public' => true,
+				'show_in_rest' => true,
+				'has_archive' => false,
+				'exclude_from_search' => true,
+				'publicly_queryable' => false,
+				'menu_icon' => 'dashicons-rss',
+				'capabilities' => array(
+					'create_posts' => 'do_not_allow',
+				),
+				'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'revisions', 'custom-fields' ),
+			)
+		);
+
+		add_action(
+			'init',
+			function () use ( $cpt ) {
+				$cpt->args['labels'] = array(
 					'name' => __( 'Feed Items', 'wp-rss-aggregator' ),
 					'singular_name' => __( 'Feed Item', 'wp-rss-aggregator' ),
 					'plural_name' => __( 'Feed Items', 'wp-rss-aggregator' ),
@@ -46,23 +63,8 @@ wpra()->addModule(
 					'item_updated' => __( 'Feed item updated', 'wp-rss-aggregator' ),
 					'item_link' => __( 'Feed item link', 'wp-rss-aggregator' ),
 					'item_link_description' => __( 'A link to a feed item', 'wp-rss-aggregator' ),
-				),
-				'public' => true,
-				'show_in_rest' => true,
-				'has_archive' => false,
-				'exclude_from_search' => true,
-				'publicly_queryable' => false,
-				'menu_icon' => 'dashicons-rss',
-				'capabilities' => array(
-					'create_posts' => 'do_not_allow',
-				),
-				'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'revisions', 'custom-fields' ),
-			)
-		);
+				);
 
-		add_action(
-			'init',
-			function () use ( $cpt ) {
 				$cpt->register();
 			}
 		);

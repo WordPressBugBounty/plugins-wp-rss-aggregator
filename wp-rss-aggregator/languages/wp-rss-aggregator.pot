@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP RSS Aggregator 5.0.2\n"
+"Project-Id-Version: WP RSS Aggregator 5.0.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-rss-aggregator\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-08-25T15:09:48+00:00\n"
+"POT-Creation-Date: 2025-09-16T07:58:02+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-rss-aggregator\n"
@@ -44,94 +44,94 @@ msgstr ""
 msgid "Aggregator Admin"
 msgstr ""
 
-#: core/modules/admin.php:109
+#: core/modules/admin.php:110
 msgid "Aggregator"
 msgstr ""
 
-#: core/modules/admin.php:113
+#: core/modules/admin.php:114
 #: core/js/dist/admin.js:37
 msgid "Hub"
 msgstr ""
 
-#: core/modules/admin.php:114
+#: core/modules/admin.php:115
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 #: core/js/dist/admin.js:113
 msgid "Sources"
 msgstr ""
 
-#: core/modules/admin.php:115
+#: core/modules/admin.php:116
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Displays"
 msgstr ""
 
-#: core/modules/admin.php:116
+#: core/modules/admin.php:117
 #: core/js/dist/admin.js:37
 msgid "Folders"
 msgstr ""
 
-#: core/modules/admin.php:117
+#: core/modules/admin.php:118
 #: core/js/dist/admin.js:37
 msgid "Integrations"
 msgstr ""
 
-#: core/modules/admin.php:118
+#: core/modules/admin.php:119
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:113
 msgid "Settings"
 msgstr ""
 
-#: core/modules/admin.php:119
+#: core/modules/admin.php:120
 #: core/js/dist/admin.js:37
 msgid "Help"
 msgstr ""
 
-#: core/modules/admin.php:120
+#: core/modules/admin.php:121
 #: core/js/dist/admin.js:107
 msgid "Tutorials"
 msgstr ""
 
-#: core/modules/admin.php:121
+#: core/modules/admin.php:122
 msgid "Manage Plan"
 msgstr ""
 
-#: core/modules/admin.php:125
+#: core/modules/admin.php:126
 msgid "Logs"
 msgstr ""
 
-#: core/modules/admin.php:289
+#: core/modules/admin.php:290
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr ""
 
-#: core/modules/admin.php:290
+#: core/modules/admin.php:291
 msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr ""
 
-#: core/modules/admin.php:293
+#: core/modules/admin.php:294
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
 msgstr ""
 
-#: core/modules/admin.php:298
+#: core/modules/admin.php:299
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
 msgstr ""
 
-#: core/modules/admin.php:301
+#: core/modules/admin.php:302
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr ""
 
-#: core/modules/admin.php:308
+#: core/modules/admin.php:309
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr ""
 
-#: core/modules/admin.php:343
+#: core/modules/admin.php:344
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr ""
 
-#: core/modules/admin.php:346
+#: core/modules/admin.php:347
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
 msgstr ""
@@ -181,312 +181,312 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: core/modules/feedItems.php:15
-#: core/modules/feedItems.php:17
+#: core/modules/feedItems.php:32
+#: core/modules/feedItems.php:34
 msgid "Feed Items"
 msgstr ""
 
-#: core/modules/feedItems.php:16
+#: core/modules/feedItems.php:33
 msgid "Feed Item"
 msgstr ""
 
-#: core/modules/feedItems.php:18
-#: core/modules/feedItems.php:19
+#: core/modules/feedItems.php:35
+#: core/modules/feedItems.php:36
 msgid "Add New Feed Item"
 msgstr ""
 
-#: core/modules/feedItems.php:20
+#: core/modules/feedItems.php:37
 msgid "Edit Feed Item"
 msgstr ""
 
-#: core/modules/feedItems.php:21
+#: core/modules/feedItems.php:38
 msgid "New Feed Item"
 msgstr ""
 
-#: core/modules/feedItems.php:22
+#: core/modules/feedItems.php:39
 msgid "View Feed Item"
 msgstr ""
 
-#: core/modules/feedItems.php:23
+#: core/modules/feedItems.php:40
 msgid "View Feed Items"
 msgstr ""
 
-#: core/modules/feedItems.php:24
+#: core/modules/feedItems.php:41
 msgid "Search Feed Items"
 msgstr ""
 
-#: core/modules/feedItems.php:25
+#: core/modules/feedItems.php:42
 msgid "No feed items found"
 msgstr ""
 
-#: core/modules/feedItems.php:26
+#: core/modules/feedItems.php:43
 msgid "No feed items found in trash"
 msgstr ""
 
-#: core/modules/feedItems.php:27
+#: core/modules/feedItems.php:44
 msgid "Parent Feed Item:"
 msgstr ""
 
-#: core/modules/feedItems.php:28
+#: core/modules/feedItems.php:45
 msgid "All Feed Items"
 msgstr ""
 
-#: core/modules/feedItems.php:29
+#: core/modules/feedItems.php:46
 msgid "Feed Item Archives"
 msgstr ""
 
-#: core/modules/feedItems.php:30
+#: core/modules/feedItems.php:47
 msgid "Feed Item Attributes"
 msgstr ""
 
-#: core/modules/feedItems.php:31
+#: core/modules/feedItems.php:48
 msgid "Insert into feed item"
 msgstr ""
 
-#: core/modules/feedItems.php:32
+#: core/modules/feedItems.php:49
 msgid "Uploaded to this feed item"
 msgstr ""
 
-#: core/modules/feedItems.php:33
+#: core/modules/feedItems.php:50
 msgid "Featured Image"
 msgstr ""
 
-#: core/modules/feedItems.php:34
+#: core/modules/feedItems.php:51
 #: core/js/dist/admin.js:113
 msgid "Set featured image"
 msgstr ""
 
-#: core/modules/feedItems.php:35
+#: core/modules/feedItems.php:52
 msgid "Remove featured image"
 msgstr ""
 
-#: core/modules/feedItems.php:36
+#: core/modules/feedItems.php:53
 msgid "Use as featured image"
 msgstr ""
 
-#: core/modules/feedItems.php:37
+#: core/modules/feedItems.php:54
 msgid "Filter feed items list"
 msgstr ""
 
-#: core/modules/feedItems.php:38
+#: core/modules/feedItems.php:55
 msgid "Filter by date"
 msgstr ""
 
-#: core/modules/feedItems.php:39
+#: core/modules/feedItems.php:56
 msgid "Feed items list navigation"
 msgstr ""
 
-#: core/modules/feedItems.php:40
+#: core/modules/feedItems.php:57
 msgid "Feed items list"
 msgstr ""
 
-#: core/modules/feedItems.php:41
+#: core/modules/feedItems.php:58
 msgid "Feed item published"
 msgstr ""
 
-#: core/modules/feedItems.php:42
+#: core/modules/feedItems.php:59
 msgid "Feed item published privately"
 msgstr ""
 
-#: core/modules/feedItems.php:43
+#: core/modules/feedItems.php:60
 msgid "Feed item reverted to draft"
 msgstr ""
 
-#: core/modules/feedItems.php:44
+#: core/modules/feedItems.php:61
 msgid "Feed item trashed"
 msgstr ""
 
-#: core/modules/feedItems.php:45
+#: core/modules/feedItems.php:62
 msgid "Feed item scheduled"
 msgstr ""
 
-#: core/modules/feedItems.php:46
+#: core/modules/feedItems.php:63
 msgid "Feed item updated"
 msgstr ""
 
-#: core/modules/feedItems.php:47
+#: core/modules/feedItems.php:64
 msgid "Feed item link"
 msgstr ""
 
-#: core/modules/feedItems.php:48
+#: core/modules/feedItems.php:65
 msgid "A link to a feed item"
 msgstr ""
 
-#: core/modules/feedItems.php:84
+#: core/modules/feedItems.php:86
 #: core/js/dist/admin.js:37
 msgid "Title"
 msgstr ""
 
-#: core/modules/feedItems.php:85
+#: core/modules/feedItems.php:87
 #: core/js/blocks/dist/gutenberg/gutenberg.js:1
 #: core/js/dist/admin.js:107
 msgid "Source Link"
 msgstr ""
 
-#: core/modules/feedItems.php:86
+#: core/modules/feedItems.php:88
 #: core/js/dist/admin.js:37
 msgid "Source"
 msgstr ""
 
-#: core/modules/feedItems.php:89
+#: core/modules/feedItems.php:91
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Author"
 msgstr ""
 
-#: core/modules/feedItems.php:90
+#: core/modules/feedItems.php:92
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Date"
 msgstr ""
 
-#: core/modules/feedItems.php:106
+#: core/modules/feedItems.php:108
 msgid "(no title)"
 msgstr ""
 
-#: core/modules/feedItems.php:116
+#: core/modules/feedItems.php:118
 msgid "No source link"
 msgstr ""
 
-#: core/modules/licensing.php:34
+#: core/modules/licensing.php:37
 msgctxt "Name of the free plan"
 msgid "Free"
 msgstr ""
 
-#: core/modules/licensing.php:35
+#: core/modules/licensing.php:38
 msgctxt "Description of the free plan"
 msgid "Free, for trying things out."
 msgstr ""
 
-#: core/modules/licensing.php:37
+#: core/modules/licensing.php:40
 msgid "Unlimited sources"
 msgstr ""
 
-#: core/modules/licensing.php:38
+#: core/modules/licensing.php:41
 msgid "Unlimited feeds"
 msgstr ""
 
-#: core/modules/licensing.php:39
+#: core/modules/licensing.php:42
 msgid "All import options"
 msgstr ""
 
-#: core/modules/licensing.php:40
+#: core/modules/licensing.php:43
 msgid "Import text, audio, & video"
 msgstr ""
 
-#: core/modules/licensing.php:48
+#: core/modules/licensing.php:51
 msgctxt "Name of the basic plan"
 msgid "Basic"
 msgstr ""
 
-#: core/modules/licensing.php:49
+#: core/modules/licensing.php:52
 msgctxt "Description of the basic plan"
 msgid "Display RSS feeds anywhere on your site and customize them to match your site’s design."
 msgstr ""
 
-#: core/modules/licensing.php:56
+#: core/modules/licensing.php:59
 #: core/js/dist/admin.js:107
 msgid "All layout designs"
 msgstr ""
 
-#: core/modules/licensing.php:57
+#: core/modules/licensing.php:60
 #: core/js/dist/admin.js:107
 msgid "Manual curation"
 msgstr ""
 
-#: core/modules/licensing.php:58
+#: core/modules/licensing.php:61
 #: core/js/dist/admin.js:107
 msgid "Full customization"
 msgstr ""
 
-#: core/modules/licensing.php:59
+#: core/modules/licensing.php:62
 #: core/js/dist/admin.js:107
 msgid "Automatic filtering"
 msgstr ""
 
-#: core/modules/licensing.php:60
+#: core/modules/licensing.php:63
 #: core/js/dist/admin.js:107
 msgid "Source management"
 msgstr ""
 
-#: core/modules/licensing.php:67
+#: core/modules/licensing.php:70
 msgctxt "Name of the plus plan"
 msgid "Plus"
 msgstr ""
 
-#: core/modules/licensing.php:68
+#: core/modules/licensing.php:71
 msgctxt "Description of the plus plan"
 msgid "Aggregate RSS feeds as blog posts and publish their excerpts to your blog or CPT."
 msgstr ""
 
-#: core/modules/licensing.php:75
+#: core/modules/licensing.php:78
 #: core/js/dist/admin.js:107
 msgid "Import as Posts"
 msgstr ""
 
-#: core/modules/licensing.php:76
+#: core/modules/licensing.php:79
 #: core/js/dist/admin.js:107
 msgid "Schedule publishing"
 msgstr ""
 
-#: core/modules/licensing.php:77
+#: core/modules/licensing.php:80
 #: core/js/dist/admin.js:107
 msgid "Add custom content"
 msgstr ""
 
-#: core/modules/licensing.php:78
+#: core/modules/licensing.php:81
 #: core/js/dist/admin.js:107
 msgid "Import taxonomies"
 msgstr ""
 
-#: core/modules/licensing.php:85
+#: core/modules/licensing.php:88
 msgctxt "Name of the pro plan"
 msgid "Pro"
 msgstr ""
 
-#: core/modules/licensing.php:86
+#: core/modules/licensing.php:89
 msgctxt "Description of the pro plan"
 msgid "Curate RSS feeds as Posts or any CPT and give your visitors all the content they’re after."
 msgstr ""
 
-#: core/modules/licensing.php:93
+#: core/modules/licensing.php:96
 #: core/js/dist/admin.js:107
 msgid "Full text import"
 msgstr ""
 
-#: core/modules/licensing.php:94
+#: core/modules/licensing.php:97
 #: core/js/dist/admin.js:107
 msgid "Include all media"
 msgstr ""
 
-#: core/modules/licensing.php:95
+#: core/modules/licensing.php:98
 #: core/js/dist/admin.js:107
 msgid "Custom Mapping"
 msgstr ""
 
-#: core/modules/licensing.php:102
+#: core/modules/licensing.php:105
 msgctxt "Name of the Elite plan"
 msgid "Elite"
 msgstr ""
 
-#: core/modules/licensing.php:103
+#: core/modules/licensing.php:106
 msgctxt "Description of the all access plan"
 msgid "Import unlimited content from RSS feeds and generate your own original versions."
 msgstr ""
 
-#: core/modules/licensing.php:110
+#: core/modules/licensing.php:113
 #: core/js/dist/admin.js:21
 #: core/js/dist/admin.js:107
 msgid "AI integrations"
 msgstr ""
 
-#: core/modules/licensing.php:111
+#: core/modules/licensing.php:114
 #: core/js/dist/admin.js:21
 #: core/js/dist/admin.js:107
 msgid "Title spinning"
 msgstr ""
 
-#: core/modules/licensing.php:112
+#: core/modules/licensing.php:115
 #: core/js/dist/admin.js:21
 #: core/js/dist/admin.js:107
 msgid "Content spinning"
@@ -584,12 +584,6 @@ msgctxt "post status"
 msgid "Debug"
 msgstr ""
 
-#: core/modules/mergedFeed.php:10
-#, php-format
-msgctxt "Default title for the custom feed. %s = site name"
-msgid "Latest imported feed items on %s"
-msgstr ""
-
 #: core/modules/rowActions.php:26
 msgid "Trash and reject"
 msgstr ""
@@ -600,10 +594,6 @@ msgstr ""
 
 #: core/modules/rowActions.php:90
 msgid "The post has been successfully rejected and moved to the Trash."
-msgstr ""
-
-#: core/modules/updater.php:42
-msgid "Aggregator's schedule"
 msgstr ""
 
 #: core/src/Cli/Commands/DisplayCommand.php:90
@@ -699,12 +689,12 @@ msgstr ""
 msgid "Feed does not have a source URL."
 msgstr ""
 
-#: core/src/Importer/WpPostBuilder.php:171
+#: core/src/Importer/WpPostBuilder.php:176
 #, php-format
 msgid "Failed to download image for post: %s"
 msgstr ""
 
-#: core/src/Importer/WpPostBuilder.php:184
+#: core/src/Importer/WpPostBuilder.php:189
 #, php-format
 msgid "Could not get URL of downloaded image with ID %d"
 msgstr ""

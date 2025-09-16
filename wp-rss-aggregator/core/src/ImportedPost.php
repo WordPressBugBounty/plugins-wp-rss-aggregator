@@ -38,8 +38,7 @@ abstract class ImportedPost {
 	 * @return bool True if the post is imported, false if not.
 	 */
 	public static function isImported( int $postId ): bool {
-		$sources = get_post_meta( $postId, self::SOURCE, false );
-		$hasSources = count( $sources ) > 0;
-		return $hasSources;
+		$sources = (array) get_post_meta( $postId, self::SOURCE, false );
+		return count( $sources ) > 0;
 	}
 }

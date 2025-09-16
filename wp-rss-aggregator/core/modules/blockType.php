@@ -38,6 +38,7 @@ wpra()->addModule(
 				);
 				$js = new Script( 'wpra-block', $wpra->url . '/core/js/blocks/dist/display/display.js', null, array(), $l10n );
 				$js->register();
+				wp_set_script_translations( $js->id, 'wp-rss-aggregator', $wpra->path . '/languages/' );
 
 				$block_args =
 				array(
@@ -107,6 +108,8 @@ wpra()->addModule(
 				);
 				$js = new Script( 'wpra-admin-gutenberg', $wpra->url . '/core/js/blocks/dist/gutenberg/gutenberg.js', null, array(), $l10n );
 				$css = new Style( 'wpra-admin-gutenberg', $wpra->url . '/core/js/blocks/dist/gutenberg/style-gutenberg.css' );
+				$js->register();
+				wp_set_script_translations( $js->id, 'wp-rss-aggregator', $wpra->path . '/languages/' );
 				$js->enqueue();
 				$css->enqueue();
 			}

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace RebelCode\Aggregator\Core\Importer;
 
-use Exception;
-use RebelCode\Aggregator\Core\ImportedPost;
-use RebelCode\Aggregator\Core\IrPost;
-use RebelCode\Aggregator\Core\Logger;
-use RebelCode\Aggregator\Core\Utils\Result;
 use RebelCode\Aggregator\Core\Utils\Time;
+use RebelCode\Aggregator\Core\Utils\Result;
+use RebelCode\Aggregator\Core\Logger;
+use RebelCode\Aggregator\Core\IrPost;
+use RebelCode\Aggregator\Core\ImportedPost;
+use Exception;
 
 class WpPostBuilder {
 
@@ -65,6 +65,9 @@ class WpPostBuilder {
 
 	/** @return array<string,mixed> */
 	protected static function buildPostData( IrPost $irPost ): array {
+		$published = Time::normalizeDatetime( $irPost->datePublished );
+		$modified  = Time::normalizeDatetime( $irPost->dateModified );
+
 		$postData = array(
 			'post_type' => $irPost->type,
 			'post_status' => $irPost->status,
@@ -73,8 +76,10 @@ class WpPostBuilder {
 			'post_title' => $irPost->title,
 			'post_excerpt' => $irPost->excerpt,
 			'post_content' => $irPost->content,
-			'post_date' => $irPost->datePublished ? Time::toHumanFormat( $irPost->datePublished ) : null,
-			'post_modified' => $irPost->dateModified ? Time::toHumanFormat( $irPost->dateModified ) : null,
+			'post_date'        => $published['local'] ?? null,
+			'post_date_gmt'    => $published['gmt'] ?? null,
+			'post_modified'    => $modified['local'] ?? null,
+			'post_modified_gmt' => $modified['gmt'] ?? null,
 			'comments_open' => $irPost->commentsOpen,
 			'post_password' => $irPost->password,
 		);

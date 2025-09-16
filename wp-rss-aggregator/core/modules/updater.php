@@ -39,7 +39,7 @@ wpra()->addModule(
 			function ( array $schedules ) use ( $schedule, $interval ) {
 				$schedules[ $schedule ] = array(
 					'interval' => $interval,
-					'display' => __( 'Aggregator\'s schedule', 'wp-rss-aggregator' ),
+					'display' => 'Aggregator\'s schedule',
 				);
 				return $schedules;
 			}

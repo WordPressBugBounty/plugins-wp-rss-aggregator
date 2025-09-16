@@ -28,6 +28,7 @@ wpra()->addModule(
 			function () use ( $wpra, $js, $css, $getL10n ) {
 				$css->register();
 				$js->register();
+				wp_set_script_translations( $js->id, 'wp-rss-aggregator', $wpra->path . '/languages/' );
 				$getL10n()->localizeFor( $js->id );
 
 				$arg = filter_input( INPUT_GET, 'wpra-admin-ui', FILTER_VALIDATE_INT );
@@ -69,7 +70,7 @@ wpra()->addModule(
 	function ( string $frame ) {
 		$wpra = wpra();
 
-		$slug = 'aggregator';
+		$slug = 'wprss-aggregator';
 		$url = admin_url( "admin.php?page={$slug}" );
 		$page = "toplevel_page_{$slug}";
 
@@ -78,7 +79,7 @@ wpra()->addModule(
 
 		add_action(
 			'admin_enqueue_scripts',
-			function ( string $hookSuffix ) use ( $wpra, $page, $js, $css ) {
+			function ( ?string $hookSuffix ) use ( $wpra, $page, $js, $css ) {
 				wp_enqueue_style( 'wpra-admin', $wpra->url . '/core/css/admin.css' );
 
 				if ( $hookSuffix === $page ) {
@@ -158,7 +159,7 @@ wpra()->addModule(
 					'sites' => WpUtils::getSites(),
 					'plans' => $licensing->plans,
 					'urls' => array(
-						'frame' => rtrim( admin_url( 'admin.php?page=aggregator' ), '/' ),
+						'frame' => rtrim( admin_url( 'admin.php?page=wprss-aggregator' ), '/' ),
 						'assets' => array(
 							'imgs' => $wpra->url . '/core/imgs',
 						),
@@ -237,8 +238,8 @@ wpra()->addModule(
 
 wpra()->addModule(
 	'manual-update-notice',
-	array('licensing'),
-	function (Licensing $licensing) {
+	array( 'licensing' ),
+	function ( Licensing $licensing ) {
 
 		$shouldShowNotice = null;
 
@@ -246,13 +247,13 @@ wpra()->addModule(
 			if ( $shouldShowNotice !== null ) {
 				return $shouldShowNotice;
 			}
-            $license = $licensing->getLicense();
+			$license = $licensing->getLicense();
 			$premium_version = defined( 'WPRA_PREMIUM_VERSION' ) ? WPRA_PREMIUM_VERSION : null;
 			$is_premium_vulnerable = in_array( $premium_version, array( '5.0.0', '5.0.1' ), true );
 			$is_free_vulnerable = version_compare( WPRA_VERSION, '5.0.2', '>=' );
-            $is_license_active = $license !== null && $license->status === License::Valid;
+			$is_license_active = $license !== null && $license->status === License::Valid;
 
-            $shouldShowNotice = $is_premium_vulnerable && $is_free_vulnerable && $is_license_active;
+			$shouldShowNotice = $is_premium_vulnerable && $is_free_vulnerable && $is_license_active;
 
 			return $shouldShowNotice;
 		};
@@ -271,7 +272,7 @@ wpra()->addModule(
 				}
 
 				$excluded_screens = array(
-					'toplevel_page_aggregator',
+					'toplevel_page_wprss-aggregator',
 				);
 
 				if ( in_array( $screen->id, $excluded_screens, true ) ) {

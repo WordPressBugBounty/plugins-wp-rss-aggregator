@@ -6,10 +6,7 @@ wpra()->addModule(
 	'mergedFeed',
 	array( 'settings', 'importer' ),
 	function ( Settings $settings, Importer $importer ) {
-		$defaultTitle = sprintf(
-			_x( 'Latest imported feed items on %s', 'Default title for the custom feed. %s = site name', 'wp-rss-aggregator' ),
-			get_bloginfo( 'name' )
-		);
+		$defaultTitle = 'Latest imported feed items on ' . get_bloginfo( 'name' );
 
 		$url = $settings->register( 'mergedFeedUrl' )->setDefault( 'wprss' )->empty( array( '' ) )->get();
 		$title = $settings->register( 'mergedFeedTitle' )->setDefault( $defaultTitle )->empty( array( '' ) )->get();

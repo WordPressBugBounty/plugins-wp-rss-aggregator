@@ -39,7 +39,7 @@
   background: #fff;
 }
 
-ul#adminmenu > li#toplevel_page_aggregator.current > a.current:after {
+ul#adminmenu > li#toplevel_page_wprss-aggregator.current > a.current:after {
   border-right-color: #fff;
 }
 

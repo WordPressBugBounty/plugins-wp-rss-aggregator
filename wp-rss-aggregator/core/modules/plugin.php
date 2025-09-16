@@ -18,7 +18,7 @@ wpra()->addModule(
 
 					if ( $didOb === 'finished' || $didOb === 'cancelled' ) {
 						update_option( 'wpra_version', $wpra->version );
-						wp_redirect( admin_url( 'admin.php?page=aggregator&subPage=hub' ) );
+						wp_redirect( admin_url( 'admin.php?page=wprss-aggregator&subPage=hub' ) );
 						exit;
 					}
 				}
@@ -28,7 +28,7 @@ wpra()->addModule(
 					if ( $didMigration === 'finished' || $didMigration === 'cancelled' ) {
 						update_option( 'wpra_did_v4_migration', $didMigration );
 						update_option( 'wpra_version', $wpra->version );
-						wp_redirect( admin_url( 'admin.php?page=aggregator&subPage=hub' ) );
+						wp_redirect( admin_url( 'admin.php?page=wprss-aggregator&subPage=hub' ) );
 						exit;
 					}
 				}
@@ -41,7 +41,7 @@ wpra()->addModule(
 				$transient = get_transient( 'wprss_redirect_to_v5' );
 				if ( $transient === '1' ) {
 					delete_transient( 'wprss_redirect_to_v5' );
-					wp_redirect( admin_url( 'admin.php?page=aggregator' ) );
+					wp_redirect( admin_url( 'admin.php?page=wprss-aggregator' ) );
 					exit;
 				}
 			}

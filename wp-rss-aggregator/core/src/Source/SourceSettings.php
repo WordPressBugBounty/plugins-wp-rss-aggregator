@@ -9,6 +9,7 @@ use RebelCode\Aggregator\Core\Utils\Time;
 use RebelCode\Aggregator\Core\Utils\Size;
 use RebelCode\Aggregator\Core\Utils\Arrays;
 use RebelCode\Aggregator\Core\Utils\ArraySerializable;
+use RebelCode\Aggregator\Core\Tier;
 use RebelCode\Aggregator\Core\Logger;
 use DateTime;
 
@@ -166,6 +167,8 @@ class SourceSettings implements ArraySerializable {
 	 * @param array<string,mixed> $data
 	 */
 	public function patch( array $data ): self {
+		$tier = wpra()->get( 'licensing' )->getTier();
+
 		foreach ( $data as $key => $val ) {
 			if ( ! property_exists( $this, $key ) ) {
 				continue;
@@ -180,8 +183,8 @@ class SourceSettings implements ArraySerializable {
 					break;
 
 				case 'minImageSize':
-					$this->minImageSize = Size::fromArray( $val );
-					break;
+				$this->minImageSize = Size::fromArray( $val );
+				break;
 
 				default:
 					$val = apply_filters( "wpra.source.settings.patch.$key", $val, $this );

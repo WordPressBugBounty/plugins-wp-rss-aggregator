@@ -9,12 +9,12 @@
   const select = {
     iframe: "#wpra-admin-ui-frame",
     menuBadge:
-      "#toplevel_page_aggregator .wpra-shell-menu-badge .plugins-count",
-    menuLinks: "#toplevel_page_aggregator ul a",
-    currMenuLink: "#toplevel_page_aggregator ul li.current",
+      "#toplevel_page_wprss-aggregator .wpra-shell-menu-badge .plugins-count",
+    menuLinks: "#toplevel_page_wprss-aggregator ul a",
+    currMenuLink: "#toplevel_page_wprss-aggregator ul li.current",
     /** @param {string} page */
     menuLinkFor(page) {
-      return `#toplevel_page_aggregator ul a[href*="subPage=${page}"]`
+      return `#toplevel_page_wprss-aggregator ul a[href*="subPage=${page}"]`
     },
   }
 
@@ -117,7 +117,7 @@
         const urlParams = new URLSearchParams(params ?? {})
         urlParams.set("subPage", page)
         urlParams.delete("page")
-        history.pushState({}, "", `?page=aggregator&${urlParams}`)
+        history.pushState({}, "", `?page=wprss-aggregator&${urlParams}`)
       })
 
       // Update the badge count in the menu.

@@ -10,7 +10,10 @@ wpra()->addModule(
 	array(),
 	function () {
 		$storeUrl = 'https://wprssaggregator.com';
-		$licensing = new Licensing( $storeUrl, getPlans() );
+		$licensing = new Licensing( $storeUrl, array() );
+		add_action( 'init', function () use ( $licensing ) {
+			$licensing->plans = getPlans();
+		} );
 
 		$cronJob = new CronJob(
 			'wpra.licensing.update',
