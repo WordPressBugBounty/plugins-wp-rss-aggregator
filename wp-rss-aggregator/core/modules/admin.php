@@ -152,6 +152,7 @@ wpra()->addModule(
 					'settings' => $settings->toArray(),
 					'license' => $license ? $license->toArray() : null,
 					'premiumInstalled' => $wpra->premiumInstalled,
+					'isPluginMismatch' => defined( 'WPRA_PREMIUM_VERSION' ) && version_compare( WPRA_VERSION, WPRA_PREMIUM_VERSION, '!=' ),
 					'sslCertPath' => implode( '/', array( WPINC, 'certificates', 'ca-bundle.crt' ) ),
 					'isMultiSite' => WpUtils::isMultiSite(),
 					'isMainSite' => is_main_site(),

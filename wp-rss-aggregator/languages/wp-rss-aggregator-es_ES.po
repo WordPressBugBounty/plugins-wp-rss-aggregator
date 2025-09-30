@@ -1,4957 +1,4957 @@
-# Copyright (C) 2025 RebelCode
-# This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP RSS Aggregator 5.0.4\n"
+"Project-Id-Version: WP RSS Aggregator 5.0.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-rss-aggregator\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-30T08:09:10+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"POT-Creation-Date: 2025-09-12 19:17+0300\n"
+"PO-Revision-Date: 2025-09-21 11:58+0200\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.7\n"
 "X-Domain: wp-rss-aggregator\n"
 
 #. Plugin Name of the plugin
 #: wp-rss-aggregator.php
 #: core/modules/debugInfo.php:15
 msgid "WP RSS Aggregator"
-msgstr ""
+msgstr "WP RSS Aggregator"
 
 #. Plugin URI of the plugin
 #: wp-rss-aggregator.php
 msgid "https://wprssaggregator.com"
-msgstr ""
+msgstr "https://wprssaggregator.com"
 
 #. Description of the plugin
 #: wp-rss-aggregator.php
 msgid "An RSS importer, aggregator, and auto-blogger plugin for WordPress."
-msgstr ""
+msgstr "Un plugin importador, agregador y auto-blogger de RSS para WordPress."
 
 #. Author of the plugin
 #: wp-rss-aggregator.php
 msgid "RebelCode"
-msgstr ""
+msgstr "RebelCode"
 
 #. Author URI of the plugin
 #: wp-rss-aggregator.php
 msgid "https://rebelcode.com"
-msgstr ""
+msgstr "https://rebelcode.com"
 
 #: core/admin-frame.php:10
 msgid "Aggregator Admin"
-msgstr ""
+msgstr "Administrador del Agregador"
 
 #: core/modules/admin.php:110
 msgid "Aggregator"
-msgstr ""
+msgstr "Aggregator"
 
 #: core/modules/admin.php:114
 #: core/js/dist/admin.js:37
 msgid "Hub"
-msgstr ""
+msgstr "Hub"
 
 #: core/modules/admin.php:115
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 #: core/js/dist/admin.js:113
 msgid "Sources"
-msgstr ""
+msgstr "Fuentes"
 
 #: core/modules/admin.php:116
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Displays"
-msgstr ""
+msgstr "Visualizaciones"
 
 #: core/modules/admin.php:117
 #: core/js/dist/admin.js:37
 msgid "Folders"
-msgstr ""
+msgstr "Carpetas"
 
 #: core/modules/admin.php:118
 #: core/js/dist/admin.js:37
 msgid "Integrations"
-msgstr ""
+msgstr "Integraciones"
 
 #: core/modules/admin.php:119
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:113
 msgid "Settings"
-msgstr ""
+msgstr "Ajustes"
 
 #: core/modules/admin.php:120
 #: core/js/dist/admin.js:37
 msgid "Help"
-msgstr ""
+msgstr "Ayuda"
 
 #: core/modules/admin.php:121
 #: core/js/dist/admin.js:107
 msgid "Tutorials"
-msgstr ""
+msgstr "Tutoriales"
 
 #: core/modules/admin.php:122
 msgid "Manage Plan"
-msgstr ""
+msgstr "Gestionar Plan"
 
 #: core/modules/admin.php:126
 msgid "Logs"
-msgstr ""
+msgstr "Registros"
 
 #: core/modules/admin.php:291
 msgid "One-time only manual update required for Aggregator Premium plugin"
-msgstr ""
+msgstr "Se requiere una única actualización manual para el plugin Aggregator Premium"
 
 #: core/modules/admin.php:292
 msgid "You’ve successfully updated the free plugin to v5.0.2."
-msgstr ""
+msgstr "Has actualizado correctamente el plugin gratuito a la v5.0.2."
 
 #: core/modules/admin.php:295
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
-msgstr ""
+msgstr "Sin embargo, hemos detectado que todavía estás usando Aggregator Premium v%1$s. Debido a un problema de configuración en la v%2$s, no se están detectando las actualizaciones premium."
 
 #: core/modules/admin.php:300
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
-msgstr ""
+msgstr "Esto se ha corregido en Premium v5.0.2, pero necesitarás realizar una única actualización manual del plugin Premium para restaurar las actualizaciones automáticas."
 
 #: core/modules/admin.php:303
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
-msgstr ""
+msgstr "Tus ajustes y datos permanecerán intactos. Si tienes alguna pregunta, por favor <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contacta con el soporte</a> para obtener ayuda."
 
 #: core/modules/admin.php:310
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
-msgstr ""
+msgstr "Después de actualizar Premium a la v5.0.2, los chequeos de las actualizaciones premium se reanudarán con normalidad."
 
 #: core/modules/admin.php:345
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
-msgstr ""
+msgstr "Descargar Premium v5.0.2"
 
 #: core/modules/admin.php:348
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
-msgstr ""
+msgstr "Instrucciones paso a paso"
 
 #: core/modules/debugInfo.php:19
 msgid "Version"
-msgstr ""
+msgstr "Versión"
 
 #: core/modules/debugInfo.php:23
 msgid "Plan"
-msgstr ""
+msgstr "Plan"
 
 #: core/modules/debugInfo.php:27
 #: core/js/dist/admin.js:107
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #: core/modules/debugInfo.php:31
 msgid "fsockopen"
-msgstr ""
+msgstr "fsockopen"
 
 #: core/modules/debugInfo.php:33
 msgctxt "fsockopen status in Site Health Info"
 msgid "Supported"
-msgstr ""
+msgstr "Soportado"
 
 #: core/modules/debugInfo.php:34
 msgctxt "fsockopen status in Site Health Info"
 msgid "Unsupported"
-msgstr ""
+msgstr "No soportado"
 
 #: core/modules/debugInfo.php:41
 #, php-format
 msgctxt "Label for extension in Site Health Info"
 msgid "%s extension"
-msgstr ""
+msgstr "Extensión %s"
 
 #: core/modules/debugInfo.php:43
 #: core/js/dist/admin.js:13
 #: core/js/dist/admin.js:37
 msgid "Yes"
-msgstr ""
+msgstr "Sí"
 
 #: core/modules/debugInfo.php:44
 #: core/js/dist/admin.js:13
 #: core/js/dist/admin.js:37
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: core/modules/feedItems.php:32
 #: core/modules/feedItems.php:34
 msgid "Feed Items"
-msgstr ""
+msgstr "Elementos del feed"
 
 #: core/modules/feedItems.php:33
 msgid "Feed Item"
-msgstr ""
+msgstr "Elemento del feed"
 
 #: core/modules/feedItems.php:35
 #: core/modules/feedItems.php:36
 msgid "Add New Feed Item"
-msgstr ""
+msgstr "Añadir nuevo elemento del feed"
 
 #: core/modules/feedItems.php:37
 msgid "Edit Feed Item"
-msgstr ""
+msgstr "Editar elemento del feed"
 
 #: core/modules/feedItems.php:38
 msgid "New Feed Item"
-msgstr ""
+msgstr "Nuevo elemento del feed"
 
 #: core/modules/feedItems.php:39
 msgid "View Feed Item"
-msgstr ""
+msgstr "Ver elemento del feed"
 
 #: core/modules/feedItems.php:40
 msgid "View Feed Items"
-msgstr ""
+msgstr "Ver elementos del feed"
 
 #: core/modules/feedItems.php:41
 msgid "Search Feed Items"
-msgstr ""
+msgstr "Buscar elementos del feed"
 
 #: core/modules/feedItems.php:42
 msgid "No feed items found"
-msgstr ""
+msgstr "No se encontraron elementos del feed"
 
 #: core/modules/feedItems.php:43
 msgid "No feed items found in trash"
-msgstr ""
+msgstr "No se encontraron elementos del feed en la papelera"
 
 #: core/modules/feedItems.php:44
 msgid "Parent Feed Item:"
-msgstr ""
+msgstr "Elemento del feed padre:"
 
 #: core/modules/feedItems.php:45
 msgid "All Feed Items"
-msgstr ""
+msgstr "Todos los elementos del feed"
 
 #: core/modules/feedItems.php:46
 msgid "Feed Item Archives"
-msgstr ""
+msgstr "Archivos de elementos del feed"
 
 #: core/modules/feedItems.php:47
 msgid "Feed Item Attributes"
-msgstr ""
+msgstr "Atributos del elemento del feed"
 
 #: core/modules/feedItems.php:48
 msgid "Insert into feed item"
-msgstr ""
+msgstr "Insertar en el elemento del feed"
 
 #: core/modules/feedItems.php:49
 msgid "Uploaded to this feed item"
-msgstr ""
+msgstr "Subido a este elemento del feed"
 
 #: core/modules/feedItems.php:50
 msgid "Featured Image"
-msgstr ""
+msgstr "Imagen destacada"
 
 #: core/modules/feedItems.php:51
 #: core/js/dist/admin.js:113
 msgid "Set featured image"
-msgstr ""
+msgstr "Establecer imagen destacada"
 
 #: core/modules/feedItems.php:52
 msgid "Remove featured image"
-msgstr ""
+msgstr "Eliminar imagen destacada"
 
 #: core/modules/feedItems.php:53
 msgid "Use as featured image"
-msgstr ""
+msgstr "Usar como imagen destacada"
 
 #: core/modules/feedItems.php:54
 msgid "Filter feed items list"
-msgstr ""
+msgstr "Filtrar lista de elementos del feed"
 
 #: core/modules/feedItems.php:55
 msgid "Filter by date"
-msgstr ""
+msgstr "Filtrar por fecha"
 
 #: core/modules/feedItems.php:56
 msgid "Feed items list navigation"
-msgstr ""
+msgstr "Navegación de la lista de elementos del feed"
 
 #: core/modules/feedItems.php:57
 msgid "Feed items list"
-msgstr ""
+msgstr "Lista de elementos del feed"
 
 #: core/modules/feedItems.php:58
 msgid "Feed item published"
-msgstr ""
+msgstr "Elemento del feed publicado"
 
 #: core/modules/feedItems.php:59
 msgid "Feed item published privately"
-msgstr ""
+msgstr "Elemento del feed publicado de forma privada"
 
 #: core/modules/feedItems.php:60
 msgid "Feed item reverted to draft"
-msgstr ""
+msgstr "Elemento del feed devuelto a borrador"
 
 #: core/modules/feedItems.php:61
 msgid "Feed item trashed"
-msgstr ""
+msgstr "Elemento del feed enviado a la papelera"
 
 #: core/modules/feedItems.php:62
 msgid "Feed item scheduled"
-msgstr ""
+msgstr "Elemento del feed programado"
 
 #: core/modules/feedItems.php:63
 msgid "Feed item updated"
-msgstr ""
+msgstr "Elemento del feed actualizado"
 
 #: core/modules/feedItems.php:64
 msgid "Feed item link"
-msgstr ""
+msgstr "Enlace del elemento del feed"
 
 #: core/modules/feedItems.php:65
 msgid "A link to a feed item"
-msgstr ""
+msgstr "Un enlace a un elemento del feed"
 
 #: core/modules/feedItems.php:86
 #: core/js/dist/admin.js:37
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: core/modules/feedItems.php:87
 #: core/js/blocks/dist/gutenberg/gutenberg.js:1
 #: core/js/dist/admin.js:107
 msgid "Source Link"
-msgstr ""
+msgstr "Enlace de la fuente"
 
 #: core/modules/feedItems.php:88
 #: core/js/dist/admin.js:37
 msgid "Source"
-msgstr ""
+msgstr "Fuente"
 
 #: core/modules/feedItems.php:91
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: core/modules/feedItems.php:92
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #: core/modules/feedItems.php:108
 msgid "(no title)"
-msgstr ""
+msgstr "(sin título)"
 
 #: core/modules/feedItems.php:118
 msgid "No source link"
-msgstr ""
+msgstr "Sin enlace de fuente"
 
 #: core/modules/licensing.php:37
 msgctxt "Name of the free plan"
 msgid "Free"
-msgstr ""
+msgstr "Gratis"
 
 #: core/modules/licensing.php:38
 msgctxt "Description of the free plan"
 msgid "Free, for trying things out."
-msgstr ""
+msgstr "Gratis, para probar las cosas."
 
 #: core/modules/licensing.php:40
 msgid "Unlimited sources"
-msgstr ""
+msgstr "Fuentes ilimitadas"
 
 #: core/modules/licensing.php:41
 msgid "Unlimited feeds"
-msgstr ""
+msgstr "Feeds ilimitados"
 
 #: core/modules/licensing.php:42
 msgid "All import options"
-msgstr ""
+msgstr "Todas las opciones de importación"
 
 #: core/modules/licensing.php:43
 msgid "Import text, audio, & video"
-msgstr ""
+msgstr "Importar texto, audio y vídeo"
 
 #: core/modules/licensing.php:51
 msgctxt "Name of the basic plan"
 msgid "Basic"
-msgstr ""
+msgstr "Basic"
 
 #: core/modules/licensing.php:52
 msgctxt "Description of the basic plan"
 msgid "Display RSS feeds anywhere on your site and customize them to match your site’s design."
-msgstr ""
+msgstr "Muestra feeds RSS en cualquier lugar de tu sitio web y personalízalos para que coincidan con el diseño de tus páginas."
 
 #: core/modules/licensing.php:59
 #: core/js/dist/admin.js:107
 msgid "All layout designs"
-msgstr ""
+msgstr "Todos los diseños de visualizaciones"
 
 #: core/modules/licensing.php:60
 #: core/js/dist/admin.js:107
 msgid "Manual curation"
-msgstr ""
+msgstr "Curación manual"
 
 #: core/modules/licensing.php:61
 #: core/js/dist/admin.js:107
 msgid "Full customization"
-msgstr ""
+msgstr "Personalización completa"
 
 #: core/modules/licensing.php:62
 #: core/js/dist/admin.js:107
 msgid "Automatic filtering"
-msgstr ""
+msgstr "Filtrado automático"
 
 #: core/modules/licensing.php:63
 #: core/js/dist/admin.js:107
 msgid "Source management"
-msgstr ""
+msgstr "Gestión de fuentes"
 
 #: core/modules/licensing.php:70
 msgctxt "Name of the plus plan"
 msgid "Plus"
-msgstr ""
+msgstr "Plus"
 
 #: core/modules/licensing.php:71
 msgctxt "Description of the plus plan"
 msgid "Aggregate RSS feeds as blog posts and publish their excerpts to your blog or CPT."
-msgstr ""
+msgstr "Agrega feeds RSS como entradas de blog y publica sus extractos en tu blog o como tipos de publicaciones personalizadas."
 
 #: core/modules/licensing.php:78
 #: core/js/dist/admin.js:107
 msgid "Import as Posts"
-msgstr ""
+msgstr "Importar como Entradas"
 
 #: core/modules/licensing.php:79
 #: core/js/dist/admin.js:107
 msgid "Schedule publishing"
-msgstr ""
+msgstr "Programar publicación"
 
 #: core/modules/licensing.php:80
 #: core/js/dist/admin.js:107
 msgid "Add custom content"
-msgstr ""
+msgstr "Añadir contenido personalizado"
 
 #: core/modules/licensing.php:81
 #: core/js/dist/admin.js:107
 msgid "Import taxonomies"
-msgstr ""
+msgstr "Importar taxonomías"
 
 #: core/modules/licensing.php:88
 msgctxt "Name of the pro plan"
 msgid "Pro"
-msgstr ""
+msgstr "Pro"
 
 #: core/modules/licensing.php:89
 msgctxt "Description of the pro plan"
 msgid "Curate RSS feeds as Posts or any CPT and give your visitors all the content they’re after."
-msgstr ""
+msgstr "Cura feeds RSS como Entradas o cualquier tipo de publicación personalizado y da a tus visitantes todo el contenido que buscan."
 
 #: core/modules/licensing.php:96
 #: core/js/dist/admin.js:107
 msgid "Full text import"
-msgstr ""
+msgstr "Importación de texto completo"
 
 #: core/modules/licensing.php:97
 #: core/js/dist/admin.js:107
 msgid "Include all media"
-msgstr ""
+msgstr "Incluir todos los medios"
 
 #: core/modules/licensing.php:98
 #: core/js/dist/admin.js:107
 msgid "Custom Mapping"
-msgstr ""
+msgstr "Mapeo personalizado"
 
 #: core/modules/licensing.php:105
 msgctxt "Name of the Elite plan"
 msgid "Elite"
-msgstr ""
+msgstr "Élite"
 
 #: core/modules/licensing.php:106
 msgctxt "Description of the all access plan"
 msgid "Import unlimited content from RSS feeds and generate your own original versions."
-msgstr ""
+msgstr "Importa contenido ilimitado desde feeds RSS y genera tus propias versiones originales."
 
 #: core/modules/licensing.php:113
 #: core/js/dist/admin.js:21
 #: core/js/dist/admin.js:107
 msgid "AI integrations"
-msgstr ""
+msgstr "Integraciones de IA"
 
 #: core/modules/licensing.php:114
 #: core/js/dist/admin.js:21
 #: core/js/dist/admin.js:107
 msgid "Title spinning"
-msgstr ""
+msgstr "Spam de títulos"
 
 #: core/modules/licensing.php:115
 #: core/js/dist/admin.js:21
 #: core/js/dist/admin.js:107
 msgid "Content spinning"
-msgstr ""
+msgstr "Spam de contenido"
 
 #: core/modules/logger.php:46
 msgctxt "post type general name"
 msgid "Logs"
-msgstr ""
+msgstr "Registros"
 
 #: core/modules/logger.php:47
 msgctxt "post type singular name"
 msgid "Log"
-msgstr ""
+msgstr "Registro"
 
 #: core/modules/logger.php:48
 msgctxt "admin menu"
 msgid "Logs"
-msgstr ""
+msgstr "Registros"
 
 #: core/modules/logger.php:49
 msgctxt "add new on admin bar"
 msgid "Log"
-msgstr ""
+msgstr "Registro"
 
 #: core/modules/logger.php:50
 msgid "New Log"
-msgstr ""
+msgstr "Nuevo registro"
 
 #: core/modules/logger.php:51
 msgid "Edit Log"
-msgstr ""
+msgstr "Editar registro"
 
 #: core/modules/logger.php:52
 msgid "View Log"
-msgstr ""
+msgstr "Ver registro"
 
 #: core/modules/logger.php:53
 msgid "All Logs"
-msgstr ""
+msgstr "Todos los registros"
 
 #: core/modules/logger.php:54
 msgid "Search Logs"
-msgstr ""
+msgstr "Buscar registros"
 
 #: core/modules/logger.php:55
 msgid "Parent Logs:"
-msgstr ""
+msgstr "Registros padre:"
 
 #: core/modules/logger.php:56
 msgid "No logs found."
-msgstr ""
+msgstr "No se encontraron registros."
 
 #: core/modules/logger.php:57
 msgid "No logs found in Trash."
-msgstr ""
+msgstr "No se encontraron registros en la Papelera."
 
 #: core/modules/logger.php:64
 msgctxt "post status"
 msgid "Emergency"
-msgstr ""
+msgstr "Emergencia"
 
 #: core/modules/logger.php:65
 msgctxt "post status"
 msgid "Alert"
-msgstr ""
+msgstr "Alerta"
 
 #: core/modules/logger.php:66
 msgctxt "post status"
 msgid "Critical"
-msgstr ""
+msgstr "Crítico"
 
 #: core/modules/logger.php:67
 msgctxt "post status"
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: core/modules/logger.php:68
 msgctxt "post status"
 msgid "Warning"
-msgstr ""
+msgstr "Advertencia"
 
 #: core/modules/logger.php:69
 msgctxt "post status"
 msgid "Notice"
-msgstr ""
+msgstr "Aviso"
 
 #: core/modules/logger.php:70
 msgctxt "post status"
 msgid "Info"
-msgstr ""
+msgstr "Información"
 
 #: core/modules/logger.php:71
 msgctxt "post status"
 msgid "Debug"
-msgstr ""
+msgstr "Depuración"
 
 #: core/modules/rowActions.php:26
 msgid "Trash and reject"
-msgstr ""
+msgstr "Mover a la papelera y rechazar"
 
 #: core/modules/rowActions.php:61
 msgid "Cannot reject a post that was not imported by Aggregator."
-msgstr ""
+msgstr "No se puede rechazar una entrada que no fue importada por Aggregator."
 
 #: core/modules/rowActions.php:90
 msgid "The post has been successfully rejected and moved to the Trash."
-msgstr ""
+msgstr "La entrada ha sido rechazada y movida a la Papelera con éxito."
 
 #: core/src/Cli/Commands/DisplayCommand.php:90
 #, php-format
 msgctxt "Name of a duplicated display"
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (copia)"
 
 #: core/src/Cli/Commands/DisplayCommand.php:240
 #, php-format
 msgid "Deleted %d display."
 msgid_plural "Deleted %d displays."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eliminada %d visualización."
+msgstr[1] "Eliminadas %d visualizaciones."
 
 #: core/src/Cli/Commands/DisplayCommand.php:402
 #, php-format
 msgid "Source %s does not exist."
 msgid_plural "Sources %s do not exist."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "La fuente %s no existe."
+msgstr[1] "Las fuentes %s no existen."
 
 #: core/src/Cli/Commands/DisplayCommand.php:421
 #, php-format
 msgid "%s display updated."
 msgid_plural "%s displays updated."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Visualización %s actualizada."
+msgstr[1] "Visualizaciones %s actualizadas."
 
 #: core/src/Cli/Commands/FeedCommand.php:41
 msgid "Valid"
-msgstr ""
+msgstr "Válido"
 
 #: core/src/Cli/Commands/FeedCommand.php:43
 msgid "Invalid"
-msgstr ""
+msgstr "Inválido"
 
 #: core/src/Cli/Commands/ImportCommand.php:79
 #, php-format
 msgid "Imported %d new item"
 msgid_plural "Imported %d new items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Importado %d nuevo elemento"
+msgstr[1] "Importados %d nuevos elementos"
 
 #: core/src/Cli/Commands/RejectListCommand.php:49
 #, php-format
 msgid "Added \"%s\" to the reject list"
-msgstr ""
+msgstr "Añadido \"%s\" a la lista de rechazos"
 
 #: core/src/Cli/Commands/RejectListCommand.php:76
 #, php-format
 msgid "Removed %d item"
 msgid_plural "Removed %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eliminado %d elemento"
+msgstr[1] "Eliminados %d elementos"
 
 #: core/src/Cli/Commands/RejectListCommand.php:138
 #, php-format
 msgid "Deleted %d item."
 msgid_plural "Deleted %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eliminado %d elemento."
+msgstr[1] "Eliminados %d elementos"
 
 #: core/src/Cli/Commands/SourceCommand.php:236
 #, php-format
 msgid "Deleted %d source."
 msgid_plural "Deleted %d sources."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eliminada %d fuente."
+msgstr[1] "Eliminadas %d fuentes."
 
 #: core/src/Cli/Commands/SourceCommand.php:436
 #, php-format
 msgid "%s source updated."
 msgid_plural "%s sources updated."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Fuente %s actualizada."
+msgstr[1] "Fuentes %s actualizadas."
 
 #: core/src/Display/DisplaySettings.php:123
 msgctxt "Default value for the \"Author prefix\" display setting"
 msgid "By "
-msgstr ""
+msgstr "Por "
 
 #: core/src/Display/DisplaySettings.php:124
 msgctxt "Default value for the \"Read more text\" display setting"
 msgid "Read more"
-msgstr ""
+msgstr "Leer más"
 
 #: core/src/Importer/RssImageFinder.php:284
 msgid "Failed to parse the feed's source URL."
-msgstr ""
+msgstr "No se pudo analizar la URL de la fuente del feed."
 
 #: core/src/Importer/RssImageFinder.php:290
 msgid "Feed does not have a source URL."
-msgstr ""
+msgstr "El feed no tiene una URL de origen."
 
 #: core/src/Importer/WpPostBuilder.php:176
 #, php-format
 msgid "Failed to download image for post: %s"
-msgstr ""
+msgstr "No se pudo descargar la imagen para la entrada: %s"
 
 #: core/src/Importer/WpPostBuilder.php:189
 #, php-format
 msgid "Could not get URL of downloaded image with ID %d"
-msgstr ""
+msgstr "No se pudo obtener la URL de la imagen descargada con ID %d"
 
 #: core/src/Rpc/Handlers/RpcWpHandler.php:79
 msgid "Email is not valid"
-msgstr ""
+msgstr "El correo electrónico no es válido"
 
 #: core/src/Rpc/Handlers/RpcWpHandler.php:95
 msgid "Connection failed, please try again."
-msgstr ""
+msgstr "Falló la conexión, por favor inténtalo de nuevo."
 
 #: core/src/Rpc/Handlers/RpcWpHandler.php:102
 msgid "Returned an error: HTTP "
-msgstr ""
+msgstr "Devolvió un error: HTTP "
 
 #: core/src/RssReader/SimplePie/SpRssReader.php:87
 msgctxt "The title to show for found RSS feeds without a name"
 msgid "Unnamed feed"
-msgstr ""
+msgstr "Feed sin nombre"
 
 #: core/src/Store/DisplaysStore.php:52
 #, php-format
 msgid "Display with ID %d not found"
-msgstr ""
+msgstr "No se encontró la visualización con ID %d"
 
 #: core/src/Store/DisplaysStore.php:106
 #, php-format
 msgid "Display with slug \"%s\" not found"
-msgstr ""
+msgstr "No se encontró la visualización con slug \"%s\""
 
 #: core/src/Store/DisplaysStore.php:186
 msgid "Cannot replace display with no ID"
-msgstr ""
+msgstr "No se puede reemplazar la visualización sin ID"
 
 #: core/src/Store/ProgressStore.php:59
 #, php-format
 msgid "Progress with ID %s not found"
-msgstr ""
+msgstr "No se encontró el progreso con ID %s"
 
 #: core/src/Store/SourcesStore.php:54
 #, php-format
 msgid "Source with ID %d not found"
-msgstr ""
+msgstr "No se encontró la fuente con ID %d"
 
 #: core/src/Store/SourcesStore.php:284
 #: core/src/Store/SourcesStore.php:329
 #, php-format
 msgid "#%d [Missing]"
-msgstr ""
+msgstr "#%d [Falta]"
 
 #: core/src/Store/SourcesStore.php:416
 msgid "Cannot replace source with no ID"
-msgstr ""
+msgstr "No se puede reemplazar la fuente sin ID"
 
 #: core/src/Store/WpPostsStore.php:205
 #, php-format
 msgid "Post #%s does not exist or is not imported by WP RSS Aggregator"
-msgstr ""
+msgstr "La entrada #%s no existe o no ha sido importada por WP RSS Aggregator"
 
 #: core/src/Store/WpPostsStore.php:551
 #, php-format
 msgctxt "The recorded note when an imported post is deleted and rejected. %s = post title"
 msgid "Rejected after deletion: %s"
-msgstr ""
+msgstr "Rechazado después de la eliminación: %s"
 
 #: core/src/Tier.php:16
 #: core/js/dist/admin.js:13
 msgid "Free"
-msgstr ""
+msgstr "Gratis"
 
 #: core/src/Tier.php:18
 #: core/js/dist/admin.js:13
 #: core/js/dist/admin.js:107
 msgid "Basic"
-msgstr ""
+msgstr "Básico"
 
 #: core/src/Tier.php:20
 #: core/js/dist/admin.js:13
 #: core/js/dist/admin.js:107
 msgid "Plus"
-msgstr ""
+msgstr "Plus"
 
 #: core/src/Tier.php:22
 #: core/js/dist/admin.js:13
 #: core/js/dist/admin.js:107
 msgid "Pro"
-msgstr ""
+msgstr "Pro"
 
 #: core/src/Tier.php:24
 #: core/js/dist/admin.js:13
 #: core/js/dist/admin.js:107
 msgid "Elite"
-msgstr ""
+msgstr "Élite"
 
 #: core/src/Tier.php:26
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 #: core/src/Utils/Result.php:76
 msgid "The result list is empty"
-msgstr ""
+msgstr "La lista de resultados está vacía"
 
 #: core/src/Utils/Result.php:107
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "Ocurrió un error desconocido"
 
 #: core/src/V4/V4TemplatesMigrator.php:142
 #: core/src/V4/V4TemplatesMigrator.php:197
 #: core/js/dist/admin.js:77
 msgid "Source:"
-msgstr ""
+msgstr "Fuente:"
 
 #: core/src/V4/V4TemplatesMigrator.php:145
 #: core/src/V4/V4TemplatesMigrator.php:202
 msgid "Published on:"
-msgstr ""
+msgstr "Publicado el:"
 
 #: core/src/V4/V4TemplatesMigrator.php:149
 #: core/src/V4/V4TemplatesMigrator.php:200
 msgid "By"
-msgstr ""
+msgstr "Por"
 
 #: wp-rss-aggregator.php:65
 #, php-format
 msgctxt "%s = plugin name"
 msgid "%1$s requires PHP version %2$s or higher."
-msgstr ""
+msgstr "%1$s requiere la versión de PHP %2$s o superior."
 
 #: wp-rss-aggregator.php:83
 #, php-format
 msgctxt "%s = plugin name"
 msgid "%1$s requires WordPress version %2$s or higher."
-msgstr ""
+msgstr "%1$s requiere la versión de WordPress %2$s o superior."
 
 #: core/js/blocks/dist/display/display.js:1
 msgid "Select a display"
-msgstr ""
+msgstr "Selecciona una visualización"
 
 #: core/js/blocks/dist/display/display.js:1
 msgid "Feed sources are currently disabled for this block. To migrate it to v5, first create a Display with your preferred layout and feed sources. Then, select that Display from the dropdown above. <contactSupportLink>Learn more</contactSupportLink>"
-msgstr ""
+msgstr "Las fuentes de feeds están actualmente deshabilitadas para este bloque. Para migrarlo a v5, primero crea una Visualización con tu diseño y fuentes de feeds preferidos. Luego, selecciona esa Visualización del menú desplegable de arriba. <contactSupportLink>Aprende más</contactSupportLink>"
 
 #: core/js/blocks/dist/display/display.js:1
 msgid "This block has been switched to v5, but one or more sources haven’t been migrated yet, which may cause them to appear as missing. Please migrate all sources first, then create a Display with your layout and sources, and select it from the dropdown above. <contactSupportLink>Learn more</contactSupportLink>"
-msgstr ""
+msgstr "Este bloque se ha cambiado a v5, pero una o más fuentes aún no se han migrado, lo que puede hacer que aparezcan como desaparecidas. Por favor, migra todas las fuentes primero, luego crea una Visualización con tu diseño y fuentes, y selecciónala del menú desplegable de arriba. <contactSupportLink>Aprende más</contactSupportLink>"
 
 #: core/js/blocks/dist/display/display.js:1
 msgid "Display"
-msgstr ""
+msgstr "Visualización"
 
 #: core/js/blocks/dist/display/display.js:1
 msgid "Feed Sources to Exclude"
-msgstr ""
+msgstr "Fuentes de feeds a excluir"
 
 #: core/js/blocks/dist/display/display.js:1
 msgid "Feed Sources to Show"
-msgstr ""
+msgstr "Fuentes de feeds a mostrar"
 
 #: core/js/dist/admin.js:13
 #: core/js/dist/admin.js:37
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: core/js/dist/admin.js:21
 msgid "Open Help Page"
-msgstr ""
+msgstr "Abrir página de ayuda"
 
 #: core/js/dist/admin.js:21
 msgid "HONEY, IT’S GO TIME!"
-msgstr ""
+msgstr "¡MIEL, ES HORA DE IR!"
 
 #: core/js/dist/admin.js:21
 msgid "Upgrade Now"
-msgstr ""
+msgstr "Actualizar ahora"
 
 #: core/js/dist/admin.js:21
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Upgrade to Pro"
-msgstr ""
+msgstr "Actualizar a Pro"
 
 #: core/js/dist/admin.js:21
 msgid "Email support within 24 hours"
-msgstr ""
+msgstr "Soporte por correo electrónico en 24 horas"
 
 #: core/js/dist/admin.js:21
 msgid "Unlock all customizations"
-msgstr ""
+msgstr "Desbloquear todas las personalizaciones"
 
 #: core/js/dist/admin.js:21
 msgid "Import feeds as Posts"
-msgstr ""
+msgstr "Importar feeds como Entradas"
 
 #: core/js/dist/admin.js:21
 msgid "Fetch the full content"
-msgstr ""
+msgstr "Obtener el contenido completo"
 
 #: core/js/dist/admin.js:21
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Upgrade to Elite"
-msgstr ""
+msgstr "Actualizar a Élite"
 
 #: core/js/dist/admin.js:21
 msgid "Search ..."
-msgstr ""
+msgstr "Buscar..."
 
 #: core/js/dist/admin.js:21
 msgid "One-time only manual update required for Premium plugin"
-msgstr ""
-
-#: core/js/dist/admin.js:21
-#: core/js/dist/admin.js:37
-msgid "Close notice"
-msgstr ""
-
-#: core/js/dist/admin.js:21
-msgid "<strong>Plugin Version Mismatch.</strong> Your free and premium Aggregator plugins are running different versions, so Premium features are temporarily paused. <updateLink>Please update</updateLink> both plugins to the same version to restore full compatibility. <learnMoreLink>Learn more</learnMoreLink>"
-msgstr ""
+msgstr "Se requiere una única actualización manual para el plugin Premium"
 
 #: core/js/dist/admin.js:23
 #: core/js/dist/admin.js:37
 msgid "Premium"
-msgstr ""
+msgstr "Premium"
 
 #: core/js/dist/admin.js:23
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 #: core/js/dist/admin.js:23
 msgid "Grid"
-msgstr ""
+msgstr "Cuadrícula"
 
 #: core/js/dist/admin.js:23
 msgid "Excerpt & Thumbnail"
-msgstr ""
+msgstr "Extracto y miniatura"
 
 #: core/js/dist/admin.js:23
 msgid "Excerpts"
-msgstr ""
-
-#: core/js/dist/admin.js:23
-#: core/js/dist/admin.js:37
-#: core/js/dist/admin.js:77
-#: core/js/dist/admin.js:107
-msgid "New display"
-msgstr ""
+msgstr "Extractos"
 
 #: core/js/dist/admin.js:23
 msgctxt "The title of pages created from the Display edit page 'Embed' button."
 msgid "Aggregator"
-msgstr ""
+msgstr "Agregador"
 
 #: core/js/dist/admin.js:23
 msgid "Embed"
-msgstr ""
+msgstr "Incrustar"
 
 #: core/js/dist/admin.js:23
 msgid "Create a new page or post."
-msgstr ""
+msgstr "Crear una nueva página o entrada."
 
 #: core/js/dist/admin.js:23
 msgid "Create a Page"
-msgstr ""
+msgstr "Crear una página"
 
 #: core/js/dist/admin.js:23
 msgid "Create a Post"
-msgstr ""
+msgstr "Crear una entrada"
 
 #: core/js/dist/admin.js:23
 msgid "We’ll set up a new one and embed an Aggregator block with your display."
-msgstr ""
+msgstr "Configuraremos una nueva e incrustaremos un bloque de Aggregator con tu visualización."
 
 #: core/js/dist/admin.js:23
 msgid "Or add your display to existing posts or pages."
-msgstr ""
+msgstr "O añade tu visualización a entradas o páginas existentes."
 
 #: core/js/dist/admin.js:23
 msgid "Type [/RSS Aggregator][0] in the page or post editor and select this display."
-msgstr ""
+msgstr "Escribe [/RSS Aggregator][0] en el editor de páginas o entradas y selecciona esta visualización."
 
 #: core/js/dist/admin.js:23
 msgctxt "Display editor, embed button popout"
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #: core/js/dist/admin.js:23
 msgid "Copy and paste the shortcode below:"
-msgstr ""
+msgstr "Copia y pega el shortcode de abajo:"
 
 #: core/js/dist/admin.js:23
 msgid "Copied"
-msgstr ""
+msgstr "Copiado"
 
 #: core/js/dist/admin.js:23
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 #: core/js/dist/admin.js:23
 msgid "Preview desktop"
-msgstr ""
+msgstr "Vista previa de escritorio"
 
 #: core/js/dist/admin.js:23
 msgid "Preview tablet"
-msgstr ""
+msgstr "Vista previa de tableta"
 
 #: core/js/dist/admin.js:23
 msgid "Preview phone"
-msgstr ""
+msgstr "Vista previa de teléfono"
 
 #: core/js/dist/admin.js:23
 msgid "Start by selecting a source"
-msgstr ""
+msgstr "Empieza seleccionando una fuente"
 
 #: core/js/dist/admin.js:23
 #: core/js/dist/admin.js:37
 msgid "Getting started guide"
-msgstr ""
+msgstr "Guía de inicio"
 
 #: core/js/dist/admin.js:23
 msgid "Bullet style"
-msgstr ""
+msgstr "Estilo de viñeta"
 
 #: core/js/dist/admin.js:23
 msgid "Show bullets"
-msgstr ""
+msgstr "Mostrar viñetas"
 
 #: core/js/dist/admin.js:23
 msgid "News"
-msgstr ""
+msgstr "Noticias"
 
 #: core/js/dist/admin.js:23
 msgid "Magazine style"
-msgstr ""
+msgstr "Estilo de revista"
 
 #: core/js/dist/admin.js:23
 msgid "Magazine"
-msgstr ""
+msgstr "Revista"
 
 #: core/js/dist/admin.js:23
 msgid "Wrapped"
-msgstr ""
+msgstr "Envuelto"
 
 #: core/js/dist/admin.js:23
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: core/js/dist/admin.js:23
 msgid "Style"
-msgstr ""
+msgstr "Estilo"
 
 #: core/js/dist/admin.js:23
 msgid "Custom HTML class name"
-msgstr ""
+msgstr "Nombre de clase HTML personalizado"
 
 #: core/js/dist/admin.js:23
 msgid "Separate multiple classes with spaces."
-msgstr ""
+msgstr "Separa varias clases con espacios."
 
 #: core/js/dist/admin.js:23
 msgid "Align last element to bottom"
-msgstr ""
+msgstr "Alinear el último elemento en la parte inferior"
 
 #: core/js/dist/admin.js:37
 msgid "Arrange the order of the sections in your display by dragging and dropping them below."
-msgstr ""
+msgstr "Organiza el orden de las secciones en tu visualización arrastrándolas y soltándolas a continuación."
 
 #: core/js/dist/admin.js:37
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 #: core/js/dist/admin.js:37
 msgid "Audio player"
-msgstr ""
+msgstr "Reproductor de audio"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Excerpt"
-msgstr ""
+msgstr "Extracto"
 
 #: core/js/dist/admin.js:37
 msgid "Information"
-msgstr ""
+msgstr "Información"
 
 #: core/js/dist/admin.js:37
 msgid "Stack items"
-msgstr ""
+msgstr "Apilar elementos"
 
 #: core/js/dist/admin.js:37
 msgid "Show borders"
-msgstr ""
+msgstr "Mostrar bordes"
 
 #: core/js/dist/admin.js:37
 msgid "Make whole grid item clickable"
-msgstr ""
+msgstr "Hacer que todo el elemento de la cuadrícula sea clickeable"
 
 #: core/js/dist/admin.js:37
 msgid "This setting doesn’t apply when the image is used as a background."
-msgstr ""
+msgstr "Esta configuración no se aplica cuando la imagen se utiliza como fondo."
 
 #: core/js/dist/admin.js:37
 msgid "Max number of columns"
-msgstr ""
+msgstr "Número máximo de columnas"
 
 #: core/js/dist/admin.js:37
 msgid "Number of columns"
-msgstr ""
+msgstr "Número de columnas"
 
 #: core/js/dist/admin.js:37
 msgid "column"
 msgid_plural "columns"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "columna"
+msgstr[1] "columnas"
 
 #: core/js/dist/admin.js:37
 msgid "Number of items"
-msgstr ""
+msgstr "Número de elementos"
 
 #: core/js/dist/admin.js:37
 msgid "item"
 msgid_plural "items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "elemento"
+msgstr[1] "elementos"
 
 #: core/js/dist/admin.js:37
 msgid "Item settings"
-msgstr ""
+msgstr "Ajustes del elemento"
 
 #: core/js/dist/admin.js:37
 msgid "Order"
-msgstr ""
+msgstr "Orden"
 
 #: core/js/dist/admin.js:37
 msgid "Custom Styles"
-msgstr ""
+msgstr "Estilos personalizados"
 
 #: core/js/dist/admin.js:37
 msgid "Feed settings"
-msgstr ""
+msgstr "Ajustes del feed"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Show audio player"
-msgstr ""
+msgstr "Mostrar reproductor de audio"
 
 #: core/js/dist/admin.js:37
 msgid "Author name prefix"
-msgstr ""
+msgstr "Prefijo del nombre del autor"
 
 #: core/js/dist/admin.js:37
 msgid "Show author name"
-msgstr ""
+msgstr "Mostrar nombre del autor"
 
 #: core/js/dist/admin.js:37
 msgid "Publish date format"
-msgstr ""
+msgstr "Formato de fecha de publicación"
 
 #: core/js/dist/admin.js:37
 msgid "Publish date prefix"
-msgstr ""
+msgstr "Prefijo de fecha de publicación"
 
 #: core/js/dist/admin.js:37
 msgid "Show publish date"
-msgstr ""
+msgstr "Mostrar fecha de publicación"
 
 #: core/js/dist/admin.js:37
 msgid "Use \"time ago\" format"
-msgstr ""
+msgstr "Usar formato \"hace tiempo\""
 
 #: core/js/dist/admin.js:37
 msgid "Show excerpt"
-msgstr ""
+msgstr "Mostrar extracto"
 
 #: core/js/dist/admin.js:37
 msgid "Add custom text after excerpt"
-msgstr ""
+msgstr "Añadir texto personalizado después del extracto"
 
 #: core/js/dist/admin.js:37
 msgid "Maximum length"
-msgstr ""
+msgstr "Longitud máxima"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "No limit"
-msgstr ""
+msgstr "Sin límite"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "words"
-msgstr ""
+msgstr "palabras"
 
 #: core/js/dist/admin.js:37
 msgid "Show image"
-msgstr ""
+msgstr "Mostrar imagen"
 
 #: core/js/dist/admin.js:37
 msgid "Use the source’s default image"
-msgstr ""
+msgstr "Usar la imagen predeterminada de la fuente"
 
 #: core/js/dist/admin.js:37
 msgid "Show no image"
-msgstr ""
+msgstr "No mostrar ninguna imagen"
 
 #: core/js/dist/admin.js:37
 msgid "If featured image is not available"
-msgstr ""
+msgstr "Si la imagen destacada no está disponible"
 
 #: core/js/dist/admin.js:37
 msgid "Featured image height"
-msgstr ""
+msgstr "Altura de la imagen destacada"
 
 #: core/js/dist/admin.js:37
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: core/js/dist/admin.js:37
 msgid "Width"
-msgstr ""
+msgstr "Ancho"
 
 #: core/js/dist/admin.js:37
 msgid "Height"
-msgstr ""
+msgstr "Altura"
 
 #: core/js/dist/admin.js:37
 msgid "Fill container"
-msgstr ""
+msgstr "Llenar contenedor"
 
 #: core/js/dist/admin.js:37
 msgid "Fit whole image"
-msgstr ""
+msgstr "Ajustar imagen completa"
 
 #: core/js/dist/admin.js:37
 msgid "Image resizing"
-msgstr ""
+msgstr "Redimensionamiento de imagen"
 
 #: core/js/dist/admin.js:37
 msgid "This setting doesn’t apply when the image is used as a background or when the whole grid item is clickable."
-msgstr ""
+msgstr "Esta configuración no se aplica cuando la imagen se utiliza como fondo o cuando todo el elemento de la cuadrícula es clickeable."
 
 #: core/js/dist/admin.js:37
 msgid "Link image"
-msgstr ""
+msgstr "Enlazar imagen"
 
 #: core/js/dist/admin.js:37
 msgid "Currently only supports YouTube videos."
-msgstr ""
+msgstr "Actualmente solo es compatible con vídeos de YouTube."
 
 #: core/js/dist/admin.js:37
 msgid "Replace with embed (if available)"
-msgstr ""
+msgstr "Reemplazar con incrustación (si está disponible)"
 
 #: core/js/dist/admin.js:37
 msgid "Use featured image as background"
-msgstr ""
+msgstr "Usar imagen destacada como fondo"
 
 #: core/js/dist/admin.js:37
 msgid "Show \"Read more\" link"
-msgstr ""
+msgstr "Mostrar enlace \"Leer más\""
 
 #: core/js/dist/admin.js:37
 msgid "Open in a new tab"
-msgstr ""
+msgstr "Abrir en una nueva pestaña"
 
 #: core/js/dist/admin.js:37
 msgid "Open in the same tab/window"
-msgstr ""
+msgstr "Abrir en la misma pestaña/ventana"
 
 #: core/js/dist/admin.js:37
 msgid "Open in a lightbox"
-msgstr ""
+msgstr "Abrir en un lightbox"
 
 #: core/js/dist/admin.js:37
 msgid "Open links behaviour"
-msgstr ""
+msgstr "Comportamiento de apertura de enlaces"
 
 #: core/js/dist/admin.js:37
 msgid "Set links to open embeds"
-msgstr ""
+msgstr "Establecer enlaces para abrir incrustaciones"
 
 #: core/js/dist/admin.js:37
 msgid "Set links to nofollow"
-msgstr ""
+msgstr "Establecer enlaces como nofollow"
 
 #: core/js/dist/admin.js:37
 msgid "\"Read more\" text"
-msgstr ""
+msgstr "Texto \"Leer más\""
 
 #: core/js/dist/admin.js:37
 msgid "Link settings"
-msgstr ""
+msgstr "Ajustes de enlace"
 
 #: core/js/dist/admin.js:37
 msgid "Show pagination"
-msgstr ""
+msgstr "Mostrar paginación"
 
 #: core/js/dist/admin.js:37
 msgid "Older/Newer"
-msgstr ""
+msgstr "Anteriores/Nuevos"
 
 #: core/js/dist/admin.js:37
 msgid "Numbered"
-msgstr ""
+msgstr "Numerado"
 
 #: core/js/dist/admin.js:37
 msgid "Pagination style"
-msgstr ""
+msgstr "Estilo de paginación"
 
 #: core/js/dist/admin.js:37
 msgid "Show source name"
-msgstr ""
+msgstr "Mostrar nombre de la fuente"
 
 #: core/js/dist/admin.js:37
 msgid "Link source name"
-msgstr ""
+msgstr "Enlazar nombre de la fuente"
 
 #: core/js/dist/admin.js:37
 msgid "Source name prefix"
-msgstr ""
+msgstr "Prefijo del nombre de la fuente"
 
 #: core/js/dist/admin.js:37
 msgid "Source: "
-msgstr ""
+msgstr "Fuente: "
 
 #: core/js/dist/admin.js:37
 msgid "Show title"
-msgstr ""
+msgstr "Mostrar título"
 
 #: core/js/dist/admin.js:37
 msgid "Link title"
-msgstr ""
+msgstr "Enlazar título"
 
 #: core/js/dist/admin.js:37
 msgid "Customize the look and feel of your display’s layout, from content to pagination."
-msgstr ""
+msgstr "Personaliza la apariencia de tu visualización, desde el contenido hasta la paginación."
 
 #: core/js/dist/admin.js:37
 msgid "Appearance"
-msgstr ""
+msgstr "Apariencia"
 
 #: core/js/dist/admin.js:37
 msgid "Publish Date"
-msgstr ""
+msgstr "Fecha de publicación"
 
 #: core/js/dist/admin.js:37
 msgid "Source Name"
-msgstr ""
+msgstr "Nombre de la fuente"
 
 #: core/js/dist/admin.js:37
 msgid "Links"
-msgstr ""
+msgstr "Enlaces"
 
 #: core/js/dist/admin.js:37
 msgid "These options apply to all links within this specific Display only."
-msgstr ""
+msgstr "Estas opciones se aplican a todos los enlaces dentro de esta Visualización específica únicamente."
 
 #: core/js/dist/admin.js:37
 msgid "Audio Player"
-msgstr ""
+msgstr "Reproductor de audio"
 
 #: core/js/dist/admin.js:37
 msgid "Pagination"
-msgstr ""
+msgstr "Paginación"
 
 #: core/js/dist/admin.js:37
 msgid "No suggestions"
-msgstr ""
+msgstr "No hay sugerencias"
 
 #: core/js/dist/admin.js:37
 msgid "Loading..."
-msgstr ""
+msgstr "Cargando..."
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Remove"
-msgstr ""
+msgstr "Eliminar"
 
 #: core/js/dist/admin.js:37
 msgid "Add keywords..."
-msgstr ""
+msgstr "Añadir palabras clave..."
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgctxt "%s = new keyword"
 msgid "Add \"%s\""
-msgstr ""
+msgstr "Añadir \"%s\""
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: core/js/dist/admin.js:37
 msgid "If"
-msgstr ""
+msgstr "Si"
 
 #: core/js/dist/admin.js:37
 msgid "And"
-msgstr ""
+msgstr "Y"
 
 #: core/js/dist/admin.js:37
 msgid "Or"
-msgstr ""
+msgstr "O"
 
 #: core/js/dist/admin.js:37
 msgctxt "Display filters: before 'Then' selection"
 msgid "Then"
-msgstr ""
+msgstr "Entonces"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:77
 #: core/js/dist/admin.js:107
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: core/js/dist/admin.js:37
 msgid "Pause"
-msgstr ""
+msgstr "Pausar"
 
 #: core/js/dist/admin.js:37
 msgid "Resume"
-msgstr ""
+msgstr "Reanudar"
 
 #: core/js/dist/admin.js:37
 msgid "Hide items"
-msgstr ""
+msgstr "Ocultar elementos"
 
 #: core/js/dist/admin.js:37
 msgid "Show items"
-msgstr ""
+msgstr "Mostrar elementos"
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgctxt "Default Filter name"
 msgid "Filter %d"
-msgstr ""
+msgstr "Filtro %d"
 
 #: core/js/dist/admin.js:37
 msgid "Apply filters to display only the content you want from the selected sources."
-msgstr ""
+msgstr "Aplica filtros para mostrar solo el contenido que deseas de las fuentes seleccionadas."
 
 #: core/js/dist/admin.js:37
 msgid "Add new filter"
-msgstr ""
+msgstr "Añadir nuevo filtro"
 
 #: core/js/dist/admin.js:37
 msgid "Unlock display filtering"
-msgstr ""
+msgstr "Desbloquear filtrado de visualización"
 
 #: core/js/dist/admin.js:37
 msgid "Filtering allows you to tailor the content in each display to your visitors' interests, ensuring they find exactly what they're searching for in each section of your website."
-msgstr ""
+msgstr "El filtrado te permite adaptar el contenido de cada visualización a los intereses de tus visitantes, asegurando que encuentren exactamente lo que buscan en cada sección de tu sitio web."
 
 #: core/js/dist/admin.js:37
 msgid "Get Filtering with Pro"
-msgstr ""
+msgstr "Obtén filtrado con Pro"
 
 #: core/js/dist/admin.js:37
 msgid "Set up display filters"
-msgstr ""
+msgstr "Configurar filtros de visualización"
 
 #: core/js/dist/admin.js:37
 msgid "Select your layout"
-msgstr ""
+msgstr "Selecciona tu diseño"
 
 #: core/js/dist/admin.js:37
 msgid "[Deleted source]"
-msgstr ""
+msgstr "[Fuente eliminada]"
 
 #: core/js/dist/admin.js:37
 msgid "No matching folders"
-msgstr ""
+msgstr "No hay carpetas que coincidan"
 
 #: core/js/dist/admin.js:37
 msgid "+ Create folder"
-msgstr ""
+msgstr "+ Crear carpeta"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d elemento"
+msgstr[1] "%d elementos"
 
 #: core/js/dist/admin.js:37
 msgctxt "While the source name is loading"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: core/js/dist/admin.js:37
 msgid "Search your sources by name"
-msgstr ""
+msgstr "Busca tus fuentes por nombre"
 
 #: core/js/dist/admin.js:37
 msgid "Select the sources to show in this display and choose a layout that fits your site’s design."
-msgstr ""
+msgstr "Selecciona las fuentes que se mostrarán en esta visualización y elige un diseño que se ajuste al de tu sitio."
 
 #: core/js/dist/admin.js:37
 msgid "Want to display a folder?"
-msgstr ""
+msgstr "¿Quieres mostrar una carpeta?"
 
 #: core/js/dist/admin.js:37
 msgid "You can display sources and folders together."
-msgstr ""
+msgstr "Puedes mostrar fuentes y carpetas juntas."
 
 #: core/js/dist/admin.js:37
 msgid "Search your folders by name"
-msgstr ""
+msgstr "Busca tus carpetas por nombre"
 
 #: core/js/dist/admin.js:37
 msgid "Rename"
-msgstr ""
+msgstr "Renombrar"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: core/js/dist/admin.js:37
 msgid "Rename source"
-msgstr ""
+msgstr "Renombrar fuente"
 
 #: core/js/dist/admin.js:37
 msgid "<span>Unlock Your Aggregator</span><span>Premium plan</span>"
-msgstr ""
+msgstr "<span>Desbloquea tu agregador</span><span>Plan Premium</span>"
 
 #: core/js/dist/admin.js:37
 msgid "<span>Enable your premium features by using the license available in <a>your account</a>.</span>"
-msgstr ""
+msgstr "<span>Habilita tus funciones premium usando la licencia disponible en <a>tu cuenta</a>.</span>"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 #: core/js/dist/admin.js:111
 msgid "Enter your license key"
-msgstr ""
+msgstr "Introduce tu clave de licencia"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 #: core/js/dist/admin.js:111
 #: core/js/dist/admin.js:113
 msgid "Activate"
-msgstr ""
+msgstr "Activar"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "<span>Need help with your license? <a>Click here</a>.</span>"
-msgstr ""
+msgstr "<span>¿Necesitas ayuda con tu licencia? <a>Haz clic aquí</a>.</span>"
 
 #: core/js/dist/admin.js:37
 msgid "<strong>Unlock Your Aggregator Premium Plan.</strong> <a>Activate your license</a> to access your new premium features."
-msgstr ""
+msgstr "<strong>Desbloquea tu plan Premium de Aggregator.</strong> <a>Activa tu licencia</a> para acceder a tus nuevas funciones premium."
 
 #: core/js/dist/admin.js:37
 msgid "Customization"
-msgstr ""
+msgstr "Personalización"
 
 #: core/js/dist/admin.js:37
 msgid "Filtering"
-msgstr ""
+msgstr "Filtrado"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 #: core/js/dist/admin.js:111
 #: core/js/dist/admin.js:113
 msgid "Are you sure?"
-msgstr ""
+msgstr "¿Estás seguro?"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "You have unsaved changes. If you leave now, your changes will be lost."
-msgstr ""
+msgstr "Tienes cambios sin guardar. Si te vas ahora, tus cambios se perderán."
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 #: core/js/dist/admin.js:111
 #: core/js/dist/admin.js:113
 msgid "Leave"
-msgstr ""
+msgstr "Salir"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 #: core/js/dist/admin.js:111
 #: core/js/dist/admin.js:113
 msgid "Stay"
-msgstr ""
+msgstr "Permanecer"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:77
 msgid "Saved"
-msgstr ""
+msgstr "Guardado"
 
 #: core/js/dist/admin.js:37
 msgid "Select all sources"
-msgstr ""
+msgstr "Seleccionar todas las fuentes"
 
 #: core/js/dist/admin.js:37
 msgid "Select"
-msgstr ""
+msgstr "Seleccionar"
 
 #: core/js/dist/admin.js:37
 msgid "Deselect"
-msgstr ""
+msgstr "Deseleccionar"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: core/js/dist/admin.js:37
 msgid "Instances"
-msgstr ""
+msgstr "Instancias"
 
 #: core/js/dist/admin.js:37
 msgid "Shortcode"
-msgstr ""
+msgstr "Shortcode"
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (copia)"
 
 #: core/js/dist/admin.js:37
 msgid "Delete display?"
 msgid_plural "Delete %d displays?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "¿Eliminar visualización?"
+msgstr[1] "¿Eliminar %d visualizaciones?"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "This action cannot be undone."
-msgstr ""
+msgstr "Esta acción no se puede deshacer."
 
 #: core/js/dist/admin.js:37
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplicar"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "%d source"
 msgid_plural "%d sources"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d fuente"
+msgstr[1] "%d fuentes"
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgid "%d folder"
 msgid_plural "%d folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d carpeta"
+msgstr[1] "%d carpetas"
 
 #: core/js/dist/admin.js:37
 msgid "Create a new display"
-msgstr ""
+msgstr "Crear una nueva visualización"
 
 #: core/js/dist/admin.js:37
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgid "%d display"
 msgid_plural "%d displays"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d visualización"
+msgstr[1] "%d visualizaciones"
 
 #: core/js/dist/admin.js:37
 msgid "Set up your first display."
-msgstr ""
+msgstr "Configura tu primera visualización."
 
 #: core/js/dist/admin.js:37
 msgid "Effortlessly curate and showcase content in beautiful displays."
-msgstr ""
+msgstr "Cura y muestra contenido sin esfuerzo en hermosas visualizaciones."
 
 #: core/js/dist/admin.js:37
 msgid "Customize your layout, add titles, images, and excerpts, and bring fresh, dynamic content from across the web to your engaged audience."
-msgstr ""
+msgstr "Personaliza tu diseño, añade títulos, imágenes y extractos, y trae contenido fresco y dinámico de toda la web a tu audiencia comprometida."
 
 #: core/js/dist/admin.js:37
 msgid "Create display"
-msgstr ""
+msgstr "Crear visualización"
 
 #: core/js/dist/admin.js:37
 msgid "Create a new folder"
-msgstr ""
+msgstr "Crear una nueva carpeta"
 
 #: core/js/dist/admin.js:37
 msgid "Edit your folder"
-msgstr ""
+msgstr "Edita tu carpeta"
 
 #: core/js/dist/admin.js:37
 msgid "Keep your sources organized and under control."
-msgstr ""
+msgstr "Mantén tus fuentes organizadas y bajo control."
 
 #: core/js/dist/admin.js:37
 msgid "Folder name"
-msgstr ""
+msgstr "Nombre de la carpeta"
 
 #: core/js/dist/admin.js:37
 msgid "Name your folder"
-msgstr ""
+msgstr "Nombra tu carpeta"
 
 #: core/js/dist/admin.js:37
 msgid "Choose the sources to include in this folder"
-msgstr ""
+msgstr "Elige las fuentes para incluir en esta carpeta"
 
 #: core/js/dist/admin.js:37
 msgid "Create folder"
-msgstr ""
+msgstr "Crear carpeta"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:77
 msgid "Update"
-msgstr ""
+msgstr "Actualizar"
 
 #: core/js/dist/admin.js:37
 msgid "Your folder has been created"
-msgstr ""
+msgstr "Tu carpeta ha sido creada"
 
 #: core/js/dist/admin.js:37
 msgid "Learn how to make the most of your Folders."
-msgstr ""
+msgstr "Aprende a sacar el máximo provecho de tus Carpetas."
+
+#: core/js/dist/admin.js:23
+#: core/js/dist/admin.js:37
+#: core/js/dist/admin.js:77
+#: core/js/dist/admin.js:107
+msgid "New display"
+msgstr "Nueva visualización"
 
 #: core/js/dist/admin.js:37
 msgid "Delete folder?"
 msgid_plural "Delete %d folders?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "¿Eliminar carpeta?"
+msgstr[1] "¿Eliminar %d carpetas?"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Create Display"
-msgstr ""
+msgstr "Crear visualización"
 
 #: core/js/dist/admin.js:37
 msgid "Get access to Folders with Pro"
-msgstr ""
+msgstr "Obtén acceso a Carpetas con Pro"
 
 #: core/js/dist/admin.js:37
 msgid "Streamline your workflow by grouping sources into Folders"
-msgstr ""
+msgstr "Optimiza tu flujo de trabajo agrupando fuentes en Carpetas"
 
 #: core/js/dist/admin.js:37
 msgid "Welcome to a more organized way of managing your sources"
-msgstr ""
+msgstr "Bienvenido a una forma más organizada de gestionar tus fuentes"
 
 #: core/js/dist/admin.js:37
 msgid "Organize your feed sources with ease by creating custom folders. Simplify your management process and ensure your site’s sources are always tidy, easily accessible, and impeccably structured. Upgrade today!"
-msgstr ""
+msgstr "Organiza tus fuentes de feeds con facilidad creando carpetas personalizadas. Simplifica tu proceso de gestión y asegúrate de que las fuentes de tu sitio estén siempre ordenadas, fácilmente accesibles e impecablemente estructuradas. ¡Actualiza hoy!"
 
 #: core/js/dist/admin.js:37
 msgid "Create your first folder to easily manage and access your sources."
-msgstr ""
+msgstr "Crea tu primera carpeta para gestionar y acceder fácilmente a tus fuentes."
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:113
 msgid "Upgrade"
-msgstr ""
+msgstr "Actualizar"
 
 #: core/js/dist/admin.js:37
 msgid "View all"
-msgstr ""
+msgstr "Ver todo"
 
 #: core/js/dist/admin.js:37
 msgid "Your Account"
-msgstr ""
+msgstr "Tu cuenta"
 
 #: core/js/dist/admin.js:37
 msgid "Locating Your License Keys"
-msgstr ""
+msgstr "Localización de tus claves de licencia"
 
 #: core/js/dist/admin.js:37
 msgid "Upgrading Your License or Plan"
-msgstr ""
+msgstr "Actualización de tu licencia o plan"
 
 #: core/js/dist/admin.js:37
 msgid "Updating Your Billing Details"
-msgstr ""
+msgstr "Actualización de tus datos de facturación"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:111
 msgid "Getting Started"
-msgstr ""
+msgstr "Primeros pasos"
 
 #: core/js/dist/admin.js:37
 msgid "Minimum Requirements"
-msgstr ""
+msgstr "Requisitos mínimos"
 
 #: core/js/dist/admin.js:37
 msgid "Activating Your License Key"
-msgstr ""
+msgstr "Activación de tu clave de licencia"
 
 #: core/js/dist/admin.js:37
 msgid "Installing Aggregator Premium"
-msgstr ""
+msgstr "Instalación de Aggregator Premium"
 
 #: core/js/dist/admin.js:37
 msgid "The Hub"
-msgstr ""
+msgstr "El Hub"
 
 #: core/js/dist/admin.js:37
 msgid "Sources List"
-msgstr ""
+msgstr "Lista de fuentes"
 
 #: core/js/dist/admin.js:37
 msgid "Adding a Source"
-msgstr ""
+msgstr "Añadir una fuente"
 
 #: core/js/dist/admin.js:37
 msgid "Finding an RSS Feed"
-msgstr ""
+msgstr "Encontrar un feed RSS"
 
 #: core/js/dist/admin.js:37
 msgid "Displays List"
-msgstr ""
+msgstr "Lista de visualizaciones"
 
 #: core/js/dist/admin.js:37
 msgid "Creating a Display"
-msgstr ""
+msgstr "Crear una visualización"
 
 #: core/js/dist/admin.js:37
 msgid "The Shortcode"
-msgstr ""
+msgstr "El Shortcode"
 
 #: core/js/dist/admin.js:37
 msgid "Basic plan"
-msgstr ""
+msgstr "Plan Básico"
 
 #: core/js/dist/admin.js:37
 msgid "Folders List"
-msgstr ""
+msgstr "Lista de carpetas"
 
 #: core/js/dist/admin.js:37
 msgid "Creating a Folder"
-msgstr ""
+msgstr "Crear una carpeta"
 
 #: core/js/dist/admin.js:37
 msgid "Feed to Post"
-msgstr ""
+msgstr "Feed a entrada"
 
 #: core/js/dist/admin.js:37
 msgid "Plus plan"
-msgstr ""
+msgstr "Plan Plus"
 
 #: core/js/dist/admin.js:37
 msgid "An Introduction to Feed to Post"
-msgstr ""
+msgstr "Una introducción a Feed to Post"
 
 #: core/js/dist/admin.js:37
 msgid "Importing into a Custom Post Type"
-msgstr ""
+msgstr "Importar a un tipo de entrada personalizado"
 
 #: core/js/dist/admin.js:37
 msgid "Importing Posts as Drafts"
-msgstr ""
+msgstr "Importar entradas como borradores"
 
 #: core/js/dist/admin.js:37
 msgid "Full Text"
-msgstr ""
+msgstr "Texto completo"
 
 #: core/js/dist/admin.js:37
 msgid "PRO plan"
-msgstr ""
+msgstr "Plan PRO"
 
 #: core/js/dist/admin.js:37
 msgid "An Introduction to Full Text"
-msgstr ""
+msgstr "Una introducción al texto completo"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Full Text Service"
-msgstr ""
+msgstr "Servicio de texto completo"
 
 #: core/js/dist/admin.js:37
 msgid "Limitations of Our Full Text Service"
-msgstr ""
+msgstr "Limitaciones de nuestro servicio de texto completo"
 
 #: core/js/dist/admin.js:37
 msgid "Custom Feeds"
-msgstr ""
+msgstr "Feeds personalizados"
 
 #: core/js/dist/admin.js:37
 msgid "Custom Feed Settings"
-msgstr ""
+msgstr "Ajustes de feed personalizados"
 
 #: core/js/dist/admin.js:37
 msgid "Free Feed Creator Service"
-msgstr ""
+msgstr "Servicio gratuito de creación de feeds"
 
 #: core/js/dist/admin.js:37
 msgid "Custom RSS Feed of Imported Items"
-msgstr ""
+msgstr "Feed RSS personalizado de elementos importados"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Automations"
-msgstr ""
+msgstr "Automatizaciones"
 
 #: core/js/dist/admin.js:37
 msgid "An Introduction to Automations"
-msgstr ""
+msgstr "Una introducción a las automatizaciones"
 
 #: core/js/dist/admin.js:37
 msgid "Source Automations"
-msgstr ""
+msgstr "Automatizaciones de origen"
 
 #: core/js/dist/admin.js:37
 msgid "Global Automations"
-msgstr ""
+msgstr "Automatizaciones globales"
 
 #: core/js/dist/admin.js:37
 msgid "Elite plan"
-msgstr ""
+msgstr "Plan Élite"
 
 #: core/js/dist/admin.js:37
 msgid "WordAi Integration"
-msgstr ""
+msgstr "Integración con WordAi"
 
 #: core/js/dist/admin.js:37
 msgid "SpinnerChief Integration"
-msgstr ""
+msgstr "Integración con SpinnerChief"
 
 #: core/js/dist/admin.js:37
 msgid "General Settings"
-msgstr ""
+msgstr "Ajustes generales"
 
 #: core/js/dist/admin.js:37
 msgid "Advanced Settings"
-msgstr ""
+msgstr "Ajustes avanzados"
 
 #: core/js/dist/admin.js:37
 msgid "Import/Export"
-msgstr ""
+msgstr "Importar/Exportar"
 
 #: core/js/dist/admin.js:37
 msgid "Import/Export Feed Sources"
-msgstr ""
+msgstr "Importar/Exportar fuentes de feeds"
 
 #: core/js/dist/admin.js:37
 msgid "Import/Export Posts"
-msgstr ""
+msgstr "Importar/Exportar entradas"
 
 #: core/js/dist/admin.js:37
 msgid "Import/Export Feed Items"
-msgstr ""
+msgstr "Importar/Exportar elementos de feeds"
 
 #: core/js/dist/admin.js:37
 msgid "Developers"
-msgstr ""
+msgstr "Desarrolladores"
 
 #: core/js/dist/admin.js:37
 msgid "Adding Custom Actions and Filters"
-msgstr ""
+msgstr "Añadir acciones y filtros personalizados"
 
 #: core/js/dist/admin.js:37
 msgid "Image Cache Control"
-msgstr ""
+msgstr "Control de caché de imágenes"
 
 #: core/js/dist/admin.js:37
 msgid "Customization Works"
-msgstr ""
+msgstr "Trabajos de personalización"
 
 #: core/js/dist/admin.js:37
 msgid "Support"
-msgstr ""
+msgstr "Soporte"
 
 #: core/js/dist/admin.js:37
 msgid "Items Not Importing"
-msgstr ""
+msgstr "Elementos que no se importan"
 
 #: core/js/dist/admin.js:37
 msgid "Images Not Importing"
-msgstr ""
+msgstr "Imágenes que no se importan"
 
 #: core/js/dist/admin.js:37
 msgid "Solutions to Cron Issues"
-msgstr ""
+msgstr "Soluciones a problemas de Cron"
 
 #: core/js/dist/admin.js:37
 msgid "FAQs"
-msgstr ""
+msgstr "Preguntas frecuentes"
 
 #: core/js/dist/admin.js:37
 msgid "Glossary of Terms"
-msgstr ""
+msgstr "Glosario de términos"
 
 #: core/js/dist/admin.js:37
 msgid "Video Library"
-msgstr ""
+msgstr "Videoteca"
 
 #: core/js/dist/admin.js:37
 msgid "How do I get started with Aggregator?"
-msgstr ""
+msgstr "¿Cómo empiezo con Aggregator?"
 
 #: core/js/dist/admin.js:37
 msgid "We have a complete <gettingStartedLink>getting started guide</gettingStartedLink> that you can follow to start using Aggregator. From setting up your sources to display imported content on your site, the guide will walk you through all the basic steps. If you need any help along the way, please <contactSupportLink>contact our support team</contactSupportLink>. We're always happy to help."
-msgstr ""
+msgstr "Tenemos una <gettingStartedLink>guía de inicio</gettingStartedLink> completa que puedes seguir para empezar a usar Aggregator. Desde la configuración de tus fuentes hasta la visualización del contenido importado en tu sitio, la guía te guiará a través de todos los pasos básicos. Si necesitas ayuda en el camino, por favor <contactSupportLink>contacta con nuestro equipo de soporte</contactSupportLink>. Siempre estamos felices de ayudar."
 
 #: core/js/dist/admin.js:37
 msgid "How do I use the shortcode/block to display imported content?"
-msgstr ""
+msgstr "¿Cómo uso el shortcode/bloque para mostrar el contenido importado?"
 
 #: core/js/dist/admin.js:37
 msgid "To embed imported content on a page, you can <displayLink>create a Display</displayLink> and then use Aggregator's <shortCodeLink>shortcode</shortCodeLink> or <blockLink>block</blockLink> to add the content anywhere on your site. The content being display can be imported as Feed Items, Posts, or any custom post type."
-msgstr ""
+msgstr "Para incrustar contenido importado en una página, puedes <displayLink>crear una Visualización</displayLink> y luego usar el <shortCodeLink>shortcode</shortCodeLink> o el <blockLink>bloque</blockLink> de Aggregator para añadir el contenido en cualquier lugar de tu sitio. El contenido que se muestra se puede importar como Elementos de feed, Entradas o cualquier tipo de entrada personalizado."
 
 #: core/js/dist/admin.js:37
 msgid "Why aren't my sources importing new items?"
-msgstr ""
+msgstr "¿Por qué mis fuentes no importan nuevos elementos?"
 
 #: core/js/dist/admin.js:37
 msgid "If a source isn’t importing new items, check the source URL’s validity, the source's limit settings, any automation filtering rules, and lastly, cron-related issues. In most cases, this issue can be resolved quite quickly, but if you need any further help, please <contactSupportLink>contact our support team</contactSupportLink>."
-msgstr ""
+msgstr "Si una fuente no está importando nuevos elementos, comprueba la validez de la URL de la fuente, los ajustes de límite de la fuente, cualquier regla de filtrado de automatización y, por último, problemas relacionados con cron. En la mayoría de los casos, este problema se puede resolver con bastante rapidez, pero si necesitas más ayuda, por favor <contactSupportLink>contacta con nuestro equipo de soporte</contactSupportLink>."
 
 #: core/js/dist/admin.js:37
 msgid "Why is my imported content missing images?"
-msgstr ""
+msgstr "¿Por qué a mi contenido importado le faltan imágenes?"
 
 #: core/js/dist/admin.js:37
 msgid "If images are not being imported with your content, first ensure the source provides images. Once you've done that, verify the image import settings are enabled for the source and check whether they're set up to find the correct images. If you need further help to resolve this issue, please <contactSupportLink>contact our support team</contactSupportLink>."
-msgstr ""
+msgstr "Si las imágenes no se importan con tu contenido, primero asegúrate de que la fuente proporcione imágenes. Una vez que lo hayas hecho, verifica que la configuración de importación de imágenes esté habilitada para la fuente y comprueba si están configuradas para encontrar las imágenes correctas. Si necesitas más ayuda para resolver este problema, por favor <contactSupportLink>contacta con nuestro equipo de soporte</contactSupportLink>."
 
 #: core/js/dist/admin.js:37
 msgid "How do I import items as Posts or a custom post type?"
-msgstr ""
+msgstr "¿Cómo importo elementos como Entradas o un tipo de entrada personalizado?"
 
 #: core/js/dist/admin.js:37
 msgid "To import items as Posts or a custom post type, go to the Sources section in your Aggregator settings. Select the source you want to edit or add a new one. In the Post Type setting, choose either Posts or your desired custom post type from the dropdown menu. Save your changes to start importing items as the selected post type. This allows items from your source to be displayed as standard WordPress Posts in your blog or in a custom post type that suits your site’s structure."
-msgstr ""
+msgstr "Para importar elementos como Entradas o un tipo de entrada personalizado, ve a la sección de Fuentes en la configuración de tu Aggregator. Selecciona la fuente que quieres editar o añade una nueva. En la configuración de Tipo de entrada, elige Entradas o tu tipo de entrada personalizado deseado en el menú desplegable. Guarda los cambios para empezar a importar elementos como el tipo de entrada seleccionado. Esto permite que los elementos de tu fuente se muestren como Entradas de WordPress estándar en tu blog o en un tipo de entrada personalizado que se adapte a la estructura de tu sitio."
 
 #: core/js/dist/admin.js:37
 msgid "Can I curate articles before they get published?"
-msgstr ""
+msgstr "¿Puedo curar artículos antes de que se publiquen?"
 
 #: core/js/dist/admin.js:37
 msgid "Absolutely. In Aggregator, when setting up or editing a source, you can enable the \"Curate posts\" option. This will enable curation mode for that source, meaning all items are first brought in to your Hub from where you can approve or reject them. Once approved, the items are the imported and published according to your settings."
-msgstr ""
+msgstr "Absolutamente. En Aggregator, al configurar o editar una fuente, puedes habilitar la opción \"Curar entradas\". Esto habilitará el modo de curación para esa fuente, lo que significa que todos los elementos se traen primero a tu Hub desde donde puedes aprobarlos o rechazarlos. Una vez aprobados, los elementos se importan y publican de acuerdo con tu configuración."
 
 #: core/js/dist/admin.js:37
 msgid "How do I display a YouTube video gallery?"
-msgstr ""
+msgstr "¿Cómo muestro una galería de vídeos de YouTube?"
 
 #: core/js/dist/admin.js:37
 msgid "To display a <youTubeLink>YouTube video gallery</youTubeLink>, add a YouTube source in the Sources section by entering the channel's URL. Set up the rest of the source's settings as needed, and then create a Display for that Source. For the best results, use the Grid layout (requires <basicPlanLink>Basic Plan</basicPlanLink>) to create the video gallery."
-msgstr ""
+msgstr "Para mostrar una <youTubeLink>galería de vídeos de YouTube</youTubeLink>, añade una fuente de YouTube en la sección de Fuentes introduciendo la URL del canal. Configura el resto de los ajustes de la fuente según sea necesario y, a continuación, crea una Visualización para esa Fuente. Para obtener los mejores resultados, utiliza el diseño de Cuadrícula (requiere el <basicPlanLink>Plan Básico</basicPlanLink>) para crear la galería de vídeos."
 
 #: core/js/dist/admin.js:37
 msgid "Can I automatically spin imported content with AI?"
-msgstr ""
+msgstr "¿Puedo hacer spinning de contenido importado automáticamente con IA?"
 
 #: core/js/dist/admin.js:37
 msgid "Yes, you can use AI-powered content spinning for all or some of your sources' content by integrating a supported content spinner such as <wordAILink>WordAI</wordAILink> or <spinnerLink>SpinnerChief</spinnerLink>."
-msgstr ""
+msgstr "Sí, puedes usar el spinning de contenido impulsado por IA para todo o parte del contenido de tus fuentes integrando un spinner de contenido compatible como <wordAILink>WordAI</wordAILink> o <spinnerLink>SpinnerChief</spinnerLink>."
 
 #: core/js/dist/admin.js:37
 msgid "Can I translate imported content?"
-msgstr ""
+msgstr "¿Puedo traducir el contenido importado?"
 
 #: core/js/dist/admin.js:37
 msgid "Yes, you can use translation plugins like Weglot, TranslatePress, WPML, or Polylang to set up automatic translations for imported content. Many of these plugins also offer machine translation options, allowing you to translate new items as they are imported and before they are published."
-msgstr ""
+msgstr "Sí, puedes usar plugins de traducción como Weglot, TranslatePress, WPML o Polylang para configurar traducciones automáticas para el contenido importado. Muchos de estos plugins también ofrecen opciones de traducción automática, lo que te permite traducir nuevos elementos a medida que se importan y antes de que se publiquen."
 
 #: core/js/dist/admin.js:37
 msgid "How do I activate my premium features/license?"
-msgstr ""
+msgstr "¿Cómo activo mis funciones/licencia premium?"
 
 #: core/js/dist/admin.js:37
 msgid "Once you've purchase one of Aggregator's premium plans, a license key will be provided for you post-checkout. It will also be sent via email and can be found in your Aggregator account. To activate this license key and unlock your premium features, install the premium Aggregator plugin alongside the free version, then go to Aggregator > Manage Plan to enter your license key."
-msgstr ""
+msgstr "Una vez que hayas comprado uno de los planes premium de Aggregator, se te proporcionará una clave de licencia después de la compra. También se enviará por correo electrónico y se puede encontrar en tu cuenta de Aggregator. Para activar esta clave de licencia y desbloquear tus funciones premium, instala el plugin premium de Aggregator junto con la versión gratuita, luego ve a Aggregator > Gestionar plan para introducir tu clave de licencia."
 
 #: core/js/dist/admin.js:37
 msgid "Can I use my premium license on a staging site?"
-msgstr ""
+msgstr "¿Puedo usar mi licencia premium en un sitio de prueba?"
 
 #: core/js/dist/admin.js:37
 msgid "Yes, your premium license key can be activated on a staging site to use all premium features and it will not use up your activation limit. For example, if you own a single-site license, you can use the premium license on both the live production website and a staging development website."
-msgstr ""
+msgstr "Sí, tu clave de licencia premium se puede activar en un sitio de prueba para usar todas las funciones premium y no consumirá tu límite de activación. Por ejemplo, si tienes una licencia para un solo sitio, puedes usar la licencia premium tanto en el sitio web de producción en vivo como en un sitio web de desarrollo de prueba."
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Read more"
-msgstr ""
+msgstr "Leer más"
 
 #: core/js/dist/admin.js:37
 msgid "WordPress support forum (Public)"
-msgstr ""
+msgstr "Foro de soporte de WordPress (Público)"
 
 #: core/js/dist/admin.js:37
 msgid "Explore the WordPress support forum for Aggregator where you can find answers or ask for help from both the WordPress community and our specialized support team."
-msgstr ""
+msgstr "Explora el foro de soporte de WordPress para Aggregator donde puedes encontrar respuestas o pedir ayuda tanto a la comunidad de WordPress como a nuestro equipo de soporte especializado."
 
 #: core/js/dist/admin.js:37
 msgid "You need to [create a WordPress account][account] to open a discussion."
-msgstr ""
+msgstr "Necesitas [crear una cuenta de WordPress][account] para abrir una discusión."
 
 #: core/js/dist/admin.js:37
 msgid "Visit the WordPress forum"
-msgstr ""
+msgstr "Visita el foro de WordPress"
 
 #: core/js/dist/admin.js:37
 msgid "Contact our team"
-msgstr ""
+msgstr "Contacta con nuestro equipo"
 
 #: core/js/dist/admin.js:37
 msgid "If you don’t find the answers you’re looking for or need personalized help, you can get support from our dedicated support specialists."
-msgstr ""
+msgstr "Si no encuentras las respuestas que buscas o necesitas ayuda personalizada, puedes obtener soporte de nuestros especialistas de soporte dedicados."
 
 #: core/js/dist/admin.js:37
 msgid "Click the button below and fill in the form. We’ll get back to you within 24 hours, excluding weekends."
-msgstr ""
+msgstr "Haz clic en el botón de abajo y rellena el formulario. Te responderemos en 24 horas, excluyendo los fines de semana."
 
 #: core/js/dist/admin.js:37
 msgid "Contact support"
-msgstr ""
+msgstr "Contactar con soporte"
 
 #: core/js/dist/admin.js:37
 msgid "Get answers to popular questions. If your questions is not listed, the Documentation tab to the left could help."
-msgstr ""
+msgstr "Obtén respuestas a preguntas populares. Si tu pregunta no está en la lista, la pestaña de Documentación a la izquierda podría ayudar."
 
 #: core/js/dist/admin.js:37
 msgid "Documentation"
-msgstr ""
+msgstr "Documentación"
 
 #: core/js/dist/admin.js:37
 msgid "Search through our collection of help articles. The links below open in a new tab."
-msgstr ""
+msgstr "Busca en nuestra colección de artículos de ayuda. Los enlaces de abajo se abren en una nueva pestaña."
 
 #: core/js/dist/admin.js:37
 msgid "View Documentation"
-msgstr ""
+msgstr "Ver documentación"
 
 #: core/js/dist/admin.js:37
 msgid "Our support team is on standby to assist you with any questions or guidance you may need. "
-msgstr ""
+msgstr "Nuestro equipo de soporte está a tu disposición para ayudarte con cualquier pregunta o guía que necesites. "
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgid "%d – %d of %d"
-msgstr ""
+msgstr "%d – %d de %d"
 
 #: core/js/dist/admin.js:37
 msgctxt "Hub page menu. E.g.: 'Show up to 5 posts'"
 msgid "Show up to"
-msgstr ""
+msgstr "Mostrar hasta"
 
 #: core/js/dist/admin.js:37
 msgid "Hide section when empty"
-msgstr ""
+msgstr "Ocultar sección cuando esté vacía"
 
 #: core/js/dist/admin.js:37
 msgid "Previous post"
-msgstr ""
+msgstr "Entrada anterior"
 
 #: core/js/dist/admin.js:37
 msgid "Next post"
-msgstr ""
+msgstr "Siguiente entrada"
 
 #: core/js/dist/admin.js:37
 msgid "Reject"
-msgstr ""
+msgstr "Rechazar"
 
 #: core/js/dist/admin.js:37
 msgid "Accept"
-msgstr ""
+msgstr "Aceptar"
 
 #: core/js/dist/admin.js:37
 msgid "Featured image"
-msgstr ""
+msgstr "Imagen destacada"
 
 #: core/js/dist/admin.js:37
 msgctxt "Title column in Hub page post table"
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: core/js/dist/admin.js:37
 msgctxt "Source column in Hub page post table"
 msgid "Source"
-msgstr ""
+msgstr "Fuente"
 
 #: core/js/dist/admin.js:37
 msgctxt "Author column in Hub page post table"
 msgid "Author"
-msgstr ""
-
-#: core/js/dist/admin.js:37
-msgid "New source"
-msgstr ""
-
-#: core/js/dist/admin.js:37
-msgid "Latest imported posts"
-msgstr ""
-
-#: core/js/dist/admin.js:37
-msgid "Settings saved"
-msgstr ""
+msgstr "Autor"
 
 #: core/js/dist/admin.js:37
 msgid "Pending Approval"
-msgstr ""
+msgstr "Pendiente de aprobación"
 
 #: core/js/dist/admin.js:37
 msgid "View"
-msgstr ""
+msgstr "Ver"
 
 #: core/js/dist/admin.js:37
 msgid "Approve"
-msgstr ""
+msgstr "Aprobar"
 
 #: core/js/dist/admin.js:37
 msgctxt "Hub bulk curation"
 msgid "Reject"
-msgstr ""
+msgstr "Rechazar"
 
 #: core/js/dist/admin.js:37
 msgctxt "Hub bulk curation"
 msgid "Approve"
-msgstr ""
+msgstr "Aprobar"
 
 #: core/js/dist/admin.js:37
 msgid "Mission Accomplished"
-msgstr ""
+msgstr "Misión cumplida"
 
 #: core/js/dist/admin.js:37
 msgid "Congrats, you've curated all your items! Time to take a breather."
-msgstr ""
+msgstr "¡Felicidades, has curado todos tus elementos! Es hora de tomar un respiro."
 
 #: core/js/dist/admin.js:37
 msgid "*Curate the content* to spotlight what truly matters"
-msgstr ""
+msgstr "*Cura el contenido* para destacar lo que realmente importa"
 
 #: core/js/dist/admin.js:37
 msgid "*Oversee your site’s content quality* by reviewing items before they’re published. Manually approve or reject content that truly matters to your visitors."
-msgstr ""
+msgstr "*Supervisa la calidad del contenido de tu sitio* revisando los elementos antes de que se publiquen. Aprueba o rechaza manualmente el contenido que realmente importa a tus visitantes."
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Add a new source"
-msgstr ""
+msgstr "Añadir una nueva fuente"
 
 #: core/js/dist/admin.js:37
 msgid "Learn more about curation"
-msgstr ""
+msgstr "Aprende más sobre la curación"
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgid "%d selected"
-msgstr ""
+msgstr "%d seleccionado"
 
 #: core/js/dist/admin.js:37
 msgid "All sources"
-msgstr ""
+msgstr "Todas las fuentes"
 
 #: core/js/dist/admin.js:37
 msgid "All folders"
-msgstr ""
+msgstr "Todas las carpetas"
 
 #: core/js/dist/admin.js:37
 msgid "Import date"
-msgstr ""
+msgstr "Fecha de importación"
 
 #: core/js/dist/admin.js:37
 msgid "Published date"
-msgstr ""
+msgstr "Fecha de publicación"
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgid "Order by %s"
-msgstr ""
+msgstr "Ordenar por %s"
 
 #: core/js/dist/admin.js:37
 msgid "Are you sure you want to dismiss this notice?"
-msgstr ""
+msgstr "¿Estás seguro de que quieres descartar este aviso?"
 
 #: core/js/dist/admin.js:37
 msgid "You may not see your content unless the v5 migration is fully completed."
-msgstr ""
+msgstr "Es posible que no veas tu contenido a menos que la migración a v5 se complete por completo."
 
 #: core/js/dist/admin.js:37
 msgid "Dismiss anyway"
-msgstr ""
+msgstr "Descartar de todos modos"
 
 #: core/js/dist/admin.js:37
 msgid "<strong>Note: Migrate your content to v5 with WP-CLI</strong><br />To complete the migration, follow the steps in our guide: <a>Migration (WP-CLI Method)</a><br />Your v4 data is safe and still available for import. Once the command is run successfully, refresh this page to see your content."
-msgstr ""
+msgstr "<strong>Nota: Migra tu contenido a v5 con WP-CLI</strong><br />Para completar la migración, sigue los pasos de nuestra guía: <a>Migración (Método WP-CLI)</a><br />Tus datos de v4 están seguros y todavía disponibles para importar. Una vez que el comando se ejecute con éxito, actualiza esta página para ver tu contenido."
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgctxt "Hub page header"
 msgid "Hey, %s!"
-msgstr ""
+msgstr "¡Hola, %s!"
 
 #: core/js/dist/admin.js:37
 msgid "Dive into your Hub. Here’s a snapshot of your feeds →"
-msgstr ""
+msgstr "Sumérgete en tu Hub. Aquí tienes una captura de tus feeds →"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Imported Items"
-msgstr ""
+msgstr "Elementos importados"
 
 #: core/js/dist/admin.js:37
 msgid "Pending Items"
-msgstr ""
+msgstr "Elementos pendientes"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:113
 msgid "Rejected Items"
-msgstr ""
+msgstr "Elementos rechazados"
 
 #: core/js/dist/admin.js:37
 msgid "Recently Imported"
-msgstr ""
+msgstr "Importado recientemente"
 
 #: core/js/dist/admin.js:37
 msgid "Are you sure you want to delete this post?"
 msgid_plural "Are you sure you want to delete these posts?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "¿Estás seguro de que quieres eliminar esta entrada?"
+msgstr[1] "¿Estás seguro de que quieres eliminar estas entradas?"
 
 #: core/js/dist/admin.js:37
 msgid "No Imported Content"
-msgstr ""
+msgstr "No hay contenido importado"
 
 #: core/js/dist/admin.js:37
 msgid "Remember to import content from your sources to display it on your website."
-msgstr ""
+msgstr "Recuerda importar contenido de tus fuentes para mostrarlo en tu sitio web."
 
 #: core/js/dist/admin.js:37
 msgid "Start importing fresh content to your site"
-msgstr ""
+msgstr "Empieza a importar contenido fresco a tu sitio"
 
 #: core/js/dist/admin.js:37
 msgid "Kickstart your automated content import"
-msgstr ""
+msgstr "Inicia la importación automatizada de contenido"
 
 #: core/js/dist/admin.js:37
 msgid "Add your first source to *automatically import fresh content* to your site in seconds."
-msgstr ""
+msgstr "Añade tu primera fuente para *importar automáticamente contenido fresco* a tu sitio en segundos."
 
 #: core/js/dist/admin.js:37
 msgid "Congratulations!"
-msgstr ""
+msgstr "¡Felicidades!"
 
 #: core/js/dist/admin.js:37
 msgid "Fresh content is now being imported to your site."
-msgstr ""
+msgstr "Se está importando contenido fresco a tu sitio."
 
 #: core/js/dist/admin.js:37
 msgid "Check your inbox"
-msgstr ""
+msgstr "Revisa tu bandeja de entrada"
 
 #: core/js/dist/admin.js:37
 msgid "Don’t want to wait?"
-msgstr ""
+msgstr "¿No quieres esperar?"
 
 #: core/js/dist/admin.js:37
 msgid "Download your eBook now."
-msgstr ""
+msgstr "Descarga tu eBook ahora."
 
 #: core/js/dist/admin.js:37
 msgid "Unlock your exclusive bonus resource & special offer"
-msgstr ""
+msgstr "Desbloquea tu recurso de bonificación exclusivo y oferta especial"
 
 #: core/js/dist/admin.js:37
 msgid "Email address"
-msgstr ""
+msgstr "Dirección de correo electrónico"
 
 #: core/js/dist/admin.js:37
 msgid "Send me product updates & offers via email."
-msgstr ""
+msgstr "Enviarme actualizaciones de productos y ofertas por correo electrónico."
 
 #: core/js/dist/admin.js:37
 msgid "Claim Now"
-msgstr ""
+msgstr "Reclamar ahora"
 
 #: core/js/dist/admin.js:37
 msgid "Welcome to your Hub!"
-msgstr ""
+msgstr "¡Bienvenido a tu Hub!"
 
 #: core/js/dist/admin.js:37
 msgid "This is where you will manage your sources and monitor your imported content."
-msgstr ""
+msgstr "Aquí es donde gestionarás tus fuentes y supervisarás tu contenido importado."
 
 #: core/js/dist/admin.js:37
 msgid "Dive in!"
-msgstr ""
+msgstr "¡Sumérgete!"
 
 #: core/js/dist/admin.js:37
 msgctxt "Hub page"
 msgid "Your Content"
-msgstr ""
+msgstr "Tu contenido"
 
 #: core/js/dist/admin.js:37
 msgid "We’d love to hear your thoughts."
-msgstr ""
+msgstr "Nos encantaría conocer tu opinión."
 
 #: core/js/dist/admin.js:37
 msgid "Please share your feedback to help us make Aggregator even better. Your thoughts are invaluable to us as we strive to enhance your experience."
-msgstr ""
+msgstr "Por favor, comparte tus comentarios para ayudarnos a mejorar Aggregator. Tus opiniones son invaluables para nosotros mientras nos esforzamos por mejorar tu experiencia."
 
 #: core/js/dist/admin.js:37
 msgid "Here are some of the ideas we’ve been working on:"
-msgstr ""
+msgstr "Estas son algunas de las ideas en las que hemos estado trabajando:"
 
 #: core/js/dist/admin.js:37
 msgid "Further AI integration"
-msgstr ""
+msgstr "Mayor integración de IA"
 
 #: core/js/dist/admin.js:37
 msgid "Community building"
-msgstr ""
+msgstr "Construcción de comunidad"
 
 #: core/js/dist/admin.js:37
 msgid "Translations"
-msgstr ""
+msgstr "Traducciones"
 
 #: core/js/dist/admin.js:37
 msgid "Let us know what you’d like to see us focus on."
-msgstr ""
+msgstr "Dinos en qué te gustaría que nos centráramos."
 
 #: core/js/dist/admin.js:37
 msgid "Suggest an integration"
-msgstr ""
+msgstr "Sugerir una integración"
 
 #: core/js/dist/admin.js:37
 msgid "Deactivate"
-msgstr ""
+msgstr "Desactivar"
 
 #: core/js/dist/admin.js:37
 msgid "API issues?"
-msgstr ""
+msgstr "¿Problemas con la API?"
 
 #: core/js/dist/admin.js:37
 msgid "Enter your SpinnerChief API key"
-msgstr ""
+msgstr "Introduce tu clave de API de SpinnerChief"
 
 #: core/js/dist/admin.js:37
 msgid "Enter your SpinnerChief Developer key"
-msgstr ""
+msgstr "Introduce tu clave de desarrollador de SpinnerChief"
 
 #: core/js/dist/admin.js:37
 msgid "Unlock a world of content with SpinnerChief"
-msgstr ""
+msgstr "Desbloquea un mundo de contenido con SpinnerChief"
 
 #: core/js/dist/admin.js:37
 msgid "Embrace the power of AI to effortlessly rewrite and spin your content, making it unique and SEO-friendly. It's all about making the content work for you, without the extra hassle."
-msgstr ""
+msgstr "Aprovecha el poder de la IA para reescribir y hacer spinning de tu contenido sin esfuerzo, haciéndolo único y compatible con SEO. Se trata de hacer que el contenido trabaje para ti, sin complicaciones adicionales."
 
 #: core/js/dist/admin.js:37
 msgid "Automatic content rewriting"
-msgstr ""
+msgstr "Reescritura automática de contenido"
 
 #: core/js/dist/admin.js:37
 msgid "Save valuable time on content production"
-msgstr ""
+msgstr "Ahorra un tiempo valioso en la producción de contenido"
 
 #: core/js/dist/admin.js:37
 msgid "Boost your SEO Support"
-msgstr ""
+msgstr "Mejora tu soporte de SEO"
 
 #: core/js/dist/admin.js:37
 msgid "Learn more"
-msgstr ""
+msgstr "Aprende más"
 
 #: core/js/dist/admin.js:37
 msgid "Requires a [SpinnerChief][sc] subscription."
-msgstr ""
+msgstr "Requiere una suscripción a [SpinnerChief][sc]."
 
 #: core/js/dist/admin.js:37
 msgid "Enter your email address"
-msgstr ""
+msgstr "Introduce tu dirección de correo electrónico"
 
 #: core/js/dist/admin.js:37
 msgid "Enter your API key"
-msgstr ""
+msgstr "Introduce tu clave de API"
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgid "*Account usage*: %s / %s words (%.2f%%)"
-msgstr ""
+msgstr "*Uso de la cuenta*: %s / %s palabras (%.2f%%)"
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgctxt "%s = Yes/No"
 msgid "*Can exceed limit:* %s"
-msgstr ""
+msgstr "*Puede exceder el límite:* %s"
 
 #: core/js/dist/admin.js:37
 msgctxt "Link to WordAi in Integrations page"
 msgid "Account Usage Settings"
-msgstr ""
+msgstr "Ajustes de uso de la cuenta"
 
 #: core/js/dist/admin.js:37
 msgid "Invalid email or API key."
-msgstr ""
+msgstr "Correo electrónico o clave de API no válidos."
 
 #: core/js/dist/admin.js:37
 msgid "Refine your content strategy with WordAi"
-msgstr ""
+msgstr "Refina tu estrategia de contenido con WordAi"
 
 #: core/js/dist/admin.js:37
 msgid "By leveraging AI to rewrite your content, WordAi keeps the essence of your message while enhancing its uniqueness and SEO friendliness. It's about adding value where it matters most."
-msgstr ""
+msgstr "Al aprovechar la IA para reescribir tu contenido, WordAi mantiene la esencia de tu mensaje mientras mejora su singularidad y amigabilidad con el SEO. Se trata de añadir valor donde más importa."
 
 #: core/js/dist/admin.js:37
 msgid "Content uniqueness"
-msgstr ""
+msgstr "Singularidad del contenido"
 
 #: core/js/dist/admin.js:37
 msgid "Increase engagement through refined content"
-msgstr ""
+msgstr "Aumenta el compromiso a través de contenido refinado"
 
 #: core/js/dist/admin.js:37
 msgid "Boost your content's SEO"
-msgstr ""
+msgstr "Mejora el SEO de tu contenido"
 
 #: core/js/dist/admin.js:37
 msgid "Requires a [WordAi][wordai] subscription."
-msgstr ""
+msgstr "Requiere una suscripción a [WordAi][wordai]."
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "SpinnerChief"
-msgstr ""
+msgstr "SpinnerChief"
 
 #: core/js/dist/admin.js:37
 msgid "Seamlessly integrate with SpinnerChief to automatically rewrite and spin imported content."
-msgstr ""
+msgstr "Intégrate sin problemas con SpinnerChief para reescribir y hacer spinning automáticamente del contenido importado."
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "WordAi"
-msgstr ""
+msgstr "WordAi"
 
 #: core/js/dist/admin.js:37
 msgid "Seamlessly integrate with 3rd-party tools to automatically rewrite and spin imported content."
-msgstr ""
+msgstr "Intégrate sin problemas con herramientas de terceros para reescribir y hacer spinning automáticamente del contenido importado."
 
 #: core/js/dist/admin.js:37
 msgid "More coming soon"
-msgstr ""
+msgstr "Más próximamente"
 
 #: core/js/dist/admin.js:37
 msgid "Stay tuned for future integrations that will have you buzzing with excitement!"
-msgstr ""
+msgstr "¡Mantente atento a futuras integraciones que te llenarán de emoción!"
 
 #: core/js/dist/admin.js:37
 msgid "Reject an item"
-msgstr ""
+msgstr "Rechazar un elemento"
 
 #: core/js/dist/admin.js:37
 msgid "Edit Rejected Item"
-msgstr ""
+msgstr "Editar elemento rechazado"
 
 #: core/js/dist/admin.js:37
 msgid "This feed item will never be imported."
-msgstr ""
+msgstr "Este elemento de feed nunca se importará."
 
 #: core/js/dist/admin.js:37
 msgid "URL to reject"
-msgstr ""
+msgstr "URL a rechazar"
 
 #: core/js/dist/admin.js:37
 msgid "https://"
-msgstr ""
+msgstr "https://"
 
 #: core/js/dist/admin.js:37
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #: core/js/dist/admin.js:37
 msgctxt "In the rejected item modal, next to the 'Note' label."
 msgid " - Optional"
-msgstr ""
+msgstr " - Opcional"
 
 #: core/js/dist/admin.js:37
 msgid "Add a quick note or paste the item’s title for quick reference."
-msgstr ""
+msgstr "Añade una nota rápida o pega el título del elemento para una referencia rápida."
 
 #: core/js/dist/admin.js:37
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: core/js/dist/admin.js:37
 msgid "Notes"
-msgstr ""
+msgstr "Notas"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Delete items"
-msgstr ""
+msgstr "Eliminar elementos"
 
 #: core/js/dist/admin.js:37
 msgid "Are you sure you want to delete the selected items? This cannot be undone."
-msgstr ""
+msgstr "¿Estás seguro de que quieres eliminar los elementos seleccionados? Esta acción no se puede deshacer."
 
 #: core/js/dist/admin.js:37
 msgid "Exclude items from ever being imported to your site."
-msgstr ""
+msgstr "Excluir elementos para que nunca se importen a tu sitio."
 
 #: core/js/dist/admin.js:37
 msgid "Any items from your sources with a URL that’s found in this list will be rejected."
-msgstr ""
+msgstr "Cualquier elemento de tus fuentes con una URL que se encuentre en esta lista será rechazado."
 
 #: core/js/dist/admin.js:37
 msgid "Reject a URL"
-msgstr ""
+msgstr "Rechazar una URL"
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgid "%d rejected item"
 msgid_plural "%d rejected items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d elemento rechazado"
+msgstr[1] "%d elementos rechazados"
 
 #: core/js/dist/admin.js:37
 msgid "Choose file"
-msgstr ""
+msgstr "Elegir archivo"
 
 #: core/js/dist/admin.js:37
 msgid "Import/Export Settings"
-msgstr ""
+msgstr "Ajustes de importación/exportación"
 
 #: core/js/dist/admin.js:37
 msgid "Delete All Imported Items"
-msgstr ""
+msgstr "Eliminar todos los elementos importados"
 
 #: core/js/dist/admin.js:37
 msgid "Migration Recovery Options"
-msgstr ""
+msgstr "Opciones de recuperación de migración"
 
 #: core/js/dist/admin.js:37
 msgid "SSL Certificate Path"
-msgstr ""
+msgstr "Ruta del certificado SSL"
 
 #: core/js/dist/admin.js:37
 msgid "Default"
-msgstr ""
+msgstr "Predeterminado"
 
 #: core/js/dist/admin.js:37
 msgid "Feed request useragent"
-msgstr ""
+msgstr "Useragent de solicitud de feed"
 
 #: core/js/dist/admin.js:37
 msgid "Enable feed cache"
-msgstr ""
+msgstr "Habilitar caché de feed"
 
 #: core/js/dist/admin.js:37
 msgid "Disable styles"
-msgstr ""
+msgstr "Desactivar estilos"
 
 #: core/js/dist/admin.js:37
 msgid "If you would like to disable all styles used in this plugin, tick the checkbox."
-msgstr ""
+msgstr "Si deseas desactivar todos los estilos utilizados en este plugin, marca la casilla de verificación."
 
 #: core/js/dist/admin.js:37
 msgid "Settings imported successfully!"
-msgstr ""
+msgstr "¡Ajustes importados con éxito!"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:77
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 #: core/js/dist/admin.js:37
 msgid "Upload an exported settings file to import your settings."
-msgstr ""
+msgstr "Sube un archivo de ajustes exportado para importar tus ajustes."
 
 #: core/js/dist/admin.js:37
 msgid "Import settings"
-msgstr ""
+msgstr "Importar ajustes"
 
 #: core/js/dist/admin.js:37
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 #: core/js/dist/admin.js:37
 msgid "Download a file that contains all of your settings for WP RSS Aggregator."
-msgstr ""
+msgstr "Descarga un archivo que contiene todos tus ajustes para WP RSS Aggregator."
 
 #: core/js/dist/admin.js:37
 msgid "Export settings"
-msgstr ""
+msgstr "Exportar ajustes"
 
 #: core/js/dist/admin.js:37
 msgid "This will erase your current Aggregator v5 setup and restart the migration from scratch using the built-in wizard."
-msgstr ""
+msgstr "Esto borrará tu configuración actual de Aggregator v5 y reiniciará la migración desde cero utilizando el asistente incorporado."
 
 #: core/js/dist/admin.js:37
 msgid "Re-run migration"
-msgstr ""
+msgstr "Re-ejecutar migración"
 
 #: core/js/dist/admin.js:37
 msgid "Resetting v5 to a fresh build."
-msgstr ""
+msgstr "Restableciendo v5 a una compilación nueva."
 
 #: core/js/dist/admin.js:37
 msgid "Done!"
-msgstr ""
+msgstr "¡Hecho!"
 
 #: core/js/dist/admin.js:37
 msgid "Unknown error"
-msgstr ""
+msgstr "Error desconocido"
 
 #: core/js/dist/admin.js:37
 msgid "This will restore your previous Aggregator v4 setup. You can migrate to v5 again at any time."
-msgstr ""
+msgstr "Esto restaurará tu configuración anterior de Aggregator v4. Puedes migrar a v5 de nuevo en cualquier momento."
 
 #: core/js/dist/admin.js:37
 msgid "Roll back to v4"
-msgstr ""
+msgstr "Volver a v4"
 
 #: core/js/dist/admin.js:37
 msgid "Delete all imported items"
-msgstr ""
+msgstr "Eliminar todos los elementos importados"
 
 #: core/js/dist/admin.js:37
 msgid "Are you sure you want to delete all imported and pending posts?"
-msgstr ""
+msgstr "¿Estás seguro de que quieres eliminar todas las entradas importadas y pendientes?"
 
 #: core/js/dist/admin.js:37
 msgid "Yes, delete all posts"
-msgstr ""
+msgstr "Sí, eliminar todas las entradas"
 
 #: core/js/dist/admin.js:37
 msgid "No, cancel"
-msgstr ""
+msgstr "No, cancelar"
 
 #: core/js/dist/admin.js:37
 msgid "Deleting imported posts. Please wait."
-msgstr ""
+msgstr "Eliminando entradas importadas. Por favor espera."
 
 #: core/js/dist/admin.js:37
 msgid "Delete all imported posts"
-msgstr ""
+msgstr "Eliminar todas las entradas importadas"
 
 #: core/js/dist/admin.js:37
 msgid "Custom RSS feed URL"
-msgstr ""
+msgstr "URL de feed RSS personalizado"
 
 #: core/js/dist/admin.js:37
 msgid "Customize the last part of the URL. <contactSupportLink>Learn more</contactSupportLink>"
-msgstr ""
+msgstr "Personaliza la última parte de la URL. <contactSupportLink>Aprende más</contactSupportLink>"
 
 #: core/js/dist/admin.js:37
 msgid "Custom RSS feed title"
-msgstr ""
+msgstr "Título de feed RSS personalizado"
 
 #: core/js/dist/admin.js:37
 msgid "Custom RSS feed limit"
-msgstr ""
+msgstr "Límite de feed RSS personalizado"
 
 #: core/js/dist/admin.js:37
 msgctxt "custom feed settings, number of items field, unit text"
 msgid "items"
-msgstr ""
+msgstr "elementos"
 
 #: core/js/dist/admin.js:37
 msgid "Hub Settings"
-msgstr ""
+msgstr "Ajustes del Hub"
 
 #: core/js/dist/admin.js:37
 msgid "Feed to Post Settings"
-msgstr ""
+msgstr "Ajustes de Feed a entrada"
 
 #: core/js/dist/admin.js:37
 msgid "Hide Pending Approval section when empty"
-msgstr ""
+msgstr "Ocultar la sección de Pendiente de aprobación cuando esté vacía"
 
 #: core/js/dist/admin.js:37
 msgid "Hide Recently Imported section when empty"
-msgstr ""
+msgstr "Ocultar la sección de Importado recientemente cuando esté vacía"
 
 #: core/js/dist/admin.js:37
 msgid "Include imported posts in the default WordPress Posts list"
-msgstr ""
+msgstr "Incluir entradas importadas en la lista de Entradas de WordPress predeterminada"
 
 #: core/js/dist/admin.js:37
 msgid "Add approved posts to the default WordPress Blog page"
-msgstr ""
+msgstr "Añadir entradas aprobadas a la página de Blog de WordPress predeterminada"
 
 #: core/js/dist/admin.js:37
 msgid "Add custom content to the site's RSS feeds"
-msgstr ""
+msgstr "Añadir contenido personalizado a los feeds RSS del sitio"
 
 #: core/js/dist/admin.js:37
 msgid "Do not delete edited posts"
-msgstr ""
+msgstr "No eliminar entradas editadas"
 
 #: core/js/dist/admin.js:37
 msgid "Full text service"
-msgstr ""
+msgstr "Servicio de texto completo"
 
 #: core/js/dist/admin.js:37
 msgctxt "Text inside *...* is bold."
 msgid "You have access to our full text service. Effortlessly turn excerpt-only web feeds into full text RSS feeds by accessing the *Full Text Service sidebar* in the *Advanced tab* when creating or editing a source."
-msgstr ""
+msgstr "Tienes acceso a nuestro servicio de texto completo. Convierte sin esfuerzo los feeds web de solo extracto en feeds RSS de texto completo accediendo a la *barra lateral del Servicio de texto completo* en la *pestaña Avanzado* al crear o editar una fuente."
 
 #: core/js/dist/admin.js:37
 msgid "Transform your WordPress site into a full-fledged content powerhouse. Effortlessly turn excerpt-only web feeds into full text RSS feeds."
-msgstr ""
+msgstr "Transforma tu sitio de WordPress en una potente central de contenido. Convierte sin esfuerzo los feeds web de solo extracto en feeds RSS de texto completo."
 
 #: core/js/dist/admin.js:37
 msgid "Your current plan:"
-msgstr ""
+msgstr "Tu plan actual:"
 
 #: core/js/dist/admin.js:37
 msgid "Upgrade to PRO"
-msgstr ""
+msgstr "Actualizar a PRO"
 
 #: core/js/dist/admin.js:37
 msgctxt "Source automations: before action selector"
 msgid "Then"
-msgstr ""
+msgstr "Entonces"
 
 #: core/js/dist/admin.js:37
 #, js-format
 msgctxt "Default automation name"
 msgid "Automation %d"
-msgstr ""
+msgstr "Automatización %d"
 
 #: core/js/dist/admin.js:37
 msgid "Delete automation?"
-msgstr ""
+msgstr "¿Eliminar automatización?"
 
 #: core/js/dist/admin.js:37
 msgid "Are you sure you want to delete this automation?"
-msgstr ""
+msgstr "¿Estás seguro de que quieres eliminar esta automatización?"
 
 #: core/js/dist/admin.js:37
 msgid "Apply automated filtering rules to focus on curating the most valuable and relevant content."
-msgstr ""
+msgstr "Aplica reglas de filtrado automatizadas para centrarte en curar el contenido más valioso y relevante."
 
 #: core/js/dist/admin.js:37
 msgid "Add New Automation"
-msgstr ""
+msgstr "Añadir nueva automatización"
 
 #: core/js/dist/admin.js:37
 msgid "Set up automated filtering"
-msgstr ""
+msgstr "Configurar filtrado automatizado"
 
 #: core/js/dist/admin.js:37
 msgid "Automations streamline your workflow by applying automated filtering rules to focus on curating the most valuable and relevant content for your visitors."
-msgstr ""
+msgstr "Las automatizaciones optimizan tu flujo de trabajo aplicando reglas de filtrado automatizadas para centrarte en curar el contenido más valioso y relevante para tus visitantes."
 
 #: core/js/dist/admin.js:37
 msgid "Add new automation"
-msgstr ""
+msgstr "Añadir nueva automatización"
 
 #: core/js/dist/admin.js:37
 msgid "Unlock the power of automations!"
-msgstr ""
+msgstr "¡Desbloquea el poder de las automatizaciones!"
 
 #: core/js/dist/admin.js:37
 msgid "Automations optimize your workflow by applying intelligent filtering rules, ensuring you curate the most valuable and relevant content for your visitors."
-msgstr ""
+msgstr "Las automatizaciones optimizan tu flujo de trabajo aplicando reglas de filtrado inteligentes, asegurando que cures el contenido más valioso y relevante para tus visitantes."
 
 #: core/js/dist/admin.js:37
 msgid "Get Automations with Pro"
-msgstr ""
+msgstr "Obtén automatizaciones con Pro"
 
 #: core/js/dist/admin.js:37
 msgid "With Automations you can:"
-msgstr ""
+msgstr "Con las automatizaciones puedes:"
 
 #: core/js/dist/admin.js:37
 msgid "Import content based on specific words or phrases"
-msgstr ""
+msgstr "Importar contenido basado en palabras o frases específicas"
 
 #: core/js/dist/admin.js:37
 msgid "Filter out content containing unwanted keywords"
-msgstr ""
+msgstr "Filtrar contenido que contenga palabras clave no deseadas"
 
 #: core/js/dist/admin.js:37
 msgid "Automatically filter and feature trending topics"
-msgstr ""
+msgstr "Filtrar y destacar automáticamente temas de tendencia"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: core/js/dist/admin.js:37
 msgid "Define default settings to create a foundation for your site with the flexibility to customize some options per source."
-msgstr ""
+msgstr "Define la configuración predeterminada para crear una base para tu sitio con la flexibilidad de personalizar algunas opciones por fuente."
 
 #: core/js/dist/admin.js:37
 msgid "Custom Feed"
-msgstr ""
+msgstr "Feed personalizado"
 
 #: core/js/dist/admin.js:37
 msgid "WP RSS Aggregator creates a custom RSS feed on your site that includes all of your imported items. Use the below options to set it up."
-msgstr ""
+msgstr "WP RSS Aggregator crea un feed RSS personalizado en tu sitio que incluye todos tus elementos importados. Usa las siguientes opciones para configurarlo."
 
 #: core/js/dist/admin.js:37
 msgid "Global automations"
-msgstr ""
+msgstr "Automatizaciones globales"
 
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:107
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzado"
 
 #: core/js/dist/admin.js:37
 msgid "Only change these options if you know what you are doing!"
-msgstr ""
+msgstr "¡Solo cambia estas opciones si sabes lo que estás haciendo!"
 
 #: core/js/dist/admin.js:77
 msgid "Start by entering a website’s URL in the right sidebar..."
-msgstr ""
+msgstr "Empieza introduciendo la URL de un sitio web en la barra lateral derecha..."
 
 #: core/js/dist/admin.js:77
 msgid "Add your source's homepage or RSS feed URL. Not sure how to find RSS feeds? [Explore our guide][doc]."
-msgstr ""
+msgstr "Añade la URL de la página de inicio o del feed RSS de tu fuente. ¿No estás seguro de cómo encontrar feeds RSS? [Explora nuestra guía][doc]."
 
 #: core/js/dist/admin.js:77
 msgid "Preview loading..."
-msgstr ""
+msgstr "Cargando vista previa..."
 
 #: core/js/dist/admin.js:77
 msgid "We're fetching the latest available items from this source."
-msgstr ""
+msgstr "Estamos obteniendo los últimos elementos disponibles de esta fuente."
 
 #: core/js/dist/admin.js:77
 msgid "We’ve switched you to a single post view"
-msgstr ""
+msgstr "Te hemos cambiado a una vista de entrada única"
 
 #: core/js/dist/admin.js:77
 msgid "Customize your settings to fit your source’s post content."
-msgstr ""
+msgstr "Personaliza tus ajustes para que se adapten al contenido de la entrada de tu fuente."
 
 #: core/js/dist/admin.js:77
 msgctxt "Badge in post preview when editing a source"
 msgid "title"
-msgstr ""
+msgstr "título"
 
 #: core/js/dist/admin.js:77
 msgctxt "Badge in post preview when editing a source"
 msgid "image"
-msgstr ""
+msgstr "imagen"
 
 #: core/js/dist/admin.js:77
 msgctxt "Badge in post preview when editing a source"
 msgid "date"
-msgstr ""
+msgstr "fecha"
 
 #: core/js/dist/admin.js:77
 msgctxt "Badge in post preview when editing a source"
 msgid "author"
-msgstr ""
+msgstr "autor"
 
 #: core/js/dist/admin.js:77
 msgctxt "Badge in post preview when editing a source"
 msgid "excerpt"
-msgstr ""
+msgstr "extracto"
 
 #: core/js/dist/admin.js:77
 msgctxt "Badge in post preview when editing a source"
 msgid "attribution"
-msgstr ""
+msgstr "atribución"
 
 #: core/js/dist/admin.js:77
 msgctxt "Badge in post preview when editing a source"
 msgid "audio"
-msgstr ""
+msgstr "audio"
 
 #: core/js/dist/admin.js:77
 msgctxt "Badge in post preview when editing a source"
 msgid "content"
-msgstr ""
+msgstr "contenido"
 
 #: core/js/dist/admin.js:77
 msgid "No posts to preview"
-msgstr ""
+msgstr "No hay entradas para previsualizar"
 
 #: core/js/dist/admin.js:77
 msgid "Load more"
-msgstr ""
+msgstr "Cargar más"
 
 #: core/js/dist/admin.js:77
 msgid "Content imported!"
-msgstr ""
+msgstr "¡Contenido importado!"
 
 #: core/js/dist/admin.js:77
 msgid "Content updated!"
-msgstr ""
+msgstr "¡Contenido actualizado!"
 
 #: core/js/dist/admin.js:77
 msgid "Choose what to do next:"
-msgstr ""
+msgstr "Elige qué hacer a continuación:"
 
 #: core/js/dist/admin.js:77
 msgid "View imported content"
-msgstr ""
+msgstr "Ver contenido importado"
 
 #: core/js/dist/admin.js:77
 msgid "Create a display for this source"
-msgstr ""
+msgstr "Crear una visualización para esta fuente"
 
 #: core/js/dist/admin.js:77
 msgid "Ready to import this source's content?"
-msgstr ""
+msgstr "¿Listo para importar el contenido de esta fuente?"
 
 #: core/js/dist/admin.js:77
 msgid "Ready to update your settings and fetch new items?"
-msgstr ""
+msgstr "¿Listo para actualizar tus ajustes y obtener nuevos elementos?"
 
 #: core/js/dist/admin.js:77
 msgid "All imported items can be managed from your *Hub*. [Learn more][docs]."
-msgstr ""
+msgstr "Todos los elementos importados se pueden gestionar desde tu *Hub*. [Aprende más][docs]."
 
 #: core/js/dist/admin.js:77
 #, js-format
 msgid "<p>You have chosen the following update strategy:</p> <strong>%1$s</strong>"
-msgstr ""
+msgstr "<p>Has elegido la siguiente estrategia de actualización:</p> <strong>%1$s</strong>"
 
 #: core/js/dist/admin.js:77
 #: core/js/dist/admin.js:107
 msgid "Do not update items"
-msgstr ""
+msgstr "No actualizar elementos"
 
 #: core/js/dist/admin.js:77
 #: core/js/dist/admin.js:107
 msgid "Keep items up-to-date"
-msgstr ""
+msgstr "Mantener elementos actualizados"
 
 #: core/js/dist/admin.js:77
 msgid "[Click here][0] to change this setting."
-msgstr ""
+msgstr "[Haz clic aquí][0] para cambiar esta configuración."
 
 #: core/js/dist/admin.js:77
 msgid "Importing ..."
-msgstr ""
+msgstr "Importando..."
 
 #: core/js/dist/admin.js:77
 msgid "Start import"
-msgstr ""
+msgstr "Iniciar importación"
 
 #: core/js/dist/admin.js:77
 msgid "If you aren’t seeing any images, the source might not be providing them in the RSS feed."
-msgstr ""
+msgstr "Si no ves ninguna imagen, es posible que la fuente no las esté proporcionando en el feed RSS."
 
 #: core/js/dist/admin.js:77
 msgid "There are no items that match the applied automations"
-msgstr ""
+msgstr "No hay elementos que coincidan con las automatizaciones aplicadas"
 
 #: core/js/dist/admin.js:77
 #, js-format
 msgid "Showing %d of %d available items."
-msgstr ""
+msgstr "Mostrando %d de %d elementos disponibles."
 
 #: core/js/dist/admin.js:77
 msgid "Preview of available items"
-msgstr ""
+msgstr "Vista previa de los elementos disponibles"
 
 #: core/js/dist/admin.js:100
 #: core/js/dist/admin.js:107
 msgid "Bold (Ctrl + B)"
-msgstr ""
+msgstr "Negrita (Ctrl + B)"
 
 #: core/js/dist/admin.js:100
 #: core/js/dist/admin.js:107
 msgid "Italics (Ctrl + I)"
-msgstr ""
+msgstr "Cursiva (Ctrl + I)"
 
 #: core/js/dist/admin.js:100
 #: core/js/dist/admin.js:107
 msgid "Underline (Ctrl + U)"
-msgstr ""
+msgstr "Subrayado (Ctrl + U)"
 
 #: core/js/dist/admin.js:100
 msgid "Paragraph"
-msgstr ""
+msgstr "Párrafo"
 
 #: core/js/dist/admin.js:100
 msgid "Heading 1"
-msgstr ""
+msgstr "Encabezado 1"
 
 #: core/js/dist/admin.js:100
 msgid "Heading 2"
-msgstr ""
+msgstr "Encabezado 2"
 
 #: core/js/dist/admin.js:100
 msgid "Heading 3"
-msgstr ""
+msgstr "Encabezado 3"
 
 #: core/js/dist/admin.js:100
 msgid "Blockquote"
-msgstr ""
+msgstr "Cita en bloque"
 
 #: core/js/dist/admin.js:100
 msgid "Unordered list"
-msgstr ""
+msgstr "Lista desordenada"
 
 #: core/js/dist/admin.js:100
 msgid "Numbered list"
-msgstr ""
+msgstr "Lista numerada"
 
 #: core/js/dist/admin.js:100
 msgid "Code Block"
-msgstr ""
+msgstr "Bloque de código"
 
 #: core/js/dist/admin.js:107
 msgid "Block type"
-msgstr ""
+msgstr "Tipo de bloque"
 
 #: core/js/dist/admin.js:107
 msgid "Link (Ctrl + K)"
-msgstr ""
+msgstr "Enlace (Ctrl + K)"
 
 #: core/js/dist/admin.js:107
 msgid "Add link"
-msgstr ""
+msgstr "Añadir enlace"
 
 #: core/js/dist/admin.js:107
 msgid "Update link"
-msgstr ""
+msgstr "Actualizar enlace"
 
 #: core/js/dist/admin.js:107
 msgid "Link URL"
-msgstr ""
+msgstr "URL del enlace"
 
 #: core/js/dist/admin.js:107
 msgid "Variables"
-msgstr ""
+msgstr "Variables"
 
 #: core/js/dist/admin.js:107
 msgid "Remove link"
-msgstr ""
+msgstr "Eliminar enlace"
 
 #: core/js/dist/admin.js:107
 msgid "Insert variable"
-msgstr ""
+msgstr "Insertar variable"
 
 #: core/js/dist/admin.js:107
 msgid "Show attribution"
-msgstr ""
+msgstr "Mostrar atribución"
 
 #: core/js/dist/admin.js:107
 msgid "Before content"
-msgstr ""
+msgstr "Antes del contenido"
 
 #: core/js/dist/admin.js:107
 msgid "After content"
-msgstr ""
+msgstr "Después del contenido"
 
 #: core/js/dist/admin.js:107
 msgid "Position"
-msgstr ""
+msgstr "Posición"
 
 #: core/js/dist/admin.js:107
 msgid "Add only when viewing a single post"
-msgstr ""
+msgstr "Añadir solo al ver una entrada única"
 
 #: core/js/dist/admin.js:107
 msgid "Check this box if you want to exclude the attribution in archive listings that show excerpts."
-msgstr ""
+msgstr "Marca esta casilla si quieres excluir la atribución en las listas de archivo que muestran extractos."
 
 #: core/js/dist/admin.js:107
 msgid "Before the content"
-msgstr ""
+msgstr "Antes del contenido"
 
 #: core/js/dist/admin.js:107
 msgid "After the content"
-msgstr ""
+msgstr "Después del contenido"
 
 #: core/js/dist/admin.js:107
 msgid "Enable PowerPress audio player"
-msgstr ""
+msgstr "Habilitar el reproductor de audio PowerPress"
 
 #: core/js/dist/admin.js:107
 msgid "*Note:* Enable this option to embed an audio player within the Post content for sources that include audio file links in their RSS feed enclosures."
-msgstr ""
+msgstr "*Nota:* Habilita esta opción para incrustar un reproductor de audio dentro del contenido de la Entrada para las fuentes que incluyen enlaces a archivos de audio en sus adjuntos de feed RSS."
 
 #: core/js/dist/admin.js:107
 msgid "PowerPress by Blubrry"
-msgstr ""
+msgstr "PowerPress de Blubrry"
 
 #: core/js/dist/admin.js:107
 msgid "*Note*: Enable this option to attempt to import audio files and show the PowerPress audio player if the PowerPress plugin is activated on your site."
-msgstr ""
+msgstr "*Nota*: Habilita esta opción para intentar importar archivos de audio y mostrar el reproductor de audio PowerPress si el plugin PowerPress está activado en tu sitio."
 
 #: core/js/dist/admin.js:107
 msgid "Streamline your imported posts by removing unnecessary elements like ads and social buttons. Need help with CSS Selectors? [Learn more][0]"
-msgstr ""
+msgstr "Optimiza tus entradas importadas eliminando elementos innecesarios como anuncios y botones sociales. ¿Necesitas ayuda con los selectores CSS? [Aprende más][0]"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "Rule %d"
-msgstr ""
+msgstr "Regla %d"
 
 #: core/js/dist/admin.js:107
 msgid "Add rule"
-msgstr ""
+msgstr "Añadir regla"
 
 #: core/js/dist/admin.js:107
 msgid "CSS selector"
-msgstr ""
+msgstr "Selector CSS"
 
 #: core/js/dist/admin.js:107
 msgid "Limit the number of words displayed:"
-msgstr ""
+msgstr "Limitar el número de palabras mostradas:"
 
 #: core/js/dist/admin.js:107
 msgid "Trim the content"
-msgstr ""
+msgstr "Recortar el contenido"
 
 #: core/js/dist/admin.js:107
 msgid "*Pro Tip*: Use short snippets from external posts to boost your SEO and provide a better user experience. This approach respects original content and keeps your site engaging. [Learn more][kb]."
-msgstr ""
+msgstr "*Consejo profesional*: Usa fragmentos cortos de entradas externas para mejorar tu SEO y proporcionar una mejor experiencia de usuario. Este enfoque respeta el contenido original y mantiene tu sitio atractivo. [Aprende más][kb]."
 
 #: core/js/dist/admin.js:107
 msgid "Remove unwanted content"
-msgstr ""
+msgstr "Eliminar contenido no deseado"
 
 #: core/js/dist/admin.js:107
 msgid "Add mapping"
-msgstr ""
+msgstr "Añadir mapeo"
 
 #: core/js/dist/admin.js:107
 msgid "From feed item"
-msgstr ""
+msgstr "Desde el elemento del feed"
 
 #: core/js/dist/admin.js:107
 msgid "Fixed data"
-msgstr ""
+msgstr "Datos fijos"
 
 #: core/js/dist/admin.js:107
 msgid "From WordPress filter"
-msgstr ""
+msgstr "Desde el filtro de WordPress"
 
 #: core/js/dist/admin.js:107
 msgid "Delete mapping"
-msgstr ""
+msgstr "Eliminar mapeo"
 
 #: core/js/dist/admin.js:107
 msgid "Meta key name"
-msgstr ""
+msgstr "Nombre de la clave meta"
 
 #: core/js/dist/admin.js:107
 msgid "RSS tag/selector"
-msgstr ""
+msgstr "Etiqueta/selector RSS"
 
 #: core/js/dist/admin.js:107
 msgid "Value"
-msgstr ""
+msgstr "Valor"
 
 #: core/js/dist/admin.js:107
 msgid "WordPress filter name"
-msgstr ""
+msgstr "Nombre del filtro de WordPress"
 
 #: core/js/dist/admin.js:107
 msgid "*Note*: This custom text will be applied to each and every post imported from this source."
-msgstr ""
+msgstr "*Nota*: Este texto personalizado se aplicará a todas y cada una de las entradas importadas de esta fuente."
 
 #: core/js/dist/admin.js:107
 msgid "Add custom text before the content"
-msgstr ""
+msgstr "Añadir texto personalizado antes del contenido"
 
 #: core/js/dist/admin.js:107
 msgid "Add custom text after the content"
-msgstr ""
+msgstr "Añadir texto personalizado después del contenido"
 
 #: core/js/dist/admin.js:107
 msgid "Allow sheduled posts"
-msgstr ""
+msgstr "Permitir entradas programadas"
 
 #: core/js/dist/admin.js:107
 msgid "Original post date"
-msgstr ""
+msgstr "Fecha de la entrada original"
 
 #: core/js/dist/admin.js:107
 msgid "Feed import date"
-msgstr ""
+msgstr "Fecha de importación del feed"
 
 #: core/js/dist/admin.js:107
 msgid "Post date"
-msgstr ""
+msgstr "Fecha de la entrada"
 
 #: core/js/dist/admin.js:107
 msgid "If the source’s excerpt is missing, create a new one from the content"
-msgstr ""
+msgstr "Si falta el extracto de la fuente, crea uno nuevo a partir del contenido"
 
 #: core/js/dist/admin.js:107
 msgid "Excerpt length"
-msgstr ""
+msgstr "Longitud del extracto"
 
 #: core/js/dist/admin.js:107
 msgid "Unlimited"
-msgstr ""
+msgstr "Ilimitado"
 
 #: core/js/dist/admin.js:107
 msgid "Excerpt suffix"
-msgstr ""
+msgstr "Sufijo del extracto"
 
 #: core/js/dist/admin.js:107
 msgid "Use the original excerpt"
-msgstr ""
+msgstr "Usar el extracto original"
 
 #: core/js/dist/admin.js:107
 msgid "Create excerpt from content"
-msgstr ""
+msgstr "Crear extracto del contenido"
 
 #: core/js/dist/admin.js:107
 msgid "Set excerpt source"
-msgstr ""
+msgstr "Establecer fuente del extracto"
 
 #: core/js/dist/admin.js:107
 msgid "Generated excerpt length"
-msgstr ""
+msgstr "Longitud del extracto generado"
 
 #: core/js/dist/admin.js:107
 msgid "Min is 1"
-msgstr ""
+msgstr "El mínimo es 1"
 
 #: core/js/dist/admin.js:107
 msgid "Generated excerpt suffix"
-msgstr ""
+msgstr "Sufijo del extracto generado"
 
 #: core/js/dist/admin.js:107
 msgid "Import post excerpt"
-msgstr ""
+msgstr "Importar extracto de la entrada"
 
 #: core/js/dist/admin.js:107
 msgid "*Note*: Aggregator will create a new excerpt for each item using the first words from the content."
-msgstr ""
+msgstr "*Nota*: Aggregator creará un nuevo extracto para cada elemento utilizando las primeras palabras del contenido."
 
 #: core/js/dist/admin.js:107
 msgid "Use full text service"
-msgstr ""
+msgstr "Usar servicio de texto completo"
 
 #: core/js/dist/admin.js:107
 msgid "Enables a premium service to retrieve the full content from the original site, creating a more comprehensive feed of imported items."
-msgstr ""
+msgstr "Habilita un servicio premium para recuperar el contenido completo del sitio original, creando un feed más completo de elementos importados."
 
 #: core/js/dist/admin.js:107
 msgid "*Note*: Please use the Full Text Service with responsibility and at your own risk. This service will create a new feed by scraping the original site to bring in as much of the original content as possible using our full text script."
-msgstr ""
+msgstr "*Nota*: Por favor, utiliza el Servicio de texto completo con responsabilidad y bajo tu propio riesgo. Este servicio creará un nuevo feed raspando el sitio original para traer la mayor cantidad posible del contenido original utilizando nuestro script de texto completo."
 
 #: core/js/dist/admin.js:107
 msgid "Always consider the source website’s terms for content curation. Keep your SEO in mind with canonical links and proper attribution, ensuring the curated content is both helpful and respectful."
-msgstr ""
+msgstr "Considera siempre los términos del sitio web de origen para la curación de contenido. Ten en cuenta tu SEO con enlaces canónicos y atribución adecuada, asegurando que el contenido curado sea útil y respetuoso."
 
 #: core/js/dist/admin.js:107
 msgid "By using the full text service, you are asking Aggregator to create a brand new RSS feed by scraping the original source's website. Although it works great for most sites, in rare cases it could struggle to import every element of the original content. [Learn more][docs]."
-msgstr ""
+msgstr "Al utilizar el servicio de texto completo, estás pidiendo a Aggregator que cree un nuevo feed RSS raspando el sitio web de la fuente original. Aunque funciona muy bien para la mayoría de los sitios, en raras ocasiones podría tener dificultades para importar cada elemento del contenido original. [Aprende más][docs]."
 
 #: core/js/dist/admin.js:107
 msgid "Set canonical link"
-msgstr ""
+msgstr "Establecer enlace canónico"
 
 #: core/js/dist/admin.js:107
 msgid "January"
-msgstr ""
+msgstr "Enero"
 
 #: core/js/dist/admin.js:107
 msgid "February"
-msgstr ""
+msgstr "Febrero"
 
 #: core/js/dist/admin.js:107
 msgid "March"
-msgstr ""
+msgstr "Marzo"
 
 #: core/js/dist/admin.js:107
 msgid "April"
-msgstr ""
+msgstr "Abril"
 
 #: core/js/dist/admin.js:107
 msgid "May"
-msgstr ""
+msgstr "Mayo"
 
 #: core/js/dist/admin.js:107
 msgid "June"
-msgstr ""
+msgstr "Junio"
 
 #: core/js/dist/admin.js:107
 msgid "July"
-msgstr ""
+msgstr "Julio"
 
 #: core/js/dist/admin.js:107
 msgid "August"
-msgstr ""
+msgstr "Agosto"
 
 #: core/js/dist/admin.js:107
 msgid "September"
-msgstr ""
+msgstr "Septiembre"
 
 #: core/js/dist/admin.js:107
 msgid "October"
-msgstr ""
+msgstr "Octubre"
 
 #: core/js/dist/admin.js:107
 msgid "November"
-msgstr ""
+msgstr "Noviembre"
 
 #: core/js/dist/admin.js:107
 msgid "December"
-msgstr ""
+msgstr "Diciembre"
 
 #: core/js/dist/admin.js:107
 msgid "Immediately"
-msgstr ""
+msgstr "Inmediatamente"
 
 #: core/js/dist/admin.js:107
 msgid "Never"
-msgstr ""
+msgstr "Nunca"
 
 #: core/js/dist/admin.js:107
 msgid "Time"
-msgstr ""
+msgstr "Hora"
 
 #: core/js/dist/admin.js:107
 msgid "Reset"
-msgstr ""
+msgstr "Restablecer"
 
 #: core/js/dist/admin.js:107
 msgid "Activate feed"
-msgstr ""
+msgstr "Activar feed"
 
 #: core/js/dist/admin.js:107
 msgid "Pause feed"
-msgstr ""
+msgstr "Pausar feed"
 
 #: core/js/dist/admin.js:107
 msgid "Link to enclosure"
-msgstr ""
+msgstr "Enlace al adjunto"
 
 #: core/js/dist/admin.js:107
 msgid "Post format"
-msgstr ""
+msgstr "Formato de entrada"
 
 #: core/js/dist/admin.js:107
 msgid "Set the post format for imported items. Post Formats are a piece of meta information that can be used by your theme to customize its presentation of a post."
-msgstr ""
+msgstr "Establece el formato de entrada para los elementos importados. Los formatos de entrada son una pieza de metainformación que puede ser utilizada por tu tema para personalizar su presentación de una entrada."
 
 #: core/js/dist/admin.js:107
 msgid "Block duplicate titles"
-msgstr ""
+msgstr "Bloquear títulos duplicados"
 
 #: core/js/dist/admin.js:107
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "día"
+msgstr[1] "días"
 
 #: core/js/dist/admin.js:107
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "semana"
+msgstr[1] "semanas"
 
 #: core/js/dist/admin.js:107
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "mes"
+msgstr[1] "meses"
 
 #: core/js/dist/admin.js:107
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "año"
+msgstr[1] "años"
 
 #: core/js/dist/admin.js:107
 msgid "Limit the number of stored items by age"
-msgstr ""
+msgstr "Limitar el número de elementos almacenados por antigüedad"
 
 #: core/js/dist/admin.js:107
 msgid "Hide featured image in content"
-msgstr ""
+msgstr "Ocultar imagen destacada en el contenido"
 
 #: core/js/dist/admin.js:107
 msgid "Fallback image"
-msgstr ""
+msgstr "Imagen de respaldo"
 
 #: core/js/dist/admin.js:107
 msgid "Select image"
-msgstr ""
+msgstr "Seleccionar imagen"
 
 #: core/js/dist/admin.js:107
 msgid "The fallback image will be used if no featured image is found in the feed."
-msgstr ""
+msgstr "La imagen de respaldo se utilizará si no se encuentra ninguna imagen destacada en el feed."
 
 #: core/js/dist/admin.js:107
 msgid "Change image"
-msgstr ""
+msgstr "Cambiar imagen"
 
 #: core/js/dist/admin.js:107
 msgid "Fallback featured image"
-msgstr ""
+msgstr "Imagen destacada de respaldo"
 
 #: core/js/dist/admin.js:107
 msgid "Minimum height"
-msgstr ""
+msgstr "Altura mínima"
 
 #: core/js/dist/admin.js:107
 msgid "px"
-msgstr ""
+msgstr "px"
 
 #: core/js/dist/admin.js:107
 msgid "Minimum width"
-msgstr ""
+msgstr "Ancho mínimo"
 
 #: core/js/dist/admin.js:107
 msgid "Import all sizes"
-msgstr ""
+msgstr "Importar todos los tamaños"
 
 #: core/js/dist/admin.js:107
 msgid "Import featured image"
-msgstr ""
+msgstr "Importar imagen destacada"
 
 #: core/js/dist/admin.js:107
 msgid "Import images to media library"
-msgstr ""
+msgstr "Importar imágenes a la biblioteca de medios"
 
 #: core/js/dist/admin.js:107
 msgid "Check this box to import the images from the post into your local media library. Unchecking this has no effect on featured images."
-msgstr ""
+msgstr "Marca esta casilla para importar las imágenes de la entrada a tu biblioteca de medios local. Desmarcarla no tiene efecto en las imágenes destacadas."
 
 #: core/js/dist/admin.js:107
 msgid "Ignore posts without a featured image"
-msgstr ""
+msgstr "Ignorar entradas sin imagen destacada"
 
 #: core/js/dist/admin.js:107
 msgid "Auto detect best image"
-msgstr ""
+msgstr "Detectar automáticamente la mejor imagen"
 
 #: core/js/dist/admin.js:107
 msgid "Best image in content"
-msgstr ""
+msgstr "Mejor imagen en el contenido"
 
 #: core/js/dist/admin.js:107
 msgid "First image in content"
-msgstr ""
+msgstr "Primera imagen en el contenido"
 
 #: core/js/dist/admin.js:107
 msgid "Last image in content"
-msgstr ""
+msgstr "Última imagen en el contenido"
 
 #: core/js/dist/admin.js:107
 msgid "iTunes image"
-msgstr ""
+msgstr "Imagen de iTunes"
 
 #: core/js/dist/admin.js:107
 msgid "Media image"
-msgstr ""
+msgstr "Imagen de medios"
 
 #: core/js/dist/admin.js:107
 msgid "Enclosure image"
-msgstr ""
+msgstr "Imagen adjunta"
 
 #: core/js/dist/admin.js:107
 msgid "Social media image"
-msgstr ""
+msgstr "Imagen de redes sociales"
 
 #: core/js/dist/admin.js:107
 msgid "Feed channel image"
-msgstr ""
+msgstr "Imagen del canal del feed"
 
 #: core/js/dist/admin.js:107
 msgid "No featured image"
-msgstr ""
+msgstr "Sin imagen destacada"
 
 #: core/js/dist/admin.js:107
 msgid "Featured image to use"
-msgstr ""
+msgstr "Imagen destacada a utilizar"
 
 #: core/js/dist/admin.js:107
 msgid "Content images"
-msgstr ""
+msgstr "Imágenes de contenido"
 
 #: core/js/dist/admin.js:107
 msgid "These settings apply to images within the content area of each imported item, not the featured image."
-msgstr ""
+msgstr "Estos ajustes se aplican a las imágenes dentro del área de contenido de cada elemento importado, no a la imagen destacada."
 
 #: core/js/dist/admin.js:107
 msgid "*Note*: The preview shows the original content from the feed source. Rewriting and SpinnerChief word usage are only applied upon importing the content."
-msgstr ""
+msgstr "*Nota*: La vista previa muestra el contenido original de la fuente del feed. La reescritura y el uso de palabras de SpinnerChief solo se aplican al importar el contenido."
 
 #: core/js/dist/admin.js:107
 msgid "Rewrite the content"
-msgstr ""
+msgstr "Reescribir el contenido"
 
 #: core/js/dist/admin.js:107
 msgid "Rewrite the title"
-msgstr ""
+msgstr "Reescribir el título"
 
 #: core/js/dist/admin.js:107
 msgid "Post revisions"
-msgstr ""
+msgstr "Revisiones de la entrada"
 
 #: core/js/dist/admin.js:107
 msgid "API settings"
-msgstr ""
+msgstr "Ajustes de la API"
 
 #: core/js/dist/admin.js:107
 msgid "The SpinnerChief API settings can be managed by logging into your [SpinnerChief API account][account]."
-msgstr ""
+msgstr "Los ajustes de la API de SpinnerChief se pueden gestionar iniciando sesión en tu [cuenta de la API de SpinnerChief][account]."
 
 #: core/js/dist/admin.js:107
 msgid "Your Spinner Chief API key hasn’t been set up yet. [Click here][settings] to get started."
-msgstr ""
+msgstr "Tu clave de API de Spinner Chief aún no se ha configurado. [Haz clic aquí][settings] para empezar."
 
 #: core/js/dist/admin.js:107
 msgctxt "Source > Advanced > Category rule"
 msgid "Choose a method"
-msgstr ""
+msgstr "Elige un método"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "%s = plural taxonomy name"
 msgid "*Note*: Both the %s imported from the source and the %s selected from your site will be applied to each imported item."
-msgstr ""
+msgstr "*Nota*: Tanto el %s importado de la fuente como el %s seleccionado de tu sitio se aplicarán a cada elemento importado."
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "%s = taxonomy plural name"
 msgid "Select %s"
-msgstr ""
+msgstr "Seleccionar %s"
 
 #: core/js/dist/admin.js:107
 msgid "Apply conditions"
-msgstr ""
+msgstr "Aplicar condiciones"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "%s = taxonomy plural name"
 msgid "Use %s from this site"
-msgstr ""
+msgstr "Usar %s de este sitio"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "%s = taxonomy plural name"
 msgid "Import %s from the source"
-msgstr ""
+msgstr "Importar %s de la fuente"
 
 #: core/js/dist/admin.js:107
 msgid "Both"
-msgstr ""
+msgstr "Ambos"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "%s = taxonomy plural name"
 msgid "Choose %s"
-msgstr ""
+msgstr "Elegir %s"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "%s = taxonomy term name"
 msgid "Create new \"%s\""
-msgstr ""
+msgstr "Crear nuevo \"%s\""
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "%s = plural taxonomy name"
 msgid "*Note*: You can set up as many %s rules as you need and apply conditional rules if needed."
-msgstr ""
+msgstr "*Nota*: Puedes configurar tantas reglas de %s como necesites y aplicar reglas condicionales si es necesario."
 
 #: core/js/dist/admin.js:107
 msgid "Delete rule?"
-msgstr ""
+msgstr "¿Eliminar regla?"
 
 #: core/js/dist/admin.js:107
 msgid "Are you sure you want to delete this rule?"
-msgstr ""
+msgstr "¿Estás seguro de que quieres eliminar esta regla?"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "%s = taxonomy singular name"
 msgid "Add %s rule"
-msgstr ""
+msgstr "Añadir regla de %s"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "%s = plural taxonomy name"
 msgid "[Source %s]"
-msgstr ""
+msgstr "[Fuente %s]"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "Source taxonomy rule name"
 msgid "Rule %d"
-msgstr ""
+msgstr "Regla %d"
 
 #: core/js/dist/admin.js:107
 msgid "Conservative"
-msgstr ""
+msgstr "Conservador"
 
 #: core/js/dist/admin.js:107
 msgid "Regular"
-msgstr ""
+msgstr "Regular"
 
 #: core/js/dist/admin.js:107
 msgid "Adventurous"
-msgstr ""
+msgstr "Aventurero"
 
 #: core/js/dist/admin.js:107
 msgid "*Note*: The preview shows the original content from the feed source. Rewriting and WordAi word usage are only applied upon importing the content."
-msgstr ""
+msgstr "*Nota*: La vista previa muestra el contenido original de la fuente del feed. La reescritura y el uso de palabras de WordAi solo se aplican al importar el contenido."
 
 #: core/js/dist/admin.js:107
 msgid "Uniqueness"
-msgstr ""
+msgstr "Singularidad"
 
 #: core/js/dist/admin.js:107
 msgid "Get spintax"
-msgstr ""
+msgstr "Obtener spintax"
 
 #: core/js/dist/admin.js:107
 msgid "Use protected words"
-msgstr ""
+msgstr "Usar palabras protegidas"
 
 #: core/js/dist/admin.js:107
 msgid "Use custom synonyms"
-msgstr ""
+msgstr "Usar sinónimos personalizados"
 
 #: core/js/dist/admin.js:107
 msgid "Your WordAi API key hasn’t been set up yet. [Click here][settings] to get started."
-msgstr ""
+msgstr "Tu clave de API de WordAi aún no se ha configurado. [Haz clic aquí][settings] para empezar."
 
 #: core/js/dist/admin.js:107
 msgid "Use the default method"
-msgstr ""
+msgstr "Usar el método predeterminado"
 
 #: core/js/dist/admin.js:107
 msgid "Create a user for the author"
-msgstr ""
+msgstr "Crear un usuario para el autor"
 
 #: core/js/dist/admin.js:107
 msgid "Use a fallback user"
-msgstr ""
+msgstr "Usar un usuario de respaldo"
 
 #: core/js/dist/admin.js:107
 msgid "Select existing user as a fallback author"
-msgstr ""
+msgstr "Seleccionar usuario existente como autor de respaldo"
 
 #: core/js/dist/admin.js:107
 msgid "Select existing user to credit"
-msgstr ""
+msgstr "Seleccionar usuario existente para acreditar"
 
 #: core/js/dist/admin.js:107
 msgid "Credit the fallback user"
-msgstr ""
+msgstr "Acreditar al usuario de respaldo"
 
 #: core/js/dist/admin.js:107
 msgid "Do not import the item"
-msgstr ""
+msgstr "No importar el elemento"
 
 #: core/js/dist/admin.js:107
 msgid "If the author is missing from the feed"
-msgstr ""
+msgstr "Si falta el autor en el feed"
 
 #: core/js/dist/admin.js:107
 msgid "Credit the original author"
-msgstr ""
+msgstr "Acreditar al autor original"
 
 #: core/js/dist/admin.js:107
 msgid "Credit a user on this site"
-msgstr ""
+msgstr "Acreditar a un usuario en este sitio"
 
 #: core/js/dist/admin.js:107
 msgid "Select which author to use"
-msgstr ""
+msgstr "Seleccionar qué autor usar"
 
 #: core/js/dist/admin.js:107
 msgctxt "Source > Advanced > Author"
 msgid "Credit method"
-msgstr ""
+msgstr "Método de crédito"
 
 #: core/js/dist/admin.js:107
 msgid "If the source feed author isn't an existing user on this site, Aggregator will assign imported items to a new \"Source Author\" user - the default method. This user will appear as the original author’s name on your site. Alternatively, you can create a new user for each source author or use a single fallback user for all imported items."
-msgstr ""
+msgstr "Si el autor del feed de origen no es un usuario existente en este sitio, Aggregator asignará los elementos importados a un nuevo usuario \"Autor de la fuente\", el método predeterminado. Este usuario aparecerá como el nombre del autor original en tu sitio. Alternativamente, puedes crear un nuevo usuario para cada autor de la fuente o usar un único usuario de respaldo para todos los elementos importados."
 
 #: core/js/dist/admin.js:107
 msgid "Fallback user"
-msgstr ""
+msgstr "Usuario de respaldo"
 
 #: core/js/dist/admin.js:107
 msgid "Customize your source in detail with advanced settings for more precise content control."
-msgstr ""
+msgstr "Personaliza tu fuente en detalle con ajustes avanzados para un control de contenido más preciso."
 
 #: core/js/dist/admin.js:107
 msgid "Content"
-msgstr ""
+msgstr "Contenido"
 
 #: core/js/dist/admin.js:107
 msgid "Images"
-msgstr ""
+msgstr "Imágenes"
 
 #: core/js/dist/admin.js:107
 msgid "Audio"
-msgstr ""
+msgstr "Audio"
 
 #: core/js/dist/admin.js:107
 msgid "Attribution"
-msgstr ""
+msgstr "Atribución"
 
 #: core/js/dist/admin.js:107
 msgid "Custom Text"
-msgstr ""
+msgstr "Texto personalizado"
 
 #: core/js/dist/admin.js:107
 msgid "Enable comments"
-msgstr ""
+msgstr "Habilitar comentarios"
 
 #: core/js/dist/admin.js:107
 msgid "Check this box to enable comments for imported posts from this source."
-msgstr ""
+msgstr "Marca esta casilla para habilitar los comentarios para las entradas importadas de esta fuente."
 
 #: core/js/dist/admin.js:107
 msgid "Curate posts"
-msgstr ""
+msgstr "Curar entradas"
 
 #: core/js/dist/admin.js:107
 msgid "Check this box if you want to manually approve posts before publishing them on your site."
-msgstr ""
+msgstr "Marca esta casilla si quieres aprobar manualmente las entradas antes de publicarlas en tu sitio."
 
 #: core/js/dist/admin.js:107
 msgid "After import, go to your Hub to approve items."
-msgstr ""
+msgstr "Después de la importación, ve a tu Hub para aprobar los elementos."
 
 #: core/js/dist/admin.js:107
 msgid "Folder"
-msgstr ""
+msgstr "Carpeta"
 
 #: core/js/dist/admin.js:107
 msgid "Limit the amount of stored items to:"
-msgstr ""
+msgstr "Limitar la cantidad de elementos almacenados a:"
 
 #: core/js/dist/admin.js:107
 msgid "When this limit is reached, older items from this source are deleted as new ones are imported."
-msgstr ""
+msgstr "Cuando se alcanza este límite, los elementos más antiguos de esta fuente se eliminan a medida que se importan los nuevos."
 
 #: core/js/dist/admin.js:107
 msgid "Published"
-msgstr ""
+msgstr "Publicado"
 
 #: core/js/dist/admin.js:107
 msgid "Scheduled"
-msgstr ""
+msgstr "Programado"
 
 #: core/js/dist/admin.js:107
 msgid "Draft"
-msgstr ""
+msgstr "Borrador"
 
 #: core/js/dist/admin.js:107
 msgid "Pending"
-msgstr ""
+msgstr "Pendiente"
 
 #: core/js/dist/admin.js:107
 msgid "Private"
-msgstr ""
+msgstr "Privado"
 
 #: core/js/dist/admin.js:107
 msgid "Trash"
-msgstr ""
+msgstr "Papelera"
 
 #: core/js/dist/admin.js:107
 msgid "Post status"
-msgstr ""
+msgstr "Estado de la entrada"
 
 #: core/js/dist/admin.js:107
 msgid "Select the status for imported posts."
-msgstr ""
+msgstr "Selecciona el estado para las entradas importadas."
 
 #: core/js/dist/admin.js:107
 msgid "Post type"
-msgstr ""
+msgstr "Tipo de entrada"
 
 #: core/js/dist/admin.js:107
 msgid "Select the post type for imported feeds. This will impact taxonomy options."
-msgstr ""
+msgstr "Selecciona el tipo de entrada para los feeds importados. Esto afectará las opciones de taxonomía."
 
 #: core/js/dist/admin.js:107
 msgid "*Note*: By enabling this option, the content of imported items could be updated over time without prior notice."
-msgstr ""
+msgstr "*Nota*: Al habilitar esta opción, el contenido de los elementos importados podría actualizarse con el tiempo sin previo aviso."
 
 #: core/js/dist/admin.js:107
 msgid "Update every"
-msgstr ""
+msgstr "Actualizar cada"
 
 #: core/js/dist/admin.js:107
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "minuto"
+msgstr[1] "minutos"
 
 #: core/js/dist/admin.js:107
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "hora"
+msgstr[1] "horas"
 
 #: core/js/dist/admin.js:107
 msgid "Minutes"
-msgstr ""
+msgstr "Minutos"
 
 #: core/js/dist/admin.js:107
 msgid "Hours"
-msgstr ""
+msgstr "Horas"
 
 #: core/js/dist/admin.js:107
 msgid "Days"
-msgstr ""
+msgstr "Días"
 
 #: core/js/dist/admin.js:107
 msgid "Weeks"
-msgstr ""
+msgstr "Semanas"
 
 #: core/js/dist/admin.js:107
 msgid "Months"
-msgstr ""
+msgstr "Meses"
 
 #: core/js/dist/admin.js:107
 msgid "Sunday"
-msgstr ""
+msgstr "Domingo"
 
 #: core/js/dist/admin.js:107
 msgid "Monday"
-msgstr ""
+msgstr "Lunes"
 
 #: core/js/dist/admin.js:107
 msgid "Tuesday"
-msgstr ""
+msgstr "Martes"
 
 #: core/js/dist/admin.js:107
 msgid "Wednesday"
-msgstr ""
+msgstr "Miércoles"
 
 #: core/js/dist/admin.js:107
 msgid "Thursday"
-msgstr ""
+msgstr "Jueves"
 
 #: core/js/dist/admin.js:107
 msgid "Friday"
-msgstr ""
+msgstr "Viernes"
 
 #: core/js/dist/admin.js:107
 msgid "Saturday"
-msgstr ""
+msgstr "Sábado"
 
 #: core/js/dist/admin.js:107
 msgid "No feeds found."
-msgstr ""
+msgstr "No se encontraron feeds."
 
 #: core/js/dist/admin.js:107
 msgid "This RSS feed contains errors, but may still work with Aggregator. Click to learn more."
-msgstr ""
+msgstr "Este feed RSS contiene errores, pero aún puede funcionar con Aggregator. Haz clic para obtener más información."
 
 #: core/js/dist/admin.js:107
 msgid "Current site"
-msgstr ""
+msgstr "Sitio actual"
 
 #: core/js/dist/admin.js:107
 msgid "Post to site"
-msgstr ""
+msgstr "Publicar en el sitio"
 
 #: core/js/dist/admin.js:107
 msgid "Update strategy"
-msgstr ""
+msgstr "Estrategia de actualización"
 
 #: core/js/dist/admin.js:107
 msgid "Set how frequently this source should check for new items available in its RSS feed."
-msgstr ""
+msgstr "Establece con qué frecuencia esta fuente debe buscar nuevos elementos disponibles en su feed RSS."
 
 #: core/js/dist/admin.js:107
 msgid "Set whether the already imported items’ content is updated with every fetch or not. [Learn more][docs]."
-msgstr ""
+msgstr "Establece si el contenido de los elementos ya importados se actualiza con cada obtención o no. [Aprende más][docs]."
 
 #: core/js/dist/admin.js:107
 msgid "Details"
-msgstr ""
+msgstr "Detalles"
 
 #: core/js/dist/admin.js:107
 msgid "Updates"
-msgstr ""
+msgstr "Actualizaciones"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "Used when a source is duplicated. %s = original source name"
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (copia)"
 
 #: core/js/dist/admin.js:107
 msgid "Delete source?"
 msgid_plural "Delete %d sources?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "¿Eliminar fuente?"
+msgstr[1] "¿Eliminar %d fuentes?"
 
 #: core/js/dist/admin.js:107
 msgid "Duplicate (settings only)"
-msgstr ""
+msgstr "Duplicar (solo ajustes)"
 
 #: core/js/dist/admin.js:107
 msgid "Group in a folder"
-msgstr ""
+msgstr "Agrupar en una carpeta"
 
 #: core/js/dist/admin.js:107
 msgid "Folder:"
 msgid_plural "Folders:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Carpeta:"
+msgstr[1] "Carpetas:"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "%d pending"
 msgid_plural "%d pending"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d pendiente"
+msgstr[1] "%d pendientes"
 
 #: core/js/dist/admin.js:107
 msgid "Next update: now"
-msgstr ""
+msgstr "Próxima actualización: ahora"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "Next update: %s"
-msgstr ""
+msgstr "Próxima actualización: %s"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "Last updated: %s"
-msgstr ""
+msgstr "Última actualización: %s"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "Trying again in %s"
-msgstr ""
+msgstr "Intentando de nuevo en %s"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "Pause source %s"
-msgstr ""
+msgstr "Pausar fuente %s"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "Activate source %s"
-msgstr ""
+msgstr "Activar fuente %s"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "Importing items for %s..."
-msgstr ""
+msgstr "Importando elementos para %s..."
 
 #: core/js/dist/admin.js:107
 msgctxt "Link in sources page to fetch items"
 msgid "Fetch"
-msgstr ""
+msgstr "Obtener"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "Are you sure you want to delete all items imported by %s?"
-msgstr ""
+msgstr "¿Estás seguro de que quieres eliminar todos los elementos importados por %s?"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "Deleting items imported by %s..."
-msgstr ""
+msgstr "Eliminando elementos importados por %s..."
 
 #: core/js/dist/admin.js:107
 msgctxt "Link in sources page to delete items"
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "%s is already up to date."
-msgstr ""
+msgstr "%s ya está actualizado."
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "Notification text after importing items for a source."
 msgid "Imported %d new item from %s."
 msgid_plural "Imported %d new items from %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Importado %d nuevo elemento de %s."
+msgstr[1] "Importados %d nuevos elementos de %s."
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "There are no items to delete for %s."
-msgstr ""
+msgstr "No hay elementos para eliminar para %s."
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "Notification text after deleting items for a source."
 msgid "Deleted %d item from %s."
 msgid_plural "Deleted %d items from %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eliminado %d elemento de %s."
+msgstr[1] "Eliminados %d elementos de %s."
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgid "%d unreachable"
-msgstr ""
+msgstr "%d inaccesible"
 
 #: core/js/dist/admin.js:107
 msgid "Start importing your content"
-msgstr ""
+msgstr "Empieza a importar tu contenido"
 
 #: core/js/dist/admin.js:107
 msgid "It’s time to get people buzzing about your website!"
-msgstr ""
+msgstr "¡Es hora de que la gente hable de tu sitio web!"
 
 #: core/js/dist/admin.js:107
 msgid "Add your first source and watch as Aggregator automatically imports and publishes fresh and relevant content to your site in seconds."
-msgstr ""
+msgstr "Añade tu primera fuente y observa cómo Aggregator importa y publica automáticamente contenido fresco y relevante en tu sitio en segundos."
 
 #: core/js/dist/admin.js:107
 msgid "Read this post"
-msgstr ""
+msgstr "Lee esta entrada"
 
 #: core/js/dist/admin.js:107
 msgid "Go to the blog"
-msgstr ""
+msgstr "Ir al blog"
 
 #: core/js/dist/admin.js:107
 msgid "View all posts from this category"
-msgstr ""
+msgstr "Ver todas las entradas de esta categoría"
 
 #: core/js/dist/admin.js:107
 msgid "Latest Tutorials"
-msgstr ""
+msgstr "Últimos tutoriales"
 
 #: core/js/dist/admin.js:107
 msgid "Aggregation"
-msgstr ""
+msgstr "Agregación"
 
 #: core/js/dist/admin.js:107
 msgid "Curation"
-msgstr ""
+msgstr "Curación"
 
 #: core/js/dist/admin.js:107
 msgid "Syndication"
-msgstr ""
+msgstr "Sindicación"
 
 #: core/js/dist/admin.js:107
 msgid "Website Monetization"
-msgstr ""
+msgstr "Monetización de sitios web"
 
 #: core/js/dist/admin.js:107
 msgid "WordPress Plugins"
-msgstr ""
+msgstr "Plugins de WordPress"
 
 #: core/js/dist/admin.js:107
 msgid "Owner:"
-msgstr ""
+msgstr "Propietario:"
 
 #: core/js/dist/admin.js:107
 msgid "Email:"
-msgstr ""
+msgstr "Correo electrónico:"
 
 #: core/js/dist/admin.js:107
 msgid "Expires:"
-msgstr ""
+msgstr "Expira:"
 
 #: core/js/dist/admin.js:107
 msgid "Activations:"
-msgstr ""
+msgstr "Activaciones:"
 
 #: core/js/dist/admin.js:107
 msgctxt "Number of license activations left"
 msgid "Unlimited"
-msgstr ""
+msgstr "Ilimitado"
 
 #: core/js/dist/admin.js:107
 #, js-format
 msgctxt "Number of license activations, example: 2/5 (3 remaining)"
 msgid "%d/%d (%d remaining)"
-msgstr ""
+msgstr "%d/%d (%d restantes)"
 
 #: core/js/dist/admin.js:107
 msgctxt "Referring to premium plans"
 msgid "Most popular"
-msgstr ""
+msgstr "Más popular"
 
 #: core/js/dist/admin.js:107
 msgid "Your License"
-msgstr ""
+msgstr "Tu licencia"
 
 #: core/js/dist/admin.js:107
 msgid "Enter your license key below to activate your plan and unlock your premium features."
-msgstr ""
+msgstr "Introduce tu clave de licencia a continuación para activar tu plan y desbloquear tus funciones premium."
 
 #: core/js/dist/admin.js:107
 msgid "This license key is invalid."
-msgstr ""
+msgstr "Esta clave de licencia no es válida."
 
 #: core/js/dist/admin.js:107
 msgid "Please ensure you entered your license correctly. <instructionLink>Follow these instructions</instructionLink> to find the correct license or <contactLink>contact us for help</contactLink>."
-msgstr ""
+msgstr "Por favor, asegúrate de haber introducido tu licencia correctamente. <instructionLink>Sigue estas instrucciones</instructionLink> para encontrar la licencia correcta o <contactLink>contáctanos para obtener ayuda</contactLink>."
 
 #: core/js/dist/admin.js:107
 msgid "If you do not have a valid license, you may purchase one from this page or <pricingLink>from our website</pricingLink>."
-msgstr ""
+msgstr "Si no tienes una licencia válida, puedes comprar una en esta página o <pricingLink>en nuestro sitio web</pricingLink>."
 
 #: core/js/dist/admin.js:107
 msgid "My Account"
-msgstr ""
+msgstr "Mi cuenta"
 
 #: core/js/dist/admin.js:107
 msgid "Expired"
-msgstr ""
+msgstr "Expirado"
 
 #: core/js/dist/admin.js:107
 msgid "Active"
-msgstr ""
+msgstr "Activo"
 
 #: core/js/dist/admin.js:107
 msgid "Paused"
-msgstr ""
+msgstr "Pausado"
 
 #: core/js/dist/admin.js:107
 msgid "Your Plan: "
-msgstr ""
+msgstr "Tu plan: "
 
 #: core/js/dist/admin.js:107
 msgid "Status: "
-msgstr ""
+msgstr "Estado: "
 
 #: core/js/dist/admin.js:107
 msgid "Updates: "
-msgstr ""
+msgstr "Actualizaciones: "
 
 #: core/js/dist/admin.js:107
 msgid "Renew your license to regain access to premium features."
-msgstr ""
+msgstr "Renueva tu licencia para recuperar el acceso a las funciones premium."
 
 #: core/js/dist/admin.js:107
 msgid "Disconnect"
-msgstr ""
+msgstr "Desconectar"
 
 #: core/js/dist/admin.js:107
 msgid "Renew my license"
-msgstr ""
+msgstr "Renovar mi licencia"
 
 #: core/js/dist/admin.js:107
 msgid "Display RSS feeds anywhere on your site and customize them to match your site’s design."
-msgstr ""
+msgstr "Muestra feeds RSS en cualquier lugar de tu sitio y personalízalos para que coincidan con el diseño de tu sitio."
 
 #: core/js/dist/admin.js:107
 msgid "Upgrade to Basic"
-msgstr ""
+msgstr "Actualizar a Básico"
 
 #: core/js/dist/admin.js:107
 msgid "Aggregate RSS feeds as blog posts and publish their excerpts to your blog or CPT."
-msgstr ""
+msgstr "Agrega feeds RSS como entradas de blog y publica sus extractos en tu blog o CPT."
 
 #: core/js/dist/admin.js:107
 msgid "Upgrade to Plus"
-msgstr ""
+msgstr "Actualizar a Plus"
 
 #: core/js/dist/admin.js:107
 msgid "Curate RSS feeds as Posts or any CPT and give your visitors all the content they’re after."
-msgstr ""
+msgstr "Cura feeds RSS como Entradas o cualquier CPT y da a tus visitantes todo el contenido que buscan."
 
 #: core/js/dist/admin.js:107
 msgid "Custom mapping"
-msgstr ""
+msgstr "Mapeo personalizado"
 
 #: core/js/dist/admin.js:107
 msgid "Import unlimited content from RSS feeds and generate your own original versions."
-msgstr ""
+msgstr "Importa contenido ilimitado desde feeds RSS y genera tus propias versiones originales."
 
 #: core/js/dist/admin.js:107
 msgid "Elite Lifetime"
-msgstr ""
+msgstr "Élite de por vida"
 
 #: core/js/dist/admin.js:107
 msgid "Use your favorite Aggregator plan with lifetime* access to all its features."
-msgstr ""
+msgstr "Usa tu plan de Aggregator favorito con acceso de por vida* a todas sus funciones."
 
 #: core/js/dist/admin.js:107
 msgid "For 1 site"
-msgstr ""
+msgstr "Para 1 sitio"
 
 #: core/js/dist/admin.js:107
 msgid "Upgrade to Lifetime"
-msgstr ""
+msgstr "Actualizar a Vitalicio"
 
 #: core/js/dist/admin.js:107
 msgid "Pay only once"
-msgstr ""
+msgstr "Paga solo una vez"
 
 #: core/js/dist/admin.js:107
 msgid "Lifetime access"
-msgstr ""
+msgstr "Acceso de por vida"
 
 #: core/js/dist/admin.js:107
 msgid "20% discount"
-msgstr ""
+msgstr "20% de descuento"
 
 #: core/js/dist/admin.js:107
 msgid "Annually for 1 site"
-msgstr ""
+msgstr "Anualmente para 1 sitio"
 
 #: core/js/dist/admin.js:107
 msgid "Renews at full price"
-msgstr ""
+msgstr "Se renueva a precio completo"
 
 #: core/js/dist/admin.js:107
 msgid "Access to support for 3 years"
-msgstr ""
+msgstr "Acceso a soporte durante 3 años"
 
 #: core/js/dist/admin.js:107
 msgid "Premium email support"
-msgstr ""
+msgstr "Soporte premium por correo electrónico"
 
 #: core/js/dist/admin.js:107
 msgid "30-day money-back"
-msgstr ""
+msgstr "Garantía de devolución de 30 días"
 
 #: core/js/dist/admin.js:111
 msgid "Manage your plan"
-msgstr ""
+msgstr "Gestiona tu plan"
 
 #: core/js/dist/admin.js:111
 msgid "Keep the Buzz Going: Explore Additional Upgrades!"
-msgstr ""
+msgstr "¡Mantén el zumbido: explora actualizaciones adicionales!"
 
 #: core/js/dist/admin.js:111
 msgid "Upgrade Your Plan and Make Your Site Buzz Even Louder!"
-msgstr ""
+msgstr "¡Actualiza tu plan y haz que tu sitio zumbe aún más fuerte!"
 
 #: core/js/dist/admin.js:111
 msgid "All upgrades are pro-rated. <Link>How to upgrade your existing license.</Link>"
-msgstr ""
+msgstr "Todas las actualizaciones son prorrateadas. <Link>Cómo actualizar tu licencia existente.</Link>"
 
 #: core/js/dist/admin.js:111
 msgid "Interested in using Aggregator on more than 1 site?"
-msgstr ""
+msgstr "¿Interesado en usar Aggregator en más de 1 sitio?"
 
 #: core/js/dist/admin.js:111
 msgid "Upgrade to a 5-site or unlimited site license today."
-msgstr ""
+msgstr "Actualiza a una licencia de 5 sitios o sitios ilimitados hoy."
 
 #: core/js/dist/admin.js:111
 msgid "Welcome to Aggregator v5"
-msgstr ""
+msgstr "Bienvenido a Aggregator v5"
 
 #: core/js/dist/admin.js:111
 msgid "Our latest version comes packed with powerful improvements designed to enhance your experience."
-msgstr ""
+msgstr "Nuestra última versión viene con potentes mejoras diseñadas para mejorar tu experiencia."
 
 #: core/js/dist/admin.js:111
 msgid "Start migration"
-msgstr ""
+msgstr "Iniciar migración"
 
 #: core/js/dist/admin.js:111
 msgid "This wizard will guide you through the necessary steps to complete your migration."
-msgstr ""
+msgstr "Este asistente te guiará a través de los pasos necesarios para completar tu migración."
 
 #: core/js/dist/admin.js:111
 msgid "There are over 10,000 imported items on this website. To ensure a smooth and reliable migration to v5, we strongly recommend using the <span>WP-CLI Migration Method</span> (Advanced) instead of this built-in wizard."
-msgstr ""
+msgstr "Hay más de 10.000 elementos importados en este sitio web. Para garantizar una migración fluida y fiable a v5, recomendamos encarecidamente utilizar el <span>Método de migración WP-CLI</span> (Avanzado) en lugar de este asistente incorporado."
 
 #: core/js/dist/admin.js:111
 msgid "This method is designed for larger sites and helps avoid performance or timeout issues during migration. It requires basic developer access (SSH or terminal) and is fully explained in our step-by-step <a>migration guide.</a>"
-msgstr ""
+msgstr "Este método está diseñado para sitios más grandes y ayuda a evitar problemas de rendimiento o de tiempo de espera durante la migración. Requiere acceso básico de desarrollador (SSH o terminal) y se explica detalladamente en nuestra <a>guía de migración paso a paso.</a>"
 
 #: core/js/dist/admin.js:111
 msgid "Use WP-CLI Migration Method (Advanced)"
-msgstr ""
+msgstr "Usar el método de migración WP-CLI (avanzado)"
 
 #: core/js/dist/admin.js:111
 msgid "<span>Advanced Migration with WP-CLI:</span> For a more controlled migration to v5, you can use the WP-CLI Migration Method (Advanced) instead of the built-in wizard. This option is ideal for technical users and requires SSH or terminal access. <a>Read the full guide.</a>"
-msgstr ""
+msgstr "<span>Migración avanzada con WP-CLI:</span> para una migración más controlada a v5, puede utilizar el método de migración de WP-CLI (avanzado) en lugar del asistente integrado. Esta opción es ideal para usuarios técnicos y requiere acceso SSH o terminal. <a>Lea la guía completa.</a>"
 
 #: core/js/dist/admin.js:111
 msgid "What's new?"
-msgstr ""
+msgstr "¿Qué hay de nuevo?"
 
 #: core/js/dist/admin.js:111
 msgid "Enhanced performance: Experience faster data processing and real-time analytics."
-msgstr ""
+msgstr "Rendimiento mejorado: experimente un procesamiento de datos más rápido y análisis en tiempo real."
 
 #: core/js/dist/admin.js:111
 msgid "New user interface: A modern, more intuitive design to streamline your workflow."
-msgstr ""
+msgstr "Nueva interfaz de usuario: un diseño moderno y más intuitivo para optimizar su flujo de trabajo."
 
 #: core/js/dist/admin.js:111
 msgid "Advanced security features: Cutting-edge security enhancements to protect your data."
-msgstr ""
+msgstr "Funciones de seguridad avanzadas: mejoras de seguridad de vanguardia para proteger sus datos."
 
 #: core/js/dist/admin.js:111
 msgid "An all new hub: Manage and track your content efficiently."
-msgstr ""
+msgstr "Un Hub completamente nuevo: administre y realice un seguimiento de su contenido de manera eficiente."
 
 #: core/js/dist/admin.js:111
 msgid "License activated"
-msgstr ""
+msgstr "Licencia activada"
 
 #: core/js/dist/admin.js:111
 msgid "Before we begin, please ensure that you:"
-msgstr ""
+msgstr "Antes de comenzar, asegúrese de que:"
 
 #: core/js/dist/admin.js:111
 msgid "Create a backup of your site, just in case."
-msgstr ""
+msgstr "Cree una copia de seguridad de su sitio, por si acaso."
 
 #: core/js/dist/admin.js:111
 msgid "Make sure your website and hosting meet [v5's requirements][0]."
-msgstr ""
+msgstr "Asegúrese de que su sitio web y su alojamiento cumplan los [requisitos de la v5][0]."
 
 #: core/js/dist/admin.js:111
 msgid "If possible, test the migration on a staging site first. This is especially important if you had previously implemented custom [actions and filters][0]."
-msgstr ""
+msgstr "Si es posible, pruebe primero la migración en un sitio de ensayo. Esto es especialmente importante si ya había implementado [acciones y filtros][0] personalizados."
 
 #: core/js/dist/admin.js:111
 msgid "Upgrading and migrating to v5 could carry some risks. We've worked hard to ensure a smooth process, but compatibility issues may arise. We strongly recommend that you follow the 3 steps above to mitigate these risks."
-msgstr ""
+msgstr "La actualización y migración a la v5 puede conllevar algunos riesgos. Hemos trabajado duro para garantizar un proceso sin problemas, pero pueden surgir problemas de compatibilidad. Le recomendamos encarecidamente que siga los 3 pasos anteriores para mitigar estos riesgos."
 
 #: core/js/dist/admin.js:111
 msgid "When you're ready, click \"Start migration\" to start your migration. If you have any questions, [our support team][0] is here to help!"
-msgstr ""
+msgstr "Cuando estés listo, haz clic en \"Iniciar migración\" para comenzar la migración. Si tienes alguna pregunta, ¡[nuestro equipo de soporte][0] está aquí para ayudarte!"
 
 #: core/js/dist/admin.js:111
 #: core/js/dist/admin.js:113
 msgid "If you leave now, your data will not be fully migrated and you may experience data corruption."
-msgstr ""
+msgstr "Si te vas ahora, tus datos no se migrarán por completo y podrías experimentar corrupción de datos."
 
 #: core/js/dist/admin.js:113
 msgid "Migration completed"
-msgstr ""
+msgstr "Migración completada"
 
 #: core/js/dist/admin.js:113
 msgid "Migrating to v5"
-msgstr ""
+msgstr "Migrando a v5"
 
 #: core/js/dist/admin.js:113
 msgid "This process could take several minutes. Do not close this page."
-msgstr ""
+msgstr "Este proceso podría tardar varios minutos. No cierres esta página."
 
 #: core/js/dist/admin.js:113
 msgid "Blacklisted"
-msgstr ""
+msgstr "En la lista negra"
 
 #: core/js/dist/admin.js:113
 msgid "Templates"
-msgstr ""
+msgstr "Plantillas"
 
 #: core/js/dist/admin.js:113
 msgid "Imported items"
-msgstr ""
+msgstr "Elementos importados"
 
 #: core/js/dist/admin.js:113
 msgid "Complete Your Migration"
-msgstr ""
+msgstr "Completa tu migración"
 
 #: core/js/dist/admin.js:113
 msgid "You’re almost done!"
-msgstr ""
+msgstr "¡Ya casi has terminado!"
 
 #: core/js/dist/admin.js:113
 msgid "To complete your move to Aggregator v5, click the Finish Migration button below. We also recommend deactivating your Aggregator v4 add-ons, since they’re no longer needed."
-msgstr ""
+msgstr "Para completar tu paso a Aggregator v5, haz clic en el botón Finalizar migración a continuación. También recomendamos desactivar tus complementos de Aggregator v4, ya que ya no son necesarios."
 
 #: core/js/dist/admin.js:113
 msgid "Add-ons Deactivated"
-msgstr ""
+msgstr "Complementos desactivados"
 
 #: core/js/dist/admin.js:113
 msgid "Deactivating Add-ons..."
-msgstr ""
+msgstr "Desactivando complementos..."
 
 #: core/js/dist/admin.js:113
 msgid "Deactivate Add-ons"
-msgstr ""
+msgstr "Desactivar complementos"
 
 #: core/js/dist/admin.js:113
 msgid "Disables legacy v4 add-ons."
-msgstr ""
+msgstr "Desactiva los complementos heredados de v4."
 
 #: core/js/dist/admin.js:113
 msgid "Finish Migration"
-msgstr ""
+msgstr "Finalizar migración"
 
 #: core/js/dist/admin.js:113
 msgid "Click this button to complete the migration."
-msgstr ""
+msgstr "Haz clic en este botón para completar la migración."
 
 #: core/js/dist/admin.js:113
 msgid "Before you migrate"
-msgstr ""
+msgstr "Antes de migrar"
 
 #: core/js/dist/admin.js:113
 msgid "We’ve now combined all your premium add-ons into one Premium plugin in v5. Your old add-ons are now considered legacy and will only work with v4."
-msgstr ""
+msgstr "Ahora hemos combinado todos tus complementos premium en un único plugin Premium en v5. Tus antiguos complementos ahora se consideran heredados y solo funcionarán con v4."
 
 #: core/js/dist/admin.js:113
 msgid "To retain access to your paid features, activate Aggregator Premium now. Migration cannot continue without it."
-msgstr ""
+msgstr "Para conservar el acceso a tus funciones de pago, activa Aggregator Premium ahora. La migración no puede continuar sin él."
 
 #: core/js/dist/admin.js:113
 msgid "Activate Aggregator Premium"
-msgstr ""
+msgstr "Activar Aggregator Premium"
 
 #: core/js/dist/admin.js:113
 msgid "Download Aggregator Premium from your account, then install and activate it before proceeding. Migration is blocked until the Premium plugin is active."
-msgstr ""
+msgstr "Descarga Aggregator Premium desde tu cuenta, luego instálalo y actívalo antes de continuar. La migración está bloqueada hasta que el plugin Premium esté activo."
 
 #: core/js/dist/admin.js:113
 msgid "<strong>Need help?</strong> See our guide on how to <a>Install Aggregator Premium</a>"
-msgstr ""
+msgstr "<strong>¿Necesitas ayuda?</strong> Consulta nuestra guía sobre cómo <a>Instalar Aggregator Premium</a>"
 
 #: core/js/dist/admin.js:113
 msgid "Download from Your Account"
-msgstr ""
+msgstr "Descargar desde tu cuenta"
 
 #: core/js/dist/admin.js:113
 msgid "Once you've downloaded the Aggregator Premium plugin, <a>install it on your site</a>:"
-msgstr ""
+msgstr "Una vez que hayas descargado el plugin Aggregator Premium, <a>instálalo en tu sitio</a>:"
 
 #: core/js/dist/admin.js:113
 msgid "Go to Plugins → Add Plugin → Upload Plugin."
-msgstr ""
+msgstr "Ve a Plugins → Añadir plugin → Subir plugin."
 
 #: core/js/dist/admin.js:113
 msgid "Choose the file you just downloaded from your account."
-msgstr ""
+msgstr "Elige el archivo que acabas de descargar de tu cuenta."
 
 #: core/js/dist/admin.js:113
 msgid "Click Install Now."
-msgstr ""
+msgstr "Haz clic en Instalar ahora."
 
 #: core/js/dist/admin.js:113
 msgid "Once installed, click Activate Plugin."
-msgstr ""
+msgstr "Una vez instalado, haz clic en Activar plugin."
 
 #: core/js/dist/admin.js:113
 msgid "Go to Plugins Page"
-msgstr ""
+msgstr "Ir a la página de plugins"
 
 #: core/js/dist/admin.js:113
 msgid "Next"
-msgstr ""
+msgstr "Siguiente"
 
 #: core/js/dist/admin.js:113
 msgid "Cancel migration and stay on v4"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "You have unsaved changes. Are you sure you want to leave?"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Add a source"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Enter a feed URL"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Choose a layout"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Select a layout for your display"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Embed your display"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Add the imported items to your site"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Set import status"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Choose between Draft or Published"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Add a link to the source"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Provide attribution to the creators"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Aggregate or curate"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Select your preferred method"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "The feed source was not created properly."
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgctxt "Name of the display created during onboarding"
-msgid "My Display"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgctxt "Name of page created during onboarding"
-msgid "Aggregator"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "The page was not created properly."
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "Aggregator Blog"
-msgstr ""
+msgstr "Cancelar migración y permanecer en v4"
 
 #: core/js/dist/admin.js:113
 msgid "Skip and go to your Hub"
-msgstr ""
+msgstr "Omitir e ir a tu Hub"
 
 #: core/js/dist/admin.js:113
 msgid "*Reminder:* You’re using a test source. If you don’t want to automatically publish its posts on your site, use the curation option. You can add more sources later."
-msgstr ""
+msgstr "*Recordatorio:* Estás utilizando una fuente de prueba. Si no quieres publicar automáticamente sus entradas en tu sitio, utiliza la opción de curación. Puedes añadir más fuentes más tarde."
 
 #: core/js/dist/admin.js:113
 msgid "*Reminder*: You’re using a test source. Its content won’t be shown on your site unless you embed its display on a page or post. You can add more sources later."
-msgstr ""
+msgstr "*Recordatorio*: Estás utilizando una fuente de prueba. Su contenido no se mostrará en tu sitio a menos que incrustes su visualización en una página o entrada. Puedes añadir más fuentes más tarde."
 
 #: core/js/dist/admin.js:113
 msgid "Back"
-msgstr ""
+msgstr "Atrás"
 
 #: core/js/dist/admin.js:113
 msgid "Provide attribution to the original source"
-msgstr ""
+msgstr "Proporcionar atribución a la fuente original"
 
 #: core/js/dist/admin.js:113
 msgid "Choose whether to add an attribution link back to the original source within each Post, giving the original content creator credit for their work."
-msgstr ""
+msgstr "Elige si quieres añadir un enlace de atribución a la fuente original en cada Entrada, dando crédito al creador del contenido original por su trabajo."
 
 #: core/js/dist/admin.js:113
 msgid "*Tip!* Linking back to the original source is the most ethical way of giving content creators the credit they deserve for their work and building stronger relationships over time."
-msgstr ""
+msgstr "¡Consejo!* Enlazar a la fuente original es la forma más ética de dar a los creadores de contenido el crédito que merecen por su trabajo y de construir relaciones más sólidas con el tiempo."
 
 #: core/js/dist/admin.js:113
 msgid "Add attribution"
-msgstr ""
+msgstr "Añadir atribución"
 
 #: core/js/dist/admin.js:113
 msgid "A message linking to the original source will appear at the top of each Post."
-msgstr ""
+msgstr "Aparecerá un mensaje enlazando a la fuente original en la parte superior de cada Entrada."
 
 #: core/js/dist/admin.js:113
 msgid "Do not add attribution"
-msgstr ""
+msgstr "No añadir atribución"
 
 #: core/js/dist/admin.js:113
 msgid "Display only the imported post content, excluding attribution links."
-msgstr ""
+msgstr "Mostrar solo el contenido de la entrada importada, excluyendo los enlaces de atribución."
 
 #: core/js/dist/admin.js:113
 msgid "Aggregate"
-msgstr ""
+msgstr "Agregar"
 
 #: core/js/dist/admin.js:113
 msgid "Import items automatically as Draft Posts."
-msgstr ""
+msgstr "Importar elementos automáticamente como Entradas de borrador."
 
 #: core/js/dist/admin.js:113
 msgid "Import items automatically as Published Posts."
-msgstr ""
+msgstr "Importar elementos automáticamente como Entradas publicadas."
 
 #: core/js/dist/admin.js:113
 msgid "Import items automatically as Feed Items."
-msgstr ""
+msgstr "Importar elementos automáticamente como Elementos de feed."
 
 #: core/js/dist/admin.js:113
 msgid "Curate"
-msgstr ""
+msgstr "Curar"
 
 #: core/js/dist/admin.js:113
 msgid "Approve or reject items before importing as Posts."
-msgstr ""
+msgstr "Aprobar o rechazar elementos antes de importarlos como Entradas."
 
 #: core/js/dist/admin.js:113
 msgid "Approve or reject items before importing."
-msgstr ""
+msgstr "Aprobar o rechazar elementos antes de importar."
 
 #: core/js/dist/admin.js:113
 msgid "Will you aggregate or curate your content?"
-msgstr ""
+msgstr "¿Agregarás o curarás tu contenido?"
 
 #: core/js/dist/admin.js:113
 msgid "You can choose to either publish the content automatically (aggregate) or manually approve items from your Hub before publishing (curate)."
-msgstr ""
+msgstr "Puedes elegir publicar el contenido automáticamente (agregar) o aprobar manualmente los elementos desde tu Hub antes de publicar (curar)."
 
 #: core/js/dist/admin.js:113
 msgid "*Tip!* Many users find that curating content drives higher engagement and provides more value."
-msgstr ""
+msgstr "¡Consejo!* Muchos usuarios encuentran que curar contenido genera una mayor participación y proporciona más valor."
 
 #: core/js/dist/admin.js:113
 msgid "Create a new page with your display"
-msgstr ""
+msgstr "Crear una nueva página con tu visualización"
 
 #: core/js/dist/admin.js:113
 msgid "We’ll create a new page called “Aggregator” to display your feed."
-msgstr ""
+msgstr "Crearemos una nueva página llamada “Aggregator” para mostrar tu feed."
 
 #: core/js/dist/admin.js:113
 msgid "Add your display to an existing page"
-msgstr ""
+msgstr "Añade tu visualización a una página existente"
 
 #: core/js/dist/admin.js:113
 msgid "Use the “RSS Aggregator” block or the shortcode:"
-msgstr ""
+msgstr "Usa el bloque “RSS Aggregator” o el shortcode:"
 
 #: core/js/dist/admin.js:113
 msgid "Add your feed display to your site"
-msgstr ""
+msgstr "Añade la visualización de tu feed a tu sitio"
 
 #: core/js/dist/admin.js:113
 msgid "Embed your imported content for your visitors to enjoy."
-msgstr ""
+msgstr "Incrusta tu contenido importado para que tus visitantes lo disfruten."
 
 #: core/js/dist/admin.js:113
 msgid "Create your first content source"
-msgstr ""
+msgstr "Crea tu primera fuente de contenido"
 
 #: core/js/dist/admin.js:113
 msgid "Enter a website or RSS feed URL below."
-msgstr ""
+msgstr "Introduce una URL de sitio web o de feed RSS a continuación."
 
 #: core/js/dist/admin.js:113
 msgid "Don’t know the RSS feed URL? Enter a website's URL and Aggregator will try to find it for you."
-msgstr ""
+msgstr "¿No conoces la URL del feed RSS? Introduce la URL de un sitio web y Aggregator intentará encontrarla por ti."
 
 #: core/js/dist/admin.js:113
 msgid "Need help? [Learn how to find a website’s RSS feed][docs]."
-msgstr ""
+msgstr "¿Necesitas ayuda? [Aprende a encontrar el feed RSS de un sitio web][docs]."
 
 #: core/js/dist/admin.js:113
 msgid "*Testing things out?* Use Aggregator Blog’s RSS feed as a sample source."
-msgstr ""
+msgstr "¿Probando cosas?* Usa el feed RSS del Blog de Aggregator como fuente de muestra."
 
 #: core/js/dist/admin.js:113
 msgid "All done! Ready to import the content from this source into your new Hub?"
-msgstr ""
+msgstr "¡Todo listo! ¿Listo para importar el contenido de esta fuente a tu nuevo Hub?"
 
 #: core/js/dist/admin.js:113
 msgid "Start Import"
-msgstr ""
+msgstr "Iniciar importación"
 
 #: core/js/dist/admin.js:113
 msgid "Go back and adjust your settings"
-msgstr ""
+msgstr "Vuelve y ajusta tu configuración"
 
 #: core/js/dist/admin.js:113
 msgid "Once the import is ready, you can dive deeper into customizing your sources’ settings and features to match your website’s style, including:"
-msgstr ""
+msgstr "Una vez que la importación esté lista, puedes profundizar en la personalización de los ajustes y características de tus fuentes para que coincidan con el estilo de tu sitio web, incluyendo:"
 
 #: core/js/dist/admin.js:113
 msgid "Optimize performance"
-msgstr ""
+msgstr "Optimizar rendimiento"
 
 #: core/js/dist/admin.js:113
 msgid "Add excerpts"
-msgstr ""
+msgstr "Añadir extractos"
 
 #: core/js/dist/admin.js:113
 msgid "Modify content"
-msgstr ""
+msgstr "Modificar contenido"
 
 #: core/js/dist/admin.js:113
 msgid "Set authors"
-msgstr ""
+msgstr "Establecer autores"
 
 #: core/js/dist/admin.js:113
 msgid "Set categories"
-msgstr ""
+msgstr "Establecer categorías"
 
 #: core/js/dist/admin.js:113
 msgid "Set tags"
-msgstr ""
+msgstr "Establecer etiquetas"
 
 #: core/js/dist/admin.js:113
 msgid "Add custom text"
-msgstr ""
+msgstr "Añadir texto personalizado"
 
 #: core/js/dist/admin.js:113
 msgid "Import full content"
-msgstr ""
+msgstr "Importar contenido completo"
 
 #: core/js/dist/admin.js:113
 msgid "Import missing images"
-msgstr ""
+msgstr "Importar imágenes faltantes"
 
 #: core/js/dist/admin.js:113
 msgid "Set up integrations"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-msgid "An unknown error occurred."
-msgstr ""
+msgstr "Configurar integraciones"
 
 #: core/js/dist/admin.js:113
 msgid "Import completed!"
-msgstr ""
+msgstr "¡Importación completada!"
 
 #: core/js/dist/admin.js:113
 msgid "Import started..."
-msgstr ""
+msgstr "Importación iniciada..."
 
 #: core/js/dist/admin.js:113
 msgid "Go to your Hub to see the imported content and continue adding more sources to your site."
-msgstr ""
+msgstr "Ve a tu Hub para ver el contenido importado y seguir añadiendo más fuentes a tu sitio."
 
 #: core/js/dist/admin.js:113
 msgid "We’re building your new Hub in the background. It will be your central dashboard where you can manage all your sources and imported content."
-msgstr ""
+msgstr "Estamos construyendo tu nuevo Hub en segundo plano. Será tu panel de control central donde podrás gestionar todas tus fuentes y contenido importado."
 
 #: core/js/dist/admin.js:113
 msgctxt "Onboarding last step, creating source"
 msgid "Source..."
-msgstr ""
+msgstr "Fuente..."
 
 #: core/js/dist/admin.js:113
 msgid "Source added"
-msgstr ""
+msgstr "Fuente añadida"
 
 #: core/js/dist/admin.js:113
 msgctxt "Onboarding last step, importing content"
 msgid "Content..."
-msgstr ""
+msgstr "Contenido..."
 
 #: core/js/dist/admin.js:113
 msgid "Content imported"
-msgstr ""
+msgstr "Contenido importado"
 
 #: core/js/dist/admin.js:113
 msgctxt "Onboarding last step, creating display"
 msgid "Layout..."
-msgstr ""
+msgstr "Diseño..."
 
 #: core/js/dist/admin.js:113
 msgid "Layout applied"
-msgstr ""
+msgstr "Diseño aplicado"
 
 #: core/js/dist/admin.js:113
 msgctxt "Onboarding last step"
 msgid "Hub..."
-msgstr ""
+msgstr "Hub..."
 
 #: core/js/dist/admin.js:113
 msgid "Hub built"
-msgstr ""
+msgstr "Hub construido"
 
 #: core/js/dist/admin.js:113
 msgid "View your new page"
-msgstr ""
+msgstr "Ver tu nueva página"
 
 #: core/js/dist/admin.js:113
 msgid "Go to your Hub"
-msgstr ""
+msgstr "Ir a tu Hub"
 
 #: core/js/dist/admin.js:113
 msgid "The feed on <a>your newly created page</a> will be empty until you approve your feed items."
-msgstr ""
+msgstr "El feed en <a>tu página recién creada</a> estará vacío hasta que apruebes los elementos de tu feed."
 
 #: core/js/dist/admin.js:113
 msgid "Choose how to import your Posts"
-msgstr ""
+msgstr "Elige cómo importar tus Entradas"
 
 #: core/js/dist/admin.js:113
 msgid "Decide whether to import Posts as Drafts and publish them later yourself or have them imported and Published automatically to your Blog."
-msgstr ""
+msgstr "Decide si importar las Entradas como Borradores y publicarlas tú mismo más tarde o si se importan y publican automáticamente en tu Blog."
 
 #: core/js/dist/admin.js:113
 msgid "Import as Drafts"
-msgstr ""
+msgstr "Importar como Borradores"
 
 #: core/js/dist/admin.js:113
 msgid "Automatically Publish"
-msgstr ""
+msgstr "Publicar automáticamente"
 
 #: core/js/dist/admin.js:113
 msgid "Choose how to display your content"
-msgstr ""
+msgstr "Elige cómo mostrar tu contenido"
 
 #: core/js/dist/admin.js:113
 msgid "Customize your feed display later - from link styling to pagination."
-msgstr ""
+msgstr "Personaliza la visualización de tu feed más tarde, desde el estilo de los enlaces hasta la paginación."
 
 #: core/js/dist/admin.js:113
 msgid "Get access to all the layouts and full customization with our [premium plans][1]."
-msgstr ""
+msgstr "Obtén acceso a todos los diseños y personalización completa con nuestros [planes premium][1]."
 
 #: core/js/dist/admin.js:113
 msgid "Upgraded? [Install Aggregator Premium][1]."
-msgstr ""
+msgstr "¿Actualizado? [Instala Aggregator Premium][1]."
 
 #: core/js/dist/admin.js:113
 msgid "Let's get started!"
-msgstr ""
+msgstr "¡Empecemos!"
 
 #: core/js/dist/admin.js:113
 msgid "Follow our quick 60-second introduction."
-msgstr ""
+msgstr "Sigue nuestra rápida introducción de 60 segundos."
 
 #: core/js/dist/admin.js:113
 msgid "Get to know the essentials of Aggregator."
-msgstr ""
+msgstr "Conoce lo esencial de Aggregator."
 
 #: core/js/dist/admin.js:113
 msgid "Get started"
-msgstr ""
+msgstr "Empezar"
 
 #: core/js/dist/admin.js:113
 msgid "License activated."
-msgstr ""
+msgstr "Licencia activada."
 
 #: core/js/dist/admin.js:113
 msgid "Welcome to Aggregator!"
-msgstr ""
+msgstr "¡Bienvenido a Aggregator!"
 
 #: core/js/dist/admin.js:113
 msgid "Activate your premium [license key][license]."
-msgstr ""
+msgstr "Activa tu [clave de licencia][license] premium."
 
 #: core/js/dist/admin.js:113
 msgid "Enter your license key here..."
-msgstr ""
+msgstr "Introduce tu clave de licencia aquí..."
 
 #: core/js/dist/admin.js:113
 msgid "Skip"
-msgstr ""
+msgstr "Omitir"
 
 #: core/js/dist/admin.js:113
 msgid "No page specified."
-msgstr ""
+msgstr "No se ha especificado ninguna página."
 
 #: core/js/dist/admin.js:113
 msgid "Invalid page id."
-msgstr ""
+msgstr "ID de página no válido."
 
 #: core/js/dist/admin.js:113
 msgid "No tier specified."
-msgstr ""
+msgstr "No se ha especificado ningún nivel."
 
 #: core/js/dist/admin.js:113
 msgid "Invalid tier."
-msgstr ""
+msgstr "Nivel no válido."
 
 #: core/js/dist/admin.js:113
 msgid "Unknown command."
-msgstr ""
+msgstr "Comando desconocido."
 
 #: core/js/dist/admin.js:113
 msgid "Enter a command"
-msgstr ""
+msgstr "Introduce un comando"
+
+#: core/js/dist/admin.js:21
+#: core/js/dist/admin.js:37
+msgid "Close notice"
+msgstr "Notificación de cierre"
+
+#: core/js/dist/admin.js:37
+msgid "New source"
+msgstr "Nueva fuente"
+
+#: core/js/dist/admin.js:37
+msgid "Latest imported posts"
+msgstr "Últimas publicaciones importadas"
+
+#: core/js/dist/admin.js:37
+msgid "Settings saved"
+msgstr "Configuración guardada"
+
+#: core/js/dist/admin.js:113
+msgid "You have unsaved changes. Are you sure you want to leave?"
+msgstr "Tienes cambios sin guardar. ¿Estas seguro que deseas irte?"
+
+#: core/js/dist/admin.js:113
+msgid "Add a source"
+msgstr "Añade una fuente"
+
+#: core/js/dist/admin.js:113
+msgid "Enter a feed URL"
+msgstr "Añade la URL de la fuente"
+
+#: core/js/dist/admin.js:113
+msgid "Choose a layout"
+msgstr "Escoge un diseño"
+
+#: core/js/dist/admin.js:113
+msgid "Select a layout for your display"
+msgstr "Selecciona un diseño para tu visualización"
+
+#: core/js/dist/admin.js:113
+msgid "Embed your display"
+msgstr "Incrustra tu visualización"
+
+#: core/js/dist/admin.js:113
+msgid "Add the imported items to your site"
+msgstr "Añade los items importados a tu sitio web"
+
+#: core/js/dist/admin.js:113
+msgid "Set import status"
+msgstr "Establecer estado de importación"
+
+#: core/js/dist/admin.js:113
+msgid "Choose between Draft or Published"
+msgstr "Escoge entre Borrador o Publicado"
+
+#: core/js/dist/admin.js:113
+msgid "Add a link to the source"
+msgstr "Añade un vínculo a la fuente"
+
+#: core/js/dist/admin.js:113
+msgid "Provide attribution to the creators"
+msgstr "Dar atribución a los creadores"
+
+#: core/js/dist/admin.js:113
+msgid "Aggregate or curate"
+msgstr "Agregar o curar"
+
+#: core/js/dist/admin.js:113
+msgid "Select your preferred method"
+msgstr "Selecciona tu método preferido"
+
+#: core/js/dist/admin.js:113
+msgid "The feed source was not created properly."
+msgstr "La fuente del feed no fue creada correctamente."
+
+#: core/js/dist/admin.js:113
+msgctxt "Name of the display created during onboarding"
+msgid "My Display"
+msgstr "Mi Visualización"
+
+#: core/js/dist/admin.js:113
+msgctxt "Name of page created during onboarding"
+msgid "Aggregator"
+msgstr "Aggregator"
+
+#: core/js/dist/admin.js:113
+msgid "The page was not created properly."
+msgstr "La página no fue creada correctamente."
+
+#: core/js/dist/admin.js:113
+msgid "Aggregator Blog"
+msgstr "Blog de Aggregator"
+
+#: core/js/dist/admin.js:113
+msgid "An unknown error occurred."
+msgstr "Ocurrió un error desconocido."
+
+#: core/js/dist/admin.js:21
+msgid "<strong>Plugin Version Mismatch.</strong> Your free and premium Aggregator plugins are running different versions, so Premium features are temporarily paused. <updateLink>Please update</updateLink> both plugins to the same version to restore full compatibility. <learnMoreLink>Learn more</learnMoreLink>"
+msgstr "<strong>Incompatibilidad de versión del plugin.</strong> Tus plugins gratuito y premium de Aggregator están ejecutando versiones diferentes, por lo que las funciones Premium se han pausado temporalmente. <updateLink>Por favor, actualiza</updateLink> ambos plugins a la misma versión para restaurar la compatibilidad completa. <learnMoreLink>Más información</learnMoreLink>"

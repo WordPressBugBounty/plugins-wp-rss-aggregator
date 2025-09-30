@@ -6,7 +6,7 @@ Commercial: https://www.wprssaggregator.com/pricing/
 Requires at least: 5.5 or higher
 Tested up to: 6.8.2
 Requires PHP: 7.4.0
-Stable tag: 5.0.3
+Stable tag: 5.0.4
 License: GPLv3
 
 The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
@@ -263,6 +263,17 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 
 == Changelog ==
+
+= 5.0.4 (2025-09-30) =
+**Added**
+- Full Spanish translation.
+
+**Changed**
+- Clearer handling and messaging when plugin versions don’t align.
+
+**Fixed**
+- JavaScript notices caused by version mismatches.
+- Issue where certain licenses blocked Premium plugin updates incorrectly.
 
 = 5.0.3 (2025-09-16) =
 **Added**
