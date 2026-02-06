@@ -375,15 +375,16 @@ function wprss_fetch_feed($url, $source = null, $param_force_feed = false)
     $url = apply_filters('wpra/importer/feed/url', $url, $parsed);
 
     // Initialize the Feed
-    $feed = new SimplePie();
+    if (class_exists('\SimplePie\SimplePie')) {
+        $feed = new \SimplePie\SimplePie();
+    } else {
+        $feed = new SimplePie();
+    }
     $feed->set_feed_url($url);
     $feed->set_autodiscovery_level(SIMPLEPIE_LOCATOR_ALL);
 
-    // If a feed source was passed
     if ($source !== null || $param_force_feed) {
-        // Get the force-feed option for the feed source
         $force_feed = get_post_meta($source, 'wprss_force_feed', true);
-        // If turned on, force the feed
         if ($force_feed == 'true' || $param_force_feed) {
             $feed->force_feed(true);
             $feed->set_autodiscovery_level(SIMPLEPIE_LOCATOR_NONE);
@@ -393,7 +394,6 @@ function wprss_fetch_feed($url, $source = null, $param_force_feed = false)
         }
     }
 
-    // Set timeout limit
     $fetch_time_limit = wprss_get_feed_fetch_time_limit();
     $feed->set_timeout($fetch_time_limit);
 
@@ -408,15 +408,18 @@ function wprss_fetch_feed($url, $source = null, $param_force_feed = false)
     do_action_ref_array('wp_feed_options', array(&$feed, $url));
 
     // Prepare the tags to strip from the feed
-    $tags_to_strip = apply_filters('wprss_feed_tags_to_strip', $feed->strip_htmltags, $source);
+    $tags_to_strip = apply_filters('wprss_feed_tags_to_strip', $feed->strip_htmltags(), $source);
     // Strip them
     $feed->strip_htmltags($tags_to_strip);
 
     do_action('wprss_fetch_feed_before', $feed, $source);
 
     // Fetch the feed
-    $feed->init();
-    $feed->handle_content_type();
+    $success = $feed->init();
+
+    if ($success) {
+        $feed->handle_content_type();
+    }
 
     do_action('wprss_fetch_feed_after', $feed);
 
@@ -424,8 +427,10 @@ function wprss_fetch_feed($url, $source = null, $param_force_feed = false)
     if ($feed->error()) {
         return new WP_Error('simplepie-error', $feed->error(), array('feed' => $feed));
     }
+
     // If no error, return the feed and remove any error meta
     delete_post_meta($source, 'wprss_error_last_import');
+
     return $feed;
 }
 

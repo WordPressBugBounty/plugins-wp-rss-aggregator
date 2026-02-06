@@ -198,15 +198,15 @@ class Renderer {
 		if ( 'block' === $type && ! empty( $id ) ) {
 			$preserved_args = array(
 				'id' => $id,
-				'align' => $args['align'] ?? null,
-				'limit' => $args['limit'] ?? null,
-				'pagination' => $args['pagination'] ?? null,
+				'align'      => isset( $args['align'] ) ? sanitize_text_field( $args['align'] ) : null,
+				'limit'      => isset( $args['limit'] ) ? sanitize_text_field( $args['limit'] ) : null,
+				'pagination' => isset( $args['pagination'] ) ? sanitize_text_field( $args['pagination'] ) : null,
 			);
 			// Filter out null values to keep $args clean
-			$args = array_filter($preserved_args, fn($value) => $value !== null);
+			$args = array_filter( $preserved_args, fn( $value ) => $value !== null );
 		}
 
-		$v4Slug = trim( $args['template'] ?? '' );
+		$v4Slug = sanitize_text_field( $args['template'] ?? '' );
 		$display = new Display( null );
 
 		if ( ! empty( $v4Slug ) ) {
@@ -246,9 +246,9 @@ class Renderer {
 		assert( $display instanceof Display );
 
 		// Process exclusions first
-		$excludeSrcsRaw = explode( ',', $args['exclude'] ?? '' );
+		$excludeSrcsRaw = explode( ',', sanitize_text_field( $args['exclude'] ?? '' ) );
 		$excludeSrcsInput = array_filter( array_map( 'trim', $excludeSrcsRaw ), 'is_numeric' );
-		if (!empty($excludeSrcsInput)) {
+		if ( ! empty( $excludeSrcsInput ) ) {
 			$v4IdMapExclude = $this->sources->resolveV4Ids( $excludeSrcsInput )->getOr( array() );
 			$v4IdsExclude = array_keys( $v4IdMapExclude );
 			$v5IdsFromV4Exclude = array_values( $v4IdMapExclude );
@@ -262,19 +262,19 @@ class Renderer {
 		} else {
 			// If 'exclude' is not in $args, keep existing display settings (if any)
 			// or ensure it's an empty array if not set.
-			$display->settings->excludeSrcs = $display->settings->excludeSrcs ?? [];
+			$display->settings->excludeSrcs = $display->settings->excludeSrcs ?? array();
 		}
 
 		// Process sources: if any source-defining attributes are in $args,
 		// they override any sources set on the loaded $display.
-		$sourceArg = $args['source'] ?? '';
-		$sourcesArg = $args['sources'] ?? '';
-		$feedsArg = $args['feeds'] ?? '';
+		$sourceArg = sanitize_text_field( $args['source'] ?? '' );
+		$sourcesArg = sanitize_text_field( $args['sources'] ?? '' );
+		$feedsArg = sanitize_text_field( $args['feeds'] ?? '' );
 
 		if ( ! empty( $sourceArg ) || ! empty( $sourcesArg ) || ! empty( $feedsArg ) ) {
-			$display->sources = []; // Reset sources if specified in args
+			$display->sources = array(); // Reset sources if specified in args
 
-			$sourceIdsInput = [];
+			$sourceIdsInput = array();
 			$sourceExploded = explode( ',', $sourceArg );
 			$sourcesExploded = explode( ',', $sourcesArg );
 
@@ -285,7 +285,7 @@ class Renderer {
 				}
 			}
 
-			$feedSlugsInput = [];
+			$feedSlugsInput = array();
 			$feedsExploded = explode( ',', $feedsArg );
 			foreach ( $feedsExploded as $slug ) {
 				$slug = trim( $slug );
@@ -298,7 +298,7 @@ class Renderer {
 				$sourceIdsInput[] = $src->id;
 			}
 
-			$display->sources = array_unique($sourceIdsInput);
+			$display->sources = array_unique( $sourceIdsInput );
 		}
 		// If no source args, $display->sources remains as loaded (or default empty).
 
@@ -310,8 +310,8 @@ class Renderer {
 			}
 		}
 
-		$categories = explode( ',', $args['category'] ?? '' );
-		$folders = explode( ',', $args['folders'] ?? '' );
+		$categories = explode( ',', sanitize_text_field( $args['category'] ?? '' ) );
+		$folders = explode( ',', sanitize_text_field( $args['folders'] ?? '' ) );
 		foreach ( array_merge( $categories, $folders ) as $folderName ) {
 			$folderName = trim( $folderName );
 			if ( ! empty( $folderName ) ) {
@@ -319,11 +319,11 @@ class Renderer {
 			}
 		}
 
-		$className1 = trim( $args['className'] ?? '' );
+		$className1 = sanitize_html_class( ( $args['className'] ?? '' ) );
 		$className2 = trim( $display->settings->htmlClass ?? '' );
 		$display->settings->htmlClass = trim( $className1 . ' ' . $className2 );
 
-		$page = max( 1, $args['page'] ?? 1 );
+		$page = max( 1, sanitize_text_field( $args['page'] ?? 1 ) );
 
 		$display = apply_filters( 'wpra.renderer.parseArgs', $display, $args );
 
@@ -476,18 +476,20 @@ class Renderer {
 
 		// Persist pagination enable/disable status if it was set
 		// In renderDisplay, $display->settings->enablePagination is modified by shortcode 'pagination'
-		if (isset($display->settings->enablePagination)) {
+		if ( isset( $display->settings->enablePagination ) ) {
 			$shortcode_args['pagination'] = $display->settings->enablePagination ? 'on' : 'off';
 		}
 
-        // If there's a V4 slug associated with the display, persist it.
-        // parseArgs uses 'template' to load a display.
-        // If an 'id' is present, 'id' takes precedence for loading, but 'template' might
-        // still be used by filters or other logic in parseArgs if present.
-        if (!empty($display->v4Slug)) {
-            $shortcode_args['template'] = $display->v4Slug;
-        }
+		// If there's a V4 slug associated with the display, persist it.
+		// parseArgs uses 'template' to load a display.
+		// If an 'id' is present, 'id' takes precedence for loading, but 'template' might
+		// still be used by filters or other logic in parseArgs if present.
+		if ( ! empty( $display->v4Slug ) ) {
+			$shortcode_args['template'] = $display->v4Slug;
+		}
 
+		// Add nonce to the shortcode arguments
+		$shortcode_args['_wpnonce'] = wp_create_nonce( 'wpra_render_display' );
 		$vals_data = array(
 			'action' => 'wpra.render.display',
 			// The 'data' key matches what the AJAX handler in core/modules/renderer.php expects

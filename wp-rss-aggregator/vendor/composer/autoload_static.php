@@ -7,25 +7,25 @@ namespace Composer\Autoload;
 class ComposerStaticInitdc25bd03c2a25b988313af1da2409cf2
 {
     public static $prefixLengthsPsr4 = array (
-        'R' => 
+        'R' =>
         array (
             'RebelCode\\WpSdk\\' => 16,
             'RebelCode\\Aggregator\\Core\\' => 26,
         ),
-        'P' => 
+        'P' =>
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
         ),
-        'M' => 
+        'M' =>
         array (
             'Masterminds\\' => 12,
         ),
-        'I' => 
+        'I' =>
         array (
             'Interop\\Container\\' => 18,
         ),
-        'D' => 
+        'D' =>
         array (
             'Dhii\\Services\\' => 14,
             'Dhii\\Container\\' => 15,
@@ -34,39 +34,39 @@ class ComposerStaticInitdc25bd03c2a25b988313af1da2409cf2
     );
 
     public static $prefixDirsPsr4 = array (
-        'RebelCode\\WpSdk\\' => 
+        'RebelCode\\WpSdk\\' =>
         array (
             0 => __DIR__ . '/..' . '/rebelcode/wp-plugin-sdk/src',
         ),
-        'RebelCode\\Aggregator\\Core\\' => 
+        'RebelCode\\Aggregator\\Core\\' =>
         array (
             0 => __DIR__ . '/../..' . '/core/src',
         ),
-        'Psr\\Log\\' => 
+        'Psr\\Log\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'Psr\\Container\\' => 
+        'Psr\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Masterminds\\' => 
+        'Masterminds\\' =>
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
         ),
-        'Interop\\Container\\' => 
+        'Interop\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/container-interop/service-provider/src',
         ),
-        'Dhii\\Services\\' => 
+        'Dhii\\Services\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/services/src',
         ),
-        'Dhii\\Container\\' => 
+        'Dhii\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/containers/src',
         ),
-        'Dhii\\Collection\\' => 
+        'Dhii\\Collection\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/collections-interface/src',
         ),

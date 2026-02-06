@@ -212,6 +212,27 @@ abstract class Time {
 	}
 
 	/**
+	 * Get black friday activation status.
+	 *
+	 * @since 5.0.7
+	 *
+	 * @return bool if black Friday active.
+	 */
+	public static function isBlackFridayActive(): bool {
+		// LA timezone
+		$tz = new DateTimeZone( 'America/Los_Angeles' );
+
+		// Current time in LA
+		$now = new DateTime( 'now', $tz );
+
+		// Black Friday 2025 window
+		$start = new DateTime( '2025-11-23 00:00:00', $tz );
+		$end   = new DateTime( '2025-12-01 23:59:59', $tz );
+
+		return $now >= $start && $now <= $end;
+	}
+
+	/**
 	 * Gets the current WordPress timezone setting.
 	 *
 	 * @deprecated 5.0.3 Use getSiteTimezone() instead.

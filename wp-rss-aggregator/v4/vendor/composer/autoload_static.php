@@ -12,33 +12,33 @@ class ComposerStaticInit3145ab56a1b4557d9fb8450d5cfe498c
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' => 
+        'T' =>
         array (
             'Twig\\Extensions\\' => 16,
             'Twig\\' => 5,
         ),
-        'S' => 
+        'S' =>
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Translation\\' => 30,
         ),
-        'R' => 
+        'R' =>
         array (
             'RebelCode\\Wpra\\Core\\' => 20,
             'RebelCode\\Entities\\' => 19,
             'RebelCode\\Composer\\' => 19,
         ),
-        'P' => 
+        'P' =>
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
         ),
-        'I' => 
+        'I' =>
         array (
             'Interop\\Container\\' => 18,
         ),
-        'D' => 
+        'D' =>
         array (
             'Dhii\\Validation\\' => 16,
             'Dhii\\Util\\String\\' => 17,
@@ -57,109 +57,109 @@ class ComposerStaticInit3145ab56a1b4557d9fb8450d5cfe498c
     );
 
     public static $prefixDirsPsr4 = array (
-        'Twig\\Extensions\\' => 
+        'Twig\\Extensions\\' =>
         array (
             0 => __DIR__ . '/..' . '/twig/extensions/src',
         ),
-        'Twig\\' => 
+        'Twig\\' =>
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
-        'Symfony\\Polyfill\\Mbstring\\' => 
+        'Symfony\\Polyfill\\Mbstring\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'Symfony\\Polyfill\\Ctype\\' => 
+        'Symfony\\Polyfill\\Ctype\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'Symfony\\Component\\Translation\\' => 
+        'Symfony\\Component\\Translation\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
-        'RebelCode\\Wpra\\Core\\' => 
+        'RebelCode\\Wpra\\Core\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
-        'RebelCode\\Entities\\' => 
+        'RebelCode\\Entities\\' =>
         array (
             0 => __DIR__ . '/../..' . '/lib/Entities',
         ),
-        'RebelCode\\Composer\\' => 
+        'RebelCode\\Composer\\' =>
         array (
             0 => __DIR__ . '/..' . '/rebelcode/composer-cleanup-plugin/src',
         ),
-        'Psr\\Log\\' => 
+        'Psr\\Log\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'Psr\\Container\\' => 
+        'Psr\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Interop\\Container\\' => 
+        'Interop\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/container-interop/service-provider/src',
             1 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
         ),
-        'Dhii\\Validation\\' => 
+        'Dhii\\Validation\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/validation-base/src',
             1 => __DIR__ . '/..' . '/dhii/validation-abstract/src',
             2 => __DIR__ . '/..' . '/dhii/validation-interface/src',
         ),
-        'Dhii\\Util\\String\\' => 
+        'Dhii\\Util\\String\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/stringable-interface/src',
         ),
-        'Dhii\\Util\\Normalization\\' => 
+        'Dhii\\Util\\Normalization\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/normalization-helper-base/src',
         ),
-        'Dhii\\Transformer\\' => 
+        'Dhii\\Transformer\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/transformer-interface/src',
         ),
-        'Dhii\\Stats\\' => 
+        'Dhii\\Stats\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/stats-abstract/src',
             1 => __DIR__ . '/..' . '/dhii/stats-interface/src',
         ),
-        'Dhii\\Output\\' => 
+        'Dhii\\Output\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/output-renderer-base/src',
             1 => __DIR__ . '/..' . '/dhii/output-renderer-abstract/src',
             2 => __DIR__ . '/..' . '/dhii/output-renderer-interface/src',
         ),
-        'Dhii\\Iterator\\' => 
+        'Dhii\\Iterator\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/iterator-helper-base/src',
         ),
-        'Dhii\\I18n\\' => 
+        'Dhii\\I18n\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/i18n-helper-base/src',
             1 => __DIR__ . '/..' . '/dhii/i18n-interface/src',
         ),
-        'Dhii\\Factory\\' => 
+        'Dhii\\Factory\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/factory-interface/src',
         ),
-        'Dhii\\Exception\\' => 
+        'Dhii\\Exception\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/exception/src',
             1 => __DIR__ . '/..' . '/dhii/exception-interface/src',
         ),
-        'Dhii\\Di\\' => 
+        'Dhii\\Di\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/di/src',
             1 => __DIR__ . '/..' . '/dhii/di-abstract/src',
             2 => __DIR__ . '/..' . '/dhii/di-interface/src',
         ),
-        'Dhii\\Data\\Container\\' => 
+        'Dhii\\Data\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/container-helper-base/src',
         ),
-        'Dhii\\Collection\\' => 
+        'Dhii\\Collection\\' =>
         array (
             0 => __DIR__ . '/..' . '/dhii/collections-abstract/src',
             1 => __DIR__ . '/..' . '/dhii/collections-abstract-base/src',
@@ -168,20 +168,20 @@ class ComposerStaticInit3145ab56a1b4557d9fb8450d5cfe498c
     );
 
     public static $prefixesPsr0 = array (
-        'T' => 
+        'T' =>
         array (
-            'Twig_Extensions_' => 
+            'Twig_Extensions_' =>
             array (
                 0 => __DIR__ . '/..' . '/twig/extensions/lib',
             ),
-            'Twig_' => 
+            'Twig_' =>
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
             ),
         ),
-        'P' => 
+        'P' =>
         array (
-            'Parsedown' => 
+            'Parsedown' =>
             array (
                 0 => __DIR__ . '/..' . '/erusev/parsedown',
             ),

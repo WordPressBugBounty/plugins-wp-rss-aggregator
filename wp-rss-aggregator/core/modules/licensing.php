@@ -62,7 +62,7 @@ function getPlans() {
 				__( 'Automatic filtering', 'wp-rss-aggregator' ),
 				__( 'Source management', 'wp-rss-aggregator' ),
 			),
-			'price' => 79,
+			'price' => 99,
 			'mostPopular' => false,
 		),
 		array(
@@ -80,7 +80,7 @@ function getPlans() {
 				__( 'Add custom content', 'wp-rss-aggregator' ),
 				__( 'Import taxonomies', 'wp-rss-aggregator' ),
 			),
-			'price' => 149,
+			'price' => 169,
 			'mostPopular' => false,
 		),
 		array(
@@ -97,7 +97,7 @@ function getPlans() {
 				__( 'Include all media', 'wp-rss-aggregator' ),
 				__( 'Custom Mapping', 'wp-rss-aggregator' ),
 			),
-			'price' => 179,
+			'price' => 199,
 			'mostPopular' => true,
 		),
 		array(
@@ -114,7 +114,7 @@ function getPlans() {
 				__( 'Title spinning', 'wp-rss-aggregator' ),
 				__( 'Content spinning', 'wp-rss-aggregator' ),
 			),
-			'price' => 249,
+			'price' => 269,
 			'mostPopular' => false,
 		),
 	);

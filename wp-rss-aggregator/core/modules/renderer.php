@@ -55,6 +55,12 @@ wpra()->addModule(
 				die();
 			}
 
+			$nonce = $data['_wpnonce'] ?? '';
+			if ( ! wp_verify_nonce( $nonce, 'wpra_render_display' ) ) {
+				status_header( 403 );
+				echo 'Nonce verification failed.';
+				die();
+			}
 			// The $data array now contains all persisted shortcode attributes
 			// from hx-vals, including id, page, sources, limit, exclude, pagination, template.
 			// Pass the whole $data array to renderArgs.

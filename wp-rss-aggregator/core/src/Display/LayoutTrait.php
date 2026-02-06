@@ -24,7 +24,7 @@ trait LayoutTrait {
 		$embedUrl = $post->getEmbedUrl();
 
 		if ( ! $this->ds->linkToEmbeds || empty( $embedUrl ) ) {
-			return $post->url;
+			return $post->postId && 'wprss_feed_item' !== $post->type ? get_permalink( $post->postId ) : $post->url;
 		}
 
 		$linkTarget = $this->ds->linkTarget ?: '';
@@ -131,7 +131,7 @@ trait LayoutTrait {
 
 		return sprintf(
 			'<span class="feed-author">%s</span>',
-			rtrim($this->ds->authorPrefix) . ' ' . $authorName
+			esc_html( rtrim( $this->ds->authorPrefix ) . ' ' . $authorName )
 		);
 	}
 
@@ -181,7 +181,7 @@ trait LayoutTrait {
 			$sourceResult = $this->sourcesStore->getById( (int) $sourceId );
 			if ( $sourceResult->isOk() ) {
 				$source = $sourceResult->get();
-				if ( $source && !empty($source->name) ) {
+				if ( $source && ! empty( $source->name ) ) {
 					$name = $source->name;
 					$url = $source->url; // Use the canonical URL from the Source object
 				}
@@ -189,28 +189,35 @@ trait LayoutTrait {
 		}
 
 		// Fallback to meta if name is still empty
-		if ( empty($name) ) {
+		if ( empty( $name ) ) {
 			$name = $post->getSingleMeta( ImportedPost::SOURCE_NAME, '' );
 			// If URL was also not found from Source object, try from meta
-			if (empty($url)) {
+			if ( empty( $url ) ) {
 				$url = $post->getSingleMeta( ImportedPost::SOURCE_URL, '' );
 			}
 		}
 
-		if ( empty($name) ) {
+		if ( empty( $name ) ) {
 			return '';
 		}
 
 		$srcName = $name;
-		if ( $this->ds->linkSource && $links && !empty($url) ) {
+		if ( $this->ds->linkSource && $links && ! empty( $url ) ) {
 			$srcName = $this->renderLink( $name, $url );
 		}
 
 		$tag = $block ? 'div' : 'span';
+		$prefix = esc_html( $this->ds->sourcePrefix );
+
+		// $srcName is already HTML from renderLink, so it doesn't need escaping again.
+		// If linking is disabled, $srcName is just the source name string, which needs escaping.
+		if ( ! ( $this->ds->linkSource && $links && ! empty( $url ) ) ) {
+			$srcName = esc_html( $srcName );
+		}
 
 		return <<<HTML
             <{$tag} class="feed-source">
-                {$this->ds->sourcePrefix} {$srcName}
+                {$prefix} {$srcName}
             </{$tag}>
         HTML;
 	}

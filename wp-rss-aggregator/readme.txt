@@ -4,9 +4,9 @@ Plugin URI: https://www.wprssaggregator.com
 Tags: rss aggregator, news aggregator, autoblogging, feed to post, rss import
 Commercial: https://www.wprssaggregator.com/pricing/
 Requires at least: 5.5 or higher
-Tested up to: 6.8.2
+Tested up to: 6.9
 Requires PHP: 7.4.0
-Stable tag: 5.0.4
+Stable tag: 5.0.11
 License: GPLv3
 
 The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
@@ -264,7 +264,63 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 == Changelog ==
 
+= 5.0.11 (2026-01-14) =
+
+**Changed**
+- Improved consistency and safety of rendered HTML output.
+
+**Fixed**
+- Featured images are now correctly imported from RSS feeds where images are served via a CDN.
+- Resolved an issue where sources migrated from v4 to v5 could have their post type incorrectly set to "Post" instead of "Feed Item" on Free and Basic plan licenses.
+- Hardened display rendering logic to improve robustness.
+- Improved handling of user-supplied data in shortcode processing.
+
+= 5.0.10 (2025-12-16) =
+
+**Fixed**
+- Fixed a fatal error that could occur when enabling Allow Embedded Content while saving a feed source in Aggregator v4.
+
+**Changed**
+- Added admin notices to communicate Aggregator v4 end-of-life status and guide users through migration to v5. The v4 end-of-life date has been extended to January 31, 2026, during which support will continue to be provided to allow additional time for migration.
+
+= 5.0.9 (2025-12-09) =
+
+**Changed**
+- Updated v4 to use the latest SimplePie methods for better compatibility with newer WordPress versions. This is a backwards-compatibility fix and may not remain reliable long-term, so we strongly recommend upgrading to v5.
+
+= 5.0.8 (2025-12-02) =
+
+**Fixed**
+- Migration notice in v4 can now be dismissed.
+- Sources imported as posts now link to their corresponding imported posts in displays.
+- Folder selection in displays is now correctly respected.
+- “Import images into media library” setting is now properly respected when disabled.
+- Images for "Feed Items" no longer import all the content images into the media library.
+- Signup email now sends as expected.
+
+= 5.0.7 (2025-11-24) =
+
+**Added**
+- Black Friday offer prompts for free users.
+
+**Changed**
+- Updated the Manage Plan page for premium users.
+
+= 5.0.6 (2025-10-22) =
+
+**Added**
+- Embedded feature overview videos to highlight what’s available in higher plans.
+
+**Fixed**
+- Multisite license activation now applies network-wide when activated from the Network Admin, restoring expected v4 behavior.
+
+= 5.0.5 (2025-10-15) =
+
+**Changed**
+- Updated plan pricing in the Manage Plan page.
+
 = 5.0.4 (2025-09-30) =
+
 **Added**
 - Full Spanish translation.
 
@@ -276,6 +332,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Issue where certain licenses blocked Premium plugin updates incorrectly.
 
 = 5.0.3 (2025-09-16) =
+
 **Added**
 - Restored embedded content support – imported posts once again include embeds such as the YouTube video player (parity with v4).
 - Version compatibility check – prevents activating mismatched free/premium versions to avoid critical errors.
@@ -290,10 +347,12 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Free version importing images into the Media Library even though they weren’t used.
 
 = 5.0.2 (2025-08-26) =
+
 **Fixed**
 - Premium updates were not being detected correctly in v5.0.0 and v5.0.1 due to a configuration issue.
 
 = 5.0.1 (2025-08-14) =
+
 **Added**
 - Migration block that prevents add-on users from upgrading to v5 without the Premium plugin installed and activated, avoiding feature loss and confusion.
 
@@ -308,6 +367,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Corrected feed validation in v5 so that valid feeds are recognized, even if affected by default User Agent handling.
 
 = 5.0.0 (2025-07-24) =
+
 **Added**
 - Fully rebuilt **user interface** with a modern design and improved navigation
 - **Feed Items**: Now in its own sidebar section, no longer nested under Aggregator
@@ -356,22 +416,27 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
     - Many custom actions and filters (e.g. wprss_ftp_post_args) have been removed or refactored in v5. Custom code relying on these may no longer function correctly.
 
 = 4.23.12 (2024-07-15) =
+
 **Fixed**
 - Fixed a security vulnerability that allows subscribers to pause feed sources (CVE-2024-6621).
 
 = 4.23.11 (2024-05-28) =
+
 **Fixed**
 - The previous version introduced a bug that omitted the user-agent header from RSS feed requests.
 
 = 4.23.10 (2024-05-20) =
+
 **Fixed**
 - Some feeds were wrongly deemed to be invalid due to how cURL sends the user-agent string.
 
 = 4.23.9 (2024-05-13) =
+
 **Fixed**
 - Fixed a cross-site scripting vulnerability when an admin notice ID is invalid.
 
 = 4.23.8 (2024-04-25) =
+
 **Added**
 - Prepared notices and messages for the upcoming v5.0 update.
 
@@ -383,14 +448,17 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Compatibility with the "Widget Options" plugin.
 
 = 4.23.7 (2024-02-28) =
+
 **Fixed**
 - Media thumbnail images without a MIME type were not being properly detected.
 
 = 4.23.6 (2024-01-31) =
+
 **Changed**
 - Error information is suppressed for feeds with local address URLs. This improves the previous fix for CVE-2024-0628.
 
 = 4.23.5 (2024-01-24) =
+
 **Fixed**
 - Error messages no longer reveal information about potentially inaccessible resources. (CVE-2024-0628)
 - JavaScript code in feed item URLs is now properly sanitized and escaped. (CVE-2024-0630)
@@ -398,6 +466,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - The Templates page did not load properly on some websites.
 
 = 4.23.4 (2023-11-18) =
+
 **Added**
 - Black Friday offer links.
 
@@ -405,10 +474,12 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Updated the "More Features" page.
 
 = 4.23.3 (2023-11-01) =
+
 **Changed**
 - Disabled the deactivation poll.
 
 = 4.23.2 (2023-09-29) =
+
 **Added**
 - An important notice regarding the upcoming major update that will require PHP 7.4 or higher.
 
@@ -420,10 +491,12 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Corrected how image are searched in the content and excerpt of an item.
 
 = 4.23.1 (2023-04-10) =
+
 **Fixes**
 - Fixed an error in the block that prevented it from being edited and previewed.
 
 = 4.23 (2023-04-06) =
+
 **Added**
 - New users can now sign up to receive a free starter guide.
 - YouTube feeds now provide the video description, which is now imported into feed items.
@@ -437,15 +510,18 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Sorting feed items by date now works as expected.
 
 = 4.22.4 (2023-02-08) =
+
 **Added**
 - Images in RSS item excerpts are now properly detected.
 - New `wpra/images/file_name` filter to change the filename of imported images.
 
 = 4.22.3 (2023-02-01) =
+
 **Added**
 - New filter to disable the scrolling animation when clicking on pagination links in templates. [See docs](https://kb.wprssaggregator.com/article/861-disable-the-pagination-scroll-effect).
 
 = 4.22.2 (2022-12-19) =
+
 **Changed**
 - Code changes for PHP 8.0 compatibility.
 - Code changes for partial PHP 8.1 compatibility. The plugin still triggers some warnings on PHP 8.1, but should work fine.
@@ -455,6 +531,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Removed the 2022 feedback survey.
 
 = 4.22.1 (2022-11-23) =
+
 **Added**
 - Promotion for Black Friday and Cyber Monday 2022 deals.
 - Notification for the 2022 feedback survey.
@@ -463,14 +540,17 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - The custom feed was missing the `<published>` date tag.
 
 = 4.22 (2022-08-06) =
+
 **Changed**
 - YouTube embeds in the lightbox now begin playing automatically, if the browser allows it.
 
 = 4.21.1 (2022-07-20) =
+
 **Fixed**
 - An out-of-memory PHP error when importing items.
 
 = 4.21 (2022-07-13) =
+
 **Changed**
 - Updated Twig to v1.42.2, to support PHP 8 or later.
 - Optimized feed item date processing when an item is being imported.
@@ -481,6 +561,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - The classic editor button was generating incorrect shortcodes.
 
 = 4.20 (2022-01-18) =
+
 **Added**
 - New option to use feed item GUIDs instead of permalinks to detect duplicate items.
 
@@ -513,7 +594,8 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - URLs added manually to the blacklist are now properly validated.
 - Feed sources and feed items restored from the trash become "draft" since WordPress 5.6.
 
-= 4.19.1 (2021-09-14)
+= 4.19.1 (2021-09-14) =
+
 **Changed**
 - More details are now logged when a fatal error occurs during an import.
 - Using local versions of images and stylesheets.
@@ -523,7 +605,8 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Some request data was not filtered and/or sanitized properly.
 - Some plugin-generated content was not properly escaped for use in HTML.
 
-= 4.19 (2019-07-06)
+= 4.19 (2019-07-06) =
+
 **Added**
 - Support for importing images from `<image>` tags.
 
@@ -531,6 +614,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Exceptions thrown during an import and caught and logged.
 
 = 4.18.2 (2021-04-26) =
+
 **Changed**
 - Audio players no longer preload the audio file. Audio is now loaded only the play button is clicked.
 
@@ -541,6 +625,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - The shortcode icon in the classic editor would sometimes not be shown.
 
 = 4.18.1 (2021-03-15) =
+
 **Added**
 - New filters to change the time limits during image downloads.
 
@@ -552,6 +637,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Licenses for the Templates addon could not be verified.
 
 = 4.18 (2021-03-08) =
+
 **Added**
 - The total import time is now recorded in the debug log.
 
@@ -568,10 +654,12 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - The max title length option in the "Default" template was being applied in the "Feed Items" page.
 
 = 4.17.10 (2020-12-01) =
+
 **Fixed**
 - After updating the Templates add-on from v0.2, the add-on would be deactivated.
 
 = 4.17.9 (2020-11-25) =
+
 **Changed**
 - Auto image detection is now able to find the feed channel image.
 - SimplePie auto-discovery is turned off when the "Force feed" option is enabled.
@@ -585,6 +673,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Problems with the default template no longer trigger a fatal error.
 
 = 4.17.8 (2020-10-06) =
+
 **Changed**
 - Disabled SimplePie's HTML sanitization.
 - Updated jQuery code to be compatible with the upcoming update in WordPress.
@@ -599,7 +688,8 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Sites on a multi-site network would see an error about a function not existing.
 - Errors would not be properly rendered for non-fatal notices and warnings.
 
-= 4.17.7 (2020-08-12)
+= 4.17.7 (2020-08-12) =
+
 **Added**
 - New HTML classes for pagination buttons.
 
@@ -610,6 +700,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - FeedBurner feeds no longer need to have "format=xml" at the end of the URL.
 
 = 4.17.6 (2020-07-29) =
+
 **Added**
 - A link in the New/Edit Feed Source page on how to find an RSS feed.
 
@@ -626,6 +717,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Image options would not show up when using Feed to Post to import Feed Items.
 
 = 4.17.5 (2020-04-22) =
+
 **Changed**
 - Now showing a case study of a site using the Pro Plan in the on-boarding wizard.
 - Licenses are now managed by the main site. Child sites do not have access to the licenses page.
@@ -639,6 +731,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Removed the integration with Lorem on the "More Features" page.
 
 = 4.17.4 (2020-03-16) =
+
 **Changed**
 - The default template is now created based on type, not slug.
 
@@ -651,6 +744,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Better error messages when an error occurs.
 
 = 4.17.3 (2020-01-23) =
+
 **Changed**
 - Updated code to fix deprecation warnings on PHP version 7.4 and later.
 - Updated the Twig library to version `1.41.0` to fix deprecation warnings on PHP version 7.4 and later.
@@ -665,6 +759,7 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - Missing space between the link `a` tag and the `href` attribute on PHP 7.4
 
 = 4.17.2 (2019-12-19) =
+
 **Added**
 - The error handler now includes the file and line where the error occurred.
 

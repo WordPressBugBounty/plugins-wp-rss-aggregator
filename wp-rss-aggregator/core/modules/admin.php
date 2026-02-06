@@ -10,6 +10,7 @@ use RebelCode\WpSdk\Wp\AdminSubMenu;
 use RebelCode\WpSdk\Wp\AdminPage;
 use RebelCode\WpSdk\Wp\AdminMenu;
 use RebelCode\Aggregator\Core\Utils\WpUtils;
+use RebelCode\Aggregator\Core\Utils\Time;
 use RebelCode\Aggregator\Core\Utils\Arrays;
 use RebelCode\Aggregator\Core\Rpc\RpcServer;
 use RebelCode\Aggregator\Core\Licensing\License;
@@ -66,8 +67,8 @@ wpra()->addModule(
 
 wpra()->addModule(
 	'admin.shell',
-	array( 'admin.frame', 'importer' ),
-	function ( string $frame ) {
+	array( 'admin.frame', 'licensing' ),
+	function ( string $frame, $licensing ) {
 		$wpra = wpra();
 
 		$slug = 'wprss-aggregator';
@@ -92,7 +93,7 @@ wpra()->addModule(
 
 		add_action(
 			'admin_menu',
-			function () use ( $wpra, $frame, $slug, $url ) {
+			function () use ( $wpra, $frame, $slug, $url, $licensing ) {
 				$subUrl = $url . '&subPage=';
 				$cap = Capabilities::SEE_AGGREGATOR;
 				$svg = file_get_contents( $wpra->path . '/core/icons/admin-menu-icon.svg' );
@@ -109,6 +110,8 @@ wpra()->addModule(
 				$page = new AdminPage( _x( 'Aggregator', 'wp-rss-aggregator' ), fn () => $frame );
 				$menu = new AdminMenu( $page, $slug, __( 'Aggregator', 'wp-rss-aggregator' ), $cap, $icon );
 
+				$bfBadge = Time::isBlackFridayActive() ? '<span class="update-plugins" style="margin-left:5px;">BF Sale</span>' : '';
+
 				if ( $wpra->getState() === State::Normal ) {
 					$menu->items = array(
 						AdminSubMenu::forUrl( $subUrl . 'hub', __( 'Hub', 'wp-rss-aggregator' ) . $badge, $cap ),
@@ -119,7 +122,7 @@ wpra()->addModule(
 						AdminSubMenu::forUrl( $subUrl . 'settings', __( 'Settings', 'wp-rss-aggregator' ), $cap ),
 						AdminSubMenu::forUrl( $subUrl . 'help', __( 'Help', 'wp-rss-aggregator' ), $cap ),
 						AdminSubMenu::forUrl( $subUrl . 'tutorials', __( 'Tutorials', 'wp-rss-aggregator' ), $cap ),
-						AdminSubMenu::forUrl( $subUrl . 'upgrade', __( 'Manage Plan', 'wp-rss-aggregator' ), $cap ),
+						AdminSubMenu::forUrl( $subUrl . 'upgrade', $licensing->getTier() === Tier::Free ? __( 'Upgrade', 'wp-rss-aggregator' ) . $bfBadge : __( 'Manage Plan', 'wp-rss-aggregator' ), $cap ),
 					);
 
 					if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
@@ -229,6 +232,7 @@ wpra()->addModule(
 					'moduleGraph' => $wpra->getModuleGraph(),
 					'prevVersion' => get_option( 'wprss_prev_update_page_version', '' ),
 					'premiumVersion' => defined( 'WPRA_PREMIUM_VERSION' ) ? WPRA_PREMIUM_VERSION : null,
+					'isBlackFridayActive' => Time::isBlackFridayActive(),
 				)
 			);
 

@@ -2,10 +2,10 @@
 
 namespace RebelCode\Aggregator\Core\Display;
 
-use RebelCode\Aggregator\Core\Display\DisplayState;
-use RebelCode\Aggregator\Core\Display\LayoutInterface;
-use RebelCode\Aggregator\Core\Display\LayoutTrait;
 use RebelCode\Aggregator\Core\IrPost;
+use RebelCode\Aggregator\Core\Display\LayoutTrait;
+use RebelCode\Aggregator\Core\Display\LayoutInterface;
+use RebelCode\Aggregator\Core\Display\DisplayState;
 
 class ListLayout implements LayoutInterface {
 
@@ -33,9 +33,10 @@ class ListLayout implements LayoutInterface {
 
 		$listStart = ( $state->page - 1 ) * $this->ds->numItems + 1;
 		$listItems = $this->renderItems( $posts, fn ( IrPost $post ) => $this->item( $post ) );
+		$htmlClass = esc_attr( $this->ds->htmlClass );
 
 		return <<<HTML
-            <div class="wp-rss-aggregator wpra-list-template {$this->ds->htmlClass}">
+            <div class="wp-rss-aggregator wpra-list-template {$htmlClass}">
                 <{$listType} class="rss-aggregator wpra-item-list {$listClass}" start="{$listStart}">
                     {$listItems}
                 </{$listType}>
@@ -44,8 +45,10 @@ class ListLayout implements LayoutInterface {
 	}
 
 	private function item( IrPost $post ): string {
+		$htmlClass = esc_attr( $this->ds->htmlClass );
+
 		return <<<HTML
-            <li class="wpra-item feed-item {$this->ds->htmlClass}">
+            <li class="wpra-item feed-item {$htmlClass}">
                 {$this->renderTitle($post)}
 
                 <div class="wprss-feed-meta">

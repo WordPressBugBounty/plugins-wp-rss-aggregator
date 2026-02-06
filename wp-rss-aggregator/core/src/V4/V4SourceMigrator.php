@@ -172,6 +172,7 @@ class V4SourceMigrator {
 		$removeFtImage = $meta['wprss_ftp_remove_ft_image'] ?? '0';
 		$mustHaveFtImage = $meta['wprss_ftp_must_have_ft_image'] ?? '0';
 
+		$src->settings->postType = $meta['wprss_ftp_post_type'] ?? 'wprss_feed_item';
 		$src->settings->downloadImages = Bools::normalize( $saveImages );
 		$src->settings->downloadAllImgSizes = Bools::normalize( $saveAllSizes );
 		$src->settings->assignFtImage = Bools::normalize( $useFtImage );

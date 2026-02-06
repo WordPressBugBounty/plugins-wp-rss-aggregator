@@ -45,7 +45,7 @@ class Licensing {
 
 	public function getLicense(): ?License {
 		if ( $this->license === null ) {
-			$array = get_option( self::OPTION, null );
+			$array = get_site_option( self::OPTION, null );
 
 			if ( is_array( $array ) ) {
 				$this->license = License::fromArray( $array );
@@ -126,7 +126,7 @@ class Licensing {
 						return Result::Err( __( 'License check failed.', 'wprss' ) );
 					}
 
-					update_option( self::OPTION, $rLicense->toArray() );
+					update_site_option( self::OPTION, $rLicense->toArray() );
 
 					return Result::Ok( $rLicense );
 				},
@@ -146,7 +146,7 @@ class Licensing {
 			return $rLicense;
 		}
 
-		update_option( self::OPTION, $rLicense->get()->toArray() );
+		update_site_option( self::OPTION, $rLicense->get()->toArray() );
 
 		return $rLicense;
 	}
@@ -172,7 +172,7 @@ class Licensing {
 			$message = esc_html__( 'Your license has expired.', 'wprss' );
 		}
 
-		delete_option( self::OPTION );
+		delete_site_option( self::OPTION );
 
 		return Result::Ok( $message );
 	}
@@ -202,7 +202,7 @@ class Licensing {
 		$args = array(
 			'edd_action' => $action,
 			'license' => $license,
-			'site' => site_url(),
+			'site' => network_site_url(),
 		);
 
 		if ( $itemId ) {
