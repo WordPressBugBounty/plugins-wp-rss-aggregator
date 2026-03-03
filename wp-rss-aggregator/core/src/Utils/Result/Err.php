@@ -41,6 +41,7 @@ class Err extends Result {
 		if ( $factory === null ) {
 			throw $this->error;
 		} else {
+			// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Re-throws a Throwable returned by the caller-provided factory.
 			throw $factory( $this->error );
 		}
 	}

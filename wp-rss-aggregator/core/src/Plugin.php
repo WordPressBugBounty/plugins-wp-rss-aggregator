@@ -72,7 +72,13 @@ class Plugin {
 	 */
 	public function addModule( string $id, array $deps, callable $factory ): self {
 		if ( $this->currModId !== null ) {
-			throw new LogicException( "Cannot add a module (\"$id\") from inside another module (\"$this->currModId\")" );
+			throw new LogicException(
+				sprintf(
+					'Cannot add a module ("%s") from inside another module ("%s")',
+					esc_html( $id ),
+					esc_html( $this->currModId )
+				)
+			);
 		}
 
 		$this->modules[ $id ] = array(
@@ -89,12 +95,18 @@ class Plugin {
 		}
 
 		if ( $this->currModId !== null ) {
-			throw new LogicException( "Cannot run module \"$mid\" while running module \"{$this->currModId}\"" );
+			throw new LogicException(
+				sprintf(
+					'Cannot run module "%s" while running module "%s"',
+					esc_html( $mid ),
+					esc_html( $this->currModId )
+				)
+			);
 		}
 
 		$module = $this->modules[ $mid ] ?? null;
 		if ( $module === null ) {
-			throw new LogicException( "Unknown module \"$mid\"" );
+			throw new LogicException( sprintf( 'Unknown module "%s"', esc_html( $mid ) ) );
 		}
 
 		$args = array();
@@ -129,12 +141,25 @@ class Plugin {
 
 		$mid = $this->getModuleForService( $sid );
 		if ( $mid === null ) {
-			throw new LogicException( "Cannot resolve module for \"$sid\", requested by \"$requester\"" );
+			throw new LogicException(
+				sprintf(
+					'Cannot resolve module for "%s", requested by "%s"',
+					esc_html( $sid ),
+					esc_html( $requester )
+				)
+			);
 		}
 
 		$modHasRun = array_key_exists( $mid, $this->services );
 		if ( $modHasRun ) {
-			throw new LogicException( "Module \"$mid\" does not provide \"$sid\", requested by \"$requester\"" );
+			throw new LogicException(
+				sprintf(
+					'Module "%s" does not provide "%s", requested by "%s"',
+					esc_html( $mid ),
+					esc_html( $sid ),
+					esc_html( $requester )
+				)
+			);
 		}
 
 		return $this->runModule( $mid );

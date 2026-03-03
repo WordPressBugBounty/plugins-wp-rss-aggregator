@@ -21,6 +21,7 @@ class ListLayout implements LayoutInterface {
 
 	/** @param iterable<IrPost> $posts */
 	public function render( iterable $posts, DisplayState $state ): string {
+		$listClass = '';
 		if ( $this->ds->enableBullets ) {
 			$listClass = 'wpra-item-list--bullets wpra-item-list--' . $this->ds->bulletStyle;
 		}

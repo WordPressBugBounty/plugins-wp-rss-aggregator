@@ -58,6 +58,10 @@
       window.addEventListener("message", (event) => {
         const msg = event.data ?? {}
         if (typeof msg === "object" && (msg.type ?? "") === type) {
+          if (event.origin !== window.location.origin) {
+            console.warn("WPRA: Blocked message from unauthorized origin:", event.origin)
+            return
+          }
           handler(msg.payload)
         }
       })
@@ -146,6 +150,17 @@
       this.frame.onReceive(FrameMessage.openUrl, (payload) => {
         if (typeof payload !== "object" || typeof payload.url !== "string") {
           console.error(FrameMessage.openUrl, "payload is missing url")
+          return
+        }
+
+        try {
+          const url = new URL(payload.url, window.location.origin)
+          if (!["http:", "https:"].includes(url.protocol)) {
+            console.warn(FrameMessage.openUrl, "Blocked potentially malicious URL:", payload.url)
+            return
+          }
+        } catch (e) {
+          console.warn(FrameMessage.openUrl, "Invalid URL:", payload.url)
           return
         }
 

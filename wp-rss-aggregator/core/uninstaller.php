@@ -50,7 +50,7 @@ if ( ! class_exists( 'RebelCode\Aggregator\Core\Uninstaller' ) ) {
 			/** @var wpdb $wpdb */
 			global $wpdb;
 			$pluginDbPrefix = apply_filters( 'wpra.db.prefix', 'agg_' );
-			$fullTablePrefix = $wpdb->prefix . $pluginDbPrefix;
+			$fullTablePrefix = $wpdb->prefix . sanitize_text_field($pluginDbPrefix);
 
 			$tableSuffixes = $this->cleanupService->getPluginTableSuffixes();
 
@@ -62,7 +62,8 @@ if ( ! class_exists( 'RebelCode\Aggregator\Core\Uninstaller' ) ) {
 				$wpdb->query( 'SET FOREIGN_KEY_CHECKS = 0' );
 				foreach ( $tableSuffixes as $suffix ) {
 					$tableName = $fullTablePrefix . $suffix;
-					$wpdb->query( "DROP TABLE IF EXISTS `{$tableName}`" );
+					// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+					$wpdb->query( $wpdb->prepare( 'DROP TABLE IF EXISTS %i', $tableName ) );
 				}
 			} finally {
 				$wpdb->query( 'SET FOREIGN_KEY_CHECKS = 1' );

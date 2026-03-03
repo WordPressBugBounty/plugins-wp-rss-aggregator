@@ -6,7 +6,7 @@
  * Plugin Name:       WP RSS Aggregator
  * Plugin URI:        https://wprssaggregator.com
  * Description:       An RSS importer, aggregator, and auto-blogger plugin for WordPress.
- * Version:           5.0.11
+ * Version:           5.0.12
  * Requires at least: 6.2.2
  * Requires PHP:      7.4.0
  * Author:            RebelCode
@@ -38,7 +38,7 @@ if ( WPRA_V5_USE_V4 ) {
 }
 
 if ( ! defined( 'WPRA_VERSION' ) ) {
-	define( 'WPRA_VERSION', '5.0.11' );
+	define( 'WPRA_VERSION', '5.0.12' );
 	define( 'WPRA_MIN_PHP_VERSION', '7.4.0' );
 	define( 'WPRA_MIN_WP_VERSION', '6.2.2' );
 	define( 'WPRA_FILE', __FILE__ );
@@ -58,16 +58,16 @@ add_action(
 if ( version_compare( PHP_VERSION, WPRA_MIN_PHP_VERSION, '<' ) ) {
 	add_action(
 		'admin_notices',
-		function () {
-			printf(
-				'<div class="notice notice-error"><p>%s</p></div>',
-				sprintf(
-					_x( '%1$s requires PHP version %2$s or higher.', '%s = plugin name', 'wp-rss-aggregator' ),
-					'<b>WP RSS Aggregator</b>',
-					'<code>' . WPRA_MIN_PHP_VERSION . '</code>',
-				)
-			);
-		}
+			function () {
+				printf(
+					'<div class="notice notice-error"><p>%s</p></div>',
+					sprintf(
+						esc_html_x( '%1$s requires PHP version %2$s or higher.', '%s = plugin name', 'wp-rss-aggregator' ),
+						'WP RSS Aggregator',
+						esc_html( (string) WPRA_MIN_PHP_VERSION )
+					)
+				);
+			}
 	);
 	return;
 }
@@ -76,16 +76,16 @@ global $wp_version;
 if ( version_compare( $wp_version, WPRA_MIN_WP_VERSION, '<' ) ) {
 	add_action(
 		'admin_notices',
-		function () {
-			printf(
-				'<div class="notice notice-error"><p>%s</p></div>',
-				sprintf(
-					_x( '%1$s requires WordPress version %2$s or higher.', '%s = plugin name', 'wp-rss-aggregator' ),
-					'<b>WP RSS Aggregator</b>',
-					'<code>' . WPRA_MIN_WP_VERSION . '</code>',
-				)
-			);
-		}
+			function () {
+				printf(
+					'<div class="notice notice-error"><p>%s</p></div>',
+					sprintf(
+						esc_html_x( '%1$s requires WordPress version %2$s or higher.', '%s = plugin name', 'wp-rss-aggregator' ),
+						'WP RSS Aggregator',
+						esc_html( (string) WPRA_MIN_WP_VERSION )
+					)
+				);
+			}
 	);
 	return;
 }

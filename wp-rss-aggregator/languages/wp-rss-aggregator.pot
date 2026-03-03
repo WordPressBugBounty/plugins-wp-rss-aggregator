@@ -2,21 +2,21 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP RSS Aggregator 5.0.11\n"
+"Project-Id-Version: WP RSS Aggregator 5.0.12\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-rss-aggregator\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-01-14T09:57:34+00:00\n"
+"POT-Creation-Date: 2026-03-03T09:38:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-rss-aggregator\n"
 
 #. Plugin Name of the plugin
 #: wp-rss-aggregator.php
-#: core/modules/debugInfo.php:15
+#: core/modules/debugInfo.php:25
 msgid "WP RSS Aggregator"
 msgstr ""
 
@@ -146,46 +146,62 @@ msgstr ""
 msgid "Step-by-step instructions"
 msgstr ""
 
+#: core/modules/debugInfo.php:17
+msgid "Completed"
+msgstr ""
+
 #: core/modules/debugInfo.php:19
+msgid "Incomplete"
+msgstr ""
+
+#: core/modules/debugInfo.php:21
+msgid "Not Applicable"
+msgstr ""
+
+#: core/modules/debugInfo.php:29
 msgid "Version"
 msgstr ""
 
-#: core/modules/debugInfo.php:23
+#: core/modules/debugInfo.php:33
 msgid "Plan"
 msgstr ""
 
-#: core/modules/debugInfo.php:27
+#: core/modules/debugInfo.php:37
 #: core/js/dist/admin.js:108
 msgid "State"
 msgstr ""
 
-#: core/modules/debugInfo.php:31
+#: core/modules/debugInfo.php:41
 msgid "fsockopen"
 msgstr ""
 
-#: core/modules/debugInfo.php:33
+#: core/modules/debugInfo.php:43
 msgctxt "fsockopen status in Site Health Info"
 msgid "Supported"
 msgstr ""
 
-#: core/modules/debugInfo.php:34
+#: core/modules/debugInfo.php:44
 msgctxt "fsockopen status in Site Health Info"
 msgid "Unsupported"
 msgstr ""
 
-#: core/modules/debugInfo.php:41
+#: core/modules/debugInfo.php:47
+msgid "Migrated to v5"
+msgstr ""
+
+#: core/modules/debugInfo.php:55
 #, php-format
 msgctxt "Label for extension in Site Health Info"
 msgid "%s extension"
 msgstr ""
 
-#: core/modules/debugInfo.php:43
+#: core/modules/debugInfo.php:57
 #: core/js/dist/admin.js:13
 #: core/js/dist/admin.js:38
 msgid "Yes"
 msgstr ""
 
-#: core/modules/debugInfo.php:44
+#: core/modules/debugInfo.php:58
 #: core/js/dist/admin.js:13
 #: core/js/dist/admin.js:38
 msgid "No"
@@ -592,15 +608,15 @@ msgctxt "post status"
 msgid "Debug"
 msgstr ""
 
-#: core/modules/rowActions.php:26
+#: core/modules/rowActions.php:28
 msgid "Trash and reject"
 msgstr ""
 
-#: core/modules/rowActions.php:61
+#: core/modules/rowActions.php:63
 msgid "Cannot reject a post that was not imported by Aggregator."
 msgstr ""
 
-#: core/modules/rowActions.php:90
+#: core/modules/rowActions.php:92
 msgid "The post has been successfully rejected and moved to the Trash."
 msgstr ""
 

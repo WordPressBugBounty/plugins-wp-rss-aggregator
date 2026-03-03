@@ -6,13 +6,13 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	die( 1 );
 }
 
-$path = __DIR__ . '/core/uninstall.php';
-if ( ! file_exists( $path ) ) {
+$uninstall_file = __DIR__ . '/core/uninstall.php';
+if ( ! file_exists( $uninstall_file ) ) {
 	return;
 }
 
 /** @var Uninstaller $uninstaller */
-$uninstaller = require $path;
+$uninstaller = require $uninstall_file;
 if ( $uninstaller->shouldUninstall() ) {
 	$uninstaller->uninstall();
 }

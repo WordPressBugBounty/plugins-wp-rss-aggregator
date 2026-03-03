@@ -26,7 +26,12 @@ class MergedFeed {
 	 * @param iterable<IrPost> $posts The posts to render in the feed.
 	 */
 	public function print(): void {
-		$protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
+		$protocol = isset( $_SERVER['SERVER_PROTOCOL'] )
+			? sanitize_text_field( wp_unslash( $_SERVER['SERVER_PROTOCOL'] ) )
+			: 'HTTP/1.1';
+		$protocol = in_array( $protocol, array( 'HTTP/1.0', 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0', 'HTTP/3' ), true )
+			? $protocol
+			: 'HTTP/1.1';
 
 		header( "$protocol 200 OK" );
 		header( 'Content-Type: application/rss+xml' );
@@ -34,6 +39,7 @@ class MergedFeed {
 		header( 'Pragma: no-cache' );
 		header( 'Expires: 0' );
 
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- XML feed output is intentionally emitted as raw XML.
 		echo trim( $this->render() );
 	}
 

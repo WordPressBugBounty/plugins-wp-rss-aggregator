@@ -65,6 +65,7 @@ wpra()->addModule(
 			// from hx-vals, including id, page, sources, limit, exclude, pagination, template.
 			// Pass the whole $data array to renderArgs.
 			// Specify 'shortcode' as type to ensure shortcode-specific logic (like limit/pagination overrides) applies.
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Renderer returns HTML fragment for frontend response.
 			echo $renderer->renderArgs( $data, 'shortcode' );
 			die();
 		};

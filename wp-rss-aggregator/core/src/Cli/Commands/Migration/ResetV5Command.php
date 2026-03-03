@@ -95,6 +95,7 @@ class ResetV5Command extends BaseCommand {
 
 		foreach ( $tableSuffixes as $tableSuffix ) {
 			$tableName = $fullDbPrefix . $tableSuffix;
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 			$this->wpdb->query( "DROP TABLE IF EXISTS `{$tableName}`" );
 			WP_CLI::log( sprintf( 'Dropped table: %s (if it existed)', $tableName ) );
 		}

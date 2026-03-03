@@ -63,7 +63,7 @@ class RssSynUpdate {
 			case self::YEARLY:
 				return $this->frequency * 31536000;
 			default:
-				throw new InvalidArgumentException( "Invalid period: {$this->period}" );
+				throw new InvalidArgumentException( esc_html( "Invalid period: {$this->period}" ) );
 		}
 	}
 

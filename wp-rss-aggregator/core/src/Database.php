@@ -27,39 +27,45 @@ class Database {
 	/** @return int|bool */
 	public function query( string $query, array $args = array() ) {
 		if ( count( $args ) > 0 ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query template is provided by caller; placeholders are bound via variadic args.
 			$query = $this->wpdb->prepare( $query, ...$args );
 		}
 
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- The query is prepared when placeholders are provided via $args.
 		$result = $this->wpdb->query( $query );
 
 		if ( $this->wpdb->last_error ) {
-			throw new RuntimeException( $this->wpdb->last_error );
+			throw new RuntimeException( esc_html( (string) $this->wpdb->last_error ) );
 		}
 		return $result;
 	}
 
 	public function getResults( string $query, array $args = array() ): array {
 		if ( count( $args ) > 0 ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query template is provided by caller; placeholders are bound via variadic args.
 			$query = $this->wpdb->prepare( $query, ...$args );
 		}
 
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- The query is prepared when placeholders are provided via $args.
 		$rows = $this->wpdb->get_results( $query, ARRAY_A );
 
 		if ( $this->wpdb->last_error ) {
-			throw new RuntimeException( $this->wpdb->last_error );
+			throw new RuntimeException( esc_html( (string) $this->wpdb->last_error ) );
 		}
 		return $rows;
 	}
 
 	public function getRow( string $query, array $args = array(), int $row = 0 ): ?array {
 		if ( count( $args ) > 0 ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query template is provided by caller; placeholders are bound via variadic args.
 			$query = $this->wpdb->prepare( $query, ...$args );
 		}
 
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- The query is prepared when placeholders are provided via $args.
 		$rows = $this->wpdb->get_row( $query, ARRAY_A, $row );
 
 		if ( $this->wpdb->last_error ) {
-			throw new RuntimeException( $this->wpdb->last_error );
+			throw new RuntimeException( esc_html( (string) $this->wpdb->last_error ) );
 		}
 
 		if ( empty( $rows ) ) {
@@ -70,13 +76,15 @@ class Database {
 
 	public function getCol( string $query, array $args = array(), int $column = 0 ): array {
 		if ( count( $args ) > 0 ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query template is provided by caller; placeholders are bound via variadic args.
 			$query = $this->wpdb->prepare( $query, ...$args );
 		}
 
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- The query is prepared when placeholders are provided via $args.
 		$columns = $this->wpdb->get_col( $query, $column );
 
 		if ( $this->wpdb->last_error ) {
-			throw new RuntimeException( $this->wpdb->last_error );
+			throw new RuntimeException( esc_html( (string) $this->wpdb->last_error ) );
 		}
 
 		return $columns ?? array();
@@ -86,7 +94,7 @@ class Database {
 		$result = $this->wpdb->insert( $table, $data, $format );
 
 		if ( $this->wpdb->last_error || $result === false ) {
-			throw new RuntimeException( $this->wpdb->last_error );
+			throw new RuntimeException( esc_html( (string) $this->wpdb->last_error ) );
 		}
 
 		if ( is_numeric( $this->wpdb->insert_id ) ) {
@@ -100,7 +108,7 @@ class Database {
 		$result = $this->wpdb->replace( $table, $data, $format );
 
 		if ( $this->wpdb->last_error || $result === false ) {
-			throw new RuntimeException( $this->wpdb->last_error );
+			throw new RuntimeException( esc_html( (string) $this->wpdb->last_error ) );
 		}
 
 		return $result;
@@ -110,7 +118,7 @@ class Database {
 		$result = $this->wpdb->update( $table, $data, $where, $format, $whereFormat );
 
 		if ( $this->wpdb->last_error || $result === false ) {
-			throw new RuntimeException( $this->wpdb->last_error );
+			throw new RuntimeException( esc_html( (string) $this->wpdb->last_error ) );
 		}
 
 		return $result;
@@ -120,7 +128,7 @@ class Database {
 		$result = $this->wpdb->delete( $table, $where, $whereFormat );
 
 		if ( $this->wpdb->last_error || $result === false ) {
-			throw new RuntimeException( $this->wpdb->last_error );
+			throw new RuntimeException( esc_html( (string) $this->wpdb->last_error ) );
 		}
 
 		return $result;

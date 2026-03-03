@@ -43,14 +43,17 @@ class WpCliIo implements CliIo {
 	);
 
 	public function printf( string $message, ...$args ): void {
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output is intended for WP-CLI terminal rendering.
 		vprintf( $message, $args );
 	}
 
 	public function print( string $message ): void {
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output is intended for WP-CLI terminal rendering.
 		echo $message;
 	}
 
 	public function println( string $message = '' ): void {
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output is intended for WP-CLI terminal rendering.
 		echo $message . PHP_EOL;
 	}
 
@@ -63,6 +66,7 @@ class WpCliIo implements CliIo {
 	}
 
 	public function cprintf( string $message, array $colors ): void {
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WP_CLI::colorize() returns terminal control sequences for CLI output.
 		echo preg_replace_callback(
 			'/%\((.*?)\)%/sm',
 			function ( array $matches ) use ( &$colors ) {

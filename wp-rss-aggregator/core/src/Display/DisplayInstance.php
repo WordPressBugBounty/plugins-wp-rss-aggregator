@@ -32,16 +32,15 @@ class DisplayInstance implements ArraySerializable {
 	public static function findShortcodes( int $displayId ): array {
 		/** @var \wpdb $wpdb */
 		global $wpdb;
-		$postsTable = $wpdb->prefix . 'posts';
 
 		$query = $wpdb->prepare(
 			"SELECT ID, post_title, post_type
-                    FROM $postsTable
+                    FROM {$wpdb->posts}
                     WHERE (post_type = 'post' OR post_type = 'page') AND post_status != 'trash' AND
                           post_content REGEXP '\\\\[wp-rss-aggregator[[:blank:]]+id=[\\'\"]%d[\\'\"]'",
 			$displayId,
 		);
-
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared just above.
 		$results = $wpdb->get_results( $query ) ?? array();
 
 		return Arrays::map( $results, fn ( $row ) => self::fromPostRow( $row ) );
@@ -51,16 +50,15 @@ class DisplayInstance implements ArraySerializable {
 	public static function findBlocks( int $displayId ): array {
 		/** @var \wpdb $wpdb */
 		global $wpdb;
-		$postsTable = $wpdb->prefix . 'posts';
 
 		$query = $wpdb->prepare(
 			"SELECT ID, post_title, post_type
-                    FROM $postsTable
+                    FROM {$wpdb->posts}
                     WHERE (post_type = 'post' OR post_type = 'page') AND post_status != 'trash' AND
                           post_content REGEXP '<!-- wp:wpra-shortcode/wpra-shortcode \\\\{\"id\":\"?%d\"?'",
 			$displayId
 		);
-
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Prepared just above.
 		$results = $wpdb->get_results( $query );
 
 		return Arrays::map( $results, fn ( $row ) => self::fromPostRow( $row ) );

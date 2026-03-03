@@ -162,6 +162,7 @@ class Source {
 			try {
 				$src->lastUpdate = new DateTime( $lastUpdate );
 			} catch ( Throwable $e ) {
+				// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- $e is passed as previous exception, not output.
 				throw new DomainException( 'Invalid source lastUpdate datetime', 0, $e );
 			}
 		} else {

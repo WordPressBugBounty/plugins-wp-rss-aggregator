@@ -126,9 +126,9 @@ wpra()->addModule(
 						$srcIds = get_post_meta( $postId, ImportedPost::SOURCE );
 						$srcs = $importer->sources->getManyByIds( $srcIds )->getOr( array() );
 
-						foreach ( $srcs as $src ) {
-							printf( '<a href="edit.php?post_type=wprss_feed_item&wpra_source=%d">%s</a><br>', $src->id, esc_html( $src->name ) );
-						}
+							foreach ( $srcs as $src ) {
+								printf( '<a href="edit.php?post_type=wprss_feed_item&wpra_source=%d">%s</a><br>', absint( $src->id ), esc_html( $src->name ) );
+							}
 						break;
 				}
 			},

@@ -19,7 +19,9 @@ wpra()->addModule(
 					return $actions;
 				}
 
-				$source = $_GET['wpra_source'] ?? '';
+				$source = isset( $_GET['wpra_source'] )
+					? sanitize_text_field( wp_unslash( $_GET['wpra_source'] ) )
+					: '';
 
 				$rejectNonce = wp_create_nonce( 'wpra_reject' );
 				$rejectUrl = sprintf( admin_url( 'post.php?wpraRowAction=wpra-delete-reject&post=%d&_wpnonce=%s&source=%s' ), $post->ID, $rejectNonce, esc_attr( $source ) );
@@ -58,7 +60,7 @@ wpra()->addModule(
 					case 'wpra-delete-reject':
 						$guid = get_post_meta( $post->ID, ImportedPost::GUID, true );
 						if ( empty( $guid ) ) {
-							set_transient( 'wpra_notice_rejected_post', __( 'Cannot reject a post that was not imported by Aggregator.', 'wp-rss-aggregator' ) );
+							set_transient( 'wpra_notice_rejected_post', esc_html__( 'Cannot reject a post that was not imported by Aggregator.', 'wp-rss-aggregator' ) );
 							break;
 						}
 
@@ -87,9 +89,9 @@ wpra()->addModule(
 				if ( ! empty( $rejectedPost ) ) {
 					delete_transient( 'wpra_notice_rejected_post' );
 					if ( $rejectedPost === '1' ) {
-						printf( '<div class="notice notice-success notice-dismissible"><p>%s</p></div>', __( 'The post has been successfully rejected and moved to the Trash.', 'wp-rss-aggregator' ) );
+						printf( '<div class="notice notice-success notice-dismissible"><p>%s</p></div>', esc_html__( 'The post has been successfully rejected and moved to the Trash.', 'wp-rss-aggregator' ) );
 					} else {
-						printf( '<div class="notice notice-error notice-dismissible"><p>%s</p></div>', $rejectedPost );
+						printf( '<div class="notice notice-error notice-dismissible"><p>%s</p></div>', esc_html( $rejectedPost ) );
 					}
 				}
 			}

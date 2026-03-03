@@ -234,12 +234,16 @@ class RpcServer {
 
 		foreach ( $generator as $result ) {
 			$result = Result::Ok( $result );
-			$json = json_encode(
+			$json = wp_json_encode(
 				array(
 					'type' => $result->isErr() ? 'error' : 'ok',
 					'value' => $this->transform( $result ),
 				)
 			);
+			if ( ! is_string( $json ) ) {
+				$json = '{"type":"error","value":{"message":"Serialization error"}}';
+			}
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Streaming JSON response for API clients.
 			echo $json;
 			flush();
 		}
@@ -262,7 +266,7 @@ class RpcServer {
 			$index = $arg['__rpcIndex'] ?? null;
 
 			if ( $targetNum < 0 || $targetNum >= count( $results ) ) {
-				throw new Exception( "Invalid action number {$targetNum} in arg" );
+				throw new Exception( sprintf( 'Invalid action number %s in arg', esc_html( (string) $targetNum ) ) );
 			}
 
 			$value = $results[ $targetNum ]->get();
@@ -277,7 +281,13 @@ class RpcServer {
 					$value = $value->$index;
 				} else {
 					$type = gettype( $value );
-					throw new Exception( "Cannot index {$type} result from action {$targetNum} in arg" );
+					throw new Exception(
+						sprintf(
+							'Cannot index %s result from action %s in arg',
+							esc_html( $type ),
+							esc_html( (string) $targetNum )
+						)
+					);
 				}
 			}
 

@@ -345,19 +345,20 @@ wpra()->addModule(
 						<p><?php echo wp_kses_post( $postMessage ); ?></p>
 
 						<p style="margin-top: 12px; margin-bottom: 0;">
-							<a href="<?php echo esc_url( $download_link ); ?>" class="button button-primary" target="_blank">
-								<?php _e( 'Download Premium v5.0.2', 'wp-rss-aggregator' ); ?>
-							</a>
-							<a href="<?php echo esc_url( $instructions_link ); ?>" class="button-link" style="margin-left: 15px;" target="_blank">
-								<?php _e( 'Step-by-step instructions', 'wp-rss-aggregator' ); ?>
-							</a>
+								<a href="<?php echo esc_url( $download_link ); ?>" class="button button-primary" target="_blank">
+									<?php esc_html_e( 'Download Premium v5.0.2', 'wp-rss-aggregator' ); ?>
+								</a>
+								<a href="<?php echo esc_url( $instructions_link ); ?>" class="button-link" style="margin-left: 15px;" target="_blank">
+									<?php esc_html_e( 'Step-by-step instructions', 'wp-rss-aggregator' ); ?>
+								</a>
 						</p>
 
 						<p style="font-size:12px; color: #757575;"><?php echo esc_html( $reassurance ); ?></p>
 					</div>
 				</div>
 				<?php
-				echo $script;
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Inline script is intentionally emitted in admin notice context.
+					echo $script;
 			}
 		);
 	}

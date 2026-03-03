@@ -3,10 +3,10 @@ Contributors: RebelCode, jeangalea, markzahra, Mekku, gabygalea, omidakhavan
 Plugin URI: https://www.wprssaggregator.com
 Tags: rss aggregator, news aggregator, autoblogging, feed to post, rss import
 Commercial: https://www.wprssaggregator.com/pricing/
-Requires at least: 5.5 or higher
+Requires at least: 6.2.2 or higher
 Tested up to: 6.9
 Requires PHP: 7.4.0
-Stable tag: 5.0.11
+Stable tag: 5.0.12
 License: GPLv3
 
 The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
@@ -263,6 +263,19 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 
 == Changelog ==
+
+= 5.0.12 (2026-03-03) =
+
+**Added**
+- Added `migrated_to_v5` status field to Site Health information.
+
+**Changed**
+- Improved output escaping in AJAX responses and renderer output for improved security hardening.
+
+**Fixed**
+- Fixed undefined `$listClass` variable warning when "Show Bullets" is disabled in List Displays.
+- Improved input validation and output handling in AJAX responses to enhance overall security and stability.
+- Fixed folder filter not applying to items in the "Pending Approval" section of the Hub.
 
 = 5.0.11 (2026-01-14) =
 

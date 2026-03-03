@@ -27,7 +27,7 @@ class ScheduleFactory {
 		if ( is_array( $var ) ) {
 			return self::fromArray( $var );
 		}
-		throw new DomainException( 'Invalid source schedule: ' . Types::getType( $var ) );
+		throw new DomainException( 'Invalid source schedule: ' . esc_html( Types::getType( $var ) ) );
 	}
 
 	/** @return Result<Schedule> */

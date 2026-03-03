@@ -11,6 +11,16 @@ wpra()->addModule(
 			function ( array $info ) use ( $licensing ) {
 				$wpra = wpra();
 
+				$didMigration = get_option( 'wpra_did_v4_migration', false );
+
+				if ( $didMigration === 'finished' ) {
+					$migratedValue = __( 'Completed', 'wp-rss-aggregator' );
+				} elseif ( $didMigration === 'cancelled' ) {
+					$migratedValue = __( 'Incomplete', 'wp-rss-aggregator' );
+				} else {
+					$migratedValue = __( 'Not Applicable', 'wp-rss-aggregator' );
+				}
+
 				$wpraInfo = array(
 					'label' => __( 'WP RSS Aggregator', 'wp-rss-aggregator' ),
 					'private' => false,
@@ -32,6 +42,10 @@ wpra()->addModule(
 							'value' => function_exists( 'fsockopen' )
 								? _x( 'Supported', 'fsockopen status in Site Health Info', 'wp-rss-aggregator' )
 								: _x( 'Unsupported', 'fsockopen status in Site Health Info', 'wp-rss-aggregator' ),
+						),
+						'migrated_to_v5' => array(
+							'label' => __( 'Migrated to v5', 'wp-rss-aggregator' ),
+							'value' => $migratedValue,
 						),
 					),
 				);
