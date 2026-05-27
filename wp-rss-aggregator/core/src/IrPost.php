@@ -166,6 +166,7 @@ class IrPost {
 			'url' => $this->url,
 			'title' => $this->title,
 			'content' => $content,
+			'rawContent' => $this->content,
 			'excerpt' => $this->excerpt,
 			'author' => $this->author ? $this->author->toArray() : null,
 			'datePublished' => $this->datePublished ? Time::toHumanFormat( $this->datePublished ) : null,

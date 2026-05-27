@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP RSS Aggregator 5.0.12\n"
+"Project-Id-Version: WP RSS Aggregator 5.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-rss-aggregator\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-03T09:38:01+00:00\n"
+"POT-Creation-Date: 2026-05-27T10:57:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-rss-aggregator\n"
@@ -76,6 +76,7 @@ msgstr ""
 #: core/modules/admin.php:121
 #: core/js/dist/admin.js:37
 #: core/js/dist/admin.js:38
+#: core/js/dist/admin.js:78
 msgid "Integrations"
 msgstr ""
 
@@ -110,40 +111,64 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: core/modules/admin.php:295
+#: core/modules/admin.php:296
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr ""
 
-#: core/modules/admin.php:296
+#: core/modules/admin.php:297
 msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr ""
 
-#: core/modules/admin.php:299
+#: core/modules/admin.php:300
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
 msgstr ""
 
-#: core/modules/admin.php:304
+#: core/modules/admin.php:305
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
 msgstr ""
 
-#: core/modules/admin.php:307
+#: core/modules/admin.php:308
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr ""
 
-#: core/modules/admin.php:314
+#: core/modules/admin.php:315
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr ""
 
-#: core/modules/admin.php:349
+#: core/modules/admin.php:350
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr ""
 
-#: core/modules/admin.php:352
+#: core/modules/admin.php:353
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
+msgstr ""
+
+#: core/modules/aiCreditSync.php:59
+msgid "Invalid credit sync payload."
+msgstr ""
+
+#: core/modules/aiCreditSync.php:64
+msgid "Site URL mismatch."
+msgstr ""
+
+#: core/modules/aiCreditSync.php:69
+msgid "License key does not match."
+msgstr ""
+
+#: core/modules/aiCreditSync.php:74
+msgid "Signature mismatch."
+msgstr ""
+
+#: core/modules/aiCreditSync.php:78
+msgid "Timestamp is too old."
+msgstr ""
+
+#: core/modules/aiCreditSync.php:82
+msgid "Unsupported sync action."
 msgstr ""
 
 #: core/modules/debugInfo.php:17
@@ -375,145 +400,140 @@ msgstr ""
 msgid "No source link"
 msgstr ""
 
-#: core/modules/licensing.php:37
+#: core/modules/licensing.php:38
 msgctxt "Name of the free plan"
 msgid "Free"
 msgstr ""
 
-#: core/modules/licensing.php:38
+#: core/modules/licensing.php:39
 msgctxt "Description of the free plan"
 msgid "Free, for trying things out."
 msgstr ""
 
-#: core/modules/licensing.php:40
+#: core/modules/licensing.php:41
 msgid "Unlimited sources"
 msgstr ""
 
-#: core/modules/licensing.php:41
+#: core/modules/licensing.php:42
 msgid "Unlimited feeds"
 msgstr ""
 
-#: core/modules/licensing.php:42
+#: core/modules/licensing.php:43
 msgid "All import options"
 msgstr ""
 
-#: core/modules/licensing.php:43
+#: core/modules/licensing.php:44
 msgid "Import text, audio, & video"
 msgstr ""
 
-#: core/modules/licensing.php:51
+#: core/modules/licensing.php:52
 msgctxt "Name of the basic plan"
 msgid "Basic"
 msgstr ""
 
-#: core/modules/licensing.php:52
+#: core/modules/licensing.php:53
 msgctxt "Description of the basic plan"
 msgid "Display RSS feeds anywhere on your site and customize them to match your site’s design."
 msgstr ""
 
-#: core/modules/licensing.php:59
+#: core/modules/licensing.php:60
 #: core/js/dist/admin.js:108
 msgid "All layout designs"
 msgstr ""
 
-#: core/modules/licensing.php:60
-msgid "Manual curation"
-msgstr ""
-
 #: core/modules/licensing.php:61
 #: core/js/dist/admin.js:108
-msgid "Full customization"
+msgid "Manual curation"
 msgstr ""
 
 #: core/modules/licensing.php:62
 #: core/js/dist/admin.js:108
-msgid "Automatic filtering"
+msgid "Full customization"
 msgstr ""
 
 #: core/modules/licensing.php:63
 #: core/js/dist/admin.js:108
+msgid "Automatic filtering"
+msgstr ""
+
+#: core/modules/licensing.php:64
+#: core/js/dist/admin.js:108
 msgid "Source management"
 msgstr ""
 
-#: core/modules/licensing.php:70
+#: core/modules/licensing.php:71
 msgctxt "Name of the plus plan"
 msgid "Plus"
 msgstr ""
 
-#: core/modules/licensing.php:71
+#: core/modules/licensing.php:72
 msgctxt "Description of the plus plan"
 msgid "Aggregate RSS feeds as blog posts and publish their excerpts to your blog or CPT."
 msgstr ""
 
-#: core/modules/licensing.php:78
+#: core/modules/licensing.php:79
 #: core/js/dist/admin.js:108
 msgid "Import as Posts"
 msgstr ""
 
-#: core/modules/licensing.php:79
+#: core/modules/licensing.php:80
 msgid "Schedule publishing"
 msgstr ""
 
-#: core/modules/licensing.php:80
-#: core/js/dist/admin.js:108
+#: core/modules/licensing.php:81
 msgid "Add custom content"
 msgstr ""
 
-#: core/modules/licensing.php:81
+#: core/modules/licensing.php:82
 #: core/js/dist/admin.js:108
 msgid "Import taxonomies"
 msgstr ""
 
-#: core/modules/licensing.php:88
+#: core/modules/licensing.php:89
 msgctxt "Name of the pro plan"
 msgid "Pro"
 msgstr ""
 
-#: core/modules/licensing.php:89
+#: core/modules/licensing.php:90
 msgctxt "Description of the pro plan"
 msgid "Curate RSS feeds as Posts or any CPT and give your visitors all the content they’re after."
 msgstr ""
 
-#: core/modules/licensing.php:96
+#: core/modules/licensing.php:97
 #: core/js/dist/admin.js:108
 msgid "Full text import"
 msgstr ""
 
-#: core/modules/licensing.php:97
+#: core/modules/licensing.php:98
 msgid "Include all media"
 msgstr ""
 
-#: core/modules/licensing.php:98
+#: core/modules/licensing.php:99
 #: core/js/dist/admin.js:108
 msgid "Custom Mapping"
 msgstr ""
 
-#: core/modules/licensing.php:105
+#: core/modules/licensing.php:106
 msgctxt "Name of the Elite plan"
 msgid "Elite"
 msgstr ""
 
-#: core/modules/licensing.php:106
+#: core/modules/licensing.php:107
 msgctxt "Description of the all access plan"
 msgid "Import unlimited content from RSS feeds and generate your own original versions."
 msgstr ""
 
-#: core/modules/licensing.php:113
-#: core/js/dist/admin.js:21
-#: core/js/dist/admin.js:108
-msgid "AI integrations"
-msgstr ""
-
 #: core/modules/licensing.php:114
-#: core/js/dist/admin.js:21
-#: core/js/dist/admin.js:108
-msgid "Title spinning"
+msgid "AI summaries"
 msgstr ""
 
 #: core/modules/licensing.php:115
-#: core/js/dist/admin.js:21
 #: core/js/dist/admin.js:108
-msgid "Content spinning"
+msgid "10,000 AI Credits"
+msgstr ""
+
+#: core/modules/licensing.php:116
+msgid "3rd Party AI integrations"
 msgstr ""
 
 #: core/modules/logger.php:46
@@ -942,6 +962,21 @@ msgid "Upgrade to Elite"
 msgstr ""
 
 #: core/js/dist/admin.js:21
+#: core/js/dist/admin.js:108
+msgid "AI integrations"
+msgstr ""
+
+#: core/js/dist/admin.js:21
+#: core/js/dist/admin.js:108
+msgid "Title spinning"
+msgstr ""
+
+#: core/js/dist/admin.js:21
+#: core/js/dist/admin.js:108
+msgid "Content spinning"
+msgstr ""
+
+#: core/js/dist/admin.js:21
 msgid "Search ..."
 msgstr ""
 
@@ -1056,6 +1091,11 @@ msgstr ""
 #: core/js/dist/admin.js:23
 #: core/js/dist/admin.js:38
 msgid "Getting started guide"
+msgstr ""
+
+#: core/js/dist/admin.js:23
+#: core/js/dist/admin.js:108
+msgid "New"
 msgstr ""
 
 #: core/js/dist/admin.js:23
@@ -2360,6 +2400,15 @@ msgid "Unlock deeper imports, smarter feed controls, and premium display options
 msgstr ""
 
 #: core/js/dist/admin.js:38
+msgid "Almost out of AI credits"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+#, js-format
+msgid "You have <strong>%s AI credits</strong> left. Add more now to avoid interruptions. <getMore>Get more AI credits</getMore>"
+msgstr ""
+
+#: core/js/dist/admin.js:38
 #, js-format
 msgctxt "Hub page header"
 msgid "Hey, %s!"
@@ -2381,6 +2430,14 @@ msgstr ""
 #: core/js/dist/admin.js:38
 #: core/js/dist/admin.js:114
 msgid "Rejected Items"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "AI Credits (remaining)"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "You're out of AI credits. Add more through your Aggregator account to avoid interruptions."
 msgstr ""
 
 #: core/js/dist/admin.js:38
@@ -2459,6 +2516,38 @@ msgstr ""
 
 #: core/js/dist/admin.js:38
 msgid "Dive in!"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "New: AI Summaries and TL;DRs are now part of your existing plan!"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Automatically add AI-generated summaries or quick TL;DRs to imported articles for faster reading and added context."
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Enable them per source under <strong>Advanced → AI Summaries</strong> or <strong>AI TL;DRs</strong>. Each generation draws from your included AI credits. <learnMore>Learn more</learnMore>"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "<strong>You're among the first to use the new AI features.</strong> <learnMore>Tell us what to build next →</learnMore>"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Your feeds could be summarising themselves"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Pro and Elite customers can now automatically add <strong>AI-generated summaries</strong> and <strong>TL;DRs</strong> to imported articles. It's included in their plan with no extra setup or charges."
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Want to try it out? <learnMore>Upgrade your plan and get instant access</learnMore>"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "<strong>Help us shape what we build next.</strong> <learnMore>Share your feedback →</learnMore>"
 msgstr ""
 
 #: core/js/dist/admin.js:38
@@ -2832,11 +2921,75 @@ msgid "items"
 msgstr ""
 
 #: core/js/dist/admin.js:38
+msgid "Enable AI Summaries"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Summaries are generated by sending RSS content to our AI provider. We track credit usage (linked to your license) but don't store summaries or site data."
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Enable AI TL;DRs"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "AI TL;DRs are generated by sending RSS content to our AI provider. We track credit usage (linked to your license) but don't store summaries or site data."
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Enable AI Rewrite"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "AI Rewrite is generated by sending RSS content to our AI provider. We track credit usage (linked to your license) but don't store rewritten content or site data."
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "By enabling this AI feature, you're agreeing to our"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Terms & Conditions"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Disable anytime in Settings."
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Agree and Enable"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Not Now"
+msgstr ""
+
+#: core/js/dist/admin.js:38
 msgid "Hub Settings"
 msgstr ""
 
 #: core/js/dist/admin.js:38
 msgid "Feed to Post Settings"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "AI Features"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Enable AI Features"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "By enabling AI features, you confirm you have read our <termsLink>Terms & Conditions</termsLink> regarding AI data processing and accept responsibility for compliance in your jurisdiction."
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Note:"
+msgstr ""
+
+#: core/js/dist/admin.js:38
+msgid "Disabling this will turn off all AI features across all sources. Existing AI-generated content will remain, but you cannot create new content until re-enabled."
 msgstr ""
 
 #: core/js/dist/admin.js:38
@@ -2978,7 +3131,7 @@ msgid "Only change these options if you know what you are doing!"
 msgstr ""
 
 #: core/js/dist/admin.js:78
-msgid "Start by entering a website’s URL in the right sidebar..."
+msgid "Start by entering a website’s URL in the left sidebar"
 msgstr ""
 
 #: core/js/dist/admin.js:78
@@ -2999,6 +3152,23 @@ msgstr ""
 
 #: core/js/dist/admin.js:78
 msgid "Customize your settings to fit your source’s post content."
+msgstr ""
+
+#: core/js/dist/admin.js:78
+#: core/js/dist/admin.js:108
+msgid "Content"
+msgstr ""
+
+#: core/js/dist/admin.js:78
+msgid "AI"
+msgstr ""
+
+#: core/js/dist/admin.js:78
+msgid "Media"
+msgstr ""
+
+#: core/js/dist/admin.js:78
+msgid "Metadata"
 msgstr ""
 
 #: core/js/dist/admin.js:78
@@ -3039,6 +3209,38 @@ msgstr ""
 #: core/js/dist/admin.js:78
 msgctxt "Badge in post preview when editing a source"
 msgid "content"
+msgstr ""
+
+#: core/js/dist/admin.js:78
+msgctxt "Badge in post preview when editing a source"
+msgid "summary"
+msgstr ""
+
+#: core/js/dist/admin.js:78
+#: core/js/dist/admin.js:108
+msgid "AI Summaries"
+msgstr ""
+
+#: core/js/dist/admin.js:78
+msgid "The summary will be generated upon import."
+msgstr ""
+
+#: core/js/dist/admin.js:78
+msgctxt "Badge in post preview when editing a source"
+msgid "TL;DR"
+msgstr ""
+
+#: core/js/dist/admin.js:78
+#: core/js/dist/admin.js:108
+msgid "AI TL;DRs"
+msgstr ""
+
+#: core/js/dist/admin.js:78
+msgid "The TL;DR will be generated upon import."
+msgstr ""
+
+#: core/js/dist/admin.js:78
+msgid "1 AI credit"
 msgstr ""
 
 #: core/js/dist/admin.js:78
@@ -3283,6 +3485,102 @@ msgstr ""
 
 #: core/js/dist/admin.js:108
 msgid "Remove unwanted content"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "By enabling this feature, you confirm you have read our <learnMore>Terms & Conditions</learnMore> regarding AI data processing and accept responsibility for compliance in your jurisdiction."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Stop importing new items"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "No new posts will be imported until credits are available."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Import items without AI TL;DRs"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "New posts are imported with their original content - no TL;DRs will be generated."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Generating a preview will use 1 credit each time to create an AI TL;DR shown in the preview on the right. This feature is for testing only — use it sparingly. TL;DRs for each post will be generated automatically during import."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Short:"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "One to two bullet points covering only the most essential information."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Long:"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Five to ten bullet points covering the main points with slightly more context."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Generate TL;DRs"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "*Note:* AI-generated content may be inaccurate, incomplete, misleading, or reflect biases in the source content or AI model. You are responsible for reviewing and verifying all AI-generated content before publishing. Do not rely on AI content as a sole source of accuracy."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "AI TL;DRs works with text content only. Media elements are ignored."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Length"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Short"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Long"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Test TL;DR"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Test this prompt on the current post"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Generating preview…"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Generate Preview (uses 1 AI credit)"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "AI TL;DR preview generated"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Credit Strategy"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Choose what happens when your AI credits run out. [Learn more][docs]"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Display options"
 msgstr ""
 
 #: core/js/dist/admin.js:108
@@ -3848,11 +4146,43 @@ msgid "Fallback user"
 msgstr ""
 
 #: core/js/dist/admin.js:108
-msgid "Customize your source in detail with advanced settings for more precise content control."
+msgid "Import items without AI summaries"
 msgstr ""
 
 #: core/js/dist/admin.js:108
-msgid "Content"
+msgid "New posts are imported with their original content - no summaries will be generated."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Generating a preview will use 1 credit each time to create an AI summary shown in the preview on the right. This feature is for testing only — use it sparingly. Summaries for each post will be generated automatically during import."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "One to two sentences capturing only the essential facts."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "A brief paragraph summarizing the main points with slightly more context."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Generate summaries"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "AI Summaries works with text content only. Media elements are ignored during summarization."
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Test Summary"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "AI summary preview generated"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Customize your source in detail with advanced settings for more precise content control."
 msgstr ""
 
 #: core/js/dist/admin.js:108
@@ -4238,6 +4568,14 @@ msgid "Activations:"
 msgstr ""
 
 #: core/js/dist/admin.js:108
+msgid "AI Credits:"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "remaining"
+msgstr ""
+
+#: core/js/dist/admin.js:108
 msgctxt "Number of license activations left"
 msgid "Unlimited"
 msgstr ""
@@ -4275,6 +4613,10 @@ msgstr ""
 
 #: core/js/dist/admin.js:108
 msgid "My Account"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "Buy more AI credits"
 msgstr ""
 
 #: core/js/dist/admin.js:108
@@ -4346,7 +4688,15 @@ msgid "Keyword filtering"
 msgstr ""
 
 #: core/js/dist/admin.js:108
+msgid "500 AI Credits"
+msgstr ""
+
+#: core/js/dist/admin.js:108
 msgid "Normally $269"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "first year, then $299 USD for 1 site"
 msgstr ""
 
 #: core/js/dist/admin.js:108
@@ -4402,7 +4752,11 @@ msgid "Premium email support"
 msgstr ""
 
 #: core/js/dist/admin.js:108
-msgid "30-day money-back"
+msgid "Email support"
+msgstr ""
+
+#: core/js/dist/admin.js:108
+msgid "30-day money-back guarantee"
 msgstr ""
 
 #: core/js/dist/admin.js:112

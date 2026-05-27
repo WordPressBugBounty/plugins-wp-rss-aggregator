@@ -3,13 +3,14 @@
 namespace RebelCode\Aggregator\Core;
 
 use RebelCode\WpSdk\Wp\CronJob;
-use EDD_SL_Plugin_Updater;
+use RebelCode\Aggregator\Core\Tier;
+use RebelCode\Aggregator\Core\Licensing;
 
 wpra()->addModule(
 	'licensing',
 	array(),
 	function () {
-		$storeUrl = 'https://wprssaggregator.com';
+		$storeUrl = 'https://www.wprssaggregator.com';
 		$licensing = new Licensing( $storeUrl, array() );
 		add_action( 'init', function () use ( $licensing ) {
 			$licensing->plans = getPlans();
@@ -84,7 +85,7 @@ function getPlans() {
 			'mostPopular' => false,
 		),
 		array(
-			'eddIds' => array( 470409, 774058 ),
+			'eddIds' => array( 774058, 470409 ),
 			'name' => _x( 'Pro', 'Name of the pro plan', 'wp-rss-aggregator' ),
 			'desc' => _x(
 				'Curate RSS feeds as Posts or any CPT and give your visitors all the content they’re after.',
@@ -110,9 +111,9 @@ function getPlans() {
 			),
 			'tier' => Tier::Elite,
 			'features' => array(
-				__( 'AI integrations', 'wp-rss-aggregator' ),
-				__( 'Title spinning', 'wp-rss-aggregator' ),
-				__( 'Content spinning', 'wp-rss-aggregator' ),
+				__('AI summaries', 'wp-rss-aggregator'),
+				__('10,000 AI Credits', 'wp-rss-aggregator'),
+				__('3rd Party AI integrations', 'wp-rss-aggregator'),
 			),
 			'price' => 269,
 			'mostPopular' => false,

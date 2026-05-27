@@ -4,9 +4,9 @@ Plugin URI: https://www.wprssaggregator.com
 Tags: rss aggregator, news aggregator, autoblogging, feed to post, rss import
 Commercial: https://www.wprssaggregator.com/pricing/
 Requires at least: 6.2.2 or higher
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4.0
-Stable tag: 5.0.12
+Stable tag: 5.1.0
 License: GPLv3
 
 The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
@@ -263,6 +263,28 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 
 == Changelog ==
+
+= 5.1.0 (2026-05-27) =
+
+**Added**
+- Added AI TL;DRs and AI Summaries, available to Pro and Elite plans on sources configured to import items as posts (Feed-to-Post).
+- Added a first-time-enable confirmation modal with a Terms & Conditions link and privacy note for AI features.
+- Added a "Test" preview for each AI feature, letting you generate a sample on a real feed item before enabling on imports.
+- Added a Credit Strategy setting that controls import behavior when credits run out.
+- Added AI Credits attached at the license level for Pro and Elite plans.
+- Added an AI Credits remaining counter to the Hub page.
+- Added AI promotional notices.
+
+**Changed**
+- Reorganized the Source Advanced tab into grouped sections (Content, AI, Media, Metadata, Integrations) with collapsible cards for easier navigation.
+- Updated the Pro and Elite plan cards on the Manage Plan page to include AI features and AI credit indicators.
+- Updated empty source state modal copy from "right sidebar" to "left sidebar" to match the current UI layout.
+
+**Fixed**
+- Fixed license data being shared across subsites in a multisite environment when the plugin is not network activated. Licenses are now isolated per subsite unless the plugin is network activated.
+- Fixed automation filters not matching tags or categories that contained capital letters.
+- Fixed YouTube Shorts not being embedded in imported posts when using a YouTube source.
+- Fixed extra space beneath the three primary action buttons on the Hub page.
 
 = 5.0.12 (2026-03-03) =
 

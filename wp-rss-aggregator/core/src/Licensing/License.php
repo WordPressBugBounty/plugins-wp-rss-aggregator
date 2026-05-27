@@ -24,6 +24,8 @@ class License implements ArraySerializable {
 	public int $activations = 0;
 	public ?DateTime $expires = null;
 	public int $eddId = 0;
+	public ?int $aiCreditsRemaining = null;
+	public ?int $aiCreditsTotal = null;
 
 	public function toArray(): array {
 		return array(
@@ -35,6 +37,8 @@ class License implements ArraySerializable {
 			'quota' => $this->quota,
 			'activations' => $this->activations,
 			'expires' => $this->expires ? $this->expires->format( DATE_ATOM ) : null,
+			'aiCreditsRemaining' => $this->aiCreditsRemaining,
+			'aiCreditsTotal' => $this->aiCreditsTotal,
 		);
 	}
 
@@ -52,6 +56,12 @@ class License implements ArraySerializable {
 		if ( $expires ) {
 			$license->expires = Time::createAndCatch( $expires );
 		}
+		$license->aiCreditsRemaining = array_key_exists( 'aiCreditsRemaining', $array )
+			? ( null === $array['aiCreditsRemaining'] ? null : (int) $array['aiCreditsRemaining'] )
+			: null;
+		$license->aiCreditsTotal = array_key_exists( 'aiCreditsTotal', $array )
+			? ( null === $array['aiCreditsTotal'] ? null : (int) $array['aiCreditsTotal'] )
+			: null;
 
 		return $license;
 	}

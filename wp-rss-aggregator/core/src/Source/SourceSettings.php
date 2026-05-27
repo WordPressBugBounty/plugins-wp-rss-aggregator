@@ -146,6 +146,22 @@ class SourceSettings implements ArraySerializable {
 	public bool $scEnableTitle = false;
 	public bool $scRevisions = false;
 
+	// -------------------------------------
+	// Aggregator AI settings
+	// -------------------------------------
+	public bool $aisEnable = false;
+	public string $aisLength = 'short';
+	public string $aisDisplayOption = 'before';
+	public string $aisCreditStrategy = 'skip_ai';
+	public bool $aitldrEnable = false;
+	public string $aitldrLength = 'short';
+	public string $aitldrDisplayOption = 'before';
+	public string $aitldrCreditStrategy = 'skip_ai';
+	public bool $airewriteEnable = false;
+	public bool $airewriteTitle = false;
+	public bool $airewriteContent = false;
+	public bool $airewriteExcerpt = false;
+
 	public function __construct() {
 		$this->minImageSize = new Size( 80, 80 );
 	}
@@ -183,8 +199,8 @@ class SourceSettings implements ArraySerializable {
 					break;
 
 				case 'minImageSize':
-				$this->minImageSize = Size::fromArray( $val );
-				break;
+					$this->minImageSize = Size::fromArray( $val );
+					break;
 
 				default:
 					$val = apply_filters( "wpra.source.settings.patch.$key", $val, $this );

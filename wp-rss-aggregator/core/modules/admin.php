@@ -159,6 +159,7 @@ wpra()->addModule(
 					'sslCertPath' => implode( '/', array( WPINC, 'certificates', 'ca-bundle.crt' ) ),
 					'isMultiSite' => WpUtils::isMultiSite(),
 					'isMainSite' => is_main_site(),
+					'isNetworkLicensed' => $licensing->isNetworkLicensed(),
 					'hasV4Data' => $wpra->hasV4Data(),
 					'sites' => WpUtils::getSites(),
 					'plans' => $licensing->plans,

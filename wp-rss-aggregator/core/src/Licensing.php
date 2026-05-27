@@ -17,6 +17,7 @@ class Licensing {
 	public string $storeUrl = '';
 	public array $plans = array();
 	private ?License $license = null;
+	private ?bool $isNetworkLicensed = null;
 
 	public function __construct( string $storeUrl, array $plans ) {
 		$this->storeUrl = $storeUrl;
@@ -45,7 +46,9 @@ class Licensing {
 
 	public function getLicense(): ?License {
 		if ( $this->license === null ) {
-			$array = get_site_option( self::OPTION, null );
+			$array = $this->isNetworkLicensed()
+				? get_site_option( self::OPTION, null )
+				: get_option( self::OPTION, null );
 
 			if ( is_array( $array ) ) {
 				$this->license = License::fromArray( $array );
@@ -126,7 +129,7 @@ class Licensing {
 						return Result::Err( __( 'License check failed.', 'wprss' ) );
 					}
 
-					update_site_option( self::OPTION, $rLicense->toArray() );
+					$this->saveLicense( $rLicense->toArray() );
 
 					return Result::Ok( $rLicense );
 				},
@@ -146,7 +149,7 @@ class Licensing {
 			return $rLicense;
 		}
 
-		update_site_option( self::OPTION, $rLicense->get()->toArray() );
+		$this->saveLicense( $rLicense->get()->toArray() );
 
 		return $rLicense;
 	}
@@ -172,7 +175,7 @@ class Licensing {
 			$message = esc_html__( 'Your license has expired.', 'wprss' );
 		}
 
-		delete_site_option( self::OPTION );
+		$this->deleteLicense();
 
 		return Result::Ok( $message );
 	}
@@ -197,12 +200,59 @@ class Licensing {
 		return $this;
 	}
 
+	public function getSiteUrl(): string {
+		return $this->isNetworkLicensed() ? network_site_url() : site_url();
+	}
+
+	/**
+	 * Deducts a single cached AI credit from the stored license state.
+	 */
+	public function consumeAiCredit(): void {
+		$license = $this->getLicense();
+		if ( $license === null || $license->aiCreditsRemaining === null ) {
+			return;
+		}
+
+		$license->aiCreditsRemaining = max( 0, $license->aiCreditsRemaining - 1 );
+		$this->setLicense( $license );
+		$this->saveLicense( $license->toArray() );
+	}
+
+	/**
+	 * Applies authoritative AI credit usage returned by the AI hub.
+	 *
+	 * @since 5.1.0
+	 */
+	public function applyAiCreditUsage( int $deducted, ?int $remaining = null, ?int $total = null ): void {
+		$license = $this->getLicense();
+		if ( $license === null ) {
+			return;
+		}
+
+		if ( null !== $remaining ) {
+			$license->aiCreditsRemaining = max( 0, $remaining );
+		} elseif ( null !== $license->aiCreditsRemaining ) {
+			$license->aiCreditsRemaining = max( 0, $license->aiCreditsRemaining - max( 0, $deducted ) );
+		}
+
+		if ( null !== $total ) {
+			$license->aiCreditsTotal = max( 0, $total );
+		}
+
+		$this->setLicense( $license );
+		$this->saveLicense( $license->toArray() );
+	}
+
 	/** @return Result<stdClass> */
 	private function sendRequest( string $action, string $license, $itemId = null ): Result {
+		$site_url = $this->getSiteUrl();
+
 		$args = array(
 			'edd_action' => $action,
 			'license' => $license,
-			'site' => network_site_url(),
+			'site_url' => $site_url,
+			'url' => $site_url,
+			'site' => $site_url,
 		);
 
 		if ( $itemId ) {
@@ -259,6 +309,60 @@ class Licensing {
 			$license->expires = Time::createAndCatch( $data->expires ) ?? null;
 		}
 
+		if ( property_exists( $data, 'ai_credits_remaining' ) ) {
+			$license->aiCreditsRemaining = null === $data->ai_credits_remaining ? null : (int) $data->ai_credits_remaining;
+		} else {
+			$license->aiCreditsRemaining = null;
+		}
+
+		if ( property_exists( $data, 'ai_credits_total' ) ) {
+			$license->aiCreditsTotal = null === $data->ai_credits_total ? null : (int) $data->ai_credits_total;
+		} else {
+			$license->aiCreditsTotal = null;
+		}
+
 		return Result::Ok( $license );
+	}
+
+	/**
+	 * Whether the license should be stored network-wide.
+	 *
+	 * On a multisite install, the license is shared across the network only when
+	 * the plugin is network-activated. When the plugin is activated per-subsite,
+	 * each subsite stores and reads its own license to prevent cross-subsite leaks.
+	 * On single-site installs, the license is always stored at the site level.
+	 */
+	public function isNetworkLicensed(): bool {
+		if ( $this->isNetworkLicensed !== null ) {
+			return $this->isNetworkLicensed;
+		}
+
+		if ( ! is_multisite() ) {
+			return $this->isNetworkLicensed = false;
+		}
+
+		if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		$basename = defined( 'WPRA_BASENAME' ) ? WPRA_BASENAME : 'wp-rss-aggregator/wp-rss-aggregator.php';
+
+		return $this->isNetworkLicensed = is_plugin_active_for_network( $basename );
+	}
+
+	private function saveLicense( array $data ): void {
+		if ( $this->isNetworkLicensed() ) {
+			update_site_option( self::OPTION, $data );
+		} else {
+			update_option( self::OPTION, $data );
+		}
+	}
+
+	private function deleteLicense(): void {
+		if ( $this->isNetworkLicensed() ) {
+			delete_site_option( self::OPTION );
+		} else {
+			delete_option( self::OPTION );
+		}
 	}
 }
