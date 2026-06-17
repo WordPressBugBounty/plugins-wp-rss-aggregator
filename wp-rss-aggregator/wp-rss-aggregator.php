@@ -6,7 +6,7 @@
  * Plugin Name:       WP RSS Aggregator
  * Plugin URI:        https://wprssaggregator.com
  * Description:       An RSS importer, aggregator, and auto-blogger plugin for WordPress.
- * Version:           5.1.0
+ * Version:           5.2.0
  * Requires at least: 6.2.2
  * Requires PHP:      7.4.0
  * Author:            RebelCode
@@ -38,7 +38,7 @@ if ( WPRA_V5_USE_V4 ) {
 }
 
 if ( ! defined( 'WPRA_VERSION' ) ) {
-	define( 'WPRA_VERSION', '5.1.0' );
+	define( 'WPRA_VERSION', '5.2.0' );
 	define( 'WPRA_MIN_PHP_VERSION', '7.4.0' );
 	define( 'WPRA_MIN_WP_VERSION', '6.2.2' );
 	define( 'WPRA_FILE', __FILE__ );

@@ -161,6 +161,10 @@ class SourceSettings implements ArraySerializable {
 	public bool $airewriteTitle = false;
 	public bool $airewriteContent = false;
 	public bool $airewriteExcerpt = false;
+	public string $airewriteCreditStrategy = 'stop_import';
+	public string $airewriteIntensity = 'balanced';
+	public string $airewriteToneStyle = 'match_original';
+	public array $airewriteProtectedPhrases = array();
 
 	public function __construct() {
 		$this->minImageSize = new Size( 80, 80 );

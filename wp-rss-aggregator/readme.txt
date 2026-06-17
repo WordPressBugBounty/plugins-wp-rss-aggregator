@@ -1,12 +1,12 @@
-=== RSS Aggregator - RSS Import, News Feeds, Feed to Post, and Autoblogging ===
+=== WP RSS Aggregator - RSS Import, Feed to Post, Autoblogging, AI Content ===
 Contributors: RebelCode, jeangalea, markzahra, Mekku, gabygalea, omidakhavan
 Plugin URI: https://www.wprssaggregator.com
-Tags: rss aggregator, news aggregator, autoblogging, feed to post, rss import
+Tags: rss aggregator, news feed, autoblogging, feed to post, news aggregator
 Commercial: https://www.wprssaggregator.com/pricing/
 Requires at least: 6.2.2 or higher
 Tested up to: 7.0
 Requires PHP: 7.4.0
-Stable tag: 5.1.0
+Stable tag: 5.2.0
 License: GPLv3
 
 The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
@@ -59,7 +59,7 @@ There is a lot more to an RSS aggregator than meets the eye. Here are a few addi
 
 📈 **[SEO Benefits](https://www.wprssaggregator.com/rss-feed-seo/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Become an instant source of quality content, generate backlinks, and gain more trust in the eyes of search engines (like Google) and AI systems that rely on structured, regularly updated content.
 
-💡 **Generate Content Ideas**: Monitor your RSS feed sources and learn more about which content you should write yourself. Take inspiration and create original content.
+💡 **Generate Original Content**: Publish unique content in your name by automatically rewriting imported articles into new content.
 
 🔗 **Custom RSS Feeds**: Create a custom RSS feed from imported RSS feed items to use anywhere you want.
 
@@ -72,23 +72,23 @@ There is a lot more to an RSS aggregator than meets the eye. Here are a few addi
 
 Your website deserves the best, so we've been building [premium upgrades](https://www.wprssaggregator.com/upgrade/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description) for WP RSS Aggregator since 2013 with the goal of helping you deliver the best experience possible to your visitors while improving your website's performance.
 
+* **[AI Content Suite](https://www.wprssaggregator.com/features/ai-content-suite/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Automatically summarize or rewrite imported articles right inside your import workflow, 
+
 * **[Feed to Post](https://www.wprssaggregator.com/features/feed-to-post/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description) (❤️ Most Popular)**: Automatically convert RSS feeds into WordPress posts, pages, or any custom post type.
 
 * **[Full Text RSS Feeds](https://www.wprssaggregator.com/features/full-text-rss-feeds/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Import the full content from sources that only provide RSS feed excerpts or are missing images.
 
-* **[Curate Your Content](https://www.wprssaggregator.com/help/curate-items-before-publishing/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Automatically or manually curate your content to only share the most relevant items on your site.
+* **[Manual Curation](https://www.wprssaggregator.com/help/curate-items-before-publishing/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Automatically or manually curate your content to only share the most relevant items on your site.
 
-* **[Display Templates](https://www.wprssaggregator.com/features/displays/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Attract more attention with stylish feed designs, including titles, excerpts, images, audio, video, and attribution.
+* **[Custom Displays](https://www.wprssaggregator.com/features/displays/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Attract more attention with stylish feed designs, including titles, excerpts, images, audio, video, and attribution.
 
-* **[Video Aggregator](https://www.wprssaggregator.com/help/youtube-display/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Import and share YouTube videos from any channel or user.
+* **[Video Feeds](https://www.wprssaggregator.com/help/youtube-display/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Import and share YouTube videos from any channel or user.
 
-* **[Organize Your Content](https://www.wprssaggregator.com/help/using-folders-in-aggregator/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Use Folders as a powerful way to group, manage, and display your sources more effectively.
+* **[Organization Folders](https://www.wprssaggregator.com/help/using-folders-in-aggregator/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Use Folders as a powerful way to group, manage, and display your sources more effectively.
 
-* **[Automated Filtering](https://www.wprssaggregator.com/features/automations/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Precisely control what content is imported and displayed using keywords, phrases, and tags.
+* **[Automatic Filtering](https://www.wprssaggregator.com/features/automations/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Precisely control what content is imported and displayed using keywords, phrases, and tags.
 
-* **[AI Integrations](https://www.wprssaggregator.com/features/integrations/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Use our WordAI and SpinnerChief integrations with Feed to Post to create original titles and content.
-
-* **Custom Mapping**: Map custom fields from RSS feed sources to any custom field in your posts or pages.
+* **[Custom Mapping](https://www.wprssaggregator.com/help/advanced-custom-mapping/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Map custom fields from RSS feed sources to any custom field in your posts or pages.
 
 Get access to all of these amazing features with our [Premium WP RSS Aggregator Plans](https://www.wprssaggregator.com/upgrade/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description).
 
@@ -263,6 +263,16 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 
 == Changelog ==
+
+= 5.2.0 (2026-06-17) =
+
+**Added**
+- Added AI Rewriting on the Elite plan. Rewrite imported feeds into original posts in your own voice, with per-source settings and a preview before publishing.
+
+**Changed**
+- Clearer AI credit warnings in the Hub showing usage and remaining balance.
+- In-plugin notices updated to reflect the latest AI features.
+- Added a notification when AI features are disabled and then re-enabled.
 
 = 5.1.0 (2026-05-27) =
 
