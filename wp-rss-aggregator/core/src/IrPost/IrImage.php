@@ -40,6 +40,7 @@ class IrImage implements ArraySerializable {
 	public ?Size $size = null;
 	/** @var IrImage[] */
 	public array $sizes = array();
+	public string $requestUserAgent = '';
 
 	/**
 	 * Constructor.
@@ -106,7 +107,12 @@ class IrImage implements ArraySerializable {
 			: 'Imported by WP RSS Aggregator';
 
 		// Fast path: normal media sideload.
-		$id = media_sideload_image( $this->url, $postId, $desc, 'id' );
+		$id = $this->withImageRequestArgs(
+			$this->url,
+			function () use ( $postId, $desc ) {
+				return media_sideload_image( $this->url, $postId, $desc, 'id' );
+			}
+		);
 		if ( ! is_wp_error( $id ) ) {
 			update_post_meta( $id, ImportedMedia::SOURCE_URL, $this->url );
 			return Result::Ok( (int) $id );
@@ -114,7 +120,12 @@ class IrImage implements ArraySerializable {
 
 		// Robust fallback sideload.
 		$this->url = trim( html_entity_decode( $this->url ) );
-		$id = $this->sideload_image( $this->url, $postId, $desc );
+		$id = $this->withImageRequestArgs(
+			$this->url,
+			function () use ( $postId, $desc ) {
+				return $this->sideload_image( $this->url, $postId, $desc );
+			}
+		);
 		if ( ! is_wp_error( $id ) ) {
 			update_post_meta( $id, ImportedMedia::SOURCE_URL, $this->url );
 			return Result::Ok( (int) $id );
@@ -251,15 +262,17 @@ class IrImage implements ArraySerializable {
 		}
 
 		// Extract host for Referer.
-		$parsed = parse_url($url);
-		$referer = $parsed['scheme'] . '://' . $parsed['host'] ?? '';
+		$parsed = parse_url( $url );
+		$referer = is_array( $parsed ) && isset( $parsed['scheme'], $parsed['host'] )
+			? $parsed['scheme'] . '://' . $parsed['host']
+			: '';
 
 		$response = wp_remote_get(
 			$url,
 			array(
 				'timeout' => 20,
 				'headers' => array(
-					'User-Agent'      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+					'User-Agent'      => $this->getImageRequestUserAgent() ?: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
 					'Accept'          => 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
 					'Accept-Language' => 'en-US,en;q=0.9',
 					'Referer'         => $referer,
@@ -294,6 +307,57 @@ class IrImage implements ArraySerializable {
 		}
 
 		return $id;
+	}
+
+	/**
+	 * Runs a callback while applying image request headers to matching HTTP requests.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @param string   $url The image URL.
+	 * @param callable $callback The callback that triggers the image request.
+	 * @return mixed The callback result.
+	 */
+	private function withImageRequestArgs( string $url, callable $callback ) {
+		$userAgent = $this->getImageRequestUserAgent();
+		if ( $userAgent === '' ) {
+			return $callback();
+		}
+
+		$filter = function ( array $args, string $requestUrl ) use ( $url, $userAgent ): array {
+			if ( $requestUrl !== $url ) {
+				return $args;
+			}
+
+			$args['user-agent'] = $userAgent;
+			$args['headers'] = isset( $args['headers'] ) && is_array( $args['headers'] )
+				? $args['headers']
+				: array();
+
+			$args['headers']['User-Agent'] = $userAgent;
+			$args['headers']['Accept'] = $args['headers']['Accept'] ?? 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8';
+
+			return $args;
+		};
+
+		add_filter( 'http_request_args', $filter, 10, 2 );
+
+		try {
+			return $callback();
+		} finally {
+			remove_filter( 'http_request_args', $filter, 10 );
+		}
+	}
+
+	/**
+	 * Gets the User-Agent for remote image requests.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @return string The User-Agent, or an empty string to use WordPress defaults.
+	 */
+	private function getImageRequestUserAgent(): string {
+		return trim( $this->requestUserAgent );
 	}
 
 	/** Converts the IR image into an array. */

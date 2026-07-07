@@ -202,8 +202,8 @@ class IrPost {
 			}
 		}
 
-		$dateModified = wp_resolve_post_date( $post->post_modified, $post->post_modified_gmt ) ?? current_time( 'mysql' );
-		$datePublished = wp_resolve_post_date( $post->post_date, $post->post_date_gmt ) ?? $dateModified;
+		$dateModified = Time::fromWpPostDate( $post->post_modified, $post->post_modified_gmt );
+		$datePublished = Time::fromWpPostDate( $post->post_date, $post->post_date_gmt ) ?? $dateModified;
 
 		$irPost = new IrPost( $guid, $post->ID, $sources, $url );
 		$irPost->type = $post->post_type;
@@ -213,8 +213,8 @@ class IrPost {
 		$irPost->title = $post->post_title;
 		$irPost->excerpt = $post->post_excerpt;
 		$irPost->content = $post->post_content;
-		$irPost->datePublished = Time::createAndCatch( $datePublished );
-		$irPost->dateModified = Time::createAndCatch( $dateModified );
+		$irPost->datePublished = $datePublished;
+		$irPost->dateModified = $dateModified;
 		$irPost->commentsOpen = ( strtolower( $post->comment_status ) === 'open' );
 		$irPost->password = $post->post_password;
 		$irPost->images = array();

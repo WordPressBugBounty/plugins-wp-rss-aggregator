@@ -6,7 +6,7 @@ Commercial: https://www.wprssaggregator.com/pricing/
 Requires at least: 6.2.2 or higher
 Tested up to: 7.0
 Requires PHP: 7.4.0
-Stable tag: 5.2.0
+Stable tag: 5.2.1
 License: GPLv3
 
 The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
@@ -263,6 +263,26 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 
 == Changelog ==
+
+= 5.2.1 (2026-07-07) =
+
+**Added**
+- AI feature notices now appear on standard WordPress admin pages, tailored to your plan.
+- New wpra.importer.allowedHtmlTags filter to preserve iframe and other tags from trusted feeds (off by default).
+
+**Changed**
+- Version mismatches between Aggregator plugins now pause only the incompatible Premium modules instead of all Premium features.
+
+**Fixed**
+- Fixed Reddit RSS feeds failing to import during source setup.
+- Fixed feeds with valid RSS content but an incorrect Content-Type header failing to import.
+- RSS items without a <guid> now import using their <link> as the identifier, without duplicates on re-import.
+- Fixed featured images failing to import when the image host blocks requests without a proper User-Agent.
+- Fixed YouTube feed videos not embedding on the front-end when the target post type uses the Block Editor.
+- Fixed publish dates shifting backward due to double timezone conversion on imported items.
+- Fixed custom Mapping not applying to imported posts on the Plus plan.
+- Fixed typo in the "Allow scheduled posts" setting label.
+- Fixed PHP warning when sideloading images with incomplete URLs.
 
 = 5.2.0 (2026-06-17) =
 

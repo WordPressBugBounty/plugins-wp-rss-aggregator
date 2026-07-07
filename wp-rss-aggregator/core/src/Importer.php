@@ -16,6 +16,7 @@ use RebelCode\Aggregator\Core\Source\ImportOrder;
 use RebelCode\Aggregator\Core\RssReader\RssItem;
 use RebelCode\Aggregator\Core\Importer\WpPostBuilder;
 use RebelCode\Aggregator\Core\Importer\IrPostBuilder;
+use RebelCode\Aggregator\Core\Importer\SourceFetchPolicy;
 use DateTime;
 
 class Importer {
@@ -27,13 +28,30 @@ class Importer {
 	public IrPostBuilder $postBuilder;
 	public ProgressStore $progress;
 
+	/** @since 5.2.1 */
+	protected SourceFetchPolicy $sourceFetchPolicy;
+
+	/**
+	 * Constructor.
+	 *
+	 * @since 5.2.1 Added the source fetch policy dependency.
+	 *
+	 * @param RssReader              $rssReader The RSS reader.
+	 * @param SourcesStore           $sources The sources store.
+	 * @param WpPostsStore           $wpPosts The WordPress posts store.
+	 * @param RejectListStore        $rejectList The reject list store.
+	 * @param IrPostBuilder          $postBuilder The IR post builder.
+	 * @param ProgressStore          $progress The progress store.
+	 * @param SourceFetchPolicy|null $sourceFetchPolicy Optional source fetch policy.
+	 */
 	public function __construct(
 		RssReader $rssReader,
 		SourcesStore $sources,
 		WpPostsStore $wpPosts,
 		RejectListStore $rejectList,
 		IrPostBuilder $postBuilder,
-		ProgressStore $progress
+		ProgressStore $progress,
+		?SourceFetchPolicy $sourceFetchPolicy = null
 	) {
 		$this->rssReader = $rssReader;
 		$this->sources = $sources;
@@ -41,6 +59,7 @@ class Importer {
 		$this->rejectList = $rejectList;
 		$this->postBuilder = $postBuilder;
 		$this->progress = $progress;
+		$this->sourceFetchPolicy = $sourceFetchPolicy ?? new SourceFetchPolicy();
 	}
 
 	/**
@@ -176,6 +195,8 @@ class Importer {
 	/**
 	 * Generates a preview of the items what would be imported for a source.
 	 *
+	 * @since 5.2.1 Added policy-driven preview caching.
+	 *
 	 * @param Source      $src The source.
 	 * @param int|null    $num Optional number of items to preview.
 	 * @param int         $page The page number to preview.
@@ -183,6 +204,15 @@ class Importer {
 	 * @return Result<array{posts:IrPost[],total:int}> The list of items.
 	 */
 	public function preview( Source $src, ?int $num = null, int $page = 1, ?string $pid = null ): Result {
+		$cacheTtl = $this->sourceFetchPolicy->getPreviewCacheTtl( $src->url );
+		$cacheKey = $cacheTtl === null ? null : $this->getPreviewCacheKey( $src, $num, $page );
+		if ( $cacheKey !== null ) {
+			$cached = get_transient( $cacheKey );
+			if ( is_array( $cached ) && isset( $cached['posts'], $cached['total'] ) ) {
+				return Result::Ok( $cached );
+			}
+		}
+
 		$this->progress->touch( $pid, 1 );
 
 		$res = $this->read( $src->url, $num, $page, $pid );
@@ -195,12 +225,17 @@ class Importer {
 		$posts = $this->convert( $src, $items, true, $pid, $num, $page );
 		$posts = apply_filters( 'wpra.importer.preview', $posts, $src );
 		remove_filter( 'the_content', 'wpautop' );
-		return Result::Ok(
-			array(
-				'posts' => Arrays::fromIterable( $posts ),
-				'total' => $total,
-			)
+
+		$preview = array(
+			'posts' => Arrays::fromIterable( $posts ),
+			'total' => $total,
 		);
+
+		if ( $cacheKey !== null && $cacheTtl !== null ) {
+			set_transient( $cacheKey, $preview, $cacheTtl );
+		}
+
+		return Result::Ok( $preview );
 	}
 
 	/**
@@ -343,13 +378,21 @@ class Importer {
 		$count = count( $items );
 
 		foreach ( $items as $i => $item ) {
+			// Give each item a fresh execution budget. Building an item can do
+			// per-item network work (remote `getimagesize()` against enclosures,
+			// fetching social meta tags, etc.) that's individually fast but
+			// accumulates past the global `max_execution_time` on a slow feed.
+			// Without this, a slow item N+1 kills the whole batch and the user
+			// gets an HTML 500 from PHP instead of a JSON RPC response.
+			set_time_limit( 60 );
+
 			$this->progress->advance(
 				$pid,
 				1,
 				sprintf( _x( '%1$d/%2$d', 'Progress bar', 'wprss' ), $i + 1, $count )
 			);
 
-			$id = $item->getId();
+			$id = $this->resolveItemId( $item );
 
 			if ( $id === null ) {
 				Logger::warning( __( 'Ignoring RSS item with no GUID or permalink.', 'wprss' ) );
@@ -371,12 +414,34 @@ class Importer {
 					break;
 
 				case ReconcileStrategy::PRESERVE:
-					Logger::debug( "Item already exists: {$item->getId()}" );
+					Logger::debug( "Item already exists: {$id}" );
 					break;
 
 				case ReconcileStrategy::OVERWRITE:
-					Logger::debug( "Converting item: {$item->getId()}" );
-					$newPost = $this->postBuilder->build( $item, $source );
+					Logger::debug( "Converting item: {$id}" );
+
+					// Isolate per-item conversion. A throw from `postBuilder->build()`
+					// (e.g. a malformed enclosure URL crashing the image finder,
+					// HTML5 parser hitting a deeply-nested DOM, a fatal in a
+					// third-party `wpra.importer.post.*` filter) used to abort the
+					// entire request — which on `admin-ajax.php` returns an HTML
+					// error page that the RPC client surfaces as the user-visible
+					// "Unexpected token '<' is not valid JSON". Catching here lets
+					// the rest of the batch import and reports the bad item in the
+					// log.
+					try {
+						$newPost = $this->postBuilder->build( $item, $source );
+					} catch ( Throwable $e ) {
+						Logger::error(
+							sprintf(
+								/* translators: 1: item GUID/permalink, 2: error message */
+								__( 'Failed to convert RSS item %1$s: %2$s', 'wprss' ),
+								$id,
+								$e->getMessage()
+							)
+						);
+						break;
+					}
 
 					if ( $existingPost !== null ) {
 						$newPost->sources = array_merge( $existingPost->sources, $newPost->sources );
@@ -704,6 +769,33 @@ class Importer {
 	}
 
 	/**
+	 * Gets a cache key for a source preview request.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @param Source   $src The source.
+	 * @param int|null $num Optional number of preview items.
+	 * @param int      $page The preview page number.
+	 * @return string The preview cache key.
+	 */
+	protected function getPreviewCacheKey( Source $src, ?int $num, int $page ): string {
+		$data = wp_json_encode(
+			array(
+				'url' => $src->url,
+				'settings' => $src->settings->toArray(),
+				'num' => $num,
+				'page' => $page,
+			)
+		);
+
+		if ( ! is_string( $data ) ) {
+			$data = serialize( array( $src->url, $src->settings->toArray(), $num, $page ) );
+		}
+
+		return 'wpra_source_preview_' . md5( $data );
+	}
+
+	/**
 	 * Gets a map of the matching existing items for a list of incoming items.
 	 *
 	 * @param list<RssItem> $items The incoming items.
@@ -711,7 +803,7 @@ class Importer {
 	 */
 	protected function getExistingItemsMap( array $items ): array {
 		/** @var list<string> $guids */
-		$guids = Arrays::map( $items, fn ( RssItem $item ) => $item->getId() ?? Arrays::skip() );
+		$guids = Arrays::map( $items, fn ( RssItem $item ) => $this->resolveItemId( $item ) ?? Arrays::skip() );
 
 		$result = $this->wpPosts->getManyByGuids( $guids );
 		$wpPosts = $result->getOr( array() );
@@ -726,5 +818,33 @@ class Importer {
 		}
 
 		return apply_filters( 'wpra.importer.existingItemsMap', $map, $guids, $items );
+	}
+
+	/**
+	 * Resolves the unique identifier for an RSS item, falling back to the item's permalink when the feed does not
+	 * provide a `<guid>` (or atom:id, dc:identifier, etc.).
+	 *
+	 * Per RSS 2.0, `<guid>` is recommended but not required; `<link>` is universally present. This fallback mirrors
+	 * the GUID that {@link IrPostBuilder::build()} stores on the resulting post, so duplicate detection on re-imports
+	 * stays consistent for feeds without `<guid>`.
+	 *
+	 * @return string|null The identifier, or null if the item has no GUID and no permalink.
+	 */
+	protected function resolveItemId( RssItem $item ): ?string {
+		$id = $item->getId();
+		if ( $id !== null ) {
+			return $id;
+		}
+
+		$permalink = $item->getPermalink();
+		if ( $permalink === null || trim( $permalink ) === '' ) {
+			return null;
+		}
+
+		// `buildGuid()` runs the permalink through `sanitize_url()`, which returns an empty string for disallowed
+		// schemes (`javascript:`, `data:`, etc.). Treat that as "no usable identifier" so the caller skips the item
+		// instead of grouping all such junk under the empty-string GUID.
+		$id = $this->postBuilder->buildGuid( $permalink );
+		return $id === '' ? null : $id;
 	}
 }

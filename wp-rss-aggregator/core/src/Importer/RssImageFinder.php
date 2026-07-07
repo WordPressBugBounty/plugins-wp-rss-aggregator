@@ -21,12 +21,21 @@ use AppendIterator;
 class RssImageFinder {
 
 	protected int $cacheTtl;
+	protected string $userAgent;
+	protected int $requestTimeout;
+	protected int $maxResponseSize;
 
 	/**
 	 * @param int $cacheTtl The TTL for the image size cache, in seconds.
+	 * @param string $userAgent The User-Agent to use for remote image requests.
+	 * @param int $requestTimeout The timeout in seconds for remote image requests.
+	 * @param int $maxResponseSize The maximum bytes to download for image size detection.
 	 */
-	public function __construct( int $cacheTtl ) {
+	public function __construct( int $cacheTtl, string $userAgent = '', int $requestTimeout = 15, int $maxResponseSize = 5242880 ) {
 		$this->cacheTtl = $cacheTtl;
+		$this->userAgent = trim( $userAgent );
+		$this->requestTimeout = max( 1, $requestTimeout );
+		$this->maxResponseSize = max( 1, $maxResponseSize );
 	}
 
 	/**
@@ -317,6 +326,7 @@ class RssImageFinder {
 
 			if ( $size->isAtLeast( $source->settings->minImageSize ) ) {
 				$image->size = $size;
+				$image->requestUserAgent = $this->userAgent;
 				yield $image;
 			}
 		}
@@ -349,7 +359,7 @@ class RssImageFinder {
 				$imgData = base64_decode( substr( $url, $commaPos + 1 ) );
 				$imgSize = @getimagesizefromstring( $imgData );
 			} else {
-				$imgSize = @getimagesize( $url );
+				$imgSize = $this->getRemoteImageSize( $url );
 			}
 
 			if ( $imgSize !== false ) {
@@ -369,5 +379,59 @@ class RssImageFinder {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Gets the size of a remote image using WordPress HTTP requests.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @param string $url The remote image URL.
+	 * @return array<int,int|string>|false The image size data, or false on failure.
+	 */
+	protected function getRemoteImageSize( string $url ) {
+		$args = array(
+			'timeout' => $this->requestTimeout,
+			'redirection' => 5,
+			'limit_response_size' => $this->maxResponseSize,
+			'headers' => array(
+				'Accept' => 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+			),
+		);
+
+		if ( $this->userAgent !== '' ) {
+			$args['user-agent'] = $this->userAgent;
+			$args['headers']['User-Agent'] = $this->userAgent;
+		}
+
+		/**
+		 * Filters request arguments used to detect remote image dimensions.
+		 *
+		 * @since 5.2.1
+		 *
+		 * @param array<string,mixed> $args The WordPress HTTP request arguments.
+		 * @param string              $url The remote image URL.
+		 */
+		$filteredArgs = apply_filters( 'wpra.importer.imageFinder.sizeRequestArgs', $args, $url );
+		if ( is_array( $filteredArgs ) ) {
+			$args = $filteredArgs;
+		}
+
+		$response = wp_safe_remote_get( $url, $args );
+		if ( is_wp_error( $response ) ) {
+			return false;
+		}
+
+		$status = wp_remote_retrieve_response_code( $response );
+		if ( $status < 200 || $status >= 300 ) {
+			return false;
+		}
+
+		$body = wp_remote_retrieve_body( $response );
+		if ( $body === '' ) {
+			return false;
+		}
+
+		return @getimagesizefromstring( $body );
 	}
 }

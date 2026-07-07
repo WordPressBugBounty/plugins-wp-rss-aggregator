@@ -42,11 +42,7 @@ class WpPostBuilder {
 			}
 		}
 
-		if ( isset( $postData['ID'] ) ) {
-			$postId = wp_update_post( $postData, true );
-		} else {
-			$postId = wp_insert_post( $postData, true );
-		}
+		$postId = self::savePostWithImportedHtml( $postData, true );
 
 		if ( is_wp_error( $postId ) ) {
 			return Result::Err( new Exception( $postId->get_error_message() ) );
@@ -61,6 +57,111 @@ class WpPostBuilder {
 		$newPost->postId = $postId;
 
 		return Result::Ok( $newPost );
+	}
+
+	/**
+	 * Permits extra HTML tags in imported post content.
+	 *
+	 * WordPress runs imported content through KSES on save (cron imports have no
+	 * user with the `unfiltered_html` capability). This filter is only attached
+	 * while an imported post is being saved, so it does not widen the allowed HTML
+	 * for normal site editing.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @param array<string,array<string,bool>> $tags    Allowed tags for the context.
+	 * @param string                           $context The KSES context.
+	 *
+	 * @return array<string,array<string,bool>> The allowed tags.
+	 */
+	public static function allowImportedHtml( $tags, $context, ?array $allowedImportHtmlTags = null ) {
+		if ( 'post' !== $context || ! is_array( $tags ) ) {
+			return $tags;
+		}
+
+		foreach ( $allowedImportHtmlTags ?? self::allowedImportHtmlTags() as $tag => $attrs ) {
+			if ( ! is_string( $tag ) || ! is_array( $attrs ) ) {
+				continue;
+			}
+
+			$tags[ $tag ] = array_merge( $tags[ $tag ] ?? array(), $attrs );
+		}
+
+		return $tags;
+	}
+
+	/**
+	 * Gets extra HTML tags allowed only while importer content is saved.
+	 *
+	 * Use the `wpra.importer.allowedHtmlTags` filter to opt in to extra tags:
+	 *
+	 * add_filter( 'wpra.importer.allowedHtmlTags', function ( $tags ) {
+	 *     $tags['iframe'] = array(
+	 *         'src' => true,
+	 *         'width' => true,
+	 *         'height' => true,
+	 *         'allowfullscreen' => true,
+	 *     );
+	 *
+	 *     return $tags;
+	 * } );
+	 *
+	 * Allowed tags are also preserved while SimplePie reads feed content.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @return array<string,array<string,bool>>
+	 */
+	public static function allowedImportHtmlTags(): array {
+		$tags = array();
+
+		$tags = apply_filters( 'wpra.importer.allowedHtmlTags', $tags );
+
+		return is_array( $tags ) ? $tags : array();
+	}
+
+	/**
+	 * Saves imported post content while applying import-only KSES rules.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @param array<string,mixed> $postData
+	 * @return int|\WP_Error
+	 */
+	protected static function savePostWithImportedHtml( array $postData, bool $wpError = false ) {
+		$allowedImportHtmlTags = self::allowedImportHtmlTags();
+
+		if ( empty( $allowedImportHtmlTags ) ) {
+			return self::savePost( $postData, $wpError );
+		}
+
+		$filter = static function ( $tags, $context ) use ( $allowedImportHtmlTags ) {
+			return self::allowImportedHtml( $tags, $context, $allowedImportHtmlTags );
+		};
+
+		add_filter( 'wp_kses_allowed_html', $filter, 10, 2 );
+
+		try {
+			return self::savePost( $postData, $wpError );
+		} finally {
+			remove_filter( 'wp_kses_allowed_html', $filter, 10 );
+		}
+	}
+
+	/**
+	 * Saves post data without changing KSES rules.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @param array<string,mixed> $postData
+	 * @return int|\WP_Error
+	 */
+	protected static function savePost( array $postData, bool $wpError = false ) {
+		if ( isset( $postData['ID'] ) ) {
+			return wp_update_post( $postData, $wpError );
+		}
+
+		return wp_insert_post( $postData, $wpError );
 	}
 
 	/** @return array<string,mixed> */
@@ -200,7 +301,7 @@ class WpPostBuilder {
 		if ( count( $search ) > 0 ) {
 			$newContent = str_replace( $search, $replace, $irPost->content );
 
-			wp_update_post(
+			self::savePostWithImportedHtml(
 				array(
 					'ID' => $postId,
 					'post_content' => $newContent,

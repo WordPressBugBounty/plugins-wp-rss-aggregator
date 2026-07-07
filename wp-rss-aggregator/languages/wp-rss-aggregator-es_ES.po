@@ -106,38 +106,38 @@ msgstr "Gestionar Plan"
 msgid "Logs"
 msgstr "Registros"
 
-#: core/modules/admin.php:296
+#: core/modules/admin.php:297
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr "Se requiere una única actualización manual para el plugin Aggregator Premium"
 
-#: core/modules/admin.php:297
+#: core/modules/admin.php:298
 msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr "Has actualizado correctamente el plugin gratuito a la v5.0.2."
 
-#: core/modules/admin.php:300
+#: core/modules/admin.php:301
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
 msgstr "Sin embargo, hemos detectado que todavía estás usando Aggregator Premium v%1$s. Debido a un problema de configuración en la v%2$s, no se están detectando las actualizaciones premium."
 
-#: core/modules/admin.php:305
+#: core/modules/admin.php:306
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
 msgstr "Esto se ha corregido en Premium v5.0.2, pero necesitarás realizar una única actualización manual del plugin Premium para restaurar las actualizaciones automáticas."
 
-#: core/modules/admin.php:308
+#: core/modules/admin.php:309
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr "Tus ajustes y datos permanecerán intactos. Si tienes alguna pregunta, por favor <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contacta con el soporte</a> para obtener ayuda."
 
-#: core/modules/admin.php:315
+#: core/modules/admin.php:316
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr "Después de actualizar Premium a la v5.0.2, los chequeos de las actualizaciones premium se reanudarán con normalidad."
 
-#: core/modules/admin.php:350
+#: core/modules/admin.php:351
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr "Descargar Premium v5.0.2"
 
-#: core/modules/admin.php:353
+#: core/modules/admin.php:354
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
 msgstr "Instrucciones paso a paso"
@@ -669,20 +669,20 @@ msgctxt "Default value for the \"Read more text\" display setting"
 msgid "Read more"
 msgstr "Leer más"
 
-#: core/src/Importer/RssImageFinder.php:284
+#: core/src/Importer/RssImageFinder.php:293
 msgid "Failed to parse the feed's source URL."
 msgstr "No se pudo analizar la URL de la fuente del feed."
 
-#: core/src/Importer/RssImageFinder.php:290
+#: core/src/Importer/RssImageFinder.php:299
 msgid "Feed does not have a source URL."
 msgstr "El feed no tiene una URL de origen."
 
-#: core/src/Importer/WpPostBuilder.php:176
+#: core/src/Importer/WpPostBuilder.php:277
 #, php-format
 msgid "Failed to download image for post: %s"
 msgstr "No se pudo descargar la imagen para la entrada: %s"
 
-#: core/src/Importer/WpPostBuilder.php:189
+#: core/src/Importer/WpPostBuilder.php:290
 #, php-format
 msgid "Could not get URL of downloaded image with ID %d"
 msgstr "No se pudo obtener la URL de la imagen descargada con ID %d"
@@ -699,7 +699,8 @@ msgstr "Falló la conexión, por favor inténtalo de nuevo."
 msgid "Returned an error: HTTP "
 msgstr "Devolvió un error: HTTP "
 
-#: core/src/RssReader/SimplePie/SpRssReader.php:87
+#: core/src/RssReader/SimplePie/SpRssReader.php:129
+#: core/src/RssReader/SimplePie/SpRssReader.php:163
 msgctxt "The title to show for found RSS feeds without a name"
 msgid "Unnamed feed"
 msgstr "Feed sin nombre"
@@ -849,6 +850,54 @@ msgstr ""
 msgid "Unsupported sync action."
 msgstr ""
 
+#: core/modules/aiHubPromotionalNotice.php:31
+#: core/js/dist/admin.js:43
+msgid "Your imported articles can now rewrite themselves into something new."
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:33
+#: core/js/dist/admin.js:43
+msgid "Aggregator’s AI rewrites your feeds’ articles into original pieces. <strong>Eliminate duplicate content</strong> and automatically publish unique pieces on a regular basis."
+msgstr ""
+
+#. translators: %1$s: AI Rewriting help URL
+#: core/modules/aiHubPromotionalNotice.php:38
+#, php-format
+msgid "Start using it now from the <em>Advanced → AI Rewriting</em> source settings. It’s included in your plan at <strong>no extra cost.</strong> <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Learn more</a>"
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:49
+#: core/js/dist/admin.js:43
+msgid "Want your imported articles to become new, original content?"
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:51
+#: core/js/dist/admin.js:43
+msgid "Aggregator can rewrite the articles from your feeds into original pieces, ready to publish and unique to your site, with <strong>no more duplicate content.</strong>"
+msgstr ""
+
+#. translators: %1$s: account upgrades URL
+#: core/modules/aiHubPromotionalNotice.php:56
+#, php-format
+msgid "AI Rewriting is part of the Elite plan, along with <strong>20x more AI credits.</strong> <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Upgrade to get instant access</a></strong>"
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:69
+#: core/js/dist/admin.js:43
+msgid "Automatically rewrite imported articles into something new and original. No more duplicate content."
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:71
+#: core/js/dist/admin.js:43
+msgid "Pro and Elite plans can now automatically rewrite imported articles into unique, ready-to-publish pieces, with <strong>no extra setup or charges.</strong>"
+msgstr ""
+
+#. translators: %1$s: upgrade URL
+#: core/modules/aiHubPromotionalNotice.php:76
+#, php-format
+msgid "Want to try it out? <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Upgrade to get instant access</a></strong>"
+msgstr ""
+
 #: core/modules/debugInfo.php:17
 msgid "Completed"
 msgstr ""
@@ -876,6 +925,10 @@ msgstr ""
 
 #: core/modules/licensing.php:116
 msgid "3rd Party AI integrations"
+msgstr ""
+
+#: core/src/Plugin.php:122
+msgid "Module is not compatible with the installed Aggregator version."
 msgstr ""
 
 #: core/src/Rpc/Handlers/RpcWpHandler.php:127

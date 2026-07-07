@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace RebelCode\Aggregator\Core\Utils;
 
 use function get_option;
+use function get_gmt_from_date;
+use function wp_resolve_post_date;
+use function wp_timezone;
 use Throwable;
 use DateTimeZone;
 use DateTime;
@@ -28,6 +31,65 @@ abstract class Time {
 	}
 
 	/**
+	 * Creates a UTC DateTime from a WordPress MySQL date string.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @param string $datetime The date-time string.
+	 * @return DateTime|null The date-time object, or null if the string is invalid or empty.
+	 */
+	private static function createUtcFromMysqlDate( string $datetime ): ?DateTime {
+		if ( empty( $datetime ) || '0000-00-00 00:00:00' === $datetime ) {
+			return null;
+		}
+
+		$utc = new DateTimeZone( 'UTC' );
+		$date = DateTime::createFromFormat( '!Y-m-d H:i:s', $datetime, $utc );
+		$errors = DateTime::getLastErrors();
+
+		if ( false === $date || ( is_array( $errors ) && ( $errors['warning_count'] > 0 || $errors['error_count'] > 0 ) ) ) {
+			return null;
+		}
+
+		return $date->format( static::HUMAN_FORMAT ) === $datetime ? $date : null;
+	}
+
+	/**
+	 * Resolves a WordPress post date pair into a DateTime at the correct UTC instant.
+	 *
+	 * WordPress stores two columns: the local `post_date` and the UTC `post_date_gmt`.
+	 * The GMT value is treated as canonical when present, because it represents the real
+	 * publish instant and remains stable if the site's timezone setting changes later.
+	 * When GMT is missing, this helper falls back to WordPress' local-date resolution and
+	 * conversion APIs.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @param string $localDate The local post date string (`post_date`).
+	 * @param string $gmtDate   The UTC post date string (`post_date_gmt`).
+	 * @return DateTime|null The date-time in UTC, or null if it cannot be resolved.
+	 */
+	public static function fromWpPostDate( string $localDate, string $gmtDate ): ?DateTime {
+		$gmtDateTime = self::createUtcFromMysqlDate( $gmtDate );
+		if ( $gmtDateTime !== null ) {
+			return $gmtDateTime;
+		}
+
+		$resolved = wp_resolve_post_date( $localDate, $gmtDate );
+		if ( $resolved === false ) {
+			return null;
+		}
+
+		$gmt = get_gmt_from_date( $resolved );
+
+		try {
+			return new DateTime( $gmt, new DateTimeZone( 'UTC' ) );
+		} catch ( Throwable $e ) {
+			return null;
+		}
+	}
+
+	/**
 	 * Formats a date-time object into a human-friendly string.
 	 *
 	 * @param DateTime|null $dateTime The date-time object.
@@ -39,28 +101,16 @@ abstract class Time {
 	}
 
 	/**
-	 * Normalizes a date/time value into a DateTimeImmutable object using the site's timezone.
+	 * Normalizes a date/time value into WordPress local and GMT post date strings.
 	 *
-	 * This ensures that any given input (string, timestamp, or DateTimeInterface) is
-	 * consistently represented in the WordPress site's configured timezone. It avoids
-	 * relying on PHP defaults or ambiguous timezone offsets.
+	 * This ensures that the given instant is stored in both WordPress post date columns:
+	 * `post_date` in the site's configured timezone and `post_date_gmt` in UTC.
 	 *
 	 * @since 5.0.3
+	 * @since 5.2.1 Uses WordPress timezone semantics for manual UTC offsets.
 	 *
-	 * Usage:
-	 * - Converts RSS/Atom feed dates, API values, or raw timestamps into WP-local time.
-	 * - Provides a consistent basis for post_date, scheduling, and comparisons.
-	 *
-	 * @param string|int|\DateTimeInterface $value Date/time to normalize. Accepts:
-	 *     - string  A valid date/time string parsable by DateTime.
-	 *     - int     A Unix timestamp (in seconds).
-	 *     - DateTimeInterface An existing DateTime/DateTimeImmutable object.
-	 * @param \DateTimeZone|null            $timezone Optional. Explicit timezone to apply. If null,
-	 *                the site's configured timezone (from get_site_timezone()) will be used.
-	 *
-	 * @return \DateTimeImmutable Normalized date/time in the correct timezone.
-	 *
-	 * @throws \Exception If the input cannot be parsed as a valid date/time.
+	 * @param DateTime|null $dt The date-time object to normalize.
+	 * @return array{local:string,gmt:string}|null Normalized post date strings, or null if no date is given.
 	 */
 	public static function normalizeDatetime( ?DateTime $dt ): ?array {
 		if ( ! $dt ) {
@@ -89,16 +139,18 @@ abstract class Time {
 	 * - timezone_string (preferred): e.g., "America/New_York".
 	 * - gmt_offset (fallback): a float offset from UTC, without DST context.
 	 *
-	 * This method attempts to resolve timezone_string first. If not set, it falls back
-	 * to gmt_offset and constructs an appropriate DateTimeZone. If resolution fails,
-	 * UTC is returned as the ultimate fallback.
+	 * This method follows WordPress' wp_timezone() behavior. Manual UTC offsets are kept
+	 * as fixed offsets instead of being guessed as real regions with DST rules.
 	 *
-	 * This avoids using timezone_name_from_abbr() directly, which is unreliable for
-	 * ambiguous offsets and DST handling.
+	 * @since 5.2.1 Uses WordPress timezone semantics for manual UTC offsets.
 	 *
 	 * @return \DateTimeZone The site's timezone object. Defaults to UTC if unresolved.
 	 */
 	public static function getSiteTimezone(): DateTimeZone {
+		if ( function_exists( 'wp_timezone' ) ) {
+			return wp_timezone();
+		}
+
 		$tz_string = get_option( 'timezone_string' );
 
 		if ( $tz_string ) {
@@ -106,17 +158,21 @@ abstract class Time {
 			return new DateTimeZone( $tz_string );
 		}
 
-		// Legacy fallback: only gmt_offset is set (may be float like 5.5, -4.75, etc.)
+		// Legacy fallback: mirror wp_timezone_string() for older WordPress versions.
 		$offset = (float) get_option( 'gmt_offset' );
-		$seconds = (int) ( $offset * HOUR_IN_SECONDS );
+		$hours = (int) $offset;
+		$minutes = $offset - $hours;
 
-		$name = timezone_name_from_abbr( '', $seconds, 0 );
+		$sign = ( $offset < 0 ) ? '-' : '+';
+		$absHour = abs( $hours );
+		$absMins = abs( $minutes * 60 );
+		$tzOffset = sprintf( '%s%02d:%02d', $sign, $absHour, $absMins );
 
-		if ( $name === false ) {
+		try {
+			return new DateTimeZone( $tzOffset );
+		} catch ( Throwable $e ) {
 			return new DateTimeZone( 'UTC' );
 		}
-
-		return new DateTimeZone( $name );
 	}
 
 	/** Gets a time-of-day as a number of seconds relative to that day's midnight. */

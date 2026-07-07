@@ -224,7 +224,7 @@ class V4MigrationCommand extends BaseCommand
                     $successCount++;
                 } else {
                     $failureCount++;
-                    $error = $result->getErr();
+                    $error = $result->error();
                     $errorMessage = $error instanceof \Throwable ? $error->getMessage() : (string) $error;
                     WP_CLI::warning(sprintf('Failed to migrate a source: %s', $errorMessage));
                 }
@@ -280,7 +280,7 @@ class V4MigrationCommand extends BaseCommand
                     $successCount++;
                 } else {
                     $failureCount++;
-                    $error = $result->getErr();
+                    $error = $result->error();
                     $errorMessage = $error instanceof \Throwable ? $error->getMessage() : (string) $error;
                     WP_CLI::warning(sprintf('Failed to migrate a blacklist item: %s', $errorMessage));
                 }
@@ -336,7 +336,7 @@ class V4MigrationCommand extends BaseCommand
                     $successCount++;
                 } else {
                     $failureCount++;
-                    $error = $result->getErr();
+                    $error = $result->error();
                     $errorMessage = $error instanceof \Throwable ? $error->getMessage() : (string) $error;
                     WP_CLI::warning(sprintf('Failed to migrate a template: %s', $errorMessage));
                 }

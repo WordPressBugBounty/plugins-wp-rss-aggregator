@@ -154,15 +154,16 @@ wpra()->addModule(
 					}
 
 					if ( $videoId ) {
-						$watch_url    = sprintf( 'https://youtube.com/embed/%s', $videoId );
+						$embed_url    = sprintf( 'https://youtube.com/embed/%s', $videoId );
+						$watch_url    = sprintf( 'https://www.youtube.com/watch?v=%s', $videoId );
 						$is_gutenberg = function_exists( 'use_block_editor_for_post_type' ) && use_block_editor_for_post_type( $post->type );
 						$use_raw_url = apply_filters( 'wpra.youtube.raw_url', false, $videoId, $post );
 
 						if ( $use_raw_url ) {
-							$block = esc_url( $watch_url );
+							$block = esc_url( $embed_url );
 						} elseif ( $is_gutenberg ) {
 							$block_content = sprintf(
-								'<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">%1$s</div></figure>',
+								'<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">' . "\n" . '%1$s' . "\n" . '</div></figure>',
 								esc_url( $watch_url )
 							);
 

@@ -131,6 +131,7 @@ return array(
     'RebelCode\\Aggregator\\Core\\Importer' => $baseDir . '/core/src/Importer.php',
     'RebelCode\\Aggregator\\Core\\Importer\\IrPostBuilder' => $baseDir . '/core/src/Importer/IrPostBuilder.php',
     'RebelCode\\Aggregator\\Core\\Importer\\RssImageFinder' => $baseDir . '/core/src/Importer/RssImageFinder.php',
+    'RebelCode\\Aggregator\\Core\\Importer\\SourceFetchPolicy' => $baseDir . '/core/src/Importer/SourceFetchPolicy.php',
     'RebelCode\\Aggregator\\Core\\Importer\\WpPostBuilder' => $baseDir . '/core/src/Importer/WpPostBuilder.php',
     'RebelCode\\Aggregator\\Core\\IrPost' => $baseDir . '/core/src/IrPost.php',
     'RebelCode\\Aggregator\\Core\\IrPost\\IrAuthor' => $baseDir . '/core/src/IrPost/IrAuthor.php',

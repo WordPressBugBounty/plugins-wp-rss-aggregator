@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP RSS Aggregator 5.2.0\n"
+"Project-Id-Version: WP RSS Aggregator 5.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-rss-aggregator\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-17T07:44:13+00:00\n"
+"POT-Creation-Date: 2026-07-07T08:30:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-rss-aggregator\n"
@@ -112,38 +112,38 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: core/modules/admin.php:296
+#: core/modules/admin.php:297
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr ""
 
-#: core/modules/admin.php:297
+#: core/modules/admin.php:298
 msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr ""
 
-#: core/modules/admin.php:300
+#: core/modules/admin.php:301
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
 msgstr ""
 
-#: core/modules/admin.php:305
+#: core/modules/admin.php:306
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
 msgstr ""
 
-#: core/modules/admin.php:308
+#: core/modules/admin.php:309
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr ""
 
-#: core/modules/admin.php:315
+#: core/modules/admin.php:316
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr ""
 
-#: core/modules/admin.php:350
+#: core/modules/admin.php:351
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr ""
 
-#: core/modules/admin.php:353
+#: core/modules/admin.php:354
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
 msgstr ""
@@ -170,6 +170,54 @@ msgstr ""
 
 #: core/modules/aiCreditSync.php:82
 msgid "Unsupported sync action."
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:31
+#: core/js/dist/admin.js:43
+msgid "Your imported articles can now rewrite themselves into something new."
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:33
+#: core/js/dist/admin.js:43
+msgid "Aggregator’s AI rewrites your feeds’ articles into original pieces. <strong>Eliminate duplicate content</strong> and automatically publish unique pieces on a regular basis."
+msgstr ""
+
+#. translators: %1$s: AI Rewriting help URL
+#: core/modules/aiHubPromotionalNotice.php:38
+#, php-format
+msgid "Start using it now from the <em>Advanced → AI Rewriting</em> source settings. It’s included in your plan at <strong>no extra cost.</strong> <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Learn more</a>"
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:49
+#: core/js/dist/admin.js:43
+msgid "Want your imported articles to become new, original content?"
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:51
+#: core/js/dist/admin.js:43
+msgid "Aggregator can rewrite the articles from your feeds into original pieces, ready to publish and unique to your site, with <strong>no more duplicate content.</strong>"
+msgstr ""
+
+#. translators: %1$s: account upgrades URL
+#: core/modules/aiHubPromotionalNotice.php:56
+#, php-format
+msgid "AI Rewriting is part of the Elite plan, along with <strong>20x more AI credits.</strong> <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Upgrade to get instant access</a></strong>"
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:69
+#: core/js/dist/admin.js:43
+msgid "Automatically rewrite imported articles into something new and original. No more duplicate content."
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:71
+#: core/js/dist/admin.js:43
+msgid "Pro and Elite plans can now automatically rewrite imported articles into unique, ready-to-publish pieces, with <strong>no extra setup or charges.</strong>"
+msgstr ""
+
+#. translators: %1$s: upgrade URL
+#: core/modules/aiHubPromotionalNotice.php:76
+#, php-format
+msgid "Want to try it out? <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Upgrade to get instant access</a></strong>"
 msgstr ""
 
 #: core/modules/debugInfo.php:17
@@ -728,22 +776,26 @@ msgctxt "Default value for the \"Read more text\" display setting"
 msgid "Read more"
 msgstr ""
 
-#: core/src/Importer/RssImageFinder.php:284
+#: core/src/Importer/RssImageFinder.php:293
 msgid "Failed to parse the feed's source URL."
 msgstr ""
 
-#: core/src/Importer/RssImageFinder.php:290
+#: core/src/Importer/RssImageFinder.php:299
 msgid "Feed does not have a source URL."
 msgstr ""
 
-#: core/src/Importer/WpPostBuilder.php:176
+#: core/src/Importer/WpPostBuilder.php:277
 #, php-format
 msgid "Failed to download image for post: %s"
 msgstr ""
 
-#: core/src/Importer/WpPostBuilder.php:189
+#: core/src/Importer/WpPostBuilder.php:290
 #, php-format
 msgid "Could not get URL of downloaded image with ID %d"
+msgstr ""
+
+#: core/src/Plugin.php:122
+msgid "Module is not compatible with the installed Aggregator version."
 msgstr ""
 
 #: core/src/Rpc/Handlers/RpcWpHandler.php:98
@@ -766,7 +818,8 @@ msgstr ""
 msgid "Returned an error for the second subscription: HTTP "
 msgstr ""
 
-#: core/src/RssReader/SimplePie/SpRssReader.php:87
+#: core/src/RssReader/SimplePie/SpRssReader.php:129
+#: core/src/RssReader/SimplePie/SpRssReader.php:163
 msgctxt "The title to show for found RSS feeds without a name"
 msgid "Unnamed feed"
 msgstr ""
@@ -999,7 +1052,21 @@ msgid "Close notice"
 msgstr ""
 
 #: core/js/dist/admin.js:26
-msgid "<strong>Plugin Version Mismatch.</strong> Your free and premium Aggregator plugins are running different versions, so Premium features are temporarily paused. <updateLink>Please update</updateLink> both plugins to the same version to restore full compatibility. <learnMoreLink>Learn more</learnMoreLink>"
+msgid "<div><strong>Plugin versions out of sync.</strong> Some premium features are paused as your free and premium Aggregator plugins are on different versions. <learnMoreLink>Learn more</learnMoreLink></div>"
+msgstr ""
+
+#: core/js/dist/admin.js:26
+msgid "<updateLink>Update the required plugins to restore full functionality.</updateLink>"
+msgstr ""
+
+#: core/js/dist/admin.js:26
+#, js-format
+msgid "<module>%1$s</module> (requires core v%2$s or newer)"
+msgstr ""
+
+#: core/js/dist/admin.js:26
+#, js-format
+msgid "The module <module>%1$s</module> is paused. %2$s"
 msgstr ""
 
 #: core/js/dist/admin.js:28
@@ -2545,35 +2612,11 @@ msgid "Dive in!"
 msgstr ""
 
 #: core/js/dist/admin.js:43
-msgid "Your imported articles can now rewrite themselves into something new."
-msgstr ""
-
-#: core/js/dist/admin.js:43
-msgid "Aggregator’s AI rewrites your feeds’ articles into original pieces. <strong>Eliminate duplicate content</strong> and automatically publish unique pieces on a regular basis."
-msgstr ""
-
-#: core/js/dist/admin.js:43
 msgid "Start using it now from the <italic>Advanced → AI Rewriting</italic> source settings. It’s included in your plan at <strong>no extra cost.</strong> <learnMore>Learn more</learnMore>"
 msgstr ""
 
 #: core/js/dist/admin.js:43
-msgid "Want your imported articles to become new, original content?"
-msgstr ""
-
-#: core/js/dist/admin.js:43
-msgid "Aggregator can rewrite the articles from your feeds into original pieces, ready to publish and unique to your site, with <strong>no more duplicate content.</strong>"
-msgstr ""
-
-#: core/js/dist/admin.js:43
 msgid "AI Rewriting is part of the Elite plan, along with <strong>20x more AI credits.</strong> <strong><learnMore>Upgrade to get instant access</learnMore></strong>"
-msgstr ""
-
-#: core/js/dist/admin.js:43
-msgid "Automatically rewrite imported articles into something new and original. No more duplicate content."
-msgstr ""
-
-#: core/js/dist/admin.js:43
-msgid "Pro and Elite plans can now automatically rewrite imported articles into unique, ready-to-publish pieces, with <strong>no extra setup or charges.</strong>"
 msgstr ""
 
 #: core/js/dist/admin.js:43
@@ -3890,7 +3933,7 @@ msgid "Add custom text after the content"
 msgstr ""
 
 #: core/js/dist/admin.js:131
-msgid "Allow sheduled posts"
+msgid "Allow scheduled posts"
 msgstr ""
 
 #: core/js/dist/admin.js:131

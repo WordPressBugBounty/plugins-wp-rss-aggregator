@@ -198,6 +198,7 @@ class ComposerStaticInitdc25bd03c2a25b988313af1da2409cf2
         'RebelCode\\Aggregator\\Core\\Importer' => __DIR__ . '/../..' . '/core/src/Importer.php',
         'RebelCode\\Aggregator\\Core\\Importer\\IrPostBuilder' => __DIR__ . '/../..' . '/core/src/Importer/IrPostBuilder.php',
         'RebelCode\\Aggregator\\Core\\Importer\\RssImageFinder' => __DIR__ . '/../..' . '/core/src/Importer/RssImageFinder.php',
+        'RebelCode\\Aggregator\\Core\\Importer\\SourceFetchPolicy' => __DIR__ . '/../..' . '/core/src/Importer/SourceFetchPolicy.php',
         'RebelCode\\Aggregator\\Core\\Importer\\WpPostBuilder' => __DIR__ . '/../..' . '/core/src/Importer/WpPostBuilder.php',
         'RebelCode\\Aggregator\\Core\\IrPost' => __DIR__ . '/../..' . '/core/src/IrPost.php',
         'RebelCode\\Aggregator\\Core\\IrPost\\IrAuthor' => __DIR__ . '/../..' . '/core/src/IrPost/IrAuthor.php',

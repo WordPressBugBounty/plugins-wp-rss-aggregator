@@ -13,6 +13,10 @@ class Plugin {
 	public string $url;
 	public string $basename;
 	public bool $premiumInstalled = false;
+	/** @var list<array{id:string,path:string,package:string,moduleVersion:string|null,requiresCoreMin:string|null,requiresCoreMax:string|null,coreVersion:string,reason:string}> */
+	public array $disabledModules = array();
+	/** @var array<string,bool> */
+	private array $disabledModuleIds = array();
 
 	/** Cache for the plugin's current state. */
 	private ?string $state = null;
@@ -43,6 +47,28 @@ class Plugin {
 
 			$modules = glob( "$path/modules/*.php" );
 			foreach ( $modules as $module ) {
+				$moduleName = basename( $module, '.php' );
+				$moduleInfo = array(
+					'id' => "{$package}.{$moduleName}",
+					'name' => $moduleName,
+					'path' => $module,
+					'package' => $package,
+				);
+
+				/**
+				 * Filters whether a package module file should be loaded.
+				 *
+				 * @since 5.2.1
+				 *
+				 * @param bool  $shouldLoad Whether the module should be loaded.
+				 * @param array $moduleInfo Module metadata, including id, name, path, and package.
+				 * @param self  $plugin     The Aggregator plugin instance.
+				 */
+				$shouldLoad = apply_filters( 'wpra.package.module.should_load', true, $moduleInfo, $this );
+				if ( ! $shouldLoad ) {
+					continue;
+				}
+
 				require $module;
 			}
 		}
@@ -59,6 +85,42 @@ class Plugin {
 	/** @return mixed */
 	public function get( string $id ) {
 		return $this->resolveId( $id, __METHOD__ . '()' );
+	}
+
+	/**
+	 * Records a module as paused so dependants can be skipped and notices can explain why.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @param array{id?:string,path?:string,package?:string,moduleVersion?:string|null,requiresCoreMin?:string|null,requiresCoreMax?:string|null,coreVersion?:string,reason?:string} $module
+	 */
+	public function disableModule( array $module ): void {
+		$id = (string) ( $module['id'] ?? '' );
+		if ( $id === '' || ! empty( $this->disabledModuleIds[ $id ] ) ) {
+			return;
+		}
+
+		$package = (string) ( $module['package'] ?? '' );
+		$this->disabledModuleIds[ $id ] = true;
+
+		if ( $package !== '' ) {
+			$prefix = "{$package}.";
+			$name = strpos( $id, $prefix ) === 0
+				? substr( $id, strlen( $package ) + 1 )
+				: $id;
+			$this->disabledModuleIds[ $name ] = true;
+		}
+
+		$this->disabledModules[] = array(
+			'id' => $id,
+			'path' => (string) ( $module['path'] ?? '' ),
+			'package' => $package,
+			'moduleVersion' => $module['moduleVersion'] ?? null,
+			'requiresCoreMin' => $module['requiresCoreMin'] ?? null,
+			'requiresCoreMax' => $module['requiresCoreMax'] ?? null,
+			'coreVersion' => (string) ( $module['coreVersion'] ?? $this->version ),
+			'reason' => (string) ( $module['reason'] ?? __( 'Module is not compatible with the installed Aggregator version.', 'wp-rss-aggregator' ) ),
+		);
 	}
 
 	/**
@@ -81,11 +143,49 @@ class Plugin {
 			);
 		}
 
+		$disabledDep = $this->getDisabledDependency( $deps );
+		if ( $disabledDep !== null ) {
+			$this->disableModule( array(
+				'id' => $id,
+				'reason' => sprintf(
+					'Depends on paused premium module "%s".',
+					$disabledDep
+				),
+			) );
+
+			return $this;
+		}
+
 		$this->modules[ $id ] = array(
 			'deps' => $deps,
 			'factory' => $factory,
 		);
 		return $this;
+	}
+
+	/**
+	 * Finds the first disabled dependency from a module dependency list.
+	 *
+	 * @since 5.2.1
+	 *
+	 * @param list<string> $deps Module dependency IDs.
+	 * @return string|null Disabled dependency ID, or null when all dependencies are available.
+	 */
+	private function getDisabledDependency( array $deps ): ?string {
+		foreach ( $deps as $dep ) {
+			$pieces = explode( '.', $dep );
+
+			while ( count( $pieces ) > 0 ) {
+				$id = implode( '.', $pieces );
+				if ( ! empty( $this->disabledModuleIds[ $id ] ) ) {
+					return $id;
+				}
+
+				array_pop( $pieces );
+			}
+		}
+
+		return null;
 	}
 
 	/** @return mixed */
