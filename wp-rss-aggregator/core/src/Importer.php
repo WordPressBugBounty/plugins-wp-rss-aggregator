@@ -21,6 +21,8 @@ use DateTime;
 
 class Importer {
 
+	public const STRICT_SYNC_BATCH_SIZE = 500;
+
 	public RssReader $rssReader;
 	public SourcesStore $sources;
 	public WpPostsStore $wpPosts;
@@ -239,7 +241,9 @@ class Importer {
 	}
 
 	/**
-	 * Imports items using {@link fetch()}, {@link convert()}, and {@link store()}.
+	 * Imports items using {@link read()}, {@link convert()}, and {@link store()}.
+	 *
+	 * @since 5.3.0 Adds filterable strict source sync before storing current feed items.
 	 *
 	 * @param Source      $src The source.
 	 * @param int|null    $num The maximum number of items to import.
@@ -261,7 +265,7 @@ class Importer {
 
 		$this->progress->touch( $pid, 1 );
 
-		$res = $this->fetch( $src, $num, $page, false, $pid );
+		$res = $this->read( $src->url, $num, $page, $pid );
 
 		if ( $src->id ) {
 			$newError = $res->isErr() ? $res->error()->getMessage() : null;
@@ -272,7 +276,14 @@ class Importer {
 			return $res;
 		}
 
-		$items = $res->get();
+		[$items] = $res->get();
+
+		$res = $this->maybeStrictSync( $src, $num, $page, $pid );
+		if ( $res->isErr() ) {
+			return $res;
+		}
+
+		$items = $this->convert( $src, $items, false, $pid );
 
 		$this->progress->setMessage( $pid, __( 'Saving items', 'wprss' ) );
 
@@ -299,6 +310,38 @@ class Importer {
 	}
 
 	/**
+	 * Removes a source's previously imported posts before a full import, when enabled by filter.
+	 *
+	 * @since 5.3.0
+	 *
+	 * @param Source      $src The source being imported.
+	 * @param int|null    $num The import limit for this request.
+	 * @param int         $page The import page for this request.
+	 * @param string|null $pid Optional ID of the progress to update.
+	 * @return Result<int> The number of removed posts.
+	 */
+	protected function maybeStrictSync( Source $src, ?int $num, int $page, ?string $pid ): Result {
+		$enabled = (bool) apply_filters( 'wpra.importer.source.strict_sync', false, $src, $num, $page, $pid );
+
+		if ( ! $enabled || $src->id === null || $num !== null || $page !== 1 ) {
+			return Result::Ok( 0 );
+		}
+
+		Logger::info( sprintf( 'Strict-sync removing existing items for source #%d', $src->id ) );
+
+		$result = $this->wpPosts->deleteFromSourceInBatches(
+			$src->id,
+			self::STRICT_SYNC_BATCH_SIZE
+		);
+
+		if ( $result->isOk() ) {
+			Logger::debug( sprintf( 'Strict-sync removed %d existing items', $result->get() ) );
+		}
+
+		return $result;
+	}
+
+	/**
 	 * Same as {@link import()} but fetches the source by ID.
 	 *
 	 * @param int         $srcId The ID of the source.
@@ -320,7 +363,12 @@ class Importer {
 	/**
 	 * Imports items for all sources that are currently pending an update.
 	 *
-	 * @return Result<int> The number of updated sources.
+	 * Failures on a single source are logged and recorded against that source via {@link Importer::import()}, but do
+	 * not abort the run. Healthy sources are always imported regardless of whether other sources fail.
+	 *
+	 * @since 5.3.0 Isolated per-source failures so healthy pending sources continue importing.
+	 *
+	 * @return Result<int> The number of sources that were successfully imported.
 	 */
 	public function importPending(): Result {
 		$res = $this->sources->getPendingUpdate();
@@ -335,13 +383,37 @@ class Importer {
 		foreach ( $srcs as $src ) {
 			set_time_limit( 600 );
 
-			$res = $this->import( $src );
+			try {
+				$importRes = $this->import( $src );
 
-			if ( $res->isErr() ) {
-				return $res;
+				if ( $importRes->isErr() ) {
+					// Log only the source ID — the verbose message can carry source URL fragments (incl. auth
+					// tokens) on SimplePie failures and is already captured against the source row in `last_error`.
+					Logger::error(
+						sprintf( 'Failed to import source #%d (details in source last_error)', $src->id ?? 0 ),
+						array( 'source' => $src->id )
+					);
+					continue;
+				}
+
+				$num++;
+			} catch ( Throwable $err ) {
+				// Defence-in-depth: import() returns a Result, but underlying calls (RSS reader, DB, third-party
+				// filters) can still raise. Catch here so a single misbehaving source can't take down the whole batch.
+				// The verbose error message is recorded against the source row via `updateLastError()` and not
+				// passed to the global logger, since SimplePie / cURL messages can include the source URL with
+				// auth tokens.
+				Logger::error(
+					sprintf( 'Unexpected error importing source #%d (details in source last_error)', $src->id ?? 0 ),
+					array( 'source' => $src->id )
+				);
+
+				if ( $src->id ) {
+					$this->sources->updateLastError( array( $src->id ), $err->getMessage() );
+				}
+			} finally {
+				Logger::clearContext();
 			}
-
-			$num++;
 		}
 
 		return Result::Ok( $num );

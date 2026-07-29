@@ -18,9 +18,11 @@ wpra()->addModule(
 				'exclude_from_search' => true,
 				'publicly_queryable' => false,
 				'menu_icon' => 'dashicons-rss',
+				'capability_type' => 'post',
 				'capabilities' => array(
 					'create_posts' => 'do_not_allow',
 				),
+				'map_meta_cap' => true,
 				'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'revisions', 'custom-fields' ),
 			)
 		);

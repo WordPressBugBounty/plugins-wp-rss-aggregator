@@ -11,6 +11,7 @@ use RebelCode\Aggregator\Core\Cli\Commands\SourceCommand;
 use RebelCode\Aggregator\Core\Cli\Commands\SettingsCommand;
 use RebelCode\Aggregator\Core\Cli\Commands\RootCommand;
 use RebelCode\Aggregator\Core\Cli\Commands\RejectListCommand;
+use RebelCode\Aggregator\Core\Cli\Commands\SourceSeedCommand;
 use RebelCode\Aggregator\Core\Cli\Commands\Migration\V4MigrationCommand;
 use RebelCode\Aggregator\Core\Cli\Commands\Migration\ResetV5Command;
 use RebelCode\Aggregator\Core\Cli\Commands\ImportCommand;
@@ -38,6 +39,7 @@ wpra()->addModule(
 			array(
 				'root' => new RootCommand( $io ),
 				'source' => new SourceCommand( $io, $importer->sources ),
+				'source-seed' => new SourceSeedCommand( $io, $importer->sources ),
 				'rejectlist' => new RejectListCommand( $io, $importer->rejectList ),
 				'fetch' => new FetchCommand( $io, $importer ),
 				'import' => new ImportCommand( $io, $importer ),

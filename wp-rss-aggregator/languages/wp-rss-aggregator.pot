@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP RSS Aggregator 5.2.1\n"
+"Project-Id-Version: WP RSS Aggregator 5.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-rss-aggregator\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-07T08:30:03+00:00\n"
+"POT-Creation-Date: 2026-07-29T08:56:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-rss-aggregator\n"
@@ -44,17 +44,17 @@ msgstr ""
 msgid "Aggregator Admin"
 msgstr ""
 
-#: core/modules/admin.php:111
+#: core/modules/admin.php:112
 msgid "Aggregator"
 msgstr ""
 
-#: core/modules/admin.php:117
+#: core/modules/admin.php:118
 #: core/js/dist/admin.js:42
 #: core/js/dist/admin.js:43
 msgid "Hub"
 msgstr ""
 
-#: core/modules/admin.php:118
+#: core/modules/admin.php:119
 #: core/js/dist/admin.js:42
 #: core/js/dist/admin.js:43
 #: core/js/dist/admin.js:131
@@ -62,25 +62,25 @@ msgstr ""
 msgid "Sources"
 msgstr ""
 
-#: core/modules/admin.php:119
+#: core/modules/admin.php:120
 #: core/js/dist/admin.js:42
 #: core/js/dist/admin.js:131
 msgid "Displays"
 msgstr ""
 
-#: core/modules/admin.php:120
+#: core/modules/admin.php:121
 #: core/js/dist/admin.js:42
 msgid "Folders"
 msgstr ""
 
-#: core/modules/admin.php:121
+#: core/modules/admin.php:122
 #: core/js/dist/admin.js:42
 #: core/js/dist/admin.js:43
 #: core/js/dist/admin.js:83
 msgid "Integrations"
 msgstr ""
 
-#: core/modules/admin.php:122
+#: core/modules/admin.php:123
 #: core/js/dist/admin.js:42
 #: core/js/dist/admin.js:43
 #: core/js/dist/admin.js:131
@@ -88,62 +88,62 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: core/modules/admin.php:123
+#: core/modules/admin.php:124
 #: core/js/dist/admin.js:42
 msgid "Help"
 msgstr ""
 
-#: core/modules/admin.php:124
+#: core/modules/admin.php:125
 #: core/js/dist/admin.js:131
 msgid "Tutorials"
 msgstr ""
 
-#: core/modules/admin.php:125
+#: core/modules/admin.php:126
 #: core/js/dist/admin.js:21
 #: core/js/dist/admin.js:137
 msgid "Upgrade"
 msgstr ""
 
-#: core/modules/admin.php:125
+#: core/modules/admin.php:126
 msgid "Manage Plan"
 msgstr ""
 
-#: core/modules/admin.php:129
+#: core/modules/admin.php:130
 msgid "Logs"
 msgstr ""
 
-#: core/modules/admin.php:297
+#: core/modules/admin.php:305
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr ""
 
-#: core/modules/admin.php:298
-msgid "You’ve successfully updated the free plugin to v5.0.2."
-msgstr ""
-
-#: core/modules/admin.php:301
-#, php-format
-msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
-msgstr ""
-
 #: core/modules/admin.php:306
-msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
+msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr ""
 
 #: core/modules/admin.php:309
 #, php-format
+msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
+msgstr ""
+
+#: core/modules/admin.php:314
+msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
+msgstr ""
+
+#: core/modules/admin.php:317
+#, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr ""
 
-#: core/modules/admin.php:316
+#: core/modules/admin.php:324
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr ""
 
-#: core/modules/admin.php:351
+#: core/modules/admin.php:359
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr ""
 
-#: core/modules/admin.php:354
+#: core/modules/admin.php:362
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
 msgstr ""
@@ -172,52 +172,60 @@ msgstr ""
 msgid "Unsupported sync action."
 msgstr ""
 
-#: core/modules/aiHubPromotionalNotice.php:31
+#: core/modules/aiHubPromotionalNotice.php:35
 #: core/js/dist/admin.js:43
 msgid "Your imported articles can now rewrite themselves into something new."
 msgstr ""
 
-#: core/modules/aiHubPromotionalNotice.php:33
+#: core/modules/aiHubPromotionalNotice.php:37
 #: core/js/dist/admin.js:43
 msgid "Aggregator’s AI rewrites your feeds’ articles into original pieces. <strong>Eliminate duplicate content</strong> and automatically publish unique pieces on a regular basis."
 msgstr ""
 
 #. translators: %1$s: AI Rewriting help URL
-#: core/modules/aiHubPromotionalNotice.php:38
+#: core/modules/aiHubPromotionalNotice.php:42
 #, php-format
 msgid "Start using it now from the <em>Advanced → AI Rewriting</em> source settings. It’s included in your plan at <strong>no extra cost.</strong> <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Learn more</a>"
 msgstr ""
 
-#: core/modules/aiHubPromotionalNotice.php:49
+#: core/modules/aiHubPromotionalNotice.php:53
 #: core/js/dist/admin.js:43
 msgid "Want your imported articles to become new, original content?"
 msgstr ""
 
-#: core/modules/aiHubPromotionalNotice.php:51
+#: core/modules/aiHubPromotionalNotice.php:55
 #: core/js/dist/admin.js:43
 msgid "Aggregator can rewrite the articles from your feeds into original pieces, ready to publish and unique to your site, with <strong>no more duplicate content.</strong>"
 msgstr ""
 
 #. translators: %1$s: account upgrades URL
-#: core/modules/aiHubPromotionalNotice.php:56
+#: core/modules/aiHubPromotionalNotice.php:60
 #, php-format
 msgid "AI Rewriting is part of the Elite plan, along with <strong>20x more AI credits.</strong> <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Upgrade to get instant access</a></strong>"
 msgstr ""
 
-#: core/modules/aiHubPromotionalNotice.php:69
+#: core/modules/aiHubPromotionalNotice.php:73
 #: core/js/dist/admin.js:43
 msgid "Automatically rewrite imported articles into something new and original. No more duplicate content."
 msgstr ""
 
-#: core/modules/aiHubPromotionalNotice.php:71
+#: core/modules/aiHubPromotionalNotice.php:75
 #: core/js/dist/admin.js:43
 msgid "Pro and Elite plans can now automatically rewrite imported articles into unique, ready-to-publish pieces, with <strong>no extra setup or charges.</strong>"
 msgstr ""
 
 #. translators: %1$s: upgrade URL
-#: core/modules/aiHubPromotionalNotice.php:76
+#: core/modules/aiHubPromotionalNotice.php:80
 #, php-format
 msgid "Want to try it out? <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Upgrade to get instant access</a></strong>"
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:107
+msgid "Unauthorized"
+msgstr ""
+
+#: core/modules/aiHubPromotionalNotice.php:114
+msgid "Invalid promotional notice state."
 msgstr ""
 
 #: core/modules/debugInfo.php:17
@@ -281,172 +289,172 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: core/modules/feedItems.php:32
 #: core/modules/feedItems.php:34
+#: core/modules/feedItems.php:36
 msgid "Feed Items"
 msgstr ""
 
-#: core/modules/feedItems.php:33
+#: core/modules/feedItems.php:35
 msgid "Feed Item"
 msgstr ""
 
-#: core/modules/feedItems.php:35
-#: core/modules/feedItems.php:36
+#: core/modules/feedItems.php:37
+#: core/modules/feedItems.php:38
 msgid "Add New Feed Item"
 msgstr ""
 
-#: core/modules/feedItems.php:37
+#: core/modules/feedItems.php:39
 msgid "Edit Feed Item"
 msgstr ""
 
-#: core/modules/feedItems.php:38
+#: core/modules/feedItems.php:40
 msgid "New Feed Item"
 msgstr ""
 
-#: core/modules/feedItems.php:39
+#: core/modules/feedItems.php:41
 msgid "View Feed Item"
 msgstr ""
 
-#: core/modules/feedItems.php:40
+#: core/modules/feedItems.php:42
 msgid "View Feed Items"
 msgstr ""
 
-#: core/modules/feedItems.php:41
+#: core/modules/feedItems.php:43
 msgid "Search Feed Items"
 msgstr ""
 
-#: core/modules/feedItems.php:42
+#: core/modules/feedItems.php:44
 msgid "No feed items found"
 msgstr ""
 
-#: core/modules/feedItems.php:43
+#: core/modules/feedItems.php:45
 msgid "No feed items found in trash"
 msgstr ""
 
-#: core/modules/feedItems.php:44
+#: core/modules/feedItems.php:46
 msgid "Parent Feed Item:"
 msgstr ""
 
-#: core/modules/feedItems.php:45
+#: core/modules/feedItems.php:47
 msgid "All Feed Items"
 msgstr ""
 
-#: core/modules/feedItems.php:46
+#: core/modules/feedItems.php:48
 msgid "Feed Item Archives"
 msgstr ""
 
-#: core/modules/feedItems.php:47
+#: core/modules/feedItems.php:49
 msgid "Feed Item Attributes"
 msgstr ""
 
-#: core/modules/feedItems.php:48
+#: core/modules/feedItems.php:50
 msgid "Insert into feed item"
 msgstr ""
 
-#: core/modules/feedItems.php:49
+#: core/modules/feedItems.php:51
 msgid "Uploaded to this feed item"
 msgstr ""
 
-#: core/modules/feedItems.php:50
+#: core/modules/feedItems.php:52
 msgid "Featured Image"
 msgstr ""
 
-#: core/modules/feedItems.php:51
+#: core/modules/feedItems.php:53
 #: core/js/dist/admin.js:137
 msgid "Set featured image"
 msgstr ""
 
-#: core/modules/feedItems.php:52
+#: core/modules/feedItems.php:54
 msgid "Remove featured image"
 msgstr ""
 
-#: core/modules/feedItems.php:53
+#: core/modules/feedItems.php:55
 msgid "Use as featured image"
 msgstr ""
 
-#: core/modules/feedItems.php:54
+#: core/modules/feedItems.php:56
 msgid "Filter feed items list"
 msgstr ""
 
-#: core/modules/feedItems.php:55
+#: core/modules/feedItems.php:57
 msgid "Filter by date"
 msgstr ""
 
-#: core/modules/feedItems.php:56
+#: core/modules/feedItems.php:58
 msgid "Feed items list navigation"
 msgstr ""
 
-#: core/modules/feedItems.php:57
+#: core/modules/feedItems.php:59
 msgid "Feed items list"
 msgstr ""
 
-#: core/modules/feedItems.php:58
+#: core/modules/feedItems.php:60
 msgid "Feed item published"
 msgstr ""
 
-#: core/modules/feedItems.php:59
+#: core/modules/feedItems.php:61
 msgid "Feed item published privately"
 msgstr ""
 
-#: core/modules/feedItems.php:60
+#: core/modules/feedItems.php:62
 msgid "Feed item reverted to draft"
 msgstr ""
 
-#: core/modules/feedItems.php:61
+#: core/modules/feedItems.php:63
 msgid "Feed item trashed"
 msgstr ""
 
-#: core/modules/feedItems.php:62
+#: core/modules/feedItems.php:64
 msgid "Feed item scheduled"
 msgstr ""
 
-#: core/modules/feedItems.php:63
+#: core/modules/feedItems.php:65
 msgid "Feed item updated"
 msgstr ""
 
-#: core/modules/feedItems.php:64
+#: core/modules/feedItems.php:66
 msgid "Feed item link"
 msgstr ""
 
-#: core/modules/feedItems.php:65
+#: core/modules/feedItems.php:67
 msgid "A link to a feed item"
 msgstr ""
 
-#: core/modules/feedItems.php:86
+#: core/modules/feedItems.php:88
 #: core/js/dist/admin.js:42
 #: core/js/dist/admin.js:131
 msgid "Title"
 msgstr ""
 
-#: core/modules/feedItems.php:87
+#: core/modules/feedItems.php:89
 #: core/js/blocks/dist/gutenberg/gutenberg.js:1
 #: core/js/dist/admin.js:131
 msgid "Source Link"
 msgstr ""
 
-#: core/modules/feedItems.php:88
+#: core/modules/feedItems.php:90
 #: core/js/dist/admin.js:42
 msgid "Source"
 msgstr ""
 
-#: core/modules/feedItems.php:91
+#: core/modules/feedItems.php:93
 #: core/js/dist/admin.js:42
 #: core/js/dist/admin.js:131
 msgid "Author"
 msgstr ""
 
-#: core/modules/feedItems.php:92
+#: core/modules/feedItems.php:94
 #: core/js/dist/admin.js:42
 #: core/js/dist/admin.js:43
 #: core/js/dist/admin.js:131
 msgid "Date"
 msgstr ""
 
-#: core/modules/feedItems.php:108
+#: core/modules/feedItems.php:110
 msgid "(no title)"
 msgstr ""
 
-#: core/modules/feedItems.php:118
+#: core/modules/feedItems.php:120
 msgid "No source link"
 msgstr ""
 
@@ -752,14 +760,14 @@ msgid_plural "Deleted %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/src/Cli/Commands/SourceCommand.php:236
+#: core/src/Cli/Commands/SourceCommand.php:240
 #, php-format
 msgid "Deleted %d source."
 msgid_plural "Deleted %d sources."
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/src/Cli/Commands/SourceCommand.php:436
+#: core/src/Cli/Commands/SourceCommand.php:440
 #, php-format
 msgid "%s source updated."
 msgid_plural "%s sources updated."
@@ -863,7 +871,7 @@ msgstr ""
 msgid "Post #%s does not exist or is not imported by WP RSS Aggregator"
 msgstr ""
 
-#: core/src/Store/WpPostsStore.php:551
+#: core/src/Store/WpPostsStore.php:597
 #, php-format
 msgctxt "The recorded note when an imported post is deleted and rejected. %s = post title"
 msgid "Rejected after deletion: %s"

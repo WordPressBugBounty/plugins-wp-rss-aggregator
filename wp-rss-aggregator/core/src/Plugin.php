@@ -13,7 +13,7 @@ class Plugin {
 	public string $url;
 	public string $basename;
 	public bool $premiumInstalled = false;
-	/** @var list<array{id:string,path:string,package:string,moduleVersion:string|null,requiresCoreMin:string|null,requiresCoreMax:string|null,coreVersion:string,reason:string}> */
+	/** @var list<array{id:string,path:string,package:string,moduleVersion:string|null,requiresCoreMin:string|null,requiresCoreMax:string|null,coreVersion:string,reason:string|callable():string}> */
 	public array $disabledModules = array();
 	/** @var array<string,bool> */
 	private array $disabledModuleIds = array();
@@ -92,7 +92,7 @@ class Plugin {
 	 *
 	 * @since 5.2.1
 	 *
-	 * @param array{id?:string,path?:string,package?:string,moduleVersion?:string|null,requiresCoreMin?:string|null,requiresCoreMax?:string|null,coreVersion?:string,reason?:string} $module
+	 * @param array{id?:string,path?:string,package?:string,moduleVersion?:string|null,requiresCoreMin?:string|null,requiresCoreMax?:string|null,coreVersion?:string,reason?:string|callable():string} $module
 	 */
 	public function disableModule( array $module ): void {
 		$id = (string) ( $module['id'] ?? '' );
@@ -119,7 +119,7 @@ class Plugin {
 			'requiresCoreMin' => $module['requiresCoreMin'] ?? null,
 			'requiresCoreMax' => $module['requiresCoreMax'] ?? null,
 			'coreVersion' => (string) ( $module['coreVersion'] ?? $this->version ),
-			'reason' => (string) ( $module['reason'] ?? __( 'Module is not compatible with the installed Aggregator version.', 'wp-rss-aggregator' ) ),
+			'reason' => $module['reason'] ?? fn () => __( 'Module is not compatible with the installed Aggregator version.', 'wp-rss-aggregator' ),
 		);
 	}
 

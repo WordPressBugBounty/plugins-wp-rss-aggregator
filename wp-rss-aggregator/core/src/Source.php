@@ -102,23 +102,59 @@ class Source {
 	/**
 	 * Gets the date and time of the source's next update.
 	 *
-	 * @return DateTime|null An option containing the date and time, or null if the source has no schedule.
+	 * Sources that have never been updated (no {@link $lastUpdate}, or one set to a year-zero sentinel from older
+	 * schema defaults) are reported as due immediately, so the importer picks them up on the next cron tick.
+	 *
+	 * @since 5.3.0 Treats never-fetched and year-zero sources as immediately due.
+	 *
+	 * @return DateTime|null The date and time of the next update, or null if the source has no schedule.
 	 */
 	public function getNextUpdate(): ?DateTime {
 		if ( $this->schedule === null ) {
 			return null;
-		} else {
-			$lastTs = $this->lastUpdate ? $this->lastUpdate->getTimestamp() : null;
-			$nextTs = $this->schedule->getNext( $lastTs );
-
-			return new DateTime( "@$nextTs" );
 		}
+
+		if ( ! $this->hasEverBeenUpdated() ) {
+			// Source has never been updated — due now. Reported as one second in the past so callers comparing
+			// against `new DateTime()` consistently treat it as overdue.
+			return ( new DateTime() )->modify( '-1 second' );
+		}
+
+		$lastTs = $this->lastUpdate->getTimestamp();
+		$nextTs = $this->schedule->getNext( $lastTs );
+
+		return new DateTime( "@$nextTs" );
 	}
 
-	/** Checks if the source needs an update. */
+	/**
+	 * Checks if the source needs an update.
+	 *
+	 * @since 5.3.0 Short-circuits inactive and unscheduled sources before next-update calculation.
+	 */
 	public function isPendingUpdate(): bool {
+		if ( ! $this->isActive || $this->schedule === null ) {
+			return false;
+		}
+
 		$nextUpdate = $this->getNextUpdate();
-		return $this->isActive && $this->schedule !== null && $nextUpdate !== null && $nextUpdate < new DateTime();
+		return $nextUpdate !== null && $nextUpdate < new DateTime();
+	}
+
+	/**
+	 * Checks whether the source has ever been updated.
+	 *
+	 * Treats null and pre-epoch placeholder timestamps (e.g. the legacy `0000-00-00` schema default) as "never".
+	 *
+	 * @since 5.3.0
+	 */
+	private function hasEverBeenUpdated(): bool {
+		if ( $this->lastUpdate === null ) {
+			return false;
+		}
+
+		// Year < 1 indicates a placeholder default such as `0000-00-00T00:00:00+00:00`. The Unix epoch (1970) is a
+		// valid genuine timestamp and is treated as a real update.
+		return (int) $this->lastUpdate->format( 'Y' ) > 0;
 	}
 
 	/** @return array<string,mixed> */

@@ -11,6 +11,7 @@ use RebelCode\WpSdk\Wp\AdminPage;
 use RebelCode\WpSdk\Wp\AdminMenu;
 use RebelCode\Aggregator\Core\Utils\WpUtils;
 use RebelCode\Aggregator\Core\Utils\Time;
+use RebelCode\Aggregator\Core\Utils\LazyText;
 use RebelCode\Aggregator\Core\Utils\Arrays;
 use RebelCode\Aggregator\Core\Rpc\RpcServer;
 use RebelCode\Aggregator\Core\Licensing\License;
@@ -145,6 +146,13 @@ wpra()->addModule(
 			$user = wp_get_current_user();
 			$license = $licensing->getLicense();
 			$tier = $licensing->getTier();
+			$disabledModules = array_map(
+				function ( array $module ): array {
+					$module['reason'] = LazyText::resolve( $module['reason'] ?? '' );
+					return $module;
+				},
+				$wpra->disabledModules
+			);
 
 			$l10n = apply_filters(
 				'wpra.admin.frame.l10n',
@@ -155,8 +163,8 @@ wpra()->addModule(
 					'settings' => $settings->toArray(),
 					'license' => $license ? $license->toArray() : null,
 					'premiumInstalled' => $wpra->premiumInstalled,
-					'isPluginMismatch' => ! empty( $wpra->disabledModules ),
-					'disabledModules' => $wpra->disabledModules,
+					'isPluginMismatch' => ! empty( $disabledModules ),
+					'disabledModules' => $disabledModules,
 					'sslCertPath' => implode( '/', array( WPINC, 'certificates', 'ca-bundle.crt' ) ),
 					'isMultiSite' => WpUtils::isMultiSite(),
 					'isMainSite' => is_main_site(),

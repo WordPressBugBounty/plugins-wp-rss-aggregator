@@ -132,6 +132,11 @@ class V4SourceMigrator {
 		$src->name = $name;
 		$src->url = $meta['wprss_url'] ?? '';
 
+		// Migrated sources have no v4 equivalent for `lastUpdate` and are intentionally left at null so the importer
+		// treats them as "never fetched" and includes them on the next cron tick. See {@see Source::getNextUpdate()}.
+		// Re-running the migration over an existing v5 record (resolved above via `wpra_v5_id`) preserves whatever
+		// `lastUpdate` the importer has already written.
+
 		$state = $meta['wprss_state'] ?? '';
 		$wpSchedule = $meta['wprss_update_interval'] ?? '';
 		$updateTime = $meta['wprss_update_time'] ?? '';

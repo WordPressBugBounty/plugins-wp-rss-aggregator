@@ -19,15 +19,15 @@ wpra()->addModule(
 					array(
 						'fifteen_min' => array(
 							'interval' => 15 * 60,
-							'display'  => __( 'Every 15 Minutes' ),
+							'display'  => 'Every 15 Minutes',
 						),
 						'thirty_min' => array(
 							'interval' => 30 * 60,
-							'display'  => __( 'Every 30 Minutes' ),
+							'display'  => 'Every 30 Minutes',
 						),
 						'two_hours' => array(
 							'interval' => 2 * HOUR_IN_SECONDS,
-							'display'  => __( 'Every 2 Hours' ),
+							'display'  => 'Every 2 Hours',
 						),
 					)
 				);

@@ -58,7 +58,7 @@ class WpPostsStore {
 	}
 
 	/** @return WP_Query */
-	private function wpQuery( array $args = array() ): WP_Query {
+	protected function wpQuery( array $args = array() ): WP_Query {
 		if ( $this->postTypes === null ) {
 			$this->postTypes = get_post_types( array( 'public' => true ), 'names' );
 		}
@@ -395,6 +395,35 @@ class WpPostsStore {
 	}
 
 	/**
+	 * Deletes imported posts for a source in fixed-size batches.
+	 *
+	 * @since 5.3.0
+	 *
+	 * @param int $srcId The source ID.
+	 * @param int $batchSize The maximum number of posts to delete per batch.
+	 * @return Result<int> The number of deleted posts.
+	 */
+	public function deleteFromSourceInBatches( int $srcId, int $batchSize = 500 ): Result {
+		$total = 0;
+		$batchSize = max( 1, $batchSize );
+
+		do {
+			$result = $this->deleteFromSources( array( $srcId ), false, $batchSize, 1, 'ASC' );
+
+			if ( $result->isErr() ) {
+				return Result::Err( $result->error() );
+			}
+
+			$numDeleted = $result->get();
+			$total += $numDeleted;
+
+			if ( $numDeleted < $batchSize ) {
+				return Result::Ok( $total );
+			}
+		} while ( true );
+	}
+
+	/**
 	 * Deletes posts older than a given date, optionally from a specific source.
 	 *
 	 * @return Result<int> The number of deleted posts.
@@ -410,17 +439,34 @@ class WpPostsStore {
 			);
 		}
 
-		$result = $this->wpQuery(
-			array(
-				'meta_query' => $metaQuery,
-				'date_query' => array(
-					'column' => 'post_date_gmt',
-					'before' => $minDate->format( 'Y-m-d H:i:s' ),
-				),
-			)
-		);
+		$num = 0;
 
-		$num = $this->deleteWpPosts( $result->posts );
+		do {
+			$result = $this->wpQuery(
+				array(
+					'posts_per_page' => 50,
+					'meta_query' => $metaQuery,
+					'date_query' => array(
+						'column' => 'post_date_gmt',
+						'before' => $minDate->format( 'Y-m-d H:i:s' ),
+					),
+				)
+			);
+
+			if ( empty( $result->posts ) ) {
+				break;
+			}
+
+			$posts = ( function ( WP_Query $result ) {
+				foreach ( $result->posts as $post ) {
+					yield IrPost::fromWpPost( $post );
+				}
+			} )( $result );
+
+			$numDeleted = $this->deleteWpPosts( $posts );
+			$num += $numDeleted;
+		} while ( $numDeleted > 0 );
+
 		return Result::Ok( $num );
 	}
 

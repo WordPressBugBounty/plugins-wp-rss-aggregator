@@ -51,7 +51,11 @@ class SourceCommand extends BaseCommand {
 		$name = $args[0];
 		$url = $args[1];
 
-		$result = $this->sources->save( new Source( null, $name, $url ) );
+		if ( ! wp_http_validate_url( $url ) ) {
+			WP_CLI::error( sprintf( '"%s" is not a valid HTTP or HTTPS URL.', $url ) );
+		}
+
+		$result = $this->sources->save( ( new Source( null, $name ) )->withUrl( $url ) );
 
 		if ( $result->isOk() ) {
 			$src = $result->get();

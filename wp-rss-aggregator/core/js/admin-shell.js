@@ -78,20 +78,20 @@
 
     /**
      * @param {string} url
-     * @param {string=} why
+     * @param {string=} navigationReason
      */
-    navigate(url, why) {
+    navigate(url, navigationReason) {
       const { page, params } = parsePageUrl(url)
-      this.send(ShellMessage.navigate, { page, params, why })
+      this.send(ShellMessage.navigate, { page, params, navigationReason })
     }
 
     /**
      * @param {string} page
      * @param {Record<string,any>} params
-     * @param {string=} why
+     * @param {string=} navigationReason
      */
-    gotoPage(page, params, why = "user") {
-      this.send(ShellMessage.navigate, { page, params, why })
+    gotoPage(page, params, navigationReason = "user") {
+      this.send(ShellMessage.navigate, { page, params, navigationReason })
     }
   }
 
@@ -110,18 +110,24 @@
           return
         }
 
-        const { page, params, why } = payload
+        const { page, params, navigationReason } = payload
 
         this.updateCurrMenuItem(page)
 
-        if (why === "popstate") {
+        if (navigationReason === "popstate") {
           return
         }
 
         const urlParams = new URLSearchParams(params ?? {})
         urlParams.set("subPage", page)
         urlParams.delete("page")
-        history.pushState({}, "", `?page=wprss-aggregator&${urlParams}`)
+        const url = `?page=wprss-aggregator&${urlParams}`
+
+        if (navigationReason === "save") {
+          history.replaceState({}, "", url)
+        } else {
+          history.pushState({}, "", url)
+        }
       })
 
       // Update the badge count in the menu.

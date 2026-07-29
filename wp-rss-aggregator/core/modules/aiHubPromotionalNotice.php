@@ -2,10 +2,14 @@
 
 namespace RebelCode\Aggregator\Core;
 
+use RebelCode\Aggregator\Core\Rpc\RpcServer;
+
 wpra()->addModule(
 	'aiHubPromotionalNotice',
-	array( 'licensing' ),
-	function ( Licensing $licensing ) {
+	array( 'licensing', 'rpc' ),
+	function ( Licensing $licensing, RpcServer $rpc ) {
+		$dismissAction = 'wpra_dismiss_ai_hub_promotional_notice';
+
 		$allowNoticeHtml = function ( string $html ): string {
 			return wp_kses(
 				$html,
@@ -85,9 +89,43 @@ wpra()->addModule(
 			return null;
 		};
 
+		$dismissNotice = function ( string $pointer ): void {
+			$dismissed = array_filter( explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) ) );
+			if ( ! in_array( $pointer, $dismissed, true ) ) {
+				$dismissed[] = $pointer;
+			}
+
+			update_user_meta( get_current_user_id(), 'dismissed_wp_pointers', implode( ',', $dismissed ) );
+		};
+
+		add_action(
+			'wp_ajax_' . $dismissAction,
+			function () use ( $getNotice, $dismissNotice ) {
+				check_ajax_referer( RpcServer::NONCE_ACTION, 'nonce' );
+
+				if ( ! current_user_can( Capabilities::SEE_AGGREGATOR ) ) {
+					wp_send_json_error( array( 'message' => __( 'Unauthorized', 'wp-rss-aggregator' ) ), 403 );
+				}
+
+				$tier = absint( filter_input( INPUT_POST, 'tier', FILTER_DEFAULT ) );
+				$notice = $getNotice( $tier );
+
+				if ( null === $notice ) {
+					wp_send_json_error( array( 'message' => __( 'Invalid promotional notice state.', 'wp-rss-aggregator' ) ), 400 );
+				}
+
+				$dismissNotice( (string) $notice['pointer'] );
+				wp_send_json_success();
+			}
+		);
+
 		add_action(
 			'admin_notices',
-			function () use ( $licensing, $getNotice ) {
+			function () use ( $licensing, $getNotice, $dismissAction, $rpc ) {
+				if ( ! current_user_can( Capabilities::SEE_AGGREGATOR ) ) {
+					return;
+				}
+
 				$screen = get_current_screen();
 				if ( ! $screen || $screen->id === 'toplevel_page_wprss-aggregator' ) {
 					return;
@@ -105,11 +143,14 @@ wpra()->addModule(
 					return;
 				}
 
+				$nonce = $rpc->getNonce();
+
 				?>
 				<div
 					class="notice is-dismissible wpra-ai-hub-promotional-notice"
 					data-dismissed-key="<?php echo esc_attr( $notice['dismissedKey'] ); ?>"
 					data-pointer="<?php echo esc_attr( $notice['pointer'] ); ?>"
+					data-tier="<?php echo esc_attr( (string) $tier ); ?>"
 				>
 					<div class="wpra-ai-hub-promotional-notice-icon">
 						<img src="<?php echo esc_url( WPRA_URL . 'core/imgs/ai-summaries.svg' ); ?>" alt="" />
@@ -129,9 +170,13 @@ wpra()->addModule(
 						$( '.wpra-ai-hub-promotional-notice' ).each( function() {
 							var notice = $( this );
 							var dismissedKey = notice.data( 'dismissed-key' );
-							var pointer = notice.data( 'pointer' );
 
 							if ( window.localStorage && localStorage.getItem( dismissedKey ) === 'true' ) {
+								$.post( ajaxurl, {
+									action: " . wp_json_encode( $dismissAction ) . ",
+									nonce: " . wp_json_encode( $nonce ) . ",
+									tier: notice.data( 'tier' )
+								} );
 								notice.remove();
 								return;
 							}
@@ -142,8 +187,9 @@ wpra()->addModule(
 								}
 
 								$.post( ajaxurl, {
-									pointer: pointer,
-									action: 'dismiss-wp-pointer'
+									action: " . wp_json_encode( $dismissAction ) . ",
+									nonce: " . wp_json_encode( $nonce ) . ",
+									tier: notice.data( 'tier' )
 								} );
 							} );
 						} );
