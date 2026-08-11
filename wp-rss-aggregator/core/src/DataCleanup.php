@@ -52,12 +52,47 @@ class DataCleanup {
 	/**
 	 * Retrieves a list of post meta keys used by the plugin.
 	 *
+	 * @since 5.4.0 Includes explicit imported-post metadata keys for reset and uninstall cleanup.
+	 *
 	 * @return string[] A list of post meta keys.
 	 */
 	public function getPluginPostMetaKeys(): array {
 		return array(
 			'wpra_v5_id',
-			'_wpra_source'
+			'_wpra_guid',
+			'_wpra_source',
+			'_wpra_source_name',
+			'_wpra_source_url',
+			'_wpra_url',
+			'_wpra_import_date',
+			'_wpra_ft_image_url',
+			'_wpra_is_yt',
+			'_wpra_yt_views',
+			'_wpra_yt_video_id',
+			'_wpra_yt_embed_url',
+			'_wpra_audio_url',
+			'_wpra_enclosure_url',
+			'_wpra_author_name',
+			'_wpra_author_email',
+			'_wpra_author_url',
+			'_wpra_orig_title',
+			'_wpra_orig_content',
+			'_wpra_source_blog_id',
+			'_wpra_protected',
+		);
+	}
+
+	/**
+	 * Retrieves a list of cron hooks owned by the plugin.
+	 *
+	 * @since 5.4.0
+	 *
+	 * @return string[] A list of cron hooks.
+	 */
+	public function getPluginCronHooks(): array {
+		return array(
+			'wpra.update',
+			'wpra.licensing.update',
 		);
 	}
 }

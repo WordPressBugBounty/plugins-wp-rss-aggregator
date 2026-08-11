@@ -34,6 +34,11 @@ class Uri {
 	 */
 	public static function modifyQuery( string $uri, callable $fn ): string {
 		$parsedUrl = parse_url( $uri );
+
+		if ( ! is_array( $parsedUrl ) ) {
+			return $uri;
+		}
+
 		$queryStr = $parsedUrl['query'] ?? '';
 
 		if ( ! is_string( $queryStr ) ) {

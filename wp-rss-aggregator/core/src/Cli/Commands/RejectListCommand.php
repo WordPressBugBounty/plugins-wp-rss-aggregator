@@ -43,7 +43,7 @@ class RejectListCommand extends BaseCommand {
 		$guid = $args[0];
 		$notes = $args[1] ?? '';
 
-		$result = $this->rejectList->add( $guid, null, $notes );
+		$result = $this->rejectList->add( new RejectedItem( $guid, null, $notes ) );
 
 		if ( $result->isOk() ) {
 			WP_CLI::success( sprintf( __( 'Added "%s" to the reject list', 'wp-rss-aggregator' ), $guid ) );

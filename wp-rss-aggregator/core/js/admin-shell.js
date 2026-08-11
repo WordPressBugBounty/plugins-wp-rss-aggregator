@@ -118,6 +118,13 @@
           return
         }
 
+        // Reset the outer body scroll on user-initiated navigation so
+        // the new page lands at the top instead of inheriting the
+        // previous page's scroll offset.
+        if (navigationReason === "user") {
+          window.scrollTo(0, 0)
+        }
+
         const urlParams = new URLSearchParams(params ?? {})
         urlParams.set("subPage", page)
         urlParams.delete("page")

@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP RSS Aggregator 5.3.0\n"
+"Project-Id-Version: WP RSS Aggregator 5.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-rss-aggregator\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-29T08:56:11+00:00\n"
+"POT-Creation-Date: 2026-08-11T07:10:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-rss-aggregator\n"
@@ -112,38 +112,38 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: core/modules/admin.php:305
+#: core/modules/admin.php:307
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr ""
 
-#: core/modules/admin.php:306
+#: core/modules/admin.php:308
 msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr ""
 
-#: core/modules/admin.php:309
+#: core/modules/admin.php:311
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
 msgstr ""
 
-#: core/modules/admin.php:314
+#: core/modules/admin.php:316
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
 msgstr ""
 
-#: core/modules/admin.php:317
+#: core/modules/admin.php:319
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr ""
 
-#: core/modules/admin.php:324
+#: core/modules/admin.php:326
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr ""
 
-#: core/modules/admin.php:359
+#: core/modules/admin.php:361
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr ""
 
-#: core/modules/admin.php:362
+#: core/modules/admin.php:364
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
 msgstr ""
@@ -1920,6 +1920,12 @@ msgid "Learn how to make the most of your Folders."
 msgstr ""
 
 #: core/js/dist/admin.js:42
+msgid "Could not duplicate folder. Please try again."
+msgid_plural "Could not duplicate folders. Please try again."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/js/dist/admin.js:42
 msgid "Delete folder?"
 msgid_plural "Delete %d folders?"
 msgstr[0] ""
@@ -1928,6 +1934,18 @@ msgstr[1] ""
 #: core/js/dist/admin.js:42
 #: core/js/dist/admin.js:131
 msgid "Create Display"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+#, js-format
+msgctxt "Used when a folder is duplicated. %s = original folder name"
+msgid "%s (Copy)"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+#, js-format
+msgctxt "Used when a folder copy name already exists. %1$s = original folder name, %2$d = copy number"
+msgid "%1$s (Copy %2$d)"
 msgstr ""
 
 #: core/js/dist/admin.js:42
@@ -2370,6 +2388,31 @@ msgstr ""
 #: core/js/dist/admin.js:42
 msgctxt "Author column in Hub page post table"
 msgid "Author"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgctxt "Import date column in Hub page post table"
+msgid "Import date"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgctxt "Published date column in Hub page post table"
+msgid "Published date"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+#, js-format
+msgid "Imported: %s"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+#, js-format
+msgid "Published: %s"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+#, js-format
+msgid "Modified: %s"
 msgstr ""
 
 #: core/js/dist/admin.js:42
@@ -2876,6 +2919,10 @@ msgid "Migration Recovery Options"
 msgstr ""
 
 #: core/js/dist/admin.js:43
+msgid "Uninstall Settings"
+msgstr ""
+
+#: core/js/dist/admin.js:43
 msgid "SSL Certificate Path"
 msgstr ""
 
@@ -2978,6 +3025,14 @@ msgstr ""
 
 #: core/js/dist/admin.js:43
 msgid "Delete all imported posts"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Delete Aggregator data on uninstall"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "When this is enabled, deleting the plugin will also delete Aggregator settings, database tables, and plugin metadata. Imported posts, post content, and media files will be kept."
 msgstr ""
 
 #: core/js/dist/admin.js:43
@@ -3091,10 +3146,6 @@ msgstr ""
 
 #: core/js/dist/admin.js:43
 msgid "Hide Pending Approval section when empty"
-msgstr ""
-
-#: core/js/dist/admin.js:43
-msgid "Hide Recently Imported section when empty"
 msgstr ""
 
 #: core/js/dist/admin.js:43

@@ -6,7 +6,7 @@ Commercial: https://www.wprssaggregator.com/pricing/
 Requires at least: 6.2.2 or higher
 Tested up to: 7.0
 Requires PHP: 7.4.0
-Stable tag: 5.3.0
+Stable tag: 5.4.0
 License: GPLv3
 
 The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
@@ -263,6 +263,27 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 
 == Changelog ==
+
+= 5.4.0 (2026-08-10) =
+
+**Added**
+- Added a date and time column to the Hub so imported and pending items are easier to review.
+
+**Fixed**
+- Fixed display filters using "Show items" with OR conditions showing unrelated site content outside the selected sources.
+- Fixed Global Automations being skipped for sources that did not also have source-level automations.
+- Fixed imported Custom Post Type items becoming published when they were set to Draft and used the Feed Import Date.
+- Fixed Trash and Reject failing for imported items with long or encoded GUIDs.
+- Fixed Full Text imports failing when feed content contained malformed image URLs.
+- Fixed Source previews applying item limits before eligibility filters and automations.
+- Fixed Feed Items in WordPress search results linking to local feed-item URLs instead of the original article.
+- Fixed the Hub author column showing the original feed author when items were assigned to a selected or fallback site user.
+- Fixed Source Custom Text showing shortcodes as plain text on imported posts.
+- Fixed new displays created from a source import missing their Customization settings until they were renamed and saved.
+- Fixed the Recently Imported Hub section being hidden when empty.
+- Fixed the Folders duplicate action reusing the original folder name.
+- Fixed Aggregator uninstall leaving plugin-owned cron events behind.
+- Fixed unwanted horizontal scrolling and bottom spacing on Aggregator admin pages.
 
 = 5.3.0 (2026-07-29) =
 

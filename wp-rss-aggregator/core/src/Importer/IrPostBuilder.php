@@ -185,7 +185,7 @@ class IrPostBuilder {
 
 		[$pubDate, $modDate] = apply_filters( 'wpra.importer.post.dates', array( $pubDate, $modDate ), $post, $item, $src );
 
-		if ( $pubDate > $now ) {
+		if ( $pubDate->getTimestamp() > $now->getTimestamp() ) {
 			if ( $src->settings->allowFutureDates || $post->status === 'future' ) {
 				$post->status = 'future';
 			} else {

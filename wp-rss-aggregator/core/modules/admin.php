@@ -141,6 +141,8 @@ wpra()->addModule(
 	'admin.frame.l10n',
 	array( 'rpc', 'settings', 'licensing' ),
 	function ( RpcServer $rpc, Settings $settings, Licensing $licensing ) {
+		$settings->register( 'doUninstall' )->setDefault( false );
+
 		return function () use ( $rpc, $settings, $licensing ) {
 			$wpra = wpra();
 			$user = wp_get_current_user();

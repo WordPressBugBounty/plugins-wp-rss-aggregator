@@ -1,5 +1,5 @@
 html {
-  height: calc(100vh - 32px);
+  height: 100%;
   overflow: hidden;
 }
 
@@ -11,10 +11,4 @@ body {
 
 #wpra-admin-ui {
   height: 100%;
-}
-
-@media screen and (max-width: 782px) {
-    html {
-        height: calc(100vh - 46px);
-    }
 }

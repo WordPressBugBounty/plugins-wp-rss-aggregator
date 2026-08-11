@@ -152,6 +152,30 @@ wpra()->addModule(
 			2
 		);
 
+		// Feed Items are registered with `publicly_queryable => false`, so the
+		// local CPT URL produced by `get_permalink()` 404s. When WP code
+		// (search results, related-post widgets, themes, third-party plugins)
+		// fetches a feed item's URL, return the original source URL stored in
+		// `_wpra_url`. WPRA's own displays already do this via
+		// LayoutTrait::getItemUrl(); this gives parity for everything else.
+		add_filter(
+			'post_type_link',
+			function ( $url, $post ) {
+				if ( ! ( $post instanceof \WP_Post ) || $post->post_type !== 'wprss_feed_item' ) {
+					return $url;
+				}
+
+				$original = get_post_meta( $post->ID, ImportedPost::URL, true );
+				if ( is_string( $original ) && $original !== '' ) {
+					return $original;
+				}
+
+				return $url;
+			},
+			10,
+			2
+		);
+
 		add_action(
 			'admin_enqueue_scripts',
 			function () {

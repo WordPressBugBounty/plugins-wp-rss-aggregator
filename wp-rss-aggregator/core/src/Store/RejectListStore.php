@@ -11,25 +11,40 @@ use RebelCode\Aggregator\Core\Utils\Result;
 use RebelCode\Aggregator\Core\Utils\Time;
 use Throwable;
 
+/**
+ * @phpstan-type RejectListRow array{guid?: string, guid_hash?: string, date?: string, notes?: string}
+ * @psalm-type RejectListRow = array{guid?: string, guid_hash?: string, date?: string, notes?: string}
+ */
 class RejectListStore {
 
 	public const GUID = 'guid';
+	public const GUID_HASH = 'guid_hash';
 	public const NOTES = 'notes';
 	public const DATE = 'date';
+	public const HASH_PREFIX = 'hash:';
 
 	protected Database $db;
 	protected string $table;
+	private ?bool $hasGuidHashColumn = null;
 
 	public function __construct( Database $db, string $table ) {
 		$this->db = $db;
 		$this->table = $table;
 	}
 
+	/**
+	 * Adds a rejected item using its original GUID for display and a stable hash
+	 * key for internal identity when the upgraded schema is available.
+	 *
+	 * @return Result<RejectedItem>
+	 *
+	 * @since 5.4.0 Added hash-key storage support.
+	 */
 	public function add( RejectedItem $item ): Result {
 		$new = clone $item;
 		$new->date = new DateTime();
 
-		$row = $this->itemToRow( $item );
+		$row = $this->itemToRow( $new );
 		$formats = $this->getColumnFormats();
 
 		try {
@@ -46,6 +61,8 @@ class RejectListStore {
 	 * @param list<string> $guids The strings to check.
 	 * @return Result<bool> `true` if at least one string matches a GUID in the
 	 *                      list, `false` otherwise.
+	 *
+	 * @since 5.4.0 Added hash-key lookup support.
 	 */
 	public function contains( array $guids ): Result {
 		if ( count( $guids ) === 0 ) {
@@ -53,13 +70,18 @@ class RejectListStore {
 		}
 
 		try {
+			$guids = array_values( array_filter( $guids, fn ( string $guid ): bool => $guid !== '' ) );
+			if ( count( $guids ) === 0 ) {
+				return Result::Ok( false );
+			}
+
 			$args = array();
-			$guidList = $this->db->prepareList( $guids, '%s', $args );
+			$where = $this->guidWhereSql( $guids, $args );
 
 			$result = $this->db->getRow(
 				"SELECT COUNT(*) as `count`
                 FROM {$this->table}
-                WHERE `guid` IN ({$guidList})",
+                WHERE {$where}",
 				$args,
 			);
 
@@ -131,19 +153,41 @@ class RejectListStore {
 	/**
 	 * Updates an item. Since the GUID is the primary key, this requires knowing
 	 * the previous GUID.
+	 *
+	 * @return Result<RejectedItem>
+	 *
+	 * @since 5.4.0 Added hash-key update support.
 	 */
 	public function update( string $guid, RejectedItem $new ): Result {
 		$data = $this->itemToRow( $new );
 		$formats = $this->getColumnFormats();
 
 		try {
-			$this->db->update(
-				$this->table,
-				$data,
-				array( 'guid' => $guid ),
-				$formats,
-				array( '%s' )
-			);
+			if ( $this->hasGuidHashColumn() ) {
+				$args = array(
+					$data[ self::GUID_HASH ],
+					$data[ self::GUID ],
+					$data[ self::DATE ],
+					$data[ self::NOTES ],
+					self::hashGuid( $guid ),
+					$guid,
+				);
+
+				$this->db->query(
+					"UPDATE {$this->table}
+                    SET `guid_hash` = %s, `guid` = %s, `date` = %s, `notes` = %s
+                    WHERE `guid_hash` = %s OR `guid` = %s",
+					$args
+				);
+			} else {
+				$this->db->update(
+					$this->table,
+					$data,
+					array( 'guid' => $guid ),
+					$formats,
+					array( '%s' )
+				);
+			}
 			return Result::Ok( $new );
 		} catch ( Throwable $t ) {
 			return Result::Err( $t );
@@ -155,10 +199,20 @@ class RejectListStore {
 	 *
 	 * @param string $guid The GUID to delete.
 	 * @return Result<int> A result containing the number of rows deleted.
+	 *
+	 * @since 5.4.0 Added hash-key delete support.
 	 */
 	public function delete( string $guid ): Result {
 		try {
-			$num = $this->db->delete( $this->table, array( 'guid' => $guid ), array( '%s' ) );
+			if ( $this->hasGuidHashColumn() ) {
+				$num = $this->db->query(
+					"DELETE FROM {$this->table}
+                    WHERE `guid_hash` = %s OR `guid` = %s",
+					array( self::hashGuid( $guid ), $guid )
+				);
+			} else {
+				$num = $this->db->delete( $this->table, array( 'guid' => $guid ), array( '%s' ) );
+			}
 			return Result::Ok( $num );
 		} catch ( Throwable $err ) {
 			return Result::Err( $err );
@@ -170,6 +224,8 @@ class RejectListStore {
 	 *
 	 * @param list<string> $guids The GUIDs to delete.
 	 * @return Result<int> A result containing the number of rows deleted.
+	 *
+	 * @since 5.4.0 Added hash-key delete support.
 	 */
 	public function deleteManyByGuids( array $guids ): Result {
 		if ( count( $guids ) === 0 ) {
@@ -177,12 +233,17 @@ class RejectListStore {
 		}
 
 		try {
+			$guids = array_values( array_filter( $guids, fn ( string $guid ): bool => $guid !== '' ) );
+			if ( count( $guids ) === 0 ) {
+				return Result::Ok( 0 );
+			}
+
 			$args = array();
-			$guidList = $this->db->prepareList( $guids, '%s', $args );
+			$where = $this->guidWhereSql( $guids, $args );
 
 			$num = $this->db->query(
 				"DELETE FROM {$this->table}
-                WHERE `guid` IN ({$guidList})",
+                WHERE {$where}",
 				$args
 			);
 			return Result::Ok( (int) $num );
@@ -205,6 +266,13 @@ class RejectListStore {
 		}
 	}
 
+	/**
+	 * Converts a database row into the public rejected-item value object.
+	 *
+	 * @param RejectListRow $row
+	 *
+	 * @since 5.4.0
+	 */
 	private function rowToItem( array $row ): RejectedItem {
 		$guid = $row['guid'] ?? '';
 		$dateStr = $row['date'] ?? '';
@@ -215,22 +283,53 @@ class RejectListStore {
 		return new RejectedItem( $guid, $date, $notes, );
 	}
 
-	private function itemToRow( RejectedItem $item ) {
-		return array(
+	/**
+	 * Converts a rejected item to a database row.
+	 *
+	 * @return array{guid: string, date: string, notes: string, guid_hash?: string}
+	 *
+	 * @since 5.4.0 Added optional hash-key column support.
+	 */
+	private function itemToRow( RejectedItem $item ): array {
+		$row = array(
 			self::GUID => $item->guid,
 			self::DATE => $item->date->format( 'Y-m-d H:i:s' ),
 			self::NOTES => $item->notes,
 		);
+
+		if ( $this->hasGuidHashColumn() ) {
+			$row[ self::GUID_HASH ] = self::hashGuid( $item->guid );
+		}
+
+		return $row;
 	}
 
+	/**
+	 * Gets the WordPress database column formats for reject-list writes.
+	 *
+	 * @return array{guid: '%s', date: '%s', notes: '%s', guid_hash?: '%s'}
+	 *
+	 * @since 5.4.0 Added optional hash-key column support.
+	 */
 	protected function getColumnFormats(): array {
-		return array(
+		$formats = array(
 			'guid' => '%s',
 			'date' => '%s',
 			'notes' => '%s',
 		);
+
+		if ( $this->hasGuidHashColumn() ) {
+			$formats[ self::GUID_HASH ] = '%s';
+		}
+
+		return $formats;
 	}
 
+	/**
+	 * Creates the reject-list table using the current schema.
+	 *
+	 * @since 5.4.0 Switched the primary key from raw GUID to GUID hash.
+	 */
 	public function createTable(): void {
 		if ( $this->db->tableExists( $this->table ) ) {
 			return;
@@ -238,11 +337,66 @@ class RejectListStore {
 
 		$this->db->delta(
 			"CREATE TABLE {$this->table} (
-                guid VARCHAR(180) NOT NULL,
+                guid_hash VARCHAR(69) NOT NULL,
+                guid TEXT NOT NULL,
                 notes TEXT DEFAULT '',
                 date DATETIME DEFAULT NOW(),
-                PRIMARY KEY  (guid)
+                PRIMARY KEY  (guid_hash)
             ) {$this->db->charsetCollate};"
 		);
+
+		$this->hasGuidHashColumn = true;
+	}
+
+	/**
+	 * Creates the internal identity key for a rejected GUID.
+	 *
+	 * @since 5.4.0
+	 */
+	public static function hashGuid( string $guid ): string {
+		return self::HASH_PREFIX . hash( 'sha256', $guid );
+	}
+
+	/**
+	 * @param list<string> $guids
+	 * @param list<mixed>  $args
+	 *
+	 * @since 5.4.0
+	 */
+	private function guidWhereSql( array $guids, array &$args ): string {
+		if ( ! $this->hasGuidHashColumn() ) {
+			$guidList = $this->db->prepareList( $guids, '%s', $args );
+			return "`guid` IN ({$guidList})";
+		}
+
+		$hashes = array_map( array( self::class, 'hashGuid' ), $guids );
+		$hashList = $this->db->prepareList( $hashes, '%s', $args );
+		$guidList = $this->db->prepareList( $guids, '%s', $args );
+
+		return "(`guid_hash` IN ({$hashList}) OR `guid` IN ({$guidList}))";
+	}
+
+	/**
+	 * Checks whether the current reject-list table supports hash-key storage.
+	 *
+	 * @since 5.4.0
+	 */
+	private function hasGuidHashColumn(): bool {
+		if ( $this->hasGuidHashColumn !== null ) {
+			return $this->hasGuidHashColumn;
+		}
+
+		try {
+			$cols = $this->db->getCol(
+				"SHOW COLUMNS FROM {$this->table} LIKE %s",
+				array( self::GUID_HASH )
+			);
+
+			$this->hasGuidHashColumn = ! empty( $cols );
+		} catch ( Throwable $t ) {
+			$this->hasGuidHashColumn = false;
+		}
+
+		return $this->hasGuidHashColumn;
 	}
 }

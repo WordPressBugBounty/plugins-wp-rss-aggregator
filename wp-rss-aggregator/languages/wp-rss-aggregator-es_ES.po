@@ -106,38 +106,38 @@ msgstr "Gestionar Plan"
 msgid "Logs"
 msgstr "Registros"
 
-#: core/modules/admin.php:305
+#: core/modules/admin.php:307
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr "Se requiere una única actualización manual para el plugin Aggregator Premium"
 
-#: core/modules/admin.php:306
+#: core/modules/admin.php:308
 msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr "Has actualizado correctamente el plugin gratuito a la v5.0.2."
 
-#: core/modules/admin.php:309
+#: core/modules/admin.php:311
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
 msgstr "Sin embargo, hemos detectado que todavía estás usando Aggregator Premium v%1$s. Debido a un problema de configuración en la v%2$s, no se están detectando las actualizaciones premium."
 
-#: core/modules/admin.php:314
+#: core/modules/admin.php:316
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
 msgstr "Esto se ha corregido en Premium v5.0.2, pero necesitarás realizar una única actualización manual del plugin Premium para restaurar las actualizaciones automáticas."
 
-#: core/modules/admin.php:317
+#: core/modules/admin.php:319
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr "Tus ajustes y datos permanecerán intactos. Si tienes alguna pregunta, por favor <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contacta con el soporte</a> para obtener ayuda."
 
-#: core/modules/admin.php:324
+#: core/modules/admin.php:326
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr "Después de actualizar Premium a la v5.0.2, los chequeos de las actualizaciones premium se reanudarán con normalidad."
 
-#: core/modules/admin.php:359
+#: core/modules/admin.php:361
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr "Descargar Premium v5.0.2"
 
-#: core/modules/admin.php:362
+#: core/modules/admin.php:364
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
 msgstr "Instrucciones paso a paso"

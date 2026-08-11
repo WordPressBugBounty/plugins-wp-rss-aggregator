@@ -51,6 +51,8 @@ class IrPost {
 	public ?DateTime $datePublished = null;
 	/** The date the post was last modified, if any. */
 	public ?DateTime $dateModified = null;
+	/** The date the post was imported by WPRA, if any. */
+	public ?DateTime $dateImported = null;
 	/** The featured image of the post, if any. */
 	public ?IrImage $ftImage = null;
 	/** Whether comments on the post are open. */
@@ -169,8 +171,9 @@ class IrPost {
 			'rawContent' => $this->content,
 			'excerpt' => $this->excerpt,
 			'author' => $this->author ? $this->author->toArray() : null,
-			'datePublished' => $this->datePublished ? Time::toHumanFormat( $this->datePublished ) : null,
-			'dateModified' => $this->dateModified ? Time::toHumanFormat( $this->dateModified ) : null,
+			'datePublished' => $this->datePublished ? $this->datePublished->format( DATE_ATOM ) : null,
+			'dateModified' => $this->dateModified ? $this->dateModified->format( DATE_ATOM ) : null,
+			'dateImported' => $this->dateImported ? $this->dateImported->format( DATE_ATOM ) : null,
 			'commentsOpen' => $this->commentsOpen,
 			'ftImage' => $this->ftImage ? $this->ftImage->toArray() : null,
 			'images' => Arrays::toArrayAll( $this->images ),
@@ -204,6 +207,8 @@ class IrPost {
 
 		$dateModified = Time::fromWpPostDate( $post->post_modified, $post->post_modified_gmt );
 		$datePublished = Time::fromWpPostDate( $post->post_date, $post->post_date_gmt ) ?? $dateModified;
+		$importDateStr = get_post_meta( $post->ID, ImportedPost::IMPORT_DATE, true );
+		$dateImported = is_string( $importDateStr ) && $importDateStr !== '' ? Time::createAndCatch( $importDateStr ) : null;
 
 		$irPost = new IrPost( $guid, $post->ID, $sources, $url );
 		$irPost->type = $post->post_type;
@@ -215,6 +220,7 @@ class IrPost {
 		$irPost->content = $post->post_content;
 		$irPost->datePublished = $datePublished;
 		$irPost->dateModified = $dateModified;
+		$irPost->dateImported = $dateImported;
 		$irPost->commentsOpen = ( strtolower( $post->comment_status ) === 'open' );
 		$irPost->password = $post->post_password;
 		$irPost->images = array();

@@ -198,6 +198,7 @@ class Importer {
 	 * Generates a preview of the items what would be imported for a source.
 	 *
 	 * @since 5.2.1 Added policy-driven preview caching.
+	 * @since 5.4.0 Reads the full feed before applying the effective preview/import limit.
 	 *
 	 * @param Source      $src The source.
 	 * @param int|null    $num Optional number of items to preview.
@@ -217,14 +218,15 @@ class Importer {
 
 		$this->progress->touch( $pid, 1 );
 
-		$res = $this->read( $src->url, $num, $page, $pid );
+		$res = $this->read( $src->url, null, $page, $pid );
 		if ( $res->isErr() ) {
 			return Result::Err( $res->error() );
 		}
 
 		[$items, $total] = $res->get();
 
-		$posts = $this->convert( $src, $items, true, $pid, $num, $page );
+		$posts = $this->convert( $src, $items, true, $pid, null, $page, $this->getPreviewLimit( $src, $num, $page ) );
+		$posts = $this->paginatePreviewPosts( Arrays::fromIterable( $posts ), $num, $page );
 		$posts = apply_filters( 'wpra.importer.preview', $posts, $src );
 		remove_filter( 'the_content', 'wpautop' );
 
@@ -238,6 +240,47 @@ class Importer {
 		}
 
 		return Result::Ok( $preview );
+	}
+
+	/**
+	 * Gets the effective item limit for a source preview.
+	 *
+	 * @since 5.4.0
+	 *
+	 * @param Source   $src The source being previewed.
+	 * @param int|null $num Optional number of items requested for the preview.
+	 * @param int      $page The preview page number.
+	 * @return int The effective preview item limit.
+	 */
+	protected function getPreviewLimit( Source $src, ?int $num, int $page ): int {
+		if ( $num === null || $num <= 0 ) {
+			return $src->settings->importLimit;
+		}
+
+		$numRequested = $num * max( 1, $page );
+		$storedItemsLimit = $src->settings->importLimit;
+		return $storedItemsLimit > 0
+			? min( $storedItemsLimit, $numRequested )
+			: $numRequested;
+	}
+
+	/**
+	 * Slices preview posts according to the requested preview page.
+	 *
+	 * @since 5.4.0
+	 *
+	 * @param list<IrPost> $posts The preview posts that passed source filters.
+	 * @param int|null     $num Optional number of items requested for the preview.
+	 * @param int          $page The preview page number.
+	 * @return list<IrPost> The paginated preview posts.
+	 */
+	protected function paginatePreviewPosts( array $posts, ?int $num, int $page ): array {
+		if ( $num === null || $num <= 0 ) {
+			return $posts;
+		}
+
+		$offset = max( 0, $page - 1 ) * $num;
+		return array_slice( $posts, $offset, $num );
 	}
 
 	/**
@@ -422,112 +465,127 @@ class Importer {
 	/**
 	 * Converts RSS items into IR posts.
 	 *
+	 * @since 5.4.0 Applies stored-items limits after item and final post filters.
+	 *
 	 * @param Source            $source The source that fetched the items.
 	 * @param iterable<RssItem> $items The fetched RSS items.
 	 * @param bool              $all If true, existing items will not be reconciled.
 	 * @param string|null       $pid Optional ID of the progress to update.
 	 * @param int|null          $num The maximum number of items to fetch.
 	 * @param int               $page The page number to fetch.
+	 * @param int|null          $limit Optional item limit to apply after filters.
 	 * @return iterable<IrPost> A list of IR posts.
 	 */
-	public function convert( Source $source, iterable $items, bool $all = false, ?string $pid = null, ?int $num = null, ?int $page = 1 ): iterable {
+	public function convert( Source $source, iterable $items, bool $all = false, ?string $pid = null, ?int $num = null, ?int $page = 1, ?int $limit = null ): iterable {
 		$items = Arrays::fromIterable( $items );
 		$items_count_before_dup = count( $items );
 		$items = $this->filterDuplicateItems( $source, $items, $all );
 		$items = $this->maybeLoadMoreItems( $source, $items, $items_count_before_dup, $all, $pid, $num, $page );
 		$items = $this->sortItems( $source, $items );
 		$items = $this->rejectListFilter( $source, $items );
-		$items = $this->limitItems( $source, $items );
+		$items = $this->ageFilter( $source, $items );
 
 		$this->progress->setTotal( $pid, count( $items ) );
 
-		if ( $all ) {
-			$existingMap = array();
-		} else {
-			$existingMap = $this->getExistingItemsMap( $items );
-		}
-
 		$count = count( $items );
+		$limit = $limit ?? $source->settings->importLimit;
+		$yielded = 0;
+		$chunks = ( $all || $limit <= 0 )
+			? array( $items )
+			: array_chunk( $items, 50, true );
 
-		foreach ( $items as $i => $item ) {
-			// Give each item a fresh execution budget. Building an item can do
-			// per-item network work (remote `getimagesize()` against enclosures,
-			// fetching social meta tags, etc.) that's individually fast but
-			// accumulates past the global `max_execution_time` on a slow feed.
-			// Without this, a slow item N+1 kills the whole batch and the user
-			// gets an HTML 500 from PHP instead of a JSON RPC response.
-			set_time_limit( 60 );
-
-			$this->progress->advance(
-				$pid,
-				1,
-				sprintf( _x( '%1$d/%2$d', 'Progress bar', 'wprss' ), $i + 1, $count )
-			);
-
-			$id = $this->resolveItemId( $item );
-
-			if ( $id === null ) {
-				Logger::warning( __( 'Ignoring RSS item with no GUID or permalink.', 'wprss' ) );
-				continue;
+		foreach ( $chunks as $chunk ) {
+			if ( $limit > 0 && $yielded >= $limit ) {
+				break;
 			}
 
-			$existingPost = $existingMap[ $id ] ?? null;
+			$existingMap = $all ? array() : $this->getExistingItemsMap( $chunk );
 
-			$strat = $source->settings->reconcileStrategy;
+			foreach ( $chunk as $i => $item ) {
+				if ( $limit > 0 && $yielded >= $limit ) {
+					break 2;
+				}
 
-			// On preview or import button we will change the ReconcileStrategy to OVERWRITE to force the import items regardless of actual settings.
-			if (null === $existingPost) {
-				$strat = ReconcileStrategy::OVERWRITE;
-			}
+				// Give each item a fresh execution budget. Building an item can do
+				// per-item network work (remote `getimagesize()` against enclosures,
+				// fetching social meta tags, etc.) that's individually fast but
+				// accumulates past the global `max_execution_time` on a slow feed.
+				// Without this, a slow item N+1 kills the whole batch and the user
+				// gets an HTML 500 from PHP instead of a JSON RPC response.
+				set_time_limit( 60 );
 
-			switch ( $strat ) {
-				default:
-					Logger::warning( "Unknown reconciliation strategy: \"{$strat}\". Ignoring item." );
-					break;
+				$this->progress->advance(
+					$pid,
+					1,
+					sprintf( _x( '%1$d/%2$d', 'Progress bar', 'wprss' ), $i + 1, $count )
+				);
 
-				case ReconcileStrategy::PRESERVE:
-					Logger::debug( "Item already exists: {$id}" );
-					break;
+				$id = $this->resolveItemId( $item );
 
-				case ReconcileStrategy::OVERWRITE:
-					Logger::debug( "Converting item: {$id}" );
+				if ( $id === null ) {
+					Logger::warning( __( 'Ignoring RSS item with no GUID or permalink.', 'wprss' ) );
+					continue;
+				}
 
-					// Isolate per-item conversion. A throw from `postBuilder->build()`
-					// (e.g. a malformed enclosure URL crashing the image finder,
-					// HTML5 parser hitting a deeply-nested DOM, a fatal in a
-					// third-party `wpra.importer.post.*` filter) used to abort the
-					// entire request — which on `admin-ajax.php` returns an HTML
-					// error page that the RPC client surfaces as the user-visible
-					// "Unexpected token '<' is not valid JSON". Catching here lets
-					// the rest of the batch import and reports the bad item in the
-					// log.
-					try {
-						$newPost = $this->postBuilder->build( $item, $source );
-					} catch ( Throwable $e ) {
-						Logger::error(
-							sprintf(
-								/* translators: 1: item GUID/permalink, 2: error message */
-								__( 'Failed to convert RSS item %1$s: %2$s', 'wprss' ),
-								$id,
-								$e->getMessage()
-							)
-						);
+				$existingPost = $existingMap[ $id ] ?? null;
+
+				$strat = $source->settings->reconcileStrategy;
+
+				// On preview or import button we will change the ReconcileStrategy to OVERWRITE to force the import items regardless of actual settings.
+				if ( null === $existingPost ) {
+					$strat = ReconcileStrategy::OVERWRITE;
+				}
+
+				switch ( $strat ) {
+					default:
+						Logger::warning( "Unknown reconciliation strategy: \"{$strat}\". Ignoring item." );
 						break;
-					}
 
-					if ( $existingPost !== null ) {
-						$newPost->sources = array_merge( $existingPost->sources, $newPost->sources );
-						$newPost->sources = array_unique( $newPost->sources );
-						$newPost->postId = $existingPost->postId;
-						$newPost->id = $existingPost->id;
-					}
+					case ReconcileStrategy::PRESERVE:
+						Logger::debug( "Item already exists: {$id}" );
+						break;
 
-					/** @var IrPost|null $finalPost */
-					$finalPost = apply_filters( 'wpra.importer.post.final', $newPost, $item, $source );
+					case ReconcileStrategy::OVERWRITE:
+						Logger::debug( "Converting item: {$id}" );
 
-					if ( $finalPost !== null ) {
-						yield $newPost;
-					}
+						// Isolate per-item conversion. A throw from `postBuilder->build()`
+						// (e.g. a malformed enclosure URL crashing the image finder,
+						// HTML5 parser hitting a deeply-nested DOM, a fatal in a
+						// third-party `wpra.importer.post.*` filter) used to abort the
+						// entire request — which on `admin-ajax.php` returns an HTML
+						// error page that the RPC client surfaces as the user-visible
+						// "Unexpected token '<' is not valid JSON". Catching here lets
+						// the rest of the batch import and reports the bad item in the
+						// log.
+						try {
+							$newPost = $this->postBuilder->build( $item, $source );
+						} catch ( Throwable $e ) {
+							Logger::error(
+								sprintf(
+									/* translators: 1: item GUID/permalink, 2: error message */
+									__( 'Failed to convert RSS item %1$s: %2$s', 'wprss' ),
+									$id,
+									$e->getMessage()
+								)
+							);
+							break;
+						}
+
+						if ( $existingPost !== null ) {
+							$newPost->sources = array_merge( $existingPost->sources, $newPost->sources );
+							$newPost->sources = array_unique( $newPost->sources );
+							$newPost->postId = $existingPost->postId;
+							$newPost->id = $existingPost->id;
+						}
+
+						/** @var IrPost|null $finalPost */
+						$finalPost = apply_filters( 'wpra.importer.post.final', $newPost, $item, $source );
+
+						if ( $finalPost !== null ) {
+							$yielded++;
+							yield $finalPost;
+						}
+				}
 			}
 		}
 	}
@@ -802,21 +860,15 @@ class Importer {
 	}
 
 	/**
-	 * Trims the list of items to the maximum number of items allowed by the source.
+	 * Filters out items that are older than the source's age limit.
+	 *
+	 * @since 5.4.0
 	 *
 	 * @param  Source        $source The feed source.
-	 * @param  list<RssItem> $items  The items to trim.
-	 * @return list<RssItem> The trimmed items.
+	 * @param  list<RssItem> $items  The items to filter.
+	 * @return list<RssItem> The filtered items.
 	 */
-	protected function limitItems( Source $source, array $items ): array {
-		$limit = $source->settings->importLimit;
-		$numItems = count( $items );
-
-		if ( $limit > 0 && $numItems > $limit ) {
-			Logger::debug( "Applying limit of {$limit} items" );
-			$items = array_slice( $items, 0, $limit );
-		}
-
+	protected function ageFilter( Source $source, array $items ): array {
 		$ageLimit = $source->settings->ageLimit;
 		$ageUnit = $source->settings->ageLimitUnit;
 		$minDate = strtotime( "- $ageLimit $ageUnit" );
@@ -838,6 +890,22 @@ class Importer {
 		}
 
 		return $results;
+	}
+
+	/**
+	 * Trims and filters the list of items according to source limits.
+	 *
+	 * @since 5.4.0 Restored as a deprecated compatibility wrapper.
+	 * @deprecated 5.4.0 Use Importer::ageFilter() instead.
+	 *
+	 * @param  Source        $source The feed source.
+	 * @param  list<RssItem> $items  The items to trim.
+	 * @return list<RssItem> The filtered items.
+	 */
+	protected function limitItems( Source $source, array $items ): array {
+		_deprecated_function( __METHOD__, '5.4.0', __CLASS__ . '::ageFilter()' );
+
+		return $this->ageFilter( $source, $items );
 	}
 
 	/**

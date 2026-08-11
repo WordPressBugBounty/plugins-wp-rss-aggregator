@@ -1,48 +1,75 @@
-#wpwrap {
-  position: fixed;
-  height: calc(100vh - 32px);
-}
-
-#adminmenu {
-  max-height: calc(100vh - 40px);
-  overflow-y: auto;
-}
+/* The Aggregator admin UI is rendered inside an iframe that owns the
+   entire content pane. The page itself scrolls like any other WP admin
+   screen (single body scrollbar, sidebar moves with the page) while the
+   iframe stays fixed to the right of the admin menu so the SPA is
+   always in view — even on plugin-heavy installs where the admin menu
+   is taller than the viewport. */
 
 #wpwrap #wpcontent {
-  position: absolute;
-  inset: 0;
   padding: 0;
 }
 
-#wpwrap #wpbody {
-  height: 100%;
+#wpwrap #wpbody-content {
+  padding-bottom: 0;
 }
 
-#wpwrap #wpbody-content {
-  height: 100%;
-  min-height: 100%;
-  max-height: 100%;
-  padding-bottom: 0;
+/* Hide every sibling element WP core or other plugins inject into
+   #wpbody-content (admin notices, Hello Dolly's <p id="dolly">, update
+   nags, plugin warnings, etc.) so nothing pushes the iframe down or
+   leaves a stray band. */
+#wpbody-content > :not(#wpra-admin-ui-frame) {
+  display: none;
 }
 
 #wpfooter {
   display: none;
 }
 
+/* Fix the iframe to the right of the admin menu and the bottom of the
+   admin bar. The SPA always fills the visible content area; the outer
+   body scrolls naturally to reveal lower menu items on plugin-heavy
+   installs without ever moving the SPA out of view.
+
+   Admin bar height is 32px on desktop and 46px on mobile — the CSS
+   variable defined on <html> by wp-admin/css/admin-bar.css gives us the
+   right value at every breakpoint. */
 #wpra-admin-ui-frame {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
+  display: block;
+  position: fixed;
+  top: var(--wp-admin--admin-bar--height, 32px);
+  left: 160px;
+  width: calc(100% - 160px);
+  height: calc(100vh - var(--wp-admin--admin-bar--height, 32px));
   overflow: hidden;
   border: none;
   background: #fff;
 }
 
-ul#adminmenu > li#toplevel_page_wprss-aggregator.current > a.current:after {
-  border-right-color: #fff;
+/* Folded sidebar shrinks to 36px — recalculate the iframe's left edge.
+   Mirrors WP-core: .folded applies at any width (user collapsed); .auto-fold
+   only narrows the menu inside the <= 960px media query. */
+body.folded #wpra-admin-ui-frame {
+  left: 36px;
+  width: calc(100% - 36px);
 }
 
-#wpbody-content .notice {
-  display:none;
+@media only screen and (max-width: 960px) {
+  body.auto-fold #wpra-admin-ui-frame {
+    left: 36px;
+    width: calc(100% - 36px);
+  }
+}
+
+/* At < 783px WP enters mobile mode: the menu is fully hidden as an
+   absolute-positioned overlay (only visible on tap). #wpcontent gets
+   margin-left: 0 — the iframe should span the full viewport too. */
+@media only screen and (max-width: 782px) {
+  body.auto-fold #wpra-admin-ui-frame {
+    left: 0;
+    width: 100%;
+  }
+}
+
+ul#adminmenu > li#toplevel_page_wprss-aggregator.current > a.current:after {
+  border-right-color: #fff;
 }
