@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP RSS Aggregator 5.4.0\n"
+"Project-Id-Version: WP RSS Aggregator 5.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-rss-aggregator\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-11T07:10:45+00:00\n"
+"POT-Creation-Date: 2026-09-01T12:27:51+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-rss-aggregator\n"
@@ -112,38 +112,38 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: core/modules/admin.php:307
+#: core/modules/admin.php:319
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr ""
 
-#: core/modules/admin.php:308
+#: core/modules/admin.php:320
 msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr ""
 
-#: core/modules/admin.php:311
+#: core/modules/admin.php:323
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
 msgstr ""
 
-#: core/modules/admin.php:316
+#: core/modules/admin.php:328
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
 msgstr ""
 
-#: core/modules/admin.php:319
+#: core/modules/admin.php:331
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr ""
 
-#: core/modules/admin.php:326
+#: core/modules/admin.php:338
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr ""
 
-#: core/modules/admin.php:361
+#: core/modules/admin.php:373
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr ""
 
-#: core/modules/admin.php:364
+#: core/modules/admin.php:376
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
 msgstr ""
@@ -774,21 +774,21 @@ msgid_plural "%s sources updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/src/Display/DisplaySettings.php:123
+#: core/src/Display/DisplaySettings.php:125
 msgctxt "Default value for the \"Author prefix\" display setting"
 msgid "By "
 msgstr ""
 
-#: core/src/Display/DisplaySettings.php:124
+#: core/src/Display/DisplaySettings.php:126
 msgctxt "Default value for the \"Read more text\" display setting"
 msgid "Read more"
 msgstr ""
 
-#: core/src/Importer/RssImageFinder.php:293
+#: core/src/Importer/RssImageFinder.php:302
 msgid "Failed to parse the feed's source URL."
 msgstr ""
 
-#: core/src/Importer/RssImageFinder.php:299
+#: core/src/Importer/RssImageFinder.php:308
 msgid "Feed does not have a source URL."
 msgstr ""
 
@@ -1336,6 +1336,10 @@ msgid "Use \"time ago\" format"
 msgstr ""
 
 #: core/js/dist/admin.js:42
+msgid "Shows dates as relative time (e.g. '2 days ago') instead of exact dates."
+msgstr ""
+
+#: core/js/dist/admin.js:42
 msgid "Show excerpt"
 msgstr ""
 
@@ -1654,6 +1658,10 @@ msgid "Upgrade to Basic to unlock additional layouts that showcase your content 
 msgstr ""
 
 #: core/js/dist/admin.js:42
+msgid "Any status"
+msgstr ""
+
+#: core/js/dist/admin.js:42
 msgid "[Deleted source]"
 msgstr ""
 
@@ -1687,15 +1695,15 @@ msgid "Select the sources to show in this display and choose a layout that fits 
 msgstr ""
 
 #: core/js/dist/admin.js:42
-msgid "Want to display a folder?"
-msgstr ""
-
-#: core/js/dist/admin.js:42
 msgid "You can display sources and folders together."
 msgstr ""
 
 #: core/js/dist/admin.js:42
 msgid "Search your folders by name"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgid "Item status"
 msgstr ""
 
 #: core/js/dist/admin.js:42
@@ -2413,6 +2421,30 @@ msgstr ""
 #: core/js/dist/admin.js:42
 #, js-format
 msgid "Modified: %s"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgid "Deleted"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgid "Rejected"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgid "Imported"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgid "Deleting"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgid "Rejecting"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgid "Approved, importing"
 msgstr ""
 
 #: core/js/dist/admin.js:42
@@ -3303,6 +3335,23 @@ msgid "Customize your settings to fit your source’s post content."
 msgstr ""
 
 #: core/js/dist/admin.js:83
+msgid "If you aren’t seeing any images, the source might not be providing them in the RSS feed."
+msgstr ""
+
+#: core/js/dist/admin.js:83
+msgid "There are no items that match the applied automations"
+msgstr ""
+
+#: core/js/dist/admin.js:83
+#, js-format
+msgid "Showing %d of %d available items."
+msgstr ""
+
+#: core/js/dist/admin.js:83
+msgid "Preview of available items"
+msgstr ""
+
+#: core/js/dist/admin.js:83
 #: core/js/dist/admin.js:131
 msgid "Content"
 msgstr ""
@@ -3492,23 +3541,6 @@ msgstr ""
 
 #: core/js/dist/admin.js:83
 msgid "Start import"
-msgstr ""
-
-#: core/js/dist/admin.js:83
-msgid "If you aren’t seeing any images, the source might not be providing them in the RSS feed."
-msgstr ""
-
-#: core/js/dist/admin.js:83
-msgid "There are no items that match the applied automations"
-msgstr ""
-
-#: core/js/dist/admin.js:83
-#, js-format
-msgid "Showing %d of %d available items."
-msgstr ""
-
-#: core/js/dist/admin.js:83
-msgid "Preview of available items"
 msgstr ""
 
 #: core/js/dist/admin.js:106
@@ -4591,30 +4623,6 @@ msgstr ""
 
 #: core/js/dist/admin.js:131
 msgid "When this limit is reached, older items from this source are deleted as new ones are imported."
-msgstr ""
-
-#: core/js/dist/admin.js:131
-msgid "Published"
-msgstr ""
-
-#: core/js/dist/admin.js:131
-msgid "Scheduled"
-msgstr ""
-
-#: core/js/dist/admin.js:131
-msgid "Draft"
-msgstr ""
-
-#: core/js/dist/admin.js:131
-msgid "Pending"
-msgstr ""
-
-#: core/js/dist/admin.js:131
-msgid "Private"
-msgstr ""
-
-#: core/js/dist/admin.js:131
-msgid "Trash"
 msgstr ""
 
 #: core/js/dist/admin.js:131

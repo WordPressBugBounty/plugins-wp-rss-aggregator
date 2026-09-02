@@ -47,9 +47,27 @@ wpra()->addModule(
 );
 
 wpra()->addModule(
+	'imageFinder',
+	array( 'settings' ),
+	function ( Settings $settings ): RssImageFinder {
+		$feedUserAgent = $settings->register( 'feedUserAgent' )
+			->setDefault( 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.97 Safari/537.36' )
+			->empty( array( '' ) )
+			->get();
+
+		return new RssImageFinder(
+			apply_filters( 'wpra.importer.imageFinder.cache.ttl', 30 * MINUTE_IN_SECONDS ),
+			apply_filters( 'wpra.importer.imageFinder.userAgent', $feedUserAgent ),
+			apply_filters( 'wpra.importer.imageFinder.request.timeout', 15 ),
+			apply_filters( 'wpra.importer.imageFinder.request.maxResponseSize', 5 * MB_IN_BYTES )
+		);
+	}
+);
+
+wpra()->addModule(
 	'importer',
-	array( 'db', 'settings', 'licensing', 'importer.sourceFetchPolicy' ),
-	function ( Database $db, Settings $settings, Licensing $licensing, SourceFetchPolicy $sourceFetchPolicy ) {
+	array( 'db', 'settings', 'licensing', 'importer.sourceFetchPolicy', 'imageFinder' ),
+	function ( Database $db, Settings $settings, Licensing $licensing, SourceFetchPolicy $sourceFetchPolicy, RssImageFinder $imageFinder ) {
 		$sslCertPath = $settings->register( 'sslCertPath' )->setDefault( implode( '/', array( WPINC, 'certificates', 'ca-bundle.crt' ) ) )->get();
 		if ( ! empty( $sslCertPath ) && ! path_is_absolute( $sslCertPath ) ) {
 			$sslCertPath = ABSPATH . $sslCertPath;
@@ -82,15 +100,7 @@ wpra()->addModule(
 		$progressStore = new ProgressStore( $db, $db->tableName( 'progress' ) );
 		$progressStore->createTable();
 
-		$irPostBuilder = new IrPostBuilder(
-			new RssImageFinder(
-				apply_filters( 'wpra.importer.imageFinder.cache.ttl', 30 * MINUTE_IN_SECONDS ),
-				apply_filters( 'wpra.importer.imageFinder.userAgent', $feedUserAgent ),
-				apply_filters( 'wpra.importer.imageFinder.request.timeout', 15 ),
-				apply_filters( 'wpra.importer.imageFinder.request.maxResponseSize', 5 * MB_IN_BYTES )
-			),
-			$licensing,
-		);
+		$irPostBuilder = new IrPostBuilder( $imageFinder, $licensing );
 
 		return new Importer(
 			$rssReader,

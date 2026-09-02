@@ -106,38 +106,38 @@ msgstr "Gestionar Plan"
 msgid "Logs"
 msgstr "Registros"
 
-#: core/modules/admin.php:307
+#: core/modules/admin.php:319
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr "Se requiere una única actualización manual para el plugin Aggregator Premium"
 
-#: core/modules/admin.php:308
+#: core/modules/admin.php:320
 msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr "Has actualizado correctamente el plugin gratuito a la v5.0.2."
 
-#: core/modules/admin.php:311
+#: core/modules/admin.php:323
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
 msgstr "Sin embargo, hemos detectado que todavía estás usando Aggregator Premium v%1$s. Debido a un problema de configuración en la v%2$s, no se están detectando las actualizaciones premium."
 
-#: core/modules/admin.php:316
+#: core/modules/admin.php:328
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
 msgstr "Esto se ha corregido en Premium v5.0.2, pero necesitarás realizar una única actualización manual del plugin Premium para restaurar las actualizaciones automáticas."
 
-#: core/modules/admin.php:319
+#: core/modules/admin.php:331
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr "Tus ajustes y datos permanecerán intactos. Si tienes alguna pregunta, por favor <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contacta con el soporte</a> para obtener ayuda."
 
-#: core/modules/admin.php:326
+#: core/modules/admin.php:338
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr "Después de actualizar Premium a la v5.0.2, los chequeos de las actualizaciones premium se reanudarán con normalidad."
 
-#: core/modules/admin.php:361
+#: core/modules/admin.php:373
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr "Descargar Premium v5.0.2"
 
-#: core/modules/admin.php:364
+#: core/modules/admin.php:376
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
 msgstr "Instrucciones paso a paso"
@@ -659,21 +659,21 @@ msgid_plural "%s sources updated."
 msgstr[0] "Fuente %s actualizada."
 msgstr[1] "Fuentes %s actualizadas."
 
-#: core/src/Display/DisplaySettings.php:123
+#: core/src/Display/DisplaySettings.php:125
 msgctxt "Default value for the \"Author prefix\" display setting"
 msgid "By "
 msgstr "Por "
 
-#: core/src/Display/DisplaySettings.php:124
+#: core/src/Display/DisplaySettings.php:126
 msgctxt "Default value for the \"Read more text\" display setting"
 msgid "Read more"
 msgstr "Leer más"
 
-#: core/src/Importer/RssImageFinder.php:293
+#: core/src/Importer/RssImageFinder.php:302
 msgid "Failed to parse the feed's source URL."
 msgstr "No se pudo analizar la URL de la fuente del feed."
 
-#: core/src/Importer/RssImageFinder.php:299
+#: core/src/Importer/RssImageFinder.php:308
 msgid "Feed does not have a source URL."
 msgstr "El feed no tiene una URL de origen."
 

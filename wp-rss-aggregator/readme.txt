@@ -6,7 +6,7 @@ Commercial: https://www.wprssaggregator.com/pricing/
 Requires at least: 6.2.2 or higher
 Tested up to: 7.0
 Requires PHP: 7.4.0
-Stable tag: 5.4.0
+Stable tag: 5.5.0
 License: GPLv3
 
 The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
@@ -72,7 +72,7 @@ There is a lot more to an RSS aggregator than meets the eye. Here are a few addi
 
 Your website deserves the best, so we've been building [premium upgrades](https://www.wprssaggregator.com/upgrade/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description) for WP RSS Aggregator since 2013 with the goal of helping you deliver the best experience possible to your visitors while improving your website's performance.
 
-* **[AI Content Suite](https://www.wprssaggregator.com/features/ai-content-suite/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Automatically summarize or rewrite imported articles right inside your import workflow, 
+* **[AI Content Suite](https://www.wprssaggregator.com/features/ai-content-suite/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Automatically summarize or rewrite imported articles right inside your import workflow,
 
 * **[Feed to Post](https://www.wprssaggregator.com/features/feed-to-post/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description) (❤️ Most Popular)**: Automatically convert RSS feeds into WordPress posts, pages, or any custom post type.
 
@@ -264,7 +264,35 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 == Changelog ==
 
-= 5.4.0 (2026-08-10) =
+= 5.5.0 (2026-09-02) =
+
+**Added**
+- Displays can now be filtered by Item Status, with new Displays defaulting to Published while existing Displays keep their current Any status behavior.
+
+**Changed**
+- Hub row, selection, action, and preview states now match the intended interface.
+- Hub bulk actions now show clear deleting, deleted, rejecting, rejected, and imported states.
+- Newly imported images now keep useful source filenames instead of being given generic ones.
+- Imported images now keep their source alt text in the Media Library and on featured images.
+
+**Fixed**
+- Pending-item links on the Sources page now open the Hub filtered to the selected source.
+- Sources bulk actions are now cleared once the selected sources have been deleted.
+- Source preview automation notices now appear on the Details and Advanced tabs when every available item has been filtered out.
+- Whole-word automation rules no longer match parts of punctuated terms such as AT&T, Wi-Fi, and TCP/IP.
+- The last link in a source's attribution text is no longer stripped when you save an edited source.
+- Sources no longer fail when Remove Unwanted Content rules are applied while on the Plus Plan.
+- Fixed "Keep Only Matching Elements" content-cleaning rules and contained rare cleanup failures without interrupting imports.
+- Updating a source no longer removes existing AI content, and newly enabled AI content is now applied.
+- Expired or missing Full Text licences no longer continue using the Full Text service.
+- Full Text imports now select the article's featured image rather than a logo or other small image.
+- The Display publish date format field is now locked while relative "time ago" dates are enabled.
+- When using the "Excerpts & Thumbnails" displays layout, image sizing no longer pushes excerpts out of view.
+- Empty folders are easier to create, and no longer show a phantom source once created.
+- Rank Math no longer overrides Aggregator's canonical link setting on imported posts.
+- Fixed alignment on the Tutorials page, made card images consistent, and enlarged card click targets.
+
+= 5.4.0 (2026-08-11) =
 
 **Added**
 - Added a date and time column to the Hub so imported and pending items are easier to review.

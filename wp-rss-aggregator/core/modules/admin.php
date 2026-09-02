@@ -103,7 +103,7 @@ wpra()->addModule(
 				$count = apply_filters( 'wpra.admin.menu.badge', '' );
 				$display = empty( $count ) ? 'none' : 'inline-block';
 				$badge = <<<HTML
-            <span class="update-plugins wpra-shell-menu-badge" style="display: {$display}">
+            <span class="update-plugins wpra-shell-menu-badge" style="display: {$display}; pointer-events: none;">
                 <span class="plugins-count">{$count}</span>
             </span>
             HTML;
@@ -238,6 +238,18 @@ wpra()->addModule(
 								),
 							),
 							get_post_types( array( 'public' => true ), 'objects' )
+						)
+					),
+					'postStatuses' => array_values(
+						array_map(
+							fn ( $postStatus ) => array(
+								'slug' => $postStatus->name,
+								'label' => $postStatus->label ?: $postStatus->name,
+							),
+							array_filter(
+								get_post_stati( array(), 'objects' ),
+								fn ( $postStatus ) => ! $postStatus->internal || $postStatus->show_in_admin_status_list
+							)
 						)
 					),
 					'tokenTypes' => array(),

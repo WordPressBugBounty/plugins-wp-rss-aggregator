@@ -200,7 +200,13 @@ class IrPostBuilder {
 		return array( $pubDate, $modDate );
 	}
 
-	/** @return list<IrImage> */
+	/**
+	 * Builds the list of images that can be imported for a post.
+	 *
+	 * @since 5.5.0 Backfills alt text from matching content images.
+	 *
+	 * @return list<IrImage>
+	 */
 	public function buildImages( string $content, RssItem $item, Source $src ): array {
 		if ( $this->licensing->getTier() === Tier::Free ) {
 			return array();
@@ -208,7 +214,23 @@ class IrPostBuilder {
 		if ( ! $src->settings->downloadImages && ! $src->settings->assignFtImage ) {
 			return array();
 		}
-		return iterator_to_array( $this->imgFinder->findAllImages( $content, $item, $src ) );
+
+		$images = iterator_to_array( $this->imgFinder->findAllImages( $content, $item, $src ) );
+		$contentAltByUrl = array();
+
+		foreach ( $images as $image ) {
+			if ( $image->source === IrImage::FROM_CONTENT && $image->altText !== '' && ! isset( $contentAltByUrl[ $image->url ] ) ) {
+				$contentAltByUrl[ $image->url ] = $image->altText;
+			}
+		}
+
+		foreach ( $images as $image ) {
+			if ( $image->altText === '' && isset( $contentAltByUrl[ $image->url ] ) ) {
+				$image->altText = $contentAltByUrl[ $image->url ];
+			}
+		}
+
+		return $images;
 	}
 
 	/** @param list<IrImage> $images */

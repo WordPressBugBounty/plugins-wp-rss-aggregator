@@ -567,6 +567,14 @@ class Renderer {
 		$whereList = array( '`m`.`meta_key` = %s' );
 		$args[] = ImportedPost::SOURCE;
 
+		if (
+			isset( $display->settings->postStatus )
+			&& $display->settings->postStatus !== 'any'
+		) {
+			$whereList[] = '`post_status` = %s';
+			$args[] = $display->settings->postStatus;
+		}
+
 		$srcIds = apply_filters( 'wpra.renderer.display.sources', $display->sources, $display );
 		if ( ! empty( $srcIds ) ) {
 			$srcIdList = $this->db->prepareList( $srcIds, '', $args );

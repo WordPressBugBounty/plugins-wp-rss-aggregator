@@ -41,6 +41,8 @@ class IrImage implements ArraySerializable {
 	/** @var IrImage[] */
 	public array $sizes = array();
 	public string $requestUserAgent = '';
+	/** @since 5.5.0 */
+	public string $altText = '';
 
 	/**
 	 * Constructor.
@@ -49,12 +51,15 @@ class IrImage implements ArraySerializable {
 	 * @param string    $source The source of the image.
 	 * @param Size|null $size The size of the image.
 	 * @param IrImage[] $sizes Alternative image sizes for this image.
+	 * @param string    $altText The alt text of the image.
+	 * @since 5.5.0 Supports image alt text.
 	 */
-	public function __construct( string $url, string $source, Size $size = null, array $sizes = array() ) {
+	public function __construct( string $url, string $source, Size $size = null, array $sizes = array(), string $altText = '' ) {
 		$this->url = $url;
 		$this->size = $size;
 		$this->source = $source;
 		$this->sizes = $sizes;
+		$this->altText = self::sanitizeAltText( $altText );
 	}
 
 	/**
@@ -62,6 +67,7 @@ class IrImage implements ArraySerializable {
 	 *
 	 * @param int $postId Optional ID of the post to associate the image with. Use zero to only download the image.
 	 * @return Result<int> The result, containing the ID of the downloaded image if successful.
+	 * @since 5.5.0 Writes attachment alt text when available.
 	 */
 	public function download( int $postId = 0 ): Result {
 		if ( ! function_exists( 'media_handle_sideload' ) ) {
@@ -99,6 +105,7 @@ class IrImage implements ArraySerializable {
 		);
 
 		if ( count( $existing ) > 0 && is_object( $existing[0] ) ) {
+			$this->updateAttachmentAltText( (int) $existing[0]->ID );
 			return Result::Ok( $existing[0]->ID );
 		}
 
@@ -106,19 +113,20 @@ class IrImage implements ArraySerializable {
 			? sprintf( '[Aggregator] Downloaded image for imported item #%d', $postId )
 			: 'Imported by WP RSS Aggregator';
 
-		// Fast path: normal media sideload.
+		// Normal sideload with a filename derived from the original image URL.
 		$id = $this->withImageRequestArgs(
 			$this->url,
 			function () use ( $postId, $desc ) {
-				return media_sideload_image( $this->url, $postId, $desc, 'id' );
+				return $this->sideload_image( $this->url, $postId, $desc );
 			}
 		);
 		if ( ! is_wp_error( $id ) ) {
 			update_post_meta( $id, ImportedMedia::SOURCE_URL, $this->url );
+			$this->updateAttachmentAltText( (int) $id );
 			return Result::Ok( (int) $id );
 		}
 
-		// Robust fallback sideload.
+		// Retry after normalizing common HTML/JSON escaping in the image URL.
 		$this->url = trim( html_entity_decode( $this->url ) );
 		$id = $this->withImageRequestArgs(
 			$this->url,
@@ -128,6 +136,7 @@ class IrImage implements ArraySerializable {
 		);
 		if ( ! is_wp_error( $id ) ) {
 			update_post_meta( $id, ImportedMedia::SOURCE_URL, $this->url );
+			$this->updateAttachmentAltText( (int) $id );
 			return Result::Ok( (int) $id );
 		}
 
@@ -135,6 +144,7 @@ class IrImage implements ArraySerializable {
 		$id = $this->sideload_image_with_remote_get( $this->url, $postId, $desc );
 		if ( ! is_wp_error( $id ) ) {
 			update_post_meta( $id, ImportedMedia::SOURCE_URL, $this->url );
+			$this->updateAttachmentAltText( (int) $id );
 			return Result::Ok( (int) $id );
 		}
 
@@ -172,7 +182,8 @@ class IrImage implements ArraySerializable {
 		);
 
 		if ( count( $existing ) > 0 ) {
-			return Result::Ok( $existing[0]->ID );
+			$this->updateAttachmentAltText( (int) $existing[0] );
+			return Result::Ok( (int) $existing[0] );
 		}
 
 		$tmp_file = wp_tempnam( 'wprss-datauri' );
@@ -206,6 +217,7 @@ class IrImage implements ArraySerializable {
 		if ( ! is_wp_error( $id ) ) {
 			update_post_meta( $id, 'wprss_source_data_hash', $hash );
 			update_post_meta( $id, ImportedMedia::SOURCE_URL, $this->url );
+			$this->updateAttachmentAltText( (int) $id, $filename );
 			return Result::Ok( $id );
 		}
 
@@ -221,23 +233,10 @@ class IrImage implements ArraySerializable {
 			return $tmp_file;
 		}
 
-		$finfo = finfo_open( FILEINFO_MIME_TYPE );
-		$mime_type = finfo_file( $finfo, $tmp_file );
-		finfo_close( $finfo );
+		$mime_type = wp_get_image_mime( $tmp_file );
+		$mime_type = is_string( $mime_type ) ? $mime_type : '';
 
-		$mime_to_ext = array(
-			'image/jpeg' => '.jpg',
-			'image/png'  => '.png',
-			'image/gif'  => '.gif',
-			'image/bmp'  => '.bmp',
-			'image/webp' => '.webp',
-		);
-
-		$extension = $mime_to_ext[ $mime_type ] ?? '.jpg';
-		$filename = basename( parse_url( $url, PHP_URL_PATH ) );
-		if ( ! preg_match( '/\.(jpe?g|png|gif|bmp|webp)$/i', $filename ) ) {
-			$filename .= $extension;
-		}
+		$filename = self::getRemoteImageFilename( $url, $mime_type );
 
 		$file_array = array(
 			'name' => $filename,
@@ -248,6 +247,8 @@ class IrImage implements ArraySerializable {
 			@unlink( $tmp_file );
 			return $id;
 		}
+
+		$this->updateAttachmentAltText( (int) $id, $filename );
 
 		return $id;
 	}
@@ -293,10 +294,10 @@ class IrImage implements ArraySerializable {
 		$tmp = wp_tempnam( 'wprss-img' );
 		file_put_contents( $tmp, $body );
 
-		$filename = basename( parse_url( $url, PHP_URL_PATH ) );
-		$filename = preg_replace( '/\.(jpgx|pngx|jpegx)$/i', '.jpg', $filename );
+		$mimeType = (string) wp_remote_retrieve_header( $response, 'content-type' );
+		$filename = self::getRemoteImageFilename( $url, $mimeType );
 		$file_array = array(
-			'name' => $filename ?: 'image.jpg',
+			'name' => $filename,
 			'tmp_name' => $tmp,
 		);
 
@@ -306,7 +307,253 @@ class IrImage implements ArraySerializable {
 			return $id;
 		}
 
+		$this->updateAttachmentAltText( (int) $id, $file_array['name'] );
+
 		return $id;
+	}
+
+	/**
+	 * Builds a safe filename candidate for a remote image URL.
+	 *
+	 * @since 5.5.0
+	 *
+	 * @param string $url The remote image URL.
+	 * @param string $mimeType Optional detected image MIME type.
+	 * @return string The filename candidate to pass to WordPress sideloading.
+	 */
+	private static function getRemoteImageFilename( string $url, string $mimeType = '' ): string {
+		$url = trim( html_entity_decode( $url, ENT_QUOTES | ENT_HTML5 ) );
+		$url = str_replace( '\\/', '/', $url );
+
+		$path = parse_url( $url, PHP_URL_PATH );
+		$filename = is_string( $path ) ? rawurldecode( basename( $path ) ) : '';
+		$filename = self::fixPseudoImageExtension( $filename );
+
+		$extensions = self::getImageExtensions( $filename, $mimeType );
+		$base = $extensions['matched'] !== ''
+			? preg_replace( '/\.' . preg_quote( $extensions['matched'], '/' ) . '$/i', '', $filename )
+			: $filename;
+
+		$base = self::sanitizeFilenamePart( (string) $base );
+		if ( ! self::isUsableImageFilenameBase( $base, $extensions['matched'] ) ) {
+			$base = 'image-' . substr( hash( 'sha256', $url ), 0, 12 );
+		}
+
+		if ( $extensions['normalized'] === '' ) {
+			$extensions['normalized'] = 'jpg';
+		}
+
+		return $base . '.' . $extensions['normalized'];
+	}
+
+	/**
+	 * Gets image extensions from a filename or MIME type.
+	 *
+	 * @since 5.5.0
+	 *
+	 * @param string $filename The filename candidate.
+	 * @param string $mimeType Optional detected image MIME type.
+	 * @return array{matched:string,normalized:string} The matched and normalized extensions without leading dots.
+	 */
+	private static function getImageExtensions( string $filename, string $mimeType = '' ): array {
+		if ( preg_match( '/\.(jpe?g|jpe|png|gif|bmp|webp|avif|tiff?|ico)$/i', $filename, $matches ) ) {
+			$extension = strtolower( $matches[1] );
+			return array(
+				'matched' => $extension,
+				'normalized' => $extension === 'jpeg' || $extension === 'jpe' ? 'jpg' : $extension,
+			);
+		}
+
+		$mimeType = strtolower( trim( explode( ';', $mimeType )[0] ) );
+		$mimeToExt = array(
+			'image/jpeg'                => 'jpg',
+			'image/png'                 => 'png',
+			'image/gif'                 => 'gif',
+			'image/bmp'                 => 'bmp',
+			'image/webp'                => 'webp',
+			'image/avif'                => 'avif',
+			'image/tiff'                => 'tif',
+			'image/x-icon'              => 'ico',
+			'image/vnd.microsoft.icon' => 'ico',
+		);
+
+		$extension = $mimeToExt[ $mimeType ] ?? '';
+
+		return array(
+			'matched' => '',
+			'normalized' => $extension,
+		);
+	}
+
+	/**
+	 * Corrects malformed image extensions observed in remote image URLs.
+	 *
+	 * @since 5.5.0
+	 *
+	 * @param string $filename The filename candidate.
+	 * @return string The filename with a corrected pseudo-extension.
+	 */
+	private static function fixPseudoImageExtension( string $filename ): string {
+		return (string) preg_replace_callback(
+			'/\.(jpgx|jpegx|pngx)$/i',
+			function ( array $matches ): string {
+				$extension = strtolower( $matches[1] );
+				return $extension === 'pngx' ? '.png' : '.jpg';
+			},
+			$filename
+		);
+	}
+
+	/**
+	 * Sanitizes one filename segment before WordPress applies final upload rules.
+	 *
+	 * @since 5.5.0
+	 *
+	 * @param string $part The filename segment.
+	 * @return string The sanitized filename segment.
+	 */
+	private static function sanitizeFilenamePart( string $part ): string {
+		$part = trim( $part );
+		$part = sanitize_file_name( $part );
+
+		return trim( (string) $part, '.-_' );
+	}
+
+	/**
+	 * Checks whether a URL path segment carries usable filename information.
+	 *
+	 * @since 5.5.0
+	 *
+	 * @param string $base The sanitized filename base.
+	 * @param string $matchedExtension The extension matched from the URL, if any.
+	 * @return bool Whether the filename base should be used.
+	 */
+	private static function isUsableImageFilenameBase( string $base, string $matchedExtension ): bool {
+		if ( $base === '' || $base === '.' || $base === '..' ) {
+			return false;
+		}
+
+		return $matchedExtension !== '' || preg_match( '/[A-Za-z]/', $base ) === 1;
+	}
+
+	/**
+	 * Updates an attachment's alt text when the importer has a useful value.
+	 *
+	 * @since 5.5.0
+	 *
+	 * @param int    $id The attachment ID.
+	 * @param string $filename Optional filename to use for fallback alt text.
+	 */
+	private function updateAttachmentAltText( int $id, string $filename = '' ): void {
+		$currentAlt = get_post_meta( $id, '_wp_attachment_image_alt', true );
+		if ( is_string( $currentAlt ) && trim( $currentAlt ) !== '' ) {
+			return;
+		}
+
+		$altText = $this->resolveAttachmentAltText( $filename );
+		if ( $altText === '' ) {
+			return;
+		}
+
+		update_post_meta( $id, '_wp_attachment_image_alt', $altText );
+	}
+
+	/**
+	 * Resolves alt text from source alt text first, then from a readable filename.
+	 *
+	 * @since 5.5.0
+	 *
+	 * @param string $filename Optional filename to use for fallback alt text.
+	 * @return string The resolved alt text, or an empty string when none is useful.
+	 */
+	private function resolveAttachmentAltText( string $filename = '' ): string {
+		if ( $this->altText !== '' ) {
+			return $this->altText;
+		}
+
+		$fallback = $filename !== ''
+			? $filename
+			: $this->url;
+
+		return self::altTextFromFilename( $fallback );
+	}
+
+	/**
+	 * Builds readable fallback alt text from an image filename.
+	 *
+	 * @since 5.5.0
+	 *
+	 * @param string $filename The filename or URL to inspect.
+	 * @return string The readable fallback alt text, or an empty string.
+	 */
+	public static function altTextFromFilename( string $filename ): string {
+		$path = wp_parse_url( html_entity_decode( $filename, ENT_QUOTES | ENT_HTML5 ), PHP_URL_PATH );
+		$name = is_string( $path ) && $path !== ''
+			? basename( $path )
+			: basename( $filename );
+
+		$name = rawurldecode( $name );
+		$name = preg_replace( '/\.(jpe?g|png|gif|bmp|webp|avif)$/i', '', $name );
+		$name = preg_replace( '/-\d+x\d+$/', '', $name );
+		$name = preg_replace( '/\b\d{3,5}x\d{3,5}\b/', ' ', $name );
+		$name = preg_replace( '/[._-]+/', ' ', $name );
+		$name = preg_replace( '/\b\d{8,}\b$/', '', $name );
+		$name = self::sanitizeAltText( $name ?? '' );
+
+		if ( $name === '' || self::isGenericFilenameAltText( $name ) ) {
+			return '';
+		}
+
+		return ucfirst( strtolower( $name ) );
+	}
+
+	/**
+	 * Sanitizes image alt text before storing it as attachment meta.
+	 *
+	 * @since 5.5.0
+	 *
+	 * @param string $altText The raw alt text.
+	 * @return string The sanitized alt text.
+	 */
+	private static function sanitizeAltText( string $altText ): string {
+		$altText = html_entity_decode( $altText, ENT_QUOTES | ENT_HTML5 );
+		$altText = trim( preg_replace( '/\s+/', ' ', $altText ) ?? '' );
+
+		return sanitize_text_field( $altText );
+	}
+
+	/**
+	 * Checks whether filename-derived alt text is too generic to be useful.
+	 *
+	 * @since 5.5.0
+	 *
+	 * @param string $altText The normalized filename alt text.
+	 * @return bool True when the text should not be used as fallback alt text.
+	 */
+	private static function isGenericFilenameAltText( string $altText ): bool {
+		$normalized = strtolower( preg_replace( '/\s+/', '', $altText ) ?? '' );
+
+		if ( ! preg_match( '/[a-z]/', $normalized ) ) {
+			return true;
+		}
+
+		if ( preg_match( '/^(img|dsc|image|photo|picture|thumbnail|thumb|cropped|intro|hero|main|featured|media|asset|upload|file|original|large|small)\d*$/', $normalized ) ) {
+			return true;
+		}
+
+		if ( preg_match( '/^(img|dsc|image|photo|picture|thumbnail|thumb|cropped|intro|hero|main|featured|media|asset|upload|file|original|large|small)[0-9a-f]{4,}$/', $normalized ) ) {
+			return true;
+		}
+
+		if ( preg_match( '/^[a-z](intro|hero|main|featured|media|asset|upload|file|original|large|small)$/', $normalized ) ) {
+			return true;
+		}
+
+		if ( preg_match( '/^[0-9a-f]{10,}$/', $normalized ) ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**
@@ -360,23 +607,33 @@ class IrImage implements ArraySerializable {
 		return trim( $this->requestUserAgent );
 	}
 
-	/** Converts the IR image into an array. */
+	/**
+	 * Converts the IR image into an array.
+	 *
+	 * @since 5.5.0 Includes image alt text in the serialized value.
+	 */
 	public function toArray(): array {
 		return array(
 			'url' => $this->url,
 			'source' => $this->source,
+			'altText' => $this->altText,
 			'size' => $this->size ? $this->size->toArray() : null,
 			'sizes' => Arrays::map( $this->sizes, fn ( IrImage $image ) => $image->toArray() ),
 		);
 	}
 
-	/** @param array<string,mixed> $array */
+	/**
+	 * @since 5.5.0 Restores image alt text from the serialized value.
+	 *
+	 * @param array<string,mixed> $array
+	 */
 	public static function fromArray( array $array ): self {
 		return new self(
 			$array['url'] ?? '',
 			$array['source'] ?? '',
 			isset( $array['size'] ) ? Size::fromArray( $array['size'] ) : null,
-			Arrays::map( $array['sizes'] ?? array(), fn ( array $size ) => self::fromArray( $size ) )
+			Arrays::map( $array['sizes'] ?? array(), fn ( array $size ) => self::fromArray( $size ) ),
+			$array['altText'] ?? ''
 		);
 	}
 

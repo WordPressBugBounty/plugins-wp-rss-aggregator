@@ -12,6 +12,8 @@ class DisplaySettings implements ArraySerializable {
 
 	public string $layout = 'list';
 	public int $numItems = 15;
+	/** @since 5.5.0 */
+	public string $postStatus = 'any';
 	public string $htmlClass = '';
 
 	public array $filters = array();
@@ -125,7 +127,11 @@ class DisplaySettings implements ArraySerializable {
 		$this->patch( $settings );
 	}
 
-	/** @param iterable<string,mixed> $settings */
+	/**
+	 * @since 5.5.0 Supports the Display post status setting.
+	 *
+	 * @param iterable<string,mixed> $settings
+	 */
 	public function patch( iterable $settings ): self {
 		foreach ( $settings as $key => $value ) {
 			if ( ! property_exists( $this, $key ) ) {
@@ -135,6 +141,11 @@ class DisplaySettings implements ArraySerializable {
 			switch ( $key ) {
 				case 'imageHeight':
 					$this->imageHeight = (int) $value;
+					break;
+				case 'postStatus':
+					$this->postStatus = is_string( $value ) && $value !== ''
+						? preg_replace( '/[^a-z0-9_\-]/', '', strtolower( $value ) )
+						: 'any';
 					break;
 				default:
 					$value = apply_filters( "wpra.display.settings.patch.$key", $value, $this );

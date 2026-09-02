@@ -117,6 +117,9 @@ abstract class Strings {
 	 * @param bool   $wholeWords Whether the needle must be surround by word
 	 *          boundaries, or whether it can start or end mid-word.
 	 * @return bool True if the haystack contains the needle, false if not.
+	 *
+	 * @since 5.5.0 Treat common mid-token punctuation as part of the word token for whole-word
+	 *              matching.
 	 */
 	public static function contains(
 		string $haystack,
@@ -125,12 +128,15 @@ abstract class Strings {
 		bool $wholeWords = false
 	): bool {
 		if ( ! $matchCase ) {
-			$haystack = strtolower( $haystack );
-			$needle = strtolower( $needle );
+			$haystack = self::lower( $haystack );
+			$needle = self::lower( $needle );
 		}
 
 		if ( $wholeWords ) {
-			return preg_match( '/\b' . preg_quote( $needle, '/' ) . '\b/', $haystack ) === 1;
+			$boundary = '[\w&.\-\/]';
+			$pattern = '/(?<!' . $boundary . ')' . preg_quote( $needle, '/' )
+				. '(?!' . $boundary . ')/u';
+			return preg_match( $pattern, $haystack ) === 1;
 		} else {
 			return strpos( $haystack, $needle ) !== false;
 		}

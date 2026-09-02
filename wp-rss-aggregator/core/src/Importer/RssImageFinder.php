@@ -89,6 +89,8 @@ class RssImageFinder {
 	/**
 	 * Finds images in HTML content.
 	 *
+	 * @since 5.5.0 Preserves source alt text for imported images.
+	 *
 	 * @return Generator<int,IrImage>
 	 */
 	public function findInHtml( string $content, bool $doSrcSet = false ): Generator {
@@ -108,10 +110,14 @@ class RssImageFinder {
 
 			$srcNode = $img->attributes->getNamedItem( 'src' );
 			$srcSetNode = $img->attributes->getNamedItem( 'srcset' );
+			$altNode = $img->attributes->getNamedItem( 'alt' );
+			$altText = $altNode !== null
+				? trim( $altNode->nodeValue ?? '' )
+				: '';
 
 			if ( $srcNode !== null ) {
 				$src = trim( $srcNode->nodeValue ?? '' );
-				yield new IrImage( $src, IrImage::FROM_CONTENT );
+				yield new IrImage( $src, IrImage::FROM_CONTENT, null, array(), $altText );
 			}
 
 			if ( $doSrcSet && $srcSetNode !== null ) {
@@ -123,7 +129,7 @@ class RssImageFinder {
 					$pieces = preg_split( '!(\s+)!m', $entry );
 
 					if ( $pieces !== false && count( $pieces ) > 0 ) {
-						yield new IrImage( $pieces[0], IrImage::FROM_CONTENT );
+						yield new IrImage( $pieces[0], IrImage::FROM_CONTENT, null, array(), $altText );
 					}
 				}
 			}
@@ -277,6 +283,8 @@ class RssImageFinder {
 	/**
 	 * Processes image URLs.
 	 *
+	 * @since 5.5.0 Normalizes HTML-encoded URLs and removes duplicate image variants.
+	 *
 	 * @param iterable<IrImage> $images The list of images.
 	 * @param RssItem           $item The RSS item.
 	 * @param Source            $source The source.
@@ -284,6 +292,7 @@ class RssImageFinder {
 	 */
 	public function processImageUrls( iterable $images, RssItem $item, Source $source ): Generator {
 		$srcUrl = $item->getFeed()->getSourceUrl();
+		$seenUrls = array();
 
 		if ( $srcUrl ) {
 			$scheme = parse_url( $srcUrl, PHP_URL_SCHEME ) ?: null;
@@ -307,6 +316,8 @@ class RssImageFinder {
 
 			// Only perform URL manipulation on non-data URIs
 			if ( strpos( $image->url, 'data:image' ) !== 0 ) {
+				$image->url = trim( html_entity_decode( $image->url, ENT_QUOTES | ENT_HTML5 ) );
+
 				if ( ! Uri::isAbsolute( $image->url ) ) {
 					$image->url = $baseUrl . $image->url;
 				}
@@ -320,6 +331,26 @@ class RssImageFinder {
 						return $query;
 					}
 				);
+
+				$identityUrl = Uri::modifyQuery(
+					$image->url,
+					function ( array $query ) {
+						unset( $query['strip'] );
+						unset( $query['quality'] );
+						ksort( $query );
+						return $query;
+					}
+				);
+
+				if ( isset( $seenUrls[ $identityUrl ] ) ) {
+					$existing = $seenUrls[ $identityUrl ];
+					if ( $existing->altText === '' && $image->altText !== '' ) {
+						$existing->altText = $image->altText;
+					}
+					continue;
+				}
+
+				$seenUrls[ $identityUrl ] = $image;
 			}
 
 			$size = $this->getImageSize( $image->url );
