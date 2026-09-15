@@ -21,20 +21,21 @@ wpra()->addModule(
 		);
 
 		$disableStyles = $settings->register( 'disableStyles' )->setDefault( false )->get();
-		if ( ! $disableStyles ) {
-			add_action(
-				'init',
-				function () use ( $wpra ) {
+		add_action(
+			'init',
+			function () use ( $wpra, $disableStyles ) {
+				wp_register_script( 'wpra-lightbox', $wpra->url . '/core/js/jquery-colorbox.min.js', array( 'jquery' ), $wpra->version );
+
+				wp_register_script( 'wpra-htmx', $wpra->url . '/core/js/htmx-1.9.12.min.js', array(), '1.9.12' );
+
+				wp_register_script( 'wpra-displays', $wpra->url . '/core/js/displays.js', array( 'wpra-lightbox', 'wpra-htmx' ), $wpra->version );
+
+				if ( ! $disableStyles ) {
 					wp_enqueue_style( 'wpra-lightbox', $wpra->url . '/core/css/jquery-colorbox.css', array(), '1.4.33' );
-					wp_register_script( 'wpra-lightbox', $wpra->url . '/core/js/jquery-colorbox.min.js', array( 'jquery' ), $wpra->version );
-
-					wp_register_script( 'wpra-htmx', $wpra->url . '/core/js/htmx-1.9.12.min.js', array(), '1.9.12' );
-
 					wp_register_style( 'wpra-displays', $wpra->url . '/core/css/displays.css', array( 'wpra-lightbox' ), $wpra->version );
-					wp_register_script( 'wpra-displays', $wpra->url . '/core/js/displays.js', array( 'wpra-lightbox', 'wpra-htmx' ), $wpra->version );
 				}
-			);
-		}
+			}
+		);
 
 		$ajaxRender = function () use ( $renderer ) {
 			$dataJson = filter_input( INPUT_POST, 'data' );

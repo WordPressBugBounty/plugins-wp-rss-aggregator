@@ -4,9 +4,9 @@ Plugin URI: https://www.wprssaggregator.com
 Tags: rss aggregator, news feed, autoblogging, feed to post, news aggregator
 Commercial: https://www.wprssaggregator.com/pricing/
 Requires at least: 6.2.2 or higher
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4.0
-Stable tag: 5.5.0
+Stable tag: 5.6.0
 License: GPLv3
 
 The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
@@ -263,6 +263,24 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 
 == Changelog ==
+
+= 5.6.0 (2026-09-15) =
+
+**Added**
+- Added notices that explain when WordPress Cron is disabled, so administrators know scheduled imports will not run.
+- Added a `wpra-attribution` CSS hook so Source attribution can be styled through theme CSS.
+
+**Changed**
+- Licence validation now accepts additional common staging and local-development URLs.
+
+**Fixed**
+- Searchable Sources, Folders, and Displays lists now clearly report when no results match a search.
+- Source migrations now preserve zero as a valid minimum image width or height.
+- The Manage Plan page no longer shows a licence panel when Premium is not installed.
+- Display pagination continues to work when plugin styles are disabled.
+- Clearing Source attribution or Custom Text no longer leaves empty output or spacing.
+- Display excerpts now retain spacing between list items.
+- Source previews now show configured Custom Text before and after content.
 
 = 5.5.0 (2026-09-02) =
 

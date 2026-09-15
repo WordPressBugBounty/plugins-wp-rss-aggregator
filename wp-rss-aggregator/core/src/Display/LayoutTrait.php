@@ -98,7 +98,7 @@ trait LayoutTrait {
 			return '';
 		}
 
-		$excerpt = $post->excerpt ?: $post->content;
+		$excerpt = $this->separateListItems( $post->excerpt ?: $post->content );
 		$render_link = '';
 		if ( ! empty( $this->ds->excerptMaxWords ) ) {
 			$numWords = max( 0, $this->ds->excerptMaxWords );
@@ -111,6 +111,21 @@ trait LayoutTrait {
 		}
 
 		return wp_strip_all_tags( $excerpt ) . $render_link;
+	}
+
+	/**
+	 * Adds plain-text separators after list items before the Display excerpt is
+	 * converted to plain text.
+	 *
+	 * @since 5.6.0
+	 *
+	 * @param string $html The excerpt HTML.
+	 * @return string The excerpt HTML with list-item boundaries separated.
+	 */
+	private function separateListItems( string $html ): string {
+		$result = preg_replace( '#(</li\\s*>)#i', '$1 ', $html );
+
+		return is_string( $result ) ? $result : $html;
 	}
 
 	/** Renders an item's author, if enabled and applicable. */

@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP RSS Aggregator 5.5.0\n"
+"Project-Id-Version: WP RSS Aggregator 5.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-rss-aggregator\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-01T12:27:51+00:00\n"
+"POT-Creation-Date: 2026-09-14T13:25:57+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-rss-aggregator\n"
@@ -112,38 +112,53 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: core/modules/admin.php:319
+#: core/modules/admin.php:302
+#: core/modules/aiHubPromotionalNotice.php:107
+msgid "Unauthorized"
+msgstr ""
+
+#: core/modules/admin.php:334
+msgid "WordPress cron is disabled on this site."
+msgstr ""
+
+#. translators: %s: Cron help URL.
+#: core/modules/admin.php:340
+#, php-format
+msgid "Aggregator cannot import new items on schedule. If your host runs a server cron job instead, you can safely dismiss this notice. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">How to fix it.</a>"
+msgstr ""
+
+#: core/modules/admin.php:471
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr ""
 
-#: core/modules/admin.php:320
+#: core/modules/admin.php:472
 msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr ""
 
-#: core/modules/admin.php:323
+#: core/modules/admin.php:475
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
 msgstr ""
 
-#: core/modules/admin.php:328
+#: core/modules/admin.php:480
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
 msgstr ""
 
-#: core/modules/admin.php:331
+#: core/modules/admin.php:483
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr ""
 
-#: core/modules/admin.php:338
+#: core/modules/admin.php:490
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr ""
 
-#: core/modules/admin.php:373
+#: core/modules/admin.php:525
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr ""
 
-#: core/modules/admin.php:376
+#: core/modules/admin.php:528
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
 msgstr ""
@@ -218,10 +233,6 @@ msgstr ""
 #: core/modules/aiHubPromotionalNotice.php:80
 #, php-format
 msgid "Want to try it out? <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Upgrade to get instant access</a></strong>"
-msgstr ""
-
-#: core/modules/aiHubPromotionalNotice.php:107
-msgid "Unauthorized"
 msgstr ""
 
 #: core/modules/aiHubPromotionalNotice.php:114
@@ -1864,6 +1875,11 @@ msgstr ""
 
 #: core/js/dist/admin.js:42
 #, js-format
+msgid "No displays found matching “%s”."
+msgstr ""
+
+#: core/js/dist/admin.js:42
+#, js-format
 msgid "%d display"
 msgid_plural "%d displays"
 msgstr[0] ""
@@ -1970,6 +1986,11 @@ msgstr ""
 
 #: core/js/dist/admin.js:42
 msgid "Create your first folder to easily manage and access your sources."
+msgstr ""
+
+#: core/js/dist/admin.js:42
+#, js-format
+msgid "No folders found matching “%s”."
 msgstr ""
 
 #: core/js/dist/admin.js:42
@@ -2707,6 +2728,10 @@ msgid "Want to try it out? <strong><upgrade>Upgrade to get instant access</upgra
 msgstr ""
 
 #: core/js/dist/admin.js:43
+msgid "<strong>WordPress cron is disabled on this site.</strong> Aggregator cannot import new items on schedule. If your host runs a server cron job instead, you can safely dismiss this notice. <helpLink>How to fix it.</helpLink>"
+msgstr ""
+
+#: core/js/dist/admin.js:43
 msgctxt "Hub page"
 msgid "Your Content"
 msgstr ""
@@ -3399,6 +3424,18 @@ msgstr ""
 
 #: core/js/dist/admin.js:83
 msgid "The excerpt will be generated upon import."
+msgstr ""
+
+#: core/js/dist/admin.js:83
+msgid "custom"
+msgstr ""
+
+#: core/js/dist/admin.js:83
+msgid "Custom text before content"
+msgstr ""
+
+#: core/js/dist/admin.js:83
+msgid "Custom text after content"
 msgstr ""
 
 #: core/js/dist/admin.js:83
@@ -4865,6 +4902,11 @@ msgid "Deleted %d item from %s."
 msgid_plural "Deleted %d items from %s."
 msgstr[0] ""
 msgstr[1] ""
+
+#: core/js/dist/admin.js:131
+#, js-format
+msgid "No sources found matching “%s”."
+msgstr ""
 
 #: core/js/dist/admin.js:131
 #, js-format

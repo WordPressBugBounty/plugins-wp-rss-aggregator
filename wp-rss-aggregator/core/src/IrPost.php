@@ -71,6 +71,8 @@ class IrPost {
 	// These properties are not saved in the database
 	public string $attribution = '';
 	public string $audio = '';
+	public string $preContent = '';
+	public string $postContent = '';
 
 	/**
 	 * Constructor.
@@ -183,6 +185,8 @@ class IrPost {
 			'extra' => array(
 				'attribution' => $this->attribution,
 				'audio' => $this->audio,
+				'preContent' => $this->preContent,
+				'postContent' => $this->postContent,
 			),
 		);
 	}

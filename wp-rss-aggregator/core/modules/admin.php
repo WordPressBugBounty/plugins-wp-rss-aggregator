@@ -266,6 +266,158 @@ wpra()->addModule(
 );
 
 wpra()->addModule(
+	'cron-disabled-notice',
+	array( 'admin.frame.l10n' ),
+	function () {
+		$pointer = 'wpra_cron_disabled_notice';
+		$dismissAction = 'wpra_dismiss_cron_disabled_notice';
+		$helpUrl = 'https://www.wprssaggregator.com/help/wordpress-cron/';
+
+		$isDismissed = function () use ( $pointer ): bool {
+			$dismissed = get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true );
+			return in_array( $pointer, explode( ',', (string) $dismissed ), true );
+		};
+
+		$shouldShow = function () use ( $isDismissed ): bool {
+			return defined( 'DISABLE_WP_CRON' )
+				&& DISABLE_WP_CRON
+				&& current_user_can( Capabilities::SEE_AGGREGATOR )
+				&& ! $isDismissed();
+		};
+
+		add_filter(
+			'wpra.admin.frame.l10n',
+			function ( array $l10n ) use ( $shouldShow ): array {
+				$l10n['isWpCronDisabled'] = $shouldShow();
+				return $l10n;
+			}
+		);
+
+		add_action(
+			'wp_ajax_' . $dismissAction,
+			function () use ( $pointer ) {
+				check_ajax_referer( RpcServer::NONCE_ACTION, 'nonce' );
+
+				if ( ! current_user_can( Capabilities::SEE_AGGREGATOR ) ) {
+					wp_send_json_error( array( 'message' => __( 'Unauthorized', 'wp-rss-aggregator' ) ), 403 );
+				}
+
+				$dismissed = array_filter( explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) ) );
+				if ( ! in_array( $pointer, $dismissed, true ) ) {
+					$dismissed[] = $pointer;
+				}
+
+				update_user_meta( get_current_user_id(), 'dismissed_wp_pointers', implode( ',', $dismissed ) );
+				wp_send_json_success();
+			}
+		);
+
+		add_action(
+			'admin_notices',
+			function () use ( $shouldShow, $dismissAction, $helpUrl ) {
+				if ( ! $shouldShow() ) {
+					return;
+				}
+
+				$screen = get_current_screen();
+				if ( ! $screen || $screen->id === 'toplevel_page_wprss-aggregator' ) {
+					return;
+				}
+
+				$nonce = wp_create_nonce( RpcServer::NONCE_ACTION );
+				?>
+				<div class="notice is-dismissible wpra-cron-disabled-notice">
+					<div class="wpra-cron-disabled-notice-icon">
+						<img src="<?php echo esc_url( WPRA_URL . 'core/imgs/bee.svg' ); ?>" alt="" />
+					</div>
+					<div class="wpra-cron-disabled-notice-content">
+						<h3><?php esc_html_e( 'WordPress cron is disabled on this site.', 'wp-rss-aggregator' ); ?></h3>
+						<p>
+							<?php
+							echo wp_kses_post(
+								sprintf(
+									/* translators: %s: Cron help URL. */
+									__( 'Aggregator cannot import new items on schedule. If your host runs a server cron job instead, you can safely dismiss this notice. <a href="%s" target="_blank" rel="noopener noreferrer">How to fix it.</a>', 'wp-rss-aggregator' ),
+									esc_url( $helpUrl )
+								)
+							);
+							?>
+						</p>
+					</div>
+				</div>
+				<script>
+					jQuery( function( $ ) {
+						$( '.wpra-cron-disabled-notice' ).on( 'click', '.notice-dismiss', function() {
+							$.post( ajaxurl, {
+								action: <?php echo wp_json_encode( $dismissAction ); ?>,
+								nonce: <?php echo wp_json_encode( $nonce ); ?>
+							} );
+						} );
+					} );
+				</script>
+				<style>
+					.wpra-cron-disabled-notice {
+						position: relative;
+						display: flex;
+						gap: 20px;
+						padding: 0 38px 0 0;
+						border-top: 1px solid #ccc;
+						border-right: 1px solid #ccc;
+						border-bottom: 1px solid #ccc;
+						border-left: 0;
+						background: #fff;
+						box-shadow: none;
+					}
+					.wpra-cron-disabled-notice-icon {
+						display: flex;
+						align-items: flex-start;
+						justify-content: center;
+						width: 44px;
+						padding: 28px 12px 12px;
+						border-left: 5px solid #f34413;
+						background: #f6f7fb;
+						color: #f34413;
+						flex-shrink: 0;
+					}
+					.wpra-cron-disabled-notice-icon img {
+						width: 25px;
+						height: 25px;
+					}
+					.wpra-cron-disabled-notice-content {
+						display: flex;
+						flex-direction: column;
+						gap: 10px;
+						padding: 24px 0;
+					}
+					.wpra-cron-disabled-notice-content h3 {
+						margin: 0;
+						font-size: 14px;
+						font-weight: 600;
+						line-height: 1.4;
+						color: #f34413;
+					}
+					.wpra-cron-disabled-notice-content p {
+						margin: 0;
+						font-size: 13px;
+						line-height: 1.35;
+						color: #2f2f2f;
+					}
+					.wpra-cron-disabled-notice a {
+						color: #14248a;
+						text-decoration: underline;
+					}
+					.wpra-cron-disabled-notice .notice-dismiss {
+						top: 8px;
+						right: 8px;
+					}
+				</style>
+				<?php
+			}
+		);
+	}
+);
+
+wpra()->addModule(
 	'manual-update-notice',
 	array( 'licensing' ),
 	function ( Licensing $licensing ) {
