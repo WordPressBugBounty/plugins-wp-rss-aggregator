@@ -86,6 +86,7 @@ class DataCleanup {
 	 * Retrieves a list of cron hooks owned by the plugin.
 	 *
 	 * @since 5.4.0
+	 * @since 5.7.0 Includes the debug log cleanup.
 	 *
 	 * @return string[] A list of cron hooks.
 	 */
@@ -93,6 +94,7 @@ class DataCleanup {
 		return array(
 			'wpra.update',
 			'wpra.licensing.update',
+			'wpra.logger.cleanup',
 		);
 	}
 }

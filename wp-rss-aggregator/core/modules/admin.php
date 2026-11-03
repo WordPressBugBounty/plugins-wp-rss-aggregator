@@ -127,7 +127,7 @@ wpra()->addModule(
 					);
 
 					if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-						$menu->items[] = AdminSubMenu::forUrl( $subUrl . 'wpra-logger', __( 'Logs', 'wp-rss-aggregator' ), $cap );
+						$menu->items[] = AdminSubMenu::forUrl( $subUrl . 'wpra-logger', __( 'Dev tools', 'wp-rss-aggregator' ), $cap );
 					}
 				}
 
@@ -160,6 +160,7 @@ wpra()->addModule(
 				'wpra.admin.frame.l10n',
 				array(
 					'rpcNonce' => $rpc->getNonce(),
+					'locale' => determine_locale(),
 					'state' => $wpra->getState(),
 					'v4MigrationState' => get_option( 'wpra_did_v4_migration', false ),
 					'settings' => $settings->toArray(),

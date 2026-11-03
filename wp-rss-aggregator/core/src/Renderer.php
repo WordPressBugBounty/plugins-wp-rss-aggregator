@@ -105,7 +105,7 @@ class Renderer {
 
 		if ( $num < 1 ) {
 			return $this->adminMessage(
-				__( 'The display is set to show 0 items.', 'wprss' ),
+				__( 'The display is set to show 0 items.', 'wp-rss-aggregator' ),
 			);
 		}
 
@@ -113,7 +113,7 @@ class Renderer {
 
 		if ( $result->isErr() ) {
 			return $this->adminMessage(
-				__( 'Failed to get the posts for this display.', 'wprss' ),
+				__( 'Failed to get the posts for this display.', 'wp-rss-aggregator' ),
 			);
 		}
 		$posts = $result->get();
@@ -233,7 +233,7 @@ class Renderer {
 				$display = Arrays::first( $displays )->getOr( $display );
 			}
 		} elseif ( ! is_numeric( $id ) ) {
-			return Result::Err( __( 'Invalid display ID.', 'wpra' ) );
+			return Result::Err( __( 'Invalid display ID.', 'wp-rss-aggregator' ) );
 		} else {
 			$result = $this->displays->getById( (int) $id );
 			if ( $result->isErr() ) {
@@ -329,7 +329,7 @@ class Renderer {
 
 		// When it's not v4 block and display is not selected we go for empty state.
 		if ( empty( $display ) && empty( $v4Slug ) && empty( $id ) ) {
-			return Result::Err( __( 'Please select a display from the block settings →', 'wpra' ) );
+			return Result::Err( __( 'Please select a display from the block settings →', 'wp-rss-aggregator' ) );
 		}
 
 		return Result::Ok( array( $display, $page ) );
@@ -356,12 +356,21 @@ class Renderer {
 		return $this->defaultPagination( $display, $state );
 	}
 
-	/** Renders the default "Older/Newer" pagination links. */
+	/**
+	 * Renders the default "Older/Newer" pagination links.
+	 *
+	 * @since 5.7.0 The link labels follow the display's sort order, so the
+	 *              next page reads "Newer posts" when items are oldest first.
+	 */
 	private function defaultPagination( Display $display, DisplayState $state ): string {
+		$oldestFirst = 'ASC' === $this->getSortDirection( $display );
+		$olderText = __( 'Older posts', 'wp-rss-aggregator' );
+		$newerText = __( 'Newer posts', 'wp-rss-aggregator' );
+
 		$older = '';
 		if ( $state->page < $state->numPages ) {
 			$nextPage = $state->page + 1;
-			$nextText = __( 'Older posts', 'wprss' );
+			$nextText = $oldestFirst ? $newerText : $olderText;
 			$older = <<<HTML
                 <div class="nav-previous alignleft">
                     {$this->pageLink($display,$nextPage,$nextText)}
@@ -372,7 +381,7 @@ class Renderer {
 		$newer = '';
 		if ( $state->page > 1 ) {
 			$prevPage = $state->page - 1;
-			$prevText = __( 'Newer posts', 'wprss' );
+			$prevText = $oldestFirst ? $olderText : $newerText;
 			$newer = <<<HTML
                 <div class="nav-next alignright">
                     {$this->pageLink($display,$prevPage,$prevText)}
@@ -394,7 +403,7 @@ class Renderer {
 
 		if ( $state->page > 1 ) {
 			$prevPage = $state->page - 1;
-			$prevText = __( 'Previous', 'wprss' );
+			$prevText = __( 'Previous', 'wp-rss-aggregator' );
 			$prev = <<<HTML
                 <div class="nav-previous alignleft wpra-feed-prev-page">
                     {$this->pageLink($display,$prevPage,$prevText)}
@@ -404,7 +413,7 @@ class Renderer {
 
 		if ( $state->page < $state->numPages ) {
 			$nextPage = $state->page + 1;
-			$nextText = __( 'Next', 'wprss' );
+			$nextText = __( 'Next', 'wp-rss-aggregator' );
 			$next = <<<HTML
                 <div class="nav-next alignleft wpra-feed-next-pages">
                     {$this->pageLink($display,$nextPage,$nextText)}
@@ -516,12 +525,13 @@ class Renderer {
 
 		[$where, $args] = $this->buildQueryWhere( $display );
 		$pagination = $this->db->pagination( $num, $page );
+		$direction = $this->getSortDirection( $display );
 
 		$sql = "SELECT * FROM {$wpdb->posts}
                 LEFT JOIN {$wpdb->postmeta} AS `m` ON `m`.`post_id` = `ID`
                 WHERE {$where}
                 GROUP BY `ID`
-                ORDER BY `post_date` DESC
+                ORDER BY `post_date` {$direction}
                 {$pagination}";
 
 		try {
@@ -538,6 +548,23 @@ class Renderer {
 		} catch ( Throwable $err ) {
 			return Result::Err( $err );
 		}
+	}
+
+	/**
+	 * Gets the SQL sort direction for a display's publication date order.
+	 *
+	 * Only the two literals below are returned, so the value is safe to put in
+	 * the ORDER BY clause, where placeholders cannot be used.
+	 *
+	 * @since 5.7.0
+	 *
+	 * @return string "ASC" for oldest first, otherwise "DESC".
+	 */
+	private function getSortDirection( Display $display ): string {
+		$isOldestFirst = isset( $display->settings->sortOrder )
+			&& DisplaySettings::SORT_OLDEST === $display->settings->sortOrder;
+
+		return $isOldestFirst ? 'ASC' : 'DESC';
 	}
 
 	/** @return Result<int> */

@@ -51,7 +51,7 @@
       "type": "string"
     }
   },
-  "textdomain": "wprss",
+  "textdomain": "wp-rss-aggregator",
   "editorScript": "wpra-block",
   "editorStyle": [
     "wpra-displays",

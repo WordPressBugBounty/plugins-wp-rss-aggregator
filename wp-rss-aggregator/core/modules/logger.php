@@ -7,20 +7,44 @@ use RebelCode\Aggregator\Core\Rpc\RpcClassHandler;
 use RebelCode\Aggregator\Core\Rpc\Handlers\RpcLoggerHandler;
 use RebelCode\Aggregator\Core\Logger\PostLogger;
 use Psr\Log\LogLevel;
+use RebelCode\WpSdk\Wp\CronJob;
 
 wpra()->addModule(
 	'logger',
 	array( 'db', 'settings', 'rpc' ),
 	function ( Database $db, Settings $settings, RpcServer $rpc ) {
 		$state = wpra()->getState();
+		$enabledSetting = $settings->register( 'loggerEnabled' )->setDefault( false );
+		$autoDeleteSetting = $settings->register( 'loggerAutoDelete' )->setDefault( false );
+		$retentionSetting = $settings->register( 'loggerRetentionDays' )
+			->setDefault( 7 )
+			->middleware( fn ( $days ) => max( 1, (int) $days ) );
+
 		// Make logging enabled for migration only.
 		if ( $state === State::V4Migration ) {
 			$loggingEnabled = true;
 		} else {
-			$loggingEnabled = $settings->register( 'loggerEnabled' )->setDefault( false )->get();
+			$loggingEnabled = (bool) $enabledSetting->get();
 		}
 
 		$logger = new PostLogger( $db, $loggingEnabled );
+
+		// When auto delete is on, I delete old entries once a day, so the log doesn't grow without limit.
+		// It's off by default, so updating never removes entries a site already has.
+		$cleanupJob = new CronJob(
+			'wpra.logger.cleanup',
+			array(),
+			'daily',
+			array(
+				function () use ( $logger, $autoDeleteSetting, $retentionSetting ) {
+					if ( $autoDeleteSetting->get() ) {
+						$logger->deleteOlderThan( (int) $retentionSetting->get() );
+					}
+				},
+			)
+		);
+		$cleanupJob->ensureScheduled();
+		$cleanupJob->registerHandlers();
 
 		$rpcHandler = new RpcLoggerHandler( $logger, $settings );
 		$rpc->addHandler( 'logger', new RpcClassHandler( $rpcHandler ) );

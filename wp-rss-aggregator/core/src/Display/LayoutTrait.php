@@ -107,7 +107,8 @@ trait LayoutTrait {
 
 		if ( $this->ds->enableReadMore && $links ) {
 			$url = $this->getItemUrl( $post );
-			$render_link = $this->renderLink( $this->ds->readMoreText, esc_url( $url ), 'more-link' );
+			$class = $this->ds->readMoreNewLine ? 'more-link more-link-block' : 'more-link';
+			$render_link = $this->renderLink( $this->ds->readMoreText, esc_url( $url ), $class );
 		}
 
 		return wp_strip_all_tags( $excerpt ) . $render_link;
@@ -164,9 +165,9 @@ trait LayoutTrait {
 			$diff = human_time_diff( $now, $post );
 
 			if ( $now > $post ) {
-				$dateStr = sprintf( _x( '%s ago', 'Time ago format', 'wprss' ), $diff );
+				$dateStr = sprintf( _x( '%s ago', 'Time ago format', 'wp-rss-aggregator' ), $diff );
 			} else {
-				$dateStr = sprintf( _x( '%s from now', 'Time ago format (future)', 'wprss' ), $diff );
+				$dateStr = sprintf( _x( '%s from now', 'Time ago format (future)', 'wp-rss-aggregator' ), $diff );
 			}
 		} else {
 			$class = 'feed-date';
@@ -216,19 +217,14 @@ trait LayoutTrait {
 			return '';
 		}
 
-		$srcName = $name;
+		// Source names can come from feed titles, so they are always untrusted.
+		$srcName = esc_html( $name );
 		if ( $this->ds->linkSource && $links && ! empty( $url ) ) {
-			$srcName = $this->renderLink( $name, $url );
+			$srcName = $this->renderLink( $srcName, $url );
 		}
 
 		$tag = $block ? 'div' : 'span';
 		$prefix = esc_html( $this->ds->sourcePrefix );
-
-		// $srcName is already HTML from renderLink, so it doesn't need escaping again.
-		// If linking is disabled, $srcName is just the source name string, which needs escaping.
-		if ( ! ( $this->ds->linkSource && $links && ! empty( $url ) ) ) {
-			$srcName = esc_html( $srcName );
-		}
 
 		return <<<HTML
             <{$tag} class="feed-source">
@@ -261,7 +257,7 @@ trait LayoutTrait {
 		}
 
 		if ( $result === '' ) {
-			return sprintf( '<p>%s</p>', __( 'No feed items found.', 'wprss' ) );
+			return sprintf( '<p>%s</p>', __( 'No feed items found.', 'wp-rss-aggregator' ) );
 		}
 
 		return $result;

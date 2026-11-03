@@ -78,9 +78,9 @@ if ( ! class_exists( 'RebelCode\Aggregator\Core\Uninstaller' ) ) {
 					$metaIds = array_map( 'absint', $metaIds );
 					$placeholders = implode( ', ', array_fill( 0, count( $metaIds ), '%d' ) );
 
-					// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Placeholder list is generated from the selected ID count.
 					$deleted = $wpdb->query(
 						$wpdb->prepare(
+							// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Placeholder list is generated from the selected ID count.
 							"DELETE FROM {$wpdb->postmeta} WHERE meta_id IN ($placeholders)",
 							$metaIds
 						)

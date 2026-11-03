@@ -78,7 +78,7 @@ class RpcServer {
 		check_ajax_referer( self::NONCE_ACTION, 'nonce' );
 
 		if ( ! current_user_can( Capabilities::SEE_AGGREGATOR ) ) {
-			wp_send_json( array( 'error' => __( 'Unauthorized', 'wprss' ) ), 403 );
+			wp_send_json( array( 'error' => __( 'Unauthorized', 'wp-rss-aggregator' ) ), 403 );
 			exit;
 		}
 

@@ -73,6 +73,8 @@ class IrPost {
 	public string $audio = '';
 	public string $preContent = '';
 	public string $postContent = '';
+	public string $preTitle = '';
+	public string $postTitle = '';
 
 	/**
 	 * Constructor.
@@ -187,6 +189,8 @@ class IrPost {
 				'audio' => $this->audio,
 				'preContent' => $this->preContent,
 				'postContent' => $this->postContent,
+				'preTitle' => $this->preTitle,
+				'postTitle' => $this->postTitle,
 			),
 		);
 	}

@@ -7,6 +7,7 @@ namespace RebelCode\Aggregator\Core\Utils;
 use function get_option;
 use function get_gmt_from_date;
 use function wp_resolve_post_date;
+use function wp_date;
 use function wp_timezone;
 use Throwable;
 use DateTimeZone;
@@ -98,6 +99,60 @@ abstract class Time {
 	 */
 	public static function toHumanFormat( ?DateTime $dateTime, string $default = '' ): string {
 		return $dateTime ? $dateTime->format( static::HUMAN_FORMAT ) : $default;
+	}
+
+	/**
+	 * Returns the site's combined date+time format from WordPress general settings.
+	 *
+	 * This combines `date_format` and `time_format` (e.g. "F j, Y g:i a") so that
+	 * a date+time value rendered with no explicit format matches what WordPress
+	 * shows elsewhere (post lists, the_date, etc.). Falls back to the human format
+	 * if either option is unset.
+	 *
+	 * @since 5.7.0
+	 *
+	 * @return string The PHP date format string.
+	 */
+	public static function getSiteDateTimeFormat(): string {
+		$dateFormat = get_option( 'date_format' );
+		$timeFormat = get_option( 'time_format' );
+
+		if ( ! is_string( $dateFormat ) || $dateFormat === '' ) {
+			return static::HUMAN_FORMAT;
+		}
+
+		if ( ! is_string( $timeFormat ) || $timeFormat === '' ) {
+			return $dateFormat;
+		}
+
+		return $dateFormat . ' ' . $timeFormat;
+	}
+
+	/**
+	 * Formats a {@link DateTime} using `wp_date()` so the site's timezone is respected.
+	 *
+	 * Unlike {@link DateTime::format()}, `wp_date()` converts the timestamp into the
+	 * site's configured timezone before formatting. This is what users expect when a
+	 * date is rendered through a WordPress site.
+	 *
+	 * @since 5.7.0
+	 *
+	 * @param DateTime|null $dateTime The date-time object, or null.
+	 * @param string|null   $format   Optional. PHP date format. Defaults to the site's
+	 *                                combined date+time format.
+	 * @param string        $default  Value to return when $dateTime is null.
+	 * @return string The formatted date, or $default.
+	 */
+	public static function formatForSite( ?DateTime $dateTime, ?string $format = null, string $default = '' ): string {
+		if ( $dateTime === null ) {
+			return $default;
+		}
+
+		$format = ( $format === null || $format === '' ) ? static::getSiteDateTimeFormat() : $format;
+
+		$result = wp_date( $format, $dateTime->getTimestamp() );
+
+		return is_string( $result ) ? $result : $default;
 	}
 
 	/**

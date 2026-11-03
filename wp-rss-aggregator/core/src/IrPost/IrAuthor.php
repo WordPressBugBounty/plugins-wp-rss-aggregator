@@ -329,7 +329,7 @@ class IrAuthor {
 			Logger::debug( 'No suitable default author found. Creating new default author for site ' . $current_site_id_for_log );
 			$author = new self(
 				null,
-				_x( 'Source Author', 'The name of the default author', 'wprss' ),
+				_x( 'Source Author', 'The name of the default author', 'wp-rss-aggregator' ),
 				self::generateEmail( 'WPRA Source Author Site ' . $current_site_id_for_log ), // Make email unique per site potentially
 				null,
 				array(

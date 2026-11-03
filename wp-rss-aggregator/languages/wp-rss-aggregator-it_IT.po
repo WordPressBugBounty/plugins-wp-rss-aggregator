@@ -1,0 +1,1175 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP RSS Aggregator\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-03T08:48:45+00:00\n"
+"PO-Revision-Date: 2026-11-03T08:48:45+00:00\n"
+"Language: it_IT\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Domain: wp-rss-aggregator\n"
+
+#. Plugin Name of the plugin
+#: wp-rss-aggregator.php
+#: core/modules/debugInfo.php:25
+msgid "WP RSS Aggregator"
+msgstr "WP RSS Aggregator"
+
+#. Plugin URI of the plugin
+#: wp-rss-aggregator.php
+msgid "https://wprssaggregator.com"
+msgstr "https://wprssaggregator.com"
+
+#: core/modules/admin.php:123
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:137
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: core/src/Renderer.php:367
+msgid "Older posts"
+msgstr "Articoli meno recenti"
+
+#: core/modules/feedItems.php:88
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:131
+msgid "Title"
+msgstr "Titolo"
+
+#: core/src/Renderer.php:368
+msgid "Newer posts"
+msgstr "Articoli più recenti"
+
+#: core/modules/feedItems.php:35
+msgid "Feed Item"
+msgstr "Elemento del feed"
+
+#: core/modules/feedItems.php:34
+#: core/modules/feedItems.php:36
+msgid "Feed Items"
+msgstr "Elementi del feed"
+
+#: core/src/Display/LayoutTrait.php:260
+msgid "No feed items found."
+msgstr "Nessun elemento del feed trovato."
+
+#: core/modules/feedItems.php:43
+msgid "Search Feed Items"
+msgstr "Cerca elementi del feed"
+
+#: core/modules/feedItems.php:42
+msgid "View Feed Items"
+msgstr "Visualizza elementi del feed"
+
+#: core/modules/feedItems.php:90
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+msgid "Source"
+msgstr "Sorgente"
+
+#: core/modules/debugInfo.php:37
+#: core/js/dist/admin.js:131
+msgid "State"
+msgstr "Stato"
+
+#: core/src/Plugin.php:122
+msgid "Module is not compatible with the installed Aggregator version."
+msgstr "Il modulo non è compatibile con la versione di Aggregator installata."
+
+#. translators: %1$s: AI Rewriting help URL
+#: core/modules/aiHubPromotionalNotice.php:42
+#, php-format
+msgid "Start using it now from the <em>Advanced → AI Rewriting</em> source settings. It’s included in your plan at <strong>no extra cost.</strong> <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Learn more</a>"
+msgstr "Inizia a usarlo subito dalle impostazioni della sorgente in <em>Avanzate → AI Rewriting</em>. È incluso nel tuo piano <strong>senza costi aggiuntivi.</strong> <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Scopri di più</a>"
+
+#. translators: 1: item GUID/permalink, 2: error message
+#: core/src/Importer.php:573
+#, php-format
+msgid "Failed to convert RSS item %1$s: %2$s"
+msgstr "Impossibile convertire l’elemento RSS %1$s: %2$s"
+
+#. translators: %1$s: upgrade URL
+#: core/modules/aiHubPromotionalNotice.php:80
+#, php-format
+msgid "Want to try it out? <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Upgrade to get instant access</a></strong>"
+msgstr "Vuoi provarlo? <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Esegui l’upgrade per l’accesso immediato</a></strong>"
+
+#. translators: %1$s: account upgrades URL
+#: core/modules/aiHubPromotionalNotice.php:60
+#, php-format
+msgid "AI Rewriting is part of the Elite plan, along with <strong>20x more AI credits.</strong> <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Upgrade to get instant access</a></strong>"
+msgstr "AI Rewriting fa parte del piano Elite, insieme a <strong>20 volte più crediti AI.</strong> <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Esegui l’upgrade per l’accesso immediato</a></strong>"
+
+#: core/modules/aiHubPromotionalNotice.php:73
+#: core/js/dist/admin.js:43
+msgid "Automatically rewrite imported articles into something new and original. No more duplicate content."
+msgstr "Riscrivi automaticamente gli articoli importati in qualcosa di nuovo e originale. Niente più contenuti duplicati."
+
+#: core/modules/aiHubPromotionalNotice.php:55
+#: core/js/dist/admin.js:43
+msgid "Aggregator can rewrite the articles from your feeds into original pieces, ready to publish and unique to your site, with <strong>no more duplicate content.</strong>"
+msgstr "Aggregator può riscrivere gli articoli dei tuoi feed in contenuti originali, pronti per la pubblicazione e unici per il tuo sito, <strong>senza più contenuti duplicati.</strong>"
+
+#: core/modules/aiHubPromotionalNotice.php:53
+#: core/js/dist/admin.js:43
+msgid "Want your imported articles to become new, original content?"
+msgstr "Vuoi che i tuoi articoli importati diventino contenuti nuovi e originali?"
+
+#: core/modules/aiHubPromotionalNotice.php:75
+#: core/js/dist/admin.js:43
+msgid "Pro and Elite plans can now automatically rewrite imported articles into unique, ready-to-publish pieces, with <strong>no extra setup or charges.</strong>"
+msgstr "I piani Pro ed Elite possono ora riscrivere automaticamente gli articoli importati in contenuti unici, pronti per la pubblicazione, <strong>senza configurazione o costi aggiuntivi.</strong>"
+
+#: core/modules/aiHubPromotionalNotice.php:35
+#: core/js/dist/admin.js:43
+msgid "Your imported articles can now rewrite themselves into something new."
+msgstr "I tuoi articoli importati possono ora trasformarsi in qualcosa di nuovo."
+
+#: core/modules/aiHubPromotionalNotice.php:37
+#: core/js/dist/admin.js:43
+msgid "Aggregator’s AI rewrites your feeds’ articles into original pieces. <strong>Eliminate duplicate content</strong> and automatically publish unique pieces on a regular basis."
+msgstr "L’IA di Aggregator riscrive gli articoli dei tuoi feed in contenuti originali. <strong>Elimina i contenuti duplicati</strong> e pubblica automaticamente contenuti unici con regolarità."
+
+#: core/modules/licensing.php:116
+msgid "3rd Party AI integrations"
+msgstr "Integrazioni IA di terze parti"
+
+#: core/modules/licensing.php:115
+#: core/js/dist/admin.js:131
+msgid "10,000 AI Credits"
+msgstr "10.000 crediti IA"
+
+#: core/modules/licensing.php:114
+msgid "AI summaries"
+msgstr "Riassunti IA"
+
+#: core/modules/aiCreditSync.php:82
+msgid "Unsupported sync action."
+msgstr "Azione di sincronizzazione non supportata."
+
+#: core/modules/aiCreditSync.php:78
+msgid "Timestamp is too old."
+msgstr "Il timestamp è troppo vecchio."
+
+#: core/modules/aiCreditSync.php:74
+msgid "Signature mismatch."
+msgstr "La firma non corrisponde."
+
+#: core/modules/aiCreditSync.php:69
+msgid "License key does not match."
+msgstr "La chiave della licenza non corrisponde."
+
+#: core/modules/aiCreditSync.php:59
+msgid "Invalid credit sync payload."
+msgstr "Payload di sincronizzazione crediti non valido."
+
+#: core/modules/aiCreditSync.php:64
+msgid "Site URL mismatch."
+msgstr "L’URL del sito non corrisponde."
+
+#: core/modules/debugInfo.php:47
+msgid "Migrated to v5"
+msgstr "Migrato a v5"
+
+#: core/modules/debugInfo.php:21
+msgid "Not Applicable"
+msgstr "Non applicabile"
+
+#: core/modules/debugInfo.php:19
+msgid "Incomplete"
+msgstr "Incompleto"
+
+#: core/modules/debugInfo.php:17
+msgid "Completed"
+msgstr "Completato"
+
+#: core/src/Rpc/Handlers/RpcWpHandler.php:133
+msgid "Returned an error for the second subscription: HTTP "
+msgstr "Ha restituito un errore per il secondo abbonamento: HTTP "
+
+#: core/src/Rpc/Handlers/RpcWpHandler.php:127
+msgid "Connection failed for the second subscription, please try again."
+msgstr "Connessione non riuscita per il secondo abbonamento, riprova."
+
+#: core/modules/admin.php:529
+#: core/js/dist/admin.js:21
+msgid "Step-by-step instructions"
+msgstr "Istruzioni passo per passo"
+
+#: core/modules/admin.php:526
+#: core/js/dist/admin.js:21
+msgid "Download Premium v5.0.2"
+msgstr "Scarica Premium v5.0.2"
+
+#: core/modules/admin.php:491
+msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
+msgstr "Dopo aver aggiornato Premium alla v5.0.2, i controlli di aggiornamento premium riprenderanno normalmente."
+
+#: core/modules/admin.php:484
+#, php-format
+msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
+msgstr "Le tue impostazioni e i tuoi dati resteranno intatti. Se hai domande, <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contatta il supporto</a> per ricevere assistenza."
+
+#: core/modules/admin.php:476
+#, php-format
+msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
+msgstr "Tuttavia, abbiamo rilevato che stai ancora usando Aggregator Premium v%1$s. A causa di un problema di configurazione nella v%2$s, gli aggiornamenti premium non vengono rilevati."
+
+#: core/modules/admin.php:481
+msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
+msgstr "Questo è stato corretto in Premium v5.0.2, ma dovrai eseguire un aggiornamento manuale una tantum del plugin Premium per ripristinare i controlli di aggiornamento."
+
+#: core/modules/admin.php:473
+msgid "You’ve successfully updated the free plugin to v5.0.2."
+msgstr "Hai aggiornato con successo il plugin gratuito alla v5.0.2."
+
+#: core/modules/admin.php:472
+msgid "One-time only manual update required for Aggregator Premium plugin"
+msgstr "Aggiornamento manuale una tantum necessario per il plugin Aggregator Premium"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "feed"
+msgstr "feed"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "rss"
+msgstr "rss"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "aggregator"
+msgstr "aggregator"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "display"
+msgstr "display"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "wpra"
+msgstr "wpra"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block description"
+msgid "Display RSS feed content"
+msgstr "Visualizza i contenuti del feed RSS"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block title"
+msgid "RSS Aggregator Display"
+msgstr "Visualizzazione Aggregatore RSS"
+
+#: wp-rss-aggregator.php:83
+#, php-format
+msgctxt "%s = plugin name"
+msgid "%1$s requires WordPress version %2$s or higher."
+msgstr "%1$s richiede WordPress versione %2$s o superiore."
+
+#: wp-rss-aggregator.php:65
+#, php-format
+msgctxt "%s = plugin name"
+msgid "%1$s requires PHP version %2$s or higher."
+msgstr "%1$s richiede PHP versione %2$s o superiore."
+
+#: core/modules/admin.php:126
+#: core/js/dist/admin.js:21
+#: core/js/dist/admin.js:137
+msgid "Upgrade"
+msgstr "Upgrade"
+
+#: core/src/V4/V4TemplatesMigrator.php:149
+#: core/src/V4/V4TemplatesMigrator.php:200
+msgid "By"
+msgstr "Di"
+
+#: core/src/V4/V4TemplatesMigrator.php:145
+#: core/src/V4/V4TemplatesMigrator.php:202
+msgid "Published on:"
+msgstr "Pubblicato il:"
+
+#: core/src/V4/V4TemplatesMigrator.php:142
+#: core/src/V4/V4TemplatesMigrator.php:197
+#: core/js/dist/admin.js:83
+msgid "Source:"
+msgstr "Sorgente:"
+
+#: core/src/Utils/Result.php:107
+msgid "An unknown error occurred"
+msgstr "Si è verificato un errore sconosciuto"
+
+#: core/src/Tier.php:26
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:131
+msgid "Unknown"
+msgstr "Sconosciuto"
+
+#: core/src/Tier.php:24
+#: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:131
+msgid "Elite"
+msgstr "Elite"
+
+#: core/src/Tier.php:22
+#: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+msgid "Pro"
+msgstr "Pro"
+
+#: core/src/Tier.php:20
+#: core/js/dist/admin.js:13
+msgid "Plus"
+msgstr "Plus"
+
+#: core/src/Tier.php:18
+#: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:131
+msgid "Basic"
+msgstr "Basic"
+
+#: core/src/Store/SourcesStore.php:416
+msgid "Cannot replace source with no ID"
+msgstr "Impossibile sostituire la sorgente senza ID"
+
+#: core/src/Store/SourcesStore.php:54
+#, php-format
+msgid "Source with ID %d not found"
+msgstr "Sorgente con ID %d non trovata"
+
+#: core/src/Store/ProgressStore.php:59
+#, php-format
+msgid "Progress with ID %s not found"
+msgstr "Progresso con ID %s non trovato"
+
+#: core/src/Store/DisplaysStore.php:186
+msgid "Cannot replace display with no ID"
+msgstr "Impossibile sostituire la visualizzazione senza ID"
+
+#: core/src/Store/DisplaysStore.php:52
+#, php-format
+msgid "Display with ID %d not found"
+msgstr "Visualizzazione con ID %d non trovata"
+
+#: core/src/RssReader/SimplePie/SpRssReader.php:132
+#: core/src/RssReader/SimplePie/SpRssReader.php:168
+msgctxt "The title to show for found RSS feeds without a name"
+msgid "Unnamed feed"
+msgstr "Feed senza nome"
+
+#: core/modules/admin.php:303
+#: core/modules/aiHubPromotionalNotice.php:107
+#: core/src/Rpc/RpcServer.php:81
+msgid "Unauthorized"
+msgstr "Non autorizzato"
+
+#: core/src/Rpc/Handlers/RpcWpHandler.php:119
+msgid "Returned an error: HTTP "
+msgstr "Ha restituito un errore: HTTP "
+
+#: core/src/Rpc/Handlers/RpcWpHandler.php:113
+msgid "Connection failed, please try again."
+msgstr "Connessione non riuscita, riprova."
+
+#: core/src/Renderer.php:416
+#: core/js/dist/admin.js:137
+msgid "Next"
+msgstr "Successivo"
+
+#: core/src/Renderer.php:406
+msgid "Previous"
+msgstr "Precedente"
+
+#: core/src/Renderer.php:332
+msgid "Please select a display from the block settings →"
+msgstr "Seleziona una visualizzazione dalle impostazioni del blocco →"
+
+#: core/src/Renderer.php:236
+msgid "Invalid display ID."
+msgstr "ID visualizzazione non valido."
+
+#: core/src/Renderer.php:116
+msgid "Failed to get the posts for this display."
+msgstr "Impossibile ottenere gli articoli per questa visualizzazione."
+
+#: core/src/Renderer.php:108
+msgid "The display is set to show 0 items."
+msgstr "La visualizzazione è impostata per mostrare 0 elementi."
+
+#: core/src/Licensing.php:282
+#: core/src/Licensing.php:296
+msgid "Invalid license key"
+msgstr "Chiave della licenza non valida"
+
+#: core/src/Licensing.php:175
+msgid "Your license has expired."
+msgstr "La tua licenza è scaduta."
+
+#: core/src/Licensing.php:173
+msgid "Your license has been deactivated."
+msgstr "La tua licenza è stata disattivata."
+
+#: core/src/Licensing.php:129
+msgid "License check failed."
+msgstr "Controllo della licenza non riuscito."
+
+#: core/src/IrPost/IrTerm.php:65
+#, php-format
+msgid "Could not get or create parent term: %s"
+msgstr "Impossibile ottenere o creare il termine genitore: %s"
+
+#: core/src/IrPost/IrAuthor.php:332
+msgctxt "The name of the default author"
+msgid "Source Author"
+msgstr "Autore della sorgente"
+
+#: core/src/Importer/RssImageFinder.php:308
+msgid "Feed does not have a source URL."
+msgstr "Il feed non ha un URL della sorgente."
+
+#: core/src/Importer.php:527
+#, php-format
+msgctxt "Progress bar"
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
+
+#: core/src/Importer.php:338
+msgid "Saving items"
+msgstr "Salvataggio degli elementi"
+
+#: core/src/Importer.php:306
+msgid "The source does not have a URL."
+msgstr "La sorgente non ha un URL."
+
+#: core/src/Importer.php:93
+msgid "Reading RSS feed"
+msgstr "Lettura del feed RSS"
+
+#: core/src/Display/LayoutTrait.php:170
+#, php-format
+msgctxt "Time ago format (future)"
+msgid "%s from now"
+msgstr "tra %s"
+
+#: core/src/Display/LayoutTrait.php:168
+#, php-format
+msgctxt "Time ago format"
+msgid "%s ago"
+msgstr "%s fa"
+
+#: core/src/Display/DisplaySettings.php:138
+msgctxt "Default value for the \"Read more text\" display setting"
+msgid "Read more"
+msgstr "Continua a leggere"
+
+#: core/src/Display/DisplaySettings.php:137
+msgctxt "Default value for the \"Author prefix\" display setting"
+msgid "By "
+msgstr "Di "
+
+#: core/src/Cli/Commands/FeedCommand.php:43
+msgid "Invalid"
+msgstr "Non valido"
+
+#: core/src/Cli/Commands/FeedCommand.php:41
+msgid "Valid"
+msgstr "Valido"
+
+#: core/src/Cli/Commands/DisplayCommand.php:90
+#, php-format
+msgctxt "Name of a duplicated display"
+msgid "%s (copy)"
+msgstr "%s (copia)"
+
+#: core/modules/rowActions.php:63
+msgid "Cannot reject a post that was not imported by Aggregator."
+msgstr "Impossibile respingere un articolo non importato da Aggregator."
+
+#: core/modules/rowActions.php:28
+msgid "Trash and reject"
+msgstr "Cestina e respingi"
+
+#: core/modules/logger.php:95
+msgctxt "post status"
+msgid "Debug"
+msgstr "Debug"
+
+#: core/modules/logger.php:94
+msgctxt "post status"
+msgid "Info"
+msgstr "Info"
+
+#: core/modules/logger.php:93
+msgctxt "post status"
+msgid "Notice"
+msgstr "Avviso"
+
+#: core/modules/logger.php:91
+msgctxt "post status"
+msgid "Error"
+msgstr "Errore"
+
+#: core/modules/logger.php:90
+msgctxt "post status"
+msgid "Critical"
+msgstr "Critico"
+
+#: core/modules/logger.php:89
+msgctxt "post status"
+msgid "Alert"
+msgstr "Allerta"
+
+#: core/modules/logger.php:88
+msgctxt "post status"
+msgid "Emergency"
+msgstr "Emergenza"
+
+#: core/modules/logger.php:81
+msgid "No logs found in Trash."
+msgstr "Nessun log trovato nel cestino."
+
+#: core/modules/logger.php:80
+msgid "No logs found."
+msgstr "Nessun log trovato."
+
+#: core/modules/logger.php:79
+msgid "Parent Logs:"
+msgstr "Log genitore:"
+
+#: core/modules/logger.php:78
+msgid "Search Logs"
+msgstr "Cerca log"
+
+#: core/modules/logger.php:77
+#: core/js/dist/admin.js:43
+msgid "All Logs"
+msgstr "Tutti i log"
+
+#: core/modules/logger.php:76
+msgid "View Log"
+msgstr "Visualizza log"
+
+#: core/modules/logger.php:75
+msgid "Edit Log"
+msgstr "Modifica log"
+
+#: core/modules/logger.php:74
+msgid "New Log"
+msgstr "Nuovo log"
+
+#: core/modules/logger.php:73
+msgctxt "add new on admin bar"
+msgid "Log"
+msgstr "Log"
+
+#: core/modules/logger.php:72
+msgctxt "admin menu"
+msgid "Logs"
+msgstr "Log"
+
+#: core/modules/logger.php:71
+msgctxt "post type singular name"
+msgid "Log"
+msgstr "Log"
+
+#: core/modules/logger.php:70
+msgctxt "post type general name"
+msgid "Logs"
+msgstr "Log"
+
+#: core/modules/licensing.php:107
+msgctxt "Description of the all access plan"
+msgid "Import unlimited content from RSS feeds and generate your own original versions."
+msgstr "Importa contenuti illimitati dai feed RSS e genera le tue versioni originali."
+
+#: core/modules/licensing.php:106
+msgctxt "Name of the Elite plan"
+msgid "Elite"
+msgstr "Elite"
+
+#: core/modules/licensing.php:98
+msgid "Include all media"
+msgstr "Includi tutti i media"
+
+#: core/modules/licensing.php:97
+#: core/js/dist/admin.js:21
+#: core/js/dist/admin.js:131
+msgid "Full text import"
+msgstr "Importazione del testo completo"
+
+#: core/modules/licensing.php:90
+msgctxt "Description of the pro plan"
+msgid "Curate RSS feeds as Posts or any CPT and give your visitors all the content they’re after."
+msgstr "Cura i feed RSS come articoli o qualsiasi CPT e offri ai tuoi visitatori tutti i contenuti che cercano."
+
+#: core/modules/licensing.php:89
+msgctxt "Name of the pro plan"
+msgid "Pro"
+msgstr "Pro"
+
+#: core/modules/licensing.php:82
+#: core/js/dist/admin.js:131
+msgid "Import taxonomies"
+msgstr "Importa tassonomie"
+
+#: core/modules/licensing.php:81
+msgid "Add custom content"
+msgstr "Aggiungi contenuto personalizzato"
+
+#: core/modules/licensing.php:80
+msgid "Schedule publishing"
+msgstr "Programma la pubblicazione"
+
+#: core/modules/licensing.php:79
+#: core/js/dist/admin.js:131
+msgid "Import as Posts"
+msgstr "Importa come articoli"
+
+#: core/modules/licensing.php:72
+msgctxt "Description of the plus plan"
+msgid "Aggregate RSS feeds as blog posts and publish their excerpts to your blog or CPT."
+msgstr "Aggrega i feed RSS come articoli del blog e pubblica i loro riassunti sul tuo blog o CPT."
+
+#: core/modules/licensing.php:71
+msgctxt "Name of the plus plan"
+msgid "Plus"
+msgstr "Plus"
+
+#: core/modules/licensing.php:64
+#: core/js/dist/admin.js:131
+msgid "Source management"
+msgstr "Gestione delle sorgenti"
+
+#: core/modules/licensing.php:63
+#: core/js/dist/admin.js:131
+msgid "Automatic filtering"
+msgstr "Filtro automatico"
+
+#: core/modules/licensing.php:62
+#: core/js/dist/admin.js:131
+msgid "Full customization"
+msgstr "Personalizzazione completa"
+
+#: core/modules/licensing.php:61
+#: core/js/dist/admin.js:131
+msgid "Manual curation"
+msgstr "Cura manuale"
+
+#: core/modules/licensing.php:60
+#: core/js/dist/admin.js:131
+msgid "All layout designs"
+msgstr "Tutti i design di layout"
+
+#: core/modules/licensing.php:53
+msgctxt "Description of the basic plan"
+msgid "Display RSS feeds anywhere on your site and customize them to match your site’s design."
+msgstr "Visualizza i feed RSS ovunque sul tuo sito e personalizzali per adattarli al design del tuo sito."
+
+#: core/modules/licensing.php:52
+msgctxt "Name of the basic plan"
+msgid "Basic"
+msgstr "Basic"
+
+#: core/modules/licensing.php:44
+msgid "Import text, audio, & video"
+msgstr "Importa testo, audio e video"
+
+#: core/modules/licensing.php:43
+msgid "All import options"
+msgstr "Tutte le opzioni di importazione"
+
+#: core/modules/licensing.php:42
+msgid "Unlimited feeds"
+msgstr "Feed illimitati"
+
+#: core/modules/licensing.php:41
+msgid "Unlimited sources"
+msgstr "Sorgenti illimitate"
+
+#: core/modules/licensing.php:39
+msgctxt "Description of the free plan"
+msgid "Free, for trying things out."
+msgstr "Gratuito, per fare delle prove."
+
+#: core/modules/licensing.php:38
+msgctxt "Name of the free plan"
+msgid "Free"
+msgstr "Gratuito"
+
+#: core/modules/feedItems.php:120
+msgid "No source link"
+msgstr "Nessun link della sorgente"
+
+#: core/modules/feedItems.php:110
+msgid "(no title)"
+msgstr "(senza titolo)"
+
+#: core/modules/feedItems.php:94
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+msgid "Date"
+msgstr "Data"
+
+#: core/modules/feedItems.php:93
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:131
+msgid "Author"
+msgstr "Autore"
+
+#: core/modules/feedItems.php:89
+#: core/js/blocks/dist/gutenberg/gutenberg.js:1
+#: core/js/dist/admin.js:131
+msgid "Source Link"
+msgstr "Link della sorgente"
+
+#: core/modules/feedItems.php:67
+msgid "A link to a feed item"
+msgstr "Un link a un elemento del feed"
+
+#: core/modules/feedItems.php:65
+msgid "Feed item updated"
+msgstr "Elemento del feed aggiornato"
+
+#: core/modules/feedItems.php:64
+msgid "Feed item scheduled"
+msgstr "Elemento del feed programmato"
+
+#: core/modules/feedItems.php:62
+msgid "Feed item reverted to draft"
+msgstr "Elemento del feed ripristinato come bozza"
+
+#: core/modules/feedItems.php:61
+msgid "Feed item published privately"
+msgstr "Elemento del feed pubblicato privatamente"
+
+#: core/modules/feedItems.php:60
+msgid "Feed item published"
+msgstr "Elemento del feed pubblicato"
+
+#: core/modules/feedItems.php:59
+msgid "Feed items list"
+msgstr "Elenco degli elementi del feed"
+
+#: core/modules/feedItems.php:57
+msgid "Filter by date"
+msgstr "Filtra per data"
+
+#: core/modules/feedItems.php:55
+msgid "Use as featured image"
+msgstr "Usa come immagine in evidenza"
+
+#: core/modules/feedItems.php:52
+msgid "Featured Image"
+msgstr "Immagine in evidenza"
+
+#: core/modules/feedItems.php:51
+msgid "Uploaded to this feed item"
+msgstr "Caricato su questo elemento del feed"
+
+#: core/modules/feedItems.php:48
+msgid "Feed Item Archives"
+msgstr "Archivi degli elementi del feed"
+
+#: core/modules/feedItems.php:47
+msgid "All Feed Items"
+msgstr "Tutti gli elementi del feed"
+
+#: core/modules/feedItems.php:46
+msgid "Parent Feed Item:"
+msgstr "Elemento del feed genitore:"
+
+#: core/modules/feedItems.php:45
+msgid "No feed items found in trash"
+msgstr "Nessun elemento del feed trovato nel cestino"
+
+#: core/modules/feedItems.php:44
+msgid "No feed items found"
+msgstr "Nessun elemento del feed trovato"
+
+#: core/modules/feedItems.php:41
+msgid "View Feed Item"
+msgstr "Visualizza elemento del feed"
+
+#: core/modules/feedItems.php:40
+msgid "New Feed Item"
+msgstr "Nuovo elemento del feed"
+
+#: core/modules/feedItems.php:39
+msgid "Edit Feed Item"
+msgstr "Modifica elemento del feed"
+
+#: core/modules/feedItems.php:37
+#: core/modules/feedItems.php:38
+msgid "Add New Feed Item"
+msgstr "Aggiungi nuovo elemento del feed"
+
+#: core/modules/debugInfo.php:58
+#: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+msgid "No"
+msgstr "No"
+
+#: core/modules/debugInfo.php:57
+#: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+msgid "Yes"
+msgstr "Sì"
+
+#: core/modules/debugInfo.php:55
+#, php-format
+msgctxt "Label for extension in Site Health Info"
+msgid "%s extension"
+msgstr "Estensione %s"
+
+#: core/modules/debugInfo.php:44
+msgctxt "fsockopen status in Site Health Info"
+msgid "Unsupported"
+msgstr "Non supportato"
+
+#: core/modules/debugInfo.php:43
+msgctxt "fsockopen status in Site Health Info"
+msgid "Supported"
+msgstr "Supportato"
+
+#: core/modules/debugInfo.php:41
+msgid "fsockopen"
+msgstr "fsockopen"
+
+#: core/modules/debugInfo.php:33
+msgid "Plan"
+msgstr "Piano"
+
+#: core/modules/debugInfo.php:29
+msgid "Version"
+msgstr "Versione"
+
+#: core/modules/admin.php:126
+msgid "Manage Plan"
+msgstr "Gestisci piano"
+
+#: core/modules/admin.php:125
+#: core/js/dist/admin.js:131
+msgid "Tutorials"
+msgstr "Tutorial"
+
+#: core/modules/admin.php:124
+#: core/js/dist/admin.js:42
+msgid "Help"
+msgstr "Aiuto"
+
+#: core/modules/admin.php:122
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:83
+msgid "Integrations"
+msgstr "Integrazioni"
+
+#: core/modules/admin.php:121
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+msgid "Folders"
+msgstr "Cartelle"
+
+#: core/modules/admin.php:120
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+msgid "Displays"
+msgstr "Display"
+
+#: core/modules/admin.php:119
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:137
+msgid "Sources"
+msgstr "Sorgenti"
+
+#: core/modules/admin.php:118
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+msgid "Hub"
+msgstr "Hub"
+
+#: core/modules/admin.php:112
+msgid "Aggregator"
+msgstr "Aggregatore"
+
+#: core/admin-frame.php:10
+msgid "Aggregator Admin"
+msgstr "Amministrazione Aggregatore"
+
+#. Author URI of the plugin
+#: wp-rss-aggregator.php
+msgid "https://rebelcode.com"
+msgstr "https://rebelcode.com"
+
+#. Author of the plugin
+#: wp-rss-aggregator.php
+msgid "RebelCode"
+msgstr "RebelCode"
+
+#. Description of the plugin
+#: wp-rss-aggregator.php
+msgid "An RSS importer, aggregator, and auto-blogger plugin for WordPress."
+msgstr "Un plugin WordPress per importare, aggregare e pubblicare automaticamente feed RSS."
+
+#: core/src/Store/SourcesStore.php:284
+#: core/src/Store/SourcesStore.php:329
+#, php-format
+msgid "#%d [Missing]"
+msgstr "#%d [Mancante]"
+
+#: core/src/Utils/Result.php:76
+msgid "The result list is empty"
+msgstr "L’elenco dei risultati è vuoto"
+
+#: core/src/Tier.php:16
+#: core/js/dist/admin.js:13
+msgid "Free"
+msgstr "Gratuito"
+
+#: core/src/Store/WpPostsStore.php:597
+#, php-format
+msgctxt "The recorded note when an imported post is deleted and rejected. %s = post title"
+msgid "Rejected after deletion: %s"
+msgstr "Rifiutato dopo l’eliminazione: %s"
+
+#: core/src/Store/WpPostsStore.php:205
+#, php-format
+msgid "Post #%s does not exist or is not imported by WP RSS Aggregator"
+msgstr "L’articolo #%s non esiste o non è stato importato da WP RSS Aggregator"
+
+#: core/src/Store/DisplaysStore.php:106
+#, php-format
+msgid "Display with slug \"%s\" not found"
+msgstr "Visualizzazione con slug «%s» non trovata"
+
+#: core/src/RssReader/SimplePie/SpRssReader.php:450
+msgid "The feed could not be fetched. Kindly check if the feed URL is correct."
+msgstr "Impossibile recuperare il feed. Verifica che l’URL del feed sia corretto."
+
+#: core/src/Rpc/Handlers/RpcWpHandler.php:98
+msgid "Email is not valid"
+msgstr "L’email non è valida"
+
+#: core/src/IrPost/IrTerm.php:77
+#, php-format
+msgid "Could not get WordPress term \"%s\"."
+msgstr "Impossibile ottenere il termine di WordPress «%s»."
+
+#: core/src/Importer/WpPostBuilder.php:328
+#, php-format
+msgid "Could not get URL of downloaded image with ID %d"
+msgstr "Impossibile ottenere l’URL dell’immagine scaricata con ID %d"
+
+#: core/src/Importer/WpPostBuilder.php:315
+#, php-format
+msgid "Failed to download image for post: %s"
+msgstr "Impossibile scaricare l’immagine per l’articolo: %s"
+
+#: core/src/Importer/RssImageFinder.php:302
+msgid "Failed to parse the feed's source URL."
+msgstr "Impossibile analizzare l’URL della sorgente del feed."
+
+#: core/src/Importer.php:626
+#, php-format
+msgid "Imported post (#%1$d) \"%2$s\""
+msgstr "Articolo importato (#%1$d) «%2$s»"
+
+#: core/src/Importer.php:533
+msgid "Ignoring RSS item with no GUID or permalink."
+msgstr "Ignorando l’elemento RSS senza GUID o permalink."
+
+#: core/src/Cli/Commands/RejectListCommand.php:49
+#, php-format
+msgid "Added \"%s\" to the reject list"
+msgstr "Aggiunto «%s» all’elenco di rifiuto"
+
+#: core/modules/rowActions.php:92
+msgid "The post has been successfully rejected and moved to the Trash."
+msgstr "L’articolo è stato respinto e spostato nel cestino."
+
+#: core/modules/logger.php:92
+msgctxt "post status"
+msgid "Warning"
+msgstr "Attenzione"
+
+#: core/modules/licensing.php:99
+#: core/js/dist/admin.js:131
+msgid "Custom Mapping"
+msgstr "Mappatura personalizzata"
+
+#: core/modules/feedItems.php:66
+msgid "Feed item link"
+msgstr "Link dell’elemento del feed"
+
+#: core/modules/feedItems.php:63
+msgid "Feed item trashed"
+msgstr "Elemento del feed cestinato"
+
+#: core/modules/feedItems.php:58
+msgid "Feed items list navigation"
+msgstr "Navigazione dell’elenco degli elementi del feed"
+
+#: core/modules/feedItems.php:56
+msgid "Filter feed items list"
+msgstr "Filtra l’elenco degli elementi del feed"
+
+#: core/modules/feedItems.php:54
+msgid "Remove featured image"
+msgstr "Rimuovi l’immagine in evidenza"
+
+#: core/modules/feedItems.php:53
+#: core/js/dist/admin.js:137
+msgid "Set featured image"
+msgstr "Imposta l’immagine in evidenza"
+
+#: core/modules/feedItems.php:50
+msgid "Insert into feed item"
+msgstr "Inserisci nell’elemento del feed"
+
+#: core/modules/feedItems.php:49
+msgid "Feed Item Attributes"
+msgstr "Attributi dell’elemento del feed"
+
+#. translators: %s: Cron help URL.
+#: core/modules/admin.php:341
+#, php-format
+msgid "Aggregator cannot import new items on schedule. If your host runs a server cron job instead, you can safely dismiss this notice. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">How to fix it.</a>"
+msgstr "Aggregator non può importare nuovi elementi in base alla pianificazione. Se il tuo host esegue invece un cron job a livello di server, puoi tranquillamente ignorare questo avviso. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">Come risolvere.</a>"
+
+#: core/modules/admin.php:335
+msgid "WordPress cron is disabled on this site."
+msgstr "Il cron di WordPress è disattivato su questo sito."
+
+#: core/modules/aiHubPromotionalNotice.php:114
+msgid "Invalid promotional notice state."
+msgstr "Stato dell'avviso promozionale non valido."
+
+#: core/src/Importer.php:115
+#, php-format
+msgid "Found %d item in the RSS feed"
+msgid_plural "Found %d items in the RSS feed"
+msgstr[0] "Trovato %d elemento nel feed RSS"
+msgstr[1] "Trovati %d elementi nel feed RSS"
+
+#: core/src/Cli/Commands/SourceCommand.php:440
+#, php-format
+msgid "%s source updated."
+msgid_plural "%s sources updated."
+msgstr[0] "%s fonte aggiornata."
+msgstr[1] "%s fonti aggiornate."
+
+#: core/src/Cli/Commands/SourceCommand.php:240
+#, php-format
+msgid "Deleted %d source."
+msgid_plural "Deleted %d sources."
+msgstr[0] "Eliminata %d fonte."
+msgstr[1] "Eliminate %d fonti."
+
+#: core/src/Cli/Commands/RejectListCommand.php:138
+#, php-format
+msgid "Deleted %d item."
+msgid_plural "Deleted %d items"
+msgstr[0] "Eliminato %d elemento."
+msgstr[1] "Eliminati %d elementi."
+
+#: core/src/Cli/Commands/RejectListCommand.php:76
+#, php-format
+msgid "Removed %d item"
+msgid_plural "Removed %d items"
+msgstr[0] "Rimosso %d elemento"
+msgstr[1] "Rimossi %d elementi"
+
+#: core/src/Cli/Commands/ImportCommand.php:79
+#, php-format
+msgid "Imported %d new item"
+msgid_plural "Imported %d new items"
+msgstr[0] "Importato %d nuovo elemento"
+msgstr[1] "Importati %d nuovi elementi"
+
+#: core/src/Cli/Commands/DisplayCommand.php:421
+#, php-format
+msgid "%s display updated."
+msgid_plural "%s displays updated."
+msgstr[0] "%s visualizzazione aggiornata."
+msgstr[1] "%s visualizzazioni aggiornate."
+
+#: core/src/Cli/Commands/DisplayCommand.php:402
+#, php-format
+msgid "Source %s does not exist."
+msgid_plural "Sources %s do not exist."
+msgstr[0] "La fonte %s non esiste."
+msgstr[1] "Le fonti %s non esistono."
+
+#: core/src/Cli/Commands/DisplayCommand.php:240
+#, php-format
+msgid "Deleted %d display."
+msgid_plural "Deleted %d displays."
+msgstr[0] "Eliminata %d visualizzazione."
+msgstr[1] "Eliminate %d visualizzazioni."
+
+#: core/modules/admin.php:130
+msgid "Dev tools"
+msgstr "Strumenti di sviluppo"
+
+#: core/src/Rpc/Handlers/RpcSiteTransferHandler.php:67
+msgid "You are not allowed to import everything that you chose."
+msgstr "Non hai il permesso di importare tutto ciò che hai scelto."
+
+#: core/src/Source/SourcesTransfer.php:79
+#: core/src/Source/SourcesTransfer.php:154
+msgid "invalid source data."
+msgstr "dati della sorgente non validi."
+
+#. translators: 1: position of the source in the file, 2: reason the source was skipped.
+#: core/src/Source/SourcesTransfer.php:85
+#, php-format
+msgid "Source #%1$d skipped: %2$s"
+msgstr "Sorgente n. %1$d saltata: %2$s"
+
+#: core/src/Source/SourcesTransfer.php:159
+msgid "missing or invalid feed URL."
+msgstr "URL del feed mancante o non valido."
+
+#: core/src/Source/SourcesTransfer.php:166
+msgid "invalid source settings."
+msgstr "impostazioni della sorgente non valide."
+
+#: core/src/Transfer/SiteTransfer.php:197
+msgid "Folders and displays in this file were not imported, because they need Aggregator Pro or Elite."
+msgstr "Le cartelle e i display di questo file non sono stati importati perché richiedono Aggregator Pro o Elite."
+
+#: core/src/Transfer/SiteTransfer.php:202
+msgid "Folders and displays were not imported, because they need the sources from the same file."
+msgstr "Le cartelle e i display non sono stati importati perché richiedono le sorgenti dello stesso file."
+
+#: core/src/Transfer/SiteTransfer.php:271
+#: core/src/Transfer/SiteTransfer.php:278
+#: core/src/Transfer/SiteTransfer.php:285
+#: core/src/Transfer/SiteTransfer.php:297
+#: core/src/Transfer/SiteTransfer.php:302
+msgid "The file is not a valid Aggregator export file."
+msgstr "Il file non è un file di esportazione di Aggregator valido."
+
+#: core/src/Transfer/SiteTransfer.php:291
+msgid "This export file was made with an unsupported version of Aggregator."
+msgstr "Questo file di esportazione è stato creato con una versione di Aggregator non supportata."
+
+#. translators: %d: maximum number of sources per import.
+#: core/src/Transfer/SiteTransfer.php:311
+#, php-format
+msgid "The file contains too many sources. Import at most %d sources at a time."
+msgstr "Il file contiene troppe sorgenti. Importa al massimo %d sorgenti alla volta."

@@ -63,6 +63,13 @@ div.wpra-list-template .wpra-item-list>li.wpra-item>div.wprss-feed-meta>span:not
   margin-left: .125rem;
 }
 
+.more-link.more-link-block {
+  display: block;
+  width: fit-content;
+  margin-left: 0;
+  margin-top: 10px;
+}
+
 .nav-links {
   overflow: hidden;
   margin-bottom: 20px;

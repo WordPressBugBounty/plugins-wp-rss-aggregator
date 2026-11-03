@@ -6,7 +6,7 @@ Commercial: https://www.wprssaggregator.com/pricing/
 Requires at least: 6.2.2 or higher
 Tested up to: 7.1
 Requires PHP: 7.4.0
-Stable tag: 5.6.0
+Stable tag: 5.7.0
 License: GPLv3
 
 The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
@@ -16,7 +16,7 @@ The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggreg
 
 WP RSS Aggregator is the perfect plugin to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
 
-This is why it is used on 50,000+ websites to aggregate and curate content from all over the web.
+This is why it is used on 40,000+ websites to aggregate and curate content from all over the web.
 
 https://www.youtube.com/watch?v=DeUTFPADb1g
 
@@ -59,7 +59,7 @@ There is a lot more to an RSS aggregator than meets the eye. Here are a few addi
 
 📈 **[SEO Benefits](https://www.wprssaggregator.com/rss-feed-seo/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_description)**: Become an instant source of quality content, generate backlinks, and gain more trust in the eyes of search engines (like Google) and AI systems that rely on structured, regularly updated content.
 
-💡 **Generate Original Content**: Publish unique content in your name by automatically rewriting imported articles into new content.
+💡 **Generate Original Content** (Elite plan): Publish unique content in your name by automatically rewriting imported articles into new content.
 
 🔗 **Custom RSS Feeds**: Create a custom RSS feed from imported RSS feed items to use anywhere you want.
 
@@ -214,7 +214,7 @@ No, our plugin does not currently import from JSON, it only imports from RSS and
 
 1. Try adding a few more feed sources and make sure they are valid by using the RSS Feed Validator.
 
-2. Make sure that feed items have been imported by visiting the Feed Items page.
+2. Make sure that feed items have been imported by checking the Imported Items column on the Sources page.
 
 3. Try out the solutions listed in our [Feed Items Not Importing](https://www.wprssaggregator.com/help/items-not-importing/?utm_source=wordpress-dot-org&utm_medium=readme&utm_campaign=readme_faq) help center section.
 
@@ -263,6 +263,28 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 
 == Changelog ==
+
+= 5.7.0 (2026-11-03) =
+
+**Added**
+- Full translations for Brazilian Portuguese, Dutch, French, German, Italian, Japanese, Portuguese, and Spanish in the free and premium versions.
+- Option to add custom text before or after imported post titles.
+- Sort order setting in Displays to show the newest or oldest items first.
+- Option to place the “Read more” link on a new line in Displays.
+- Export and Import options in Settings to copy Sources, Displays, and Folders to another site or keep them as a backup.
+- Debug Logs tab in Settings to view, filter, download, and clear plugin logs.
+
+**Changed**
+- New Sources are now named after their feed title automatically.
+- Dates in Source attribution now follow the site's date format, time format, and timezone.
+- Full Text requests now use HTTPS and send the site URL the license was activated with.
+
+**Fixed**
+- Spanish translations now load correctly.
+- Admin labels and Display pagination links now follow the site language.
+- “x ago” dates in the Displays and the Sources tables now follow the site language.
+- Imported content is now handled consistently in every import path, including manual and WP-CLI imports.
+- Source names with special characters now show correctly in Displays.
 
 = 5.6.0 (2026-09-15) =
 

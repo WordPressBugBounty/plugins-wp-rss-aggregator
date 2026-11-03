@@ -90,7 +90,7 @@ class Importer {
 			return Result::Err( 'RSS feed URL is empty' );
 		}
 
-		$this->progress->setMessage( $pid, __( 'Reading RSS feed', 'wprss' ) );
+		$this->progress->setMessage( $pid, __( 'Reading RSS feed', 'wp-rss-aggregator' ) );
 
 		Logger::info( "Reading RSS feed at {$url}" );
 
@@ -112,7 +112,7 @@ class Importer {
 			$this->progress->setMessage(
 				$pid,
 				sprintf(
-					_n( 'Found %d item in the RSS feed', 'Found %d items in the RSS feed', $num, 'wprss' ),
+					_n( 'Found %d item in the RSS feed', 'Found %d items in the RSS feed', $num, 'wp-rss-aggregator' ),
 					$num
 				)
 			);
@@ -218,16 +218,23 @@ class Importer {
 
 		$this->progress->touch( $pid, 1 );
 
-		$res = $this->read( $src->url, null, $page, $pid );
-		if ( $res->isErr() ) {
-			return Result::Err( $res->error() );
+		// Like an import, I tag the preview's log messages with the source, so they show under its filter.
+		Logger::setContext( array( 'source' => $src->id ) );
+
+		try {
+			$res = $this->read( $src->url, null, $page, $pid );
+			if ( $res->isErr() ) {
+				return Result::Err( $res->error() );
+			}
+
+			[$items, $total] = $res->get();
+
+			$posts = $this->convert( $src, $items, true, $pid, null, $page, $this->getPreviewLimit( $src, $num, $page ) );
+			$posts = $this->paginatePreviewPosts( Arrays::fromIterable( $posts ), $num, $page );
+			$posts = apply_filters( 'wpra.importer.preview', $posts, $src );
+		} finally {
+			Logger::clearContext();
 		}
-
-		[$items, $total] = $res->get();
-
-		$posts = $this->convert( $src, $items, true, $pid, null, $page, $this->getPreviewLimit( $src, $num, $page ) );
-		$posts = $this->paginatePreviewPosts( Arrays::fromIterable( $posts ), $num, $page );
-		$posts = apply_filters( 'wpra.importer.preview', $posts, $src );
 		remove_filter( 'the_content', 'wpautop' );
 
 		$preview = array(
@@ -296,7 +303,7 @@ class Importer {
 	 */
 	public function import( Source $src, ?int $num = null, int $page = 1, ?string $pid = null ): Result {
 		if ( trim( $src->url ) === '' ) {
-			return Result::Err( __( 'The source does not have a URL.', 'wprss' ) );
+			return Result::Err( __( 'The source does not have a URL.', 'wp-rss-aggregator' ) );
 		}
 
 		Logger::setContext(
@@ -328,7 +335,7 @@ class Importer {
 
 		$items = $this->convert( $src, $items, false, $pid );
 
-		$this->progress->setMessage( $pid, __( 'Saving items', 'wprss' ) );
+		$this->progress->setMessage( $pid, __( 'Saving items', 'wp-rss-aggregator' ) );
 
 		$res = $this->store( $src, $items, $pid );
 
@@ -517,13 +524,13 @@ class Importer {
 				$this->progress->advance(
 					$pid,
 					1,
-					sprintf( _x( '%1$d/%2$d', 'Progress bar', 'wprss' ), $i + 1, $count )
+					sprintf( _x( '%1$d/%2$d', 'Progress bar', 'wp-rss-aggregator' ), $i + 1, $count )
 				);
 
 				$id = $this->resolveItemId( $item );
 
 				if ( $id === null ) {
-					Logger::warning( __( 'Ignoring RSS item with no GUID or permalink.', 'wprss' ) );
+					Logger::warning( __( 'Ignoring RSS item with no GUID or permalink.', 'wp-rss-aggregator' ) );
 					continue;
 				}
 
@@ -563,7 +570,7 @@ class Importer {
 							Logger::error(
 								sprintf(
 									/* translators: 1: item GUID/permalink, 2: error message */
-									__( 'Failed to convert RSS item %1$s: %2$s', 'wprss' ),
+									__( 'Failed to convert RSS item %1$s: %2$s', 'wp-rss-aggregator' ),
 									$id,
 									$e->getMessage()
 								)
@@ -616,7 +623,7 @@ class Importer {
 			if ( $result->isOk() ) {
 				$newPost = $result->get();
 				$newPosts[] = $newPost;
-				Logger::info( sprintf( __( 'Imported post (#%1$d) "%2$s"', 'wprss' ), $newPost->postId ?? 0, $newPost->title ) );
+				Logger::info( sprintf( __( 'Imported post (#%1$d) "%2$s"', 'wp-rss-aggregator' ), $newPost->postId ?? 0, $newPost->title ) );
 			} else {
 				Logger::error( $result->error() );
 			}
@@ -679,6 +686,19 @@ class Importer {
 	 * @return Result<IrPost>
 	 */
 	public function createWpPost( IrPost $post ): Result {
+		/**
+		 * Filters the final title of an imported post, right before it is saved.
+		 *
+		 * This runs after any title rewriting, such as AI Rewriting, WordAi and
+		 * SpinnerChief, so text added here is never rewritten.
+		 *
+		 * @since 5.7.0
+		 *
+		 * @param string $title The title.
+		 * @param IrPost $post The post being saved.
+		 */
+		$post->title = (string) apply_filters( 'wpra.importer.post.finalTitle', $post->title, $post );
+
 		do_action( 'wpra.importer.post.beforeCreate', $post );
 
 		$result = WpPostBuilder::buildWpPost( $post );
@@ -734,7 +754,7 @@ class Importer {
 			$id = $item->getId() ?? $url;
 
 			if ( empty( $id ) ) {
-				Logger::warning( 'Item has no ID or permalink', array( 'source' => $source ) );
+				Logger::warning( 'Item has no ID or permalink', array( 'source' => $source->id ) );
 				continue;
 			}
 
@@ -744,7 +764,7 @@ class Importer {
 				$rejected = $result->get();
 			} else {
 				$rejected = false;
-				Logger::warning( $result->error(), array( 'source' => $source ) );
+				Logger::warning( $result->error(), array( 'source' => $source->id ) );
 			}
 
 			if ( $rejected ) {

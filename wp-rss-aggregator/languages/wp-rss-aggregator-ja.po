@@ -1,0 +1,1166 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP RSS Aggregator\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-03T08:48:45+00:00\n"
+"PO-Revision-Date: 2026-11-03T08:48:45+00:00\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: wp-rss-aggregator\n"
+
+#: core/src/Plugin.php:122
+msgid "Module is not compatible with the installed Aggregator version."
+msgstr "モジュールはインストールされている Aggregator のバージョンと互換性がありません。"
+
+#. translators: %1$s: upgrade URL
+#: core/modules/aiHubPromotionalNotice.php:80
+#, php-format
+msgid "Want to try it out? <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Upgrade to get instant access</a></strong>"
+msgstr "試してみませんか？ <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">アップグレードしてすぐにアクセス</a></strong>"
+
+#. translators: %1$s: account upgrades URL
+#: core/modules/aiHubPromotionalNotice.php:60
+#, php-format
+msgid "AI Rewriting is part of the Elite plan, along with <strong>20x more AI credits.</strong> <strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Upgrade to get instant access</a></strong>"
+msgstr "AI リライトは Elite プランに含まれ、<strong>AI クレジットが20倍</strong>になります。<strong><a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">アップグレードしてすぐにアクセス</a></strong>"
+
+#. translators: %1$s: AI Rewriting help URL
+#: core/modules/aiHubPromotionalNotice.php:42
+#, php-format
+msgid "Start using it now from the <em>Advanced → AI Rewriting</em> source settings. It’s included in your plan at <strong>no extra cost.</strong> <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Learn more</a>"
+msgstr "<em>高度な設定 → AI リライト</em> のソース設定から今すぐ使い始められます。ご利用のプランに<strong>追加料金なし</strong>で含まれています。<a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">詳細</a>"
+
+#: core/modules/aiHubPromotionalNotice.php:75
+#: core/js/dist/admin.js:43
+msgid "Pro and Elite plans can now automatically rewrite imported articles into unique, ready-to-publish pieces, with <strong>no extra setup or charges.</strong>"
+msgstr "Pro および Elite プランでは、インポートした記事を独自の、すぐに公開できる記事に自動で書き換えられるようになりました。<strong>追加の設定や料金は不要です。</strong>"
+
+#: core/modules/aiHubPromotionalNotice.php:73
+#: core/js/dist/admin.js:43
+msgid "Automatically rewrite imported articles into something new and original. No more duplicate content."
+msgstr "インポートした記事を新しく独自の内容に自動で書き換えます。重複コンテンツの心配はもうありません。"
+
+#: core/modules/aiHubPromotionalNotice.php:55
+#: core/js/dist/admin.js:43
+msgid "Aggregator can rewrite the articles from your feeds into original pieces, ready to publish and unique to your site, with <strong>no more duplicate content.</strong>"
+msgstr "Aggregator はフィードの記事をサイト固有のオリジナル記事に書き換え、公開できる状態にします。<strong>重複コンテンツはもうありません。</strong>"
+
+#: core/modules/aiHubPromotionalNotice.php:53
+#: core/js/dist/admin.js:43
+msgid "Want your imported articles to become new, original content?"
+msgstr "インポートした記事を新しく独自のコンテンツにしたいですか？"
+
+#: core/modules/aiHubPromotionalNotice.php:37
+#: core/js/dist/admin.js:43
+msgid "Aggregator’s AI rewrites your feeds’ articles into original pieces. <strong>Eliminate duplicate content</strong> and automatically publish unique pieces on a regular basis."
+msgstr "Aggregator の AI がフィードの記事をオリジナル記事に書き換えます。<strong>重複コンテンツを解消</strong>し、独自の記事を定期的に自動公開できます。"
+
+#: core/modules/aiHubPromotionalNotice.php:35
+#: core/js/dist/admin.js:43
+msgid "Your imported articles can now rewrite themselves into something new."
+msgstr "インポートした記事を、新しい内容に自動で書き換えられるようになりました。"
+
+#: core/modules/licensing.php:116
+msgid "3rd Party AI integrations"
+msgstr "サードパーティ AI 連携"
+
+#: core/modules/licensing.php:115
+#: core/js/dist/admin.js:131
+msgid "10,000 AI Credits"
+msgstr "10,000 AI クレジット"
+
+#: core/modules/licensing.php:114
+msgid "AI summaries"
+msgstr "AI 要約"
+
+#: core/modules/aiCreditSync.php:82
+msgid "Unsupported sync action."
+msgstr "サポートされていない同期アクションです。"
+
+#: core/modules/aiCreditSync.php:78
+msgid "Timestamp is too old."
+msgstr "タイムスタンプが古すぎます。"
+
+#: core/modules/aiCreditSync.php:74
+msgid "Signature mismatch."
+msgstr "シグネチャが一致しません。"
+
+#: core/modules/aiCreditSync.php:69
+msgid "License key does not match."
+msgstr "ライセンスキーが一致しません。"
+
+#: core/modules/aiCreditSync.php:64
+msgid "Site URL mismatch."
+msgstr "サイト URL が一致しません。"
+
+#: core/modules/aiCreditSync.php:59
+msgid "Invalid credit sync payload."
+msgstr "無効なクレジット同期ペイロードです。"
+
+#: core/modules/debugInfo.php:47
+msgid "Migrated to v5"
+msgstr "v5 へ移行済み"
+
+#: core/modules/debugInfo.php:21
+msgid "Not Applicable"
+msgstr "該当なし"
+
+#: core/modules/debugInfo.php:19
+msgid "Incomplete"
+msgstr "未完了"
+
+#: core/modules/debugInfo.php:17
+msgid "Completed"
+msgstr "完了"
+
+#: core/src/Rpc/Handlers/RpcWpHandler.php:127
+msgid "Connection failed for the second subscription, please try again."
+msgstr "2つ目のサブスクリプションへの接続に失敗しました。もう一度お試しください。"
+
+#: core/modules/admin.php:529
+#: core/js/dist/admin.js:21
+msgid "Step-by-step instructions"
+msgstr "ステップごとの手順"
+
+#: core/modules/admin.php:526
+#: core/js/dist/admin.js:21
+msgid "Download Premium v5.0.2"
+msgstr "Premium v5.0.2 をダウンロード"
+
+#: core/modules/admin.php:491
+msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
+msgstr "Premium を v5.0.2 に更新すると、通常どおりプレミアムの更新チェックが再開されます。"
+
+#: core/modules/admin.php:484
+#, php-format
+msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
+msgstr "設定とデータはそのまま残ります。ご質問がある場合は、<a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">サポートにお問い合わせ</a>ください。"
+
+#: core/modules/admin.php:481
+msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
+msgstr "これは Premium v5.0.2 で修正済みですが、更新チェックを復元するには、Premium プラグインの一度だけの手動更新が必要です。"
+
+#: core/modules/admin.php:476
+#, php-format
+msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
+msgstr "ただし、まだ Aggregator Premium v%1$s をご利用中であることが検出されました。v%2$s の設定上の問題により、プレミアムの更新が検出されません。"
+
+#: core/modules/admin.php:473
+msgid "You’ve successfully updated the free plugin to v5.0.2."
+msgstr "無料版プラグインの v5.0.2 への更新が完了しました。"
+
+#: core/modules/admin.php:472
+msgid "One-time only manual update required for Aggregator Premium plugin"
+msgstr "Aggregator Premium プラグインには一度だけの手動更新が必要です"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "aggregator"
+msgstr "aggregator"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "display"
+msgstr "display"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "wpra"
+msgstr "wpra"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block description"
+msgid "Display RSS feed content"
+msgstr "RSS フィードのコンテンツを表示"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block title"
+msgid "RSS Aggregator Display"
+msgstr "RSS Aggregator Display"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "feed"
+msgstr "フィード"
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "rss"
+msgstr "RSS"
+
+#: wp-rss-aggregator.php:83
+#, php-format
+msgctxt "%s = plugin name"
+msgid "%1$s requires WordPress version %2$s or higher."
+msgstr "%1$s には WordPress バージョン %2$s 以上が必要です。"
+
+#: wp-rss-aggregator.php:65
+#, php-format
+msgctxt "%s = plugin name"
+msgid "%1$s requires PHP version %2$s or higher."
+msgstr "%1$s には PHP バージョン %2$s 以上が必要です。"
+
+#: core/modules/admin.php:126
+#: core/js/dist/admin.js:21
+#: core/js/dist/admin.js:137
+msgid "Upgrade"
+msgstr "アップグレード"
+
+#: core/src/Utils/Result.php:107
+msgid "An unknown error occurred"
+msgstr "不明なエラーが発生しました"
+
+#: core/src/Utils/Result.php:76
+msgid "The result list is empty"
+msgstr "結果リストが空です"
+
+#: core/src/Tier.php:26
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:131
+msgid "Unknown"
+msgstr "不明"
+
+#: core/src/Tier.php:24
+#: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:131
+msgid "Elite"
+msgstr "Elite"
+
+#: core/src/Tier.php:22
+#: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+msgid "Pro"
+msgstr "Pro"
+
+#: core/src/Tier.php:20
+#: core/js/dist/admin.js:13
+msgid "Plus"
+msgstr "Plus"
+
+#: core/src/Tier.php:18
+#: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:131
+msgid "Basic"
+msgstr "Basic"
+
+#: core/src/Tier.php:16
+#: core/js/dist/admin.js:13
+msgid "Free"
+msgstr "無料"
+
+#: core/src/Store/WpPostsStore.php:205
+#, php-format
+msgid "Post #%s does not exist or is not imported by WP RSS Aggregator"
+msgstr "投稿 #%s は存在しないか、WP RSS Aggregator によってインポートされていません"
+
+#: core/src/Store/SourcesStore.php:416
+msgid "Cannot replace source with no ID"
+msgstr "ID のないソースは置き換えできません"
+
+#: core/src/Store/SourcesStore.php:54
+#, php-format
+msgid "Source with ID %d not found"
+msgstr "ID %d のソースが見つかりません"
+
+#: core/src/Store/ProgressStore.php:59
+#, php-format
+msgid "Progress with ID %s not found"
+msgstr "ID %s の進捗が見つかりません"
+
+#: core/src/Store/DisplaysStore.php:186
+msgid "Cannot replace display with no ID"
+msgstr "ID のない表示は置き換えできません"
+
+#: core/src/Store/DisplaysStore.php:52
+#, php-format
+msgid "Display with ID %d not found"
+msgstr "ID %d の表示が見つかりません"
+
+#: core/src/RssReader/SimplePie/SpRssReader.php:450
+msgid "The feed could not be fetched. Kindly check if the feed URL is correct."
+msgstr "フィードを取得できませんでした。フィードの URL が正しいかご確認ください。"
+
+#: core/src/RssReader/SimplePie/SpRssReader.php:132
+#: core/src/RssReader/SimplePie/SpRssReader.php:168
+msgctxt "The title to show for found RSS feeds without a name"
+msgid "Unnamed feed"
+msgstr "名称未設定のフィード"
+
+#: core/modules/admin.php:303
+#: core/modules/aiHubPromotionalNotice.php:107
+#: core/src/Rpc/RpcServer.php:81
+msgid "Unauthorized"
+msgstr "認証されていません"
+
+#: core/src/Rpc/Handlers/RpcWpHandler.php:113
+msgid "Connection failed, please try again."
+msgstr "接続に失敗しました。もう一度お試しください。"
+
+#: core/src/Rpc/Handlers/RpcWpHandler.php:98
+msgid "Email is not valid"
+msgstr "メールアドレスが正しくありません"
+
+#: core/src/Renderer.php:416
+#: core/js/dist/admin.js:137
+msgid "Next"
+msgstr "次へ"
+
+#: core/src/Renderer.php:406
+msgid "Previous"
+msgstr "前へ"
+
+#: core/src/Renderer.php:332
+msgid "Please select a display from the block settings →"
+msgstr "ブロック設定から表示を選択してください →"
+
+#: core/src/Renderer.php:236
+msgid "Invalid display ID."
+msgstr "無効な表示 ID です。"
+
+#: core/src/Renderer.php:116
+msgid "Failed to get the posts for this display."
+msgstr "この表示の投稿を取得できませんでした。"
+
+#: core/src/Renderer.php:108
+msgid "The display is set to show 0 items."
+msgstr "この表示は 0 件を表示するように設定されています。"
+
+#: core/src/Licensing.php:282
+#: core/src/Licensing.php:296
+msgid "Invalid license key"
+msgstr "無効なライセンスキー"
+
+#: core/src/Licensing.php:175
+msgid "Your license has expired."
+msgstr "ライセンスの有効期限が切れています。"
+
+#: core/src/Licensing.php:173
+msgid "Your license has been deactivated."
+msgstr "ライセンスが無効化されています。"
+
+#: core/src/Licensing.php:129
+msgid "License check failed."
+msgstr "ライセンスの確認に失敗しました。"
+
+#: core/src/IrPost/IrAuthor.php:332
+msgctxt "The name of the default author"
+msgid "Source Author"
+msgstr "ソースの投稿者"
+
+#: core/src/Importer/WpPostBuilder.php:328
+#, php-format
+msgid "Could not get URL of downloaded image with ID %d"
+msgstr "ID %d のダウンロード済み画像の URL を取得できませんでした"
+
+#: core/src/Importer/RssImageFinder.php:308
+msgid "Feed does not have a source URL."
+msgstr "フィードにソース URL がありません。"
+
+#: core/src/Importer/RssImageFinder.php:302
+msgid "Failed to parse the feed's source URL."
+msgstr "フィードのソース URL の解析に失敗しました。"
+
+#: core/src/Importer.php:626
+#, php-format
+msgid "Imported post (#%1$d) \"%2$s\""
+msgstr "投稿 (#%1$d) 「%2$s」をインポートしました"
+
+#: core/src/Importer.php:527
+#, php-format
+msgctxt "Progress bar"
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
+
+#: core/src/Importer.php:338
+msgid "Saving items"
+msgstr "項目を保存中"
+
+#: core/src/Importer.php:306
+msgid "The source does not have a URL."
+msgstr "ソースに URL がありません。"
+
+#: core/src/Importer.php:93
+msgid "Reading RSS feed"
+msgstr "RSS フィードを読み込み中"
+
+#: core/src/Display/LayoutTrait.php:170
+#, php-format
+msgctxt "Time ago format (future)"
+msgid "%s from now"
+msgstr "%s 後"
+
+#: core/src/Display/LayoutTrait.php:168
+#, php-format
+msgctxt "Time ago format"
+msgid "%s ago"
+msgstr "%s 前"
+
+#: core/src/Display/DisplaySettings.php:138
+msgctxt "Default value for the \"Read more text\" display setting"
+msgid "Read more"
+msgstr "続きを読む"
+
+#: core/src/Display/DisplaySettings.php:137
+msgctxt "Default value for the \"Author prefix\" display setting"
+msgid "By "
+msgstr "投稿者 "
+
+#: core/src/Cli/Commands/RejectListCommand.php:49
+#, php-format
+msgid "Added \"%s\" to the reject list"
+msgstr "「%s」を拒否リストに追加しました"
+
+#: core/src/Cli/Commands/FeedCommand.php:43
+msgid "Invalid"
+msgstr "無効"
+
+#: core/src/Cli/Commands/FeedCommand.php:41
+msgid "Valid"
+msgstr "有効"
+
+#: core/src/Cli/Commands/DisplayCommand.php:90
+#, php-format
+msgctxt "Name of a duplicated display"
+msgid "%s (copy)"
+msgstr "%s (コピー)"
+
+#: core/modules/rowActions.php:92
+msgid "The post has been successfully rejected and moved to the Trash."
+msgstr "投稿は正常に拒否され、ゴミ箱に移動しました。"
+
+#: core/modules/rowActions.php:63
+msgid "Cannot reject a post that was not imported by Aggregator."
+msgstr "Aggregator でインポートされていない投稿は拒否できません。"
+
+#: core/modules/rowActions.php:28
+msgid "Trash and reject"
+msgstr "ゴミ箱へ移動して拒否"
+
+#: core/modules/logger.php:95
+msgctxt "post status"
+msgid "Debug"
+msgstr "デバッグ"
+
+#: core/modules/logger.php:94
+msgctxt "post status"
+msgid "Info"
+msgstr "情報"
+
+#: core/modules/logger.php:93
+msgctxt "post status"
+msgid "Notice"
+msgstr "通知"
+
+#: core/modules/logger.php:92
+msgctxt "post status"
+msgid "Warning"
+msgstr "警告"
+
+#: core/modules/logger.php:91
+msgctxt "post status"
+msgid "Error"
+msgstr "エラー"
+
+#: core/modules/logger.php:90
+msgctxt "post status"
+msgid "Critical"
+msgstr "重大"
+
+#: core/modules/logger.php:89
+msgctxt "post status"
+msgid "Alert"
+msgstr "警報"
+
+#: core/modules/logger.php:88
+msgctxt "post status"
+msgid "Emergency"
+msgstr "緊急"
+
+#: core/modules/logger.php:81
+msgid "No logs found in Trash."
+msgstr "ゴミ箱にログが見つかりませんでした。"
+
+#: core/modules/logger.php:80
+msgid "No logs found."
+msgstr "ログが見つかりませんでした。"
+
+#: core/modules/logger.php:78
+msgid "Search Logs"
+msgstr "ログを検索"
+
+#: core/modules/logger.php:77
+#: core/js/dist/admin.js:43
+msgid "All Logs"
+msgstr "すべてのログ"
+
+#: core/modules/logger.php:76
+msgid "View Log"
+msgstr "ログを表示"
+
+#: core/modules/logger.php:75
+msgid "Edit Log"
+msgstr "ログを編集"
+
+#: core/modules/logger.php:74
+msgid "New Log"
+msgstr "新規ログ"
+
+#: core/modules/logger.php:73
+msgctxt "add new on admin bar"
+msgid "Log"
+msgstr "ログ"
+
+#: core/modules/logger.php:72
+msgctxt "admin menu"
+msgid "Logs"
+msgstr "ログ"
+
+#: core/modules/logger.php:71
+msgctxt "post type singular name"
+msgid "Log"
+msgstr "ログ"
+
+#: core/modules/logger.php:70
+msgctxt "post type general name"
+msgid "Logs"
+msgstr "ログ"
+
+#: core/modules/licensing.php:107
+msgctxt "Description of the all access plan"
+msgid "Import unlimited content from RSS feeds and generate your own original versions."
+msgstr "RSS フィードから無制限にコンテンツをインポートし、独自のオリジナル版を生成します。"
+
+#: core/modules/licensing.php:106
+msgctxt "Name of the Elite plan"
+msgid "Elite"
+msgstr "Elite"
+
+#: core/modules/licensing.php:99
+#: core/js/dist/admin.js:131
+msgid "Custom Mapping"
+msgstr "カスタムマッピング"
+
+#: core/modules/licensing.php:98
+msgid "Include all media"
+msgstr "すべてのメディアを含める"
+
+#: core/modules/licensing.php:97
+#: core/js/dist/admin.js:21
+#: core/js/dist/admin.js:131
+msgid "Full text import"
+msgstr "全文インポート"
+
+#: core/modules/licensing.php:90
+msgctxt "Description of the pro plan"
+msgid "Curate RSS feeds as Posts or any CPT and give your visitors all the content they’re after."
+msgstr "RSS フィードを投稿または任意の CPT としてキュレーションし、訪問者が求めるすべてのコンテンツを提供します。"
+
+#: core/modules/licensing.php:89
+msgctxt "Name of the pro plan"
+msgid "Pro"
+msgstr "Pro"
+
+#: core/modules/licensing.php:82
+#: core/js/dist/admin.js:131
+msgid "Import taxonomies"
+msgstr "タクソノミーをインポート"
+
+#: core/modules/licensing.php:81
+msgid "Add custom content"
+msgstr "カスタムコンテンツを追加"
+
+#: core/modules/licensing.php:80
+msgid "Schedule publishing"
+msgstr "公開予約"
+
+#: core/modules/licensing.php:79
+#: core/js/dist/admin.js:131
+msgid "Import as Posts"
+msgstr "投稿としてインポート"
+
+#: core/modules/licensing.php:72
+msgctxt "Description of the plus plan"
+msgid "Aggregate RSS feeds as blog posts and publish their excerpts to your blog or CPT."
+msgstr "RSS フィードをブログ投稿として集約し、抜粋をブログまたは CPT に公開します。"
+
+#: core/modules/licensing.php:71
+msgctxt "Name of the plus plan"
+msgid "Plus"
+msgstr "Plus"
+
+#: core/modules/licensing.php:64
+#: core/js/dist/admin.js:131
+msgid "Source management"
+msgstr "ソース管理"
+
+#: core/modules/licensing.php:62
+#: core/js/dist/admin.js:131
+msgid "Full customization"
+msgstr "完全なカスタマイズ"
+
+#: core/modules/licensing.php:60
+#: core/js/dist/admin.js:131
+msgid "All layout designs"
+msgstr "すべてのレイアウトデザイン"
+
+#: core/modules/licensing.php:53
+msgctxt "Description of the basic plan"
+msgid "Display RSS feeds anywhere on your site and customize them to match your site’s design."
+msgstr "サイト上のどこにでも RSS フィードを表示し、サイトのデザインに合わせてカスタマイズできます。"
+
+#: core/modules/licensing.php:52
+msgctxt "Name of the basic plan"
+msgid "Basic"
+msgstr "Basic"
+
+#: core/modules/licensing.php:43
+msgid "All import options"
+msgstr "すべてのインポートオプション"
+
+#: core/modules/licensing.php:42
+msgid "Unlimited feeds"
+msgstr "無制限のフィード"
+
+#: core/modules/licensing.php:41
+msgid "Unlimited sources"
+msgstr "無制限のソース"
+
+#: core/modules/licensing.php:39
+msgctxt "Description of the free plan"
+msgid "Free, for trying things out."
+msgstr "無料。お試し用です。"
+
+#: core/modules/licensing.php:38
+msgctxt "Name of the free plan"
+msgid "Free"
+msgstr "無料"
+
+#: core/modules/feedItems.php:120
+msgid "No source link"
+msgstr "ソースリンクなし"
+
+#: core/modules/feedItems.php:110
+msgid "(no title)"
+msgstr "(タイトルなし)"
+
+#: core/modules/feedItems.php:94
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+msgid "Date"
+msgstr "日付"
+
+#: core/modules/feedItems.php:89
+#: core/js/blocks/dist/gutenberg/gutenberg.js:1
+#: core/js/dist/admin.js:131
+msgid "Source Link"
+msgstr "ソースリンク"
+
+#: core/modules/feedItems.php:57
+msgid "Filter by date"
+msgstr "日付で絞り込む"
+
+#: core/modules/feedItems.php:55
+msgid "Use as featured image"
+msgstr "アイキャッチ画像として使用"
+
+#: core/modules/feedItems.php:54
+msgid "Remove featured image"
+msgstr "アイキャッチ画像を削除"
+
+#: core/modules/feedItems.php:53
+#: core/js/dist/admin.js:137
+msgid "Set featured image"
+msgstr "アイキャッチ画像を設定"
+
+#: core/modules/feedItems.php:52
+msgid "Featured Image"
+msgstr "アイキャッチ画像"
+
+#: core/modules/debugInfo.php:58
+#: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+msgid "No"
+msgstr "いいえ"
+
+#: core/modules/debugInfo.php:57
+#: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+msgid "Yes"
+msgstr "はい"
+
+#: core/modules/debugInfo.php:55
+#, php-format
+msgctxt "Label for extension in Site Health Info"
+msgid "%s extension"
+msgstr "%s 拡張機能"
+
+#: core/modules/debugInfo.php:44
+msgctxt "fsockopen status in Site Health Info"
+msgid "Unsupported"
+msgstr "非対応"
+
+#: core/modules/debugInfo.php:43
+msgctxt "fsockopen status in Site Health Info"
+msgid "Supported"
+msgstr "対応"
+
+#: core/modules/debugInfo.php:41
+msgid "fsockopen"
+msgstr "fsockopen"
+
+#: core/modules/debugInfo.php:33
+msgid "Plan"
+msgstr "プラン"
+
+#: core/modules/debugInfo.php:29
+msgid "Version"
+msgstr "バージョン"
+
+#: core/modules/admin.php:126
+msgid "Manage Plan"
+msgstr "プランを管理"
+
+#: core/modules/admin.php:125
+#: core/js/dist/admin.js:131
+msgid "Tutorials"
+msgstr "チュートリアル"
+
+#: core/modules/admin.php:124
+#: core/js/dist/admin.js:42
+msgid "Help"
+msgstr "ヘルプ"
+
+#: core/modules/admin.php:122
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:83
+msgid "Integrations"
+msgstr "連携"
+
+#: core/modules/admin.php:121
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+msgid "Folders"
+msgstr "フォルダー"
+
+#: core/modules/admin.php:120
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+msgid "Displays"
+msgstr "表示"
+
+#: core/modules/admin.php:119
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:137
+msgid "Sources"
+msgstr "ソース"
+
+#: core/modules/admin.php:118
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+msgid "Hub"
+msgstr "ハブ"
+
+#: core/modules/admin.php:112
+msgid "Aggregator"
+msgstr "Aggregator"
+
+#: core/admin-frame.php:10
+msgid "Aggregator Admin"
+msgstr "Aggregator 管理"
+
+#. Author URI of the plugin
+#: wp-rss-aggregator.php
+msgid "https://rebelcode.com"
+msgstr "https://rebelcode.com"
+
+#. Author of the plugin
+#: wp-rss-aggregator.php
+msgid "RebelCode"
+msgstr "RebelCode"
+
+#. Description of the plugin
+#: wp-rss-aggregator.php
+msgid "An RSS importer, aggregator, and auto-blogger plugin for WordPress."
+msgstr "WordPress 用の RSS インポーター、アグリゲーター、自動ブログ用プラグイン。"
+
+#: core/src/Store/SourcesStore.php:284
+#: core/src/Store/SourcesStore.php:329
+#, php-format
+msgid "#%d [Missing]"
+msgstr "#%d [見つかりません]"
+
+#: core/src/Store/DisplaysStore.php:106
+#, php-format
+msgid "Display with slug \"%s\" not found"
+msgstr "スラッグ「%s」の表示が見つかりません"
+
+#: core/src/IrPost/IrTerm.php:77
+#, php-format
+msgid "Could not get WordPress term \"%s\"."
+msgstr "WordPress ターム「%s」を取得できませんでした。"
+
+#: core/src/Importer.php:533
+msgid "Ignoring RSS item with no GUID or permalink."
+msgstr "GUID もパーマリンクもない RSS 項目を無視しています。"
+
+#: core/modules/licensing.php:63
+#: core/js/dist/admin.js:131
+msgid "Automatic filtering"
+msgstr "自動絞り込み"
+
+#: core/modules/licensing.php:61
+#: core/js/dist/admin.js:131
+msgid "Manual curation"
+msgstr "手動選定"
+
+#: core/modules/licensing.php:44
+msgid "Import text, audio, & video"
+msgstr "テキスト、音声ファイル、動画をインポート"
+
+#: core/modules/feedItems.php:93
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:131
+msgid "Author"
+msgstr "投稿者"
+
+#: core/modules/feedItems.php:67
+msgid "A link to a feed item"
+msgstr "フィード項目へのリンク"
+
+#: core/modules/feedItems.php:66
+msgid "Feed item link"
+msgstr "フィード項目のリンク"
+
+#: core/modules/feedItems.php:65
+msgid "Feed item updated"
+msgstr "フィード項目を更新しました"
+
+#: core/modules/feedItems.php:64
+msgid "Feed item scheduled"
+msgstr "フィード項目を予約しました"
+
+#: core/modules/feedItems.php:63
+msgid "Feed item trashed"
+msgstr "フィード項目をゴミ箱に移動しました"
+
+#: core/modules/feedItems.php:62
+msgid "Feed item reverted to draft"
+msgstr "フィード項目を下書きに戻しました"
+
+#: core/modules/feedItems.php:61
+msgid "Feed item published privately"
+msgstr "フィード項目を限定公開しました"
+
+#: core/modules/feedItems.php:60
+msgid "Feed item published"
+msgstr "フィード項目を公開しました"
+
+#: core/modules/feedItems.php:59
+msgid "Feed items list"
+msgstr "フィード項目リスト"
+
+#: core/modules/feedItems.php:58
+msgid "Feed items list navigation"
+msgstr "フィード項目リストナビゲーション"
+
+#: core/modules/feedItems.php:56
+msgid "Filter feed items list"
+msgstr "フィード項目リストを絞り込み"
+
+#: core/modules/feedItems.php:51
+msgid "Uploaded to this feed item"
+msgstr "このフィード項目へのアップロード"
+
+#: core/modules/feedItems.php:50
+msgid "Insert into feed item"
+msgstr "フィード項目に挿入"
+
+#: core/modules/feedItems.php:49
+msgid "Feed Item Attributes"
+msgstr "フィード項目の属性"
+
+#: core/modules/feedItems.php:48
+msgid "Feed Item Archives"
+msgstr "フィード項目アーカイブ"
+
+#: core/modules/feedItems.php:47
+msgid "All Feed Items"
+msgstr "すべてのフィード項目"
+
+#: core/modules/feedItems.php:45
+msgid "No feed items found in trash"
+msgstr "ゴミ箱内にフィード項目が見つかりませんでした"
+
+#: core/modules/feedItems.php:44
+msgid "No feed items found"
+msgstr "フィード項目が見つかりませんでした"
+
+#: core/modules/feedItems.php:41
+msgid "View Feed Item"
+msgstr "フィード項目を表示"
+
+#: core/modules/feedItems.php:40
+msgid "New Feed Item"
+msgstr "新規フィード項目"
+
+#: core/modules/feedItems.php:39
+msgid "Edit Feed Item"
+msgstr "フィード項目を編集"
+
+#: core/modules/feedItems.php:37
+#: core/modules/feedItems.php:38
+msgid "Add New Feed Item"
+msgstr "新規フィード項目を追加"
+
+#. Plugin Name of the plugin
+#: wp-rss-aggregator.php
+#: core/modules/debugInfo.php:25
+msgid "WP RSS Aggregator"
+msgstr "WP RSS Aggregator"
+
+#: core/modules/admin.php:123
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:137
+msgid "Settings"
+msgstr "設定"
+
+#: core/modules/feedItems.php:88
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:131
+msgid "Title"
+msgstr "タイトル"
+
+#: core/src/Renderer.php:368
+msgid "Newer posts"
+msgstr "新しい投稿"
+
+#: core/src/Renderer.php:367
+msgid "Older posts"
+msgstr "以前の投稿"
+
+#: core/src/Display/LayoutTrait.php:260
+msgid "No feed items found."
+msgstr "フィード項目が見つかりませんでした。"
+
+#: core/modules/feedItems.php:43
+msgid "Search Feed Items"
+msgstr "フィード項目を検索"
+
+#: core/modules/feedItems.php:42
+msgid "View Feed Items"
+msgstr "フィード項目を表示"
+
+#: core/modules/feedItems.php:35
+msgid "Feed Item"
+msgstr "フィード項目"
+
+#: core/modules/feedItems.php:34
+#: core/modules/feedItems.php:36
+msgid "Feed Items"
+msgstr "フィード項目"
+
+#: core/modules/feedItems.php:90
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
+msgid "Source"
+msgstr "ソース"
+
+#: core/modules/debugInfo.php:37
+#: core/js/dist/admin.js:131
+msgid "State"
+msgstr "状態"
+
+#. translators: %s: Cron help URL.
+#: core/modules/admin.php:341
+#, php-format
+msgid "Aggregator cannot import new items on schedule. If your host runs a server cron job instead, you can safely dismiss this notice. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">How to fix it.</a>"
+msgstr "Aggregator は予定どおりに新しいアイテムをインポートできません。ホスティング側でサーバーの cron ジョブを実行している場合は、この通知を非表示にしても問題ありません。<a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">解決方法を見る</a>"
+
+#: core/modules/admin.php:335
+msgid "WordPress cron is disabled on this site."
+msgstr "このサイトでは WordPress の cron が無効になっています。"
+
+#: core/modules/aiHubPromotionalNotice.php:114
+msgid "Invalid promotional notice state."
+msgstr "プロモーション通知の状態が無効です。"
+
+#: core/src/Importer.php:115
+#, php-format
+msgid "Found %d item in the RSS feed"
+msgid_plural "Found %d items in the RSS feed"
+msgstr[0] "RSS フィードで%d件のアイテムが見つかりました"
+
+#: core/src/Cli/Commands/SourceCommand.php:440
+#, php-format
+msgid "%s source updated."
+msgid_plural "%s sources updated."
+msgstr[0] "%s 件のソースを更新しました。"
+
+#: core/src/Cli/Commands/SourceCommand.php:240
+#, php-format
+msgid "Deleted %d source."
+msgid_plural "Deleted %d sources."
+msgstr[0] "%d件のソースを削除しました。"
+
+#: core/src/Cli/Commands/RejectListCommand.php:138
+#, php-format
+msgid "Deleted %d item."
+msgid_plural "Deleted %d items"
+msgstr[0] "%d件のアイテムを削除しました。"
+
+#: core/src/Cli/Commands/RejectListCommand.php:76
+#, php-format
+msgid "Removed %d item"
+msgid_plural "Removed %d items"
+msgstr[0] "%d件のアイテムを削除しました"
+
+#: core/src/Cli/Commands/ImportCommand.php:79
+#, php-format
+msgid "Imported %d new item"
+msgid_plural "Imported %d new items"
+msgstr[0] "%d件の新規アイテムをインポートしました"
+
+#: core/src/Cli/Commands/DisplayCommand.php:421
+#, php-format
+msgid "%s display updated."
+msgid_plural "%s displays updated."
+msgstr[0] "%s 件の表示を更新しました。"
+
+#: core/src/Cli/Commands/DisplayCommand.php:402
+#, php-format
+msgid "Source %s does not exist."
+msgid_plural "Sources %s do not exist."
+msgstr[0] "ソース %s は存在しません。"
+
+#: core/src/Cli/Commands/DisplayCommand.php:240
+#, php-format
+msgid "Deleted %d display."
+msgid_plural "Deleted %d displays."
+msgstr[0] "%d件の表示を削除しました。"
+
+#. Plugin URI of the plugin
+#: wp-rss-aggregator.php
+msgid "https://wprssaggregator.com"
+msgstr "https://wprssaggregator.com"
+
+#: core/modules/feedItems.php:46
+msgid "Parent Feed Item:"
+msgstr "親フィードアイテム:"
+
+#: core/modules/logger.php:79
+msgid "Parent Logs:"
+msgstr "親ログ:"
+
+#: core/src/Importer/WpPostBuilder.php:315
+#, php-format
+msgid "Failed to download image for post: %s"
+msgstr "投稿の画像をダウンロードできませんでした: %s"
+
+#: core/src/Rpc/Handlers/RpcWpHandler.php:119
+msgid "Returned an error: HTTP "
+msgstr "エラーが返されました: HTTP "
+
+#: core/src/Rpc/Handlers/RpcWpHandler.php:133
+msgid "Returned an error for the second subscription: HTTP "
+msgstr "2つ目のサブスクリプションでエラーが返されました: HTTP "
+
+#: core/src/Store/WpPostsStore.php:597
+#, php-format
+msgctxt "The recorded note when an imported post is deleted and rejected. %s = post title"
+msgid "Rejected after deletion: %s"
+msgstr "削除後に拒否されました: %s"
+
+#: core/src/V4/V4TemplatesMigrator.php:142
+#: core/src/V4/V4TemplatesMigrator.php:197
+#: core/js/dist/admin.js:83
+msgid "Source:"
+msgstr "ソース:"
+
+#: core/src/V4/V4TemplatesMigrator.php:145
+#: core/src/V4/V4TemplatesMigrator.php:202
+msgid "Published on:"
+msgstr "公開日:"
+
+#: core/src/V4/V4TemplatesMigrator.php:149
+#: core/src/V4/V4TemplatesMigrator.php:200
+msgid "By"
+msgstr "投稿者"
+
+#: core/src/IrPost/IrTerm.php:65
+#, php-format
+msgid "Could not get or create parent term: %s"
+msgstr "親タームを取得または作成できませんでした: %s"
+
+#. translators: 1: item GUID/permalink, 2: error message
+#: core/src/Importer.php:573
+#, php-format
+msgid "Failed to convert RSS item %1$s: %2$s"
+msgstr "RSS アイテム %1$s を変換できませんでした: %2$s"
+
+#: core/modules/admin.php:130
+msgid "Dev tools"
+msgstr "開発ツール"
+
+#: core/src/Rpc/Handlers/RpcSiteTransferHandler.php:67
+msgid "You are not allowed to import everything that you chose."
+msgstr "選択した項目の一部をインポートする権限がありません。"
+
+#: core/src/Source/SourcesTransfer.php:79
+#: core/src/Source/SourcesTransfer.php:154
+msgid "invalid source data."
+msgstr "ソースデータが無効です。"
+
+#. translators: 1: position of the source in the file, 2: reason the source was skipped.
+#: core/src/Source/SourcesTransfer.php:85
+#, php-format
+msgid "Source #%1$d skipped: %2$s"
+msgstr "ソース #%1$d をスキップしました: %2$s"
+
+#: core/src/Source/SourcesTransfer.php:159
+msgid "missing or invalid feed URL."
+msgstr "フィード URL がないか、無効です。"
+
+#: core/src/Source/SourcesTransfer.php:166
+msgid "invalid source settings."
+msgstr "ソース設定が無効です。"
+
+#: core/src/Transfer/SiteTransfer.php:197
+msgid "Folders and displays in this file were not imported, because they need Aggregator Pro or Elite."
+msgstr "このファイルのフォルダーと表示は、Aggregator Pro または Elite が必要なためインポートされませんでした。"
+
+#: core/src/Transfer/SiteTransfer.php:202
+msgid "Folders and displays were not imported, because they need the sources from the same file."
+msgstr "フォルダーと表示は、同じファイルのソースが必要なためインポートされませんでした。"
+
+#: core/src/Transfer/SiteTransfer.php:271
+#: core/src/Transfer/SiteTransfer.php:278
+#: core/src/Transfer/SiteTransfer.php:285
+#: core/src/Transfer/SiteTransfer.php:297
+#: core/src/Transfer/SiteTransfer.php:302
+msgid "The file is not a valid Aggregator export file."
+msgstr "このファイルは有効な Aggregator エクスポートファイルではありません。"
+
+#: core/src/Transfer/SiteTransfer.php:291
+msgid "This export file was made with an unsupported version of Aggregator."
+msgstr "このエクスポートファイルは、サポートされていないバージョンの Aggregator で作成されました。"
+
+#. translators: %d: maximum number of sources per import.
+#: core/src/Transfer/SiteTransfer.php:311
+#, php-format
+msgid "The file contains too many sources. Import at most %d sources at a time."
+msgstr "ファイルのソースが多すぎます。一度にインポートできるソースは最大 %d 件です。"

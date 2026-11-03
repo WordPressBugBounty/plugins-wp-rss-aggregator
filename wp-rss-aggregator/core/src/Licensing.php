@@ -126,7 +126,7 @@ class Licensing {
 				fn ( stdClass $data ) => $this->eddSlResponseToLicense( $key, $data ),
 				function ( $rLicense ) {
 					if ( ! ( $rLicense instanceof License ) || ! in_array( $rLicense->status, array( 'valid', 'expired' ) ) ) {
-						return Result::Err( __( 'License check failed.', 'wprss' ) );
+						return Result::Err( __( 'License check failed.', 'wp-rss-aggregator' ) );
 					}
 
 					$this->saveLicense( $rLicense->toArray() );
@@ -170,9 +170,9 @@ class Licensing {
 		$responseData = $rResponse->get();
 
 		if ( ! empty( $responseData->success ) ) {
-			$message = esc_html__( 'Your license has been deactivated.', 'wprss' );
+			$message = esc_html__( 'Your license has been deactivated.', 'wp-rss-aggregator' );
 		} else {
-			$message = esc_html__( 'Your license has expired.', 'wprss' );
+			$message = esc_html__( 'Your license has expired.', 'wp-rss-aggregator' );
 		}
 
 		$this->deleteLicense();
@@ -279,7 +279,7 @@ class Licensing {
 		$success = $data->success ?? false;
 
 		if ( ! $success && empty( $data->item_id ) ) {
-			return Result::Err( __( 'Invalid license key', 'wprss' ) );
+			return Result::Err( __( 'Invalid license key', 'wp-rss-aggregator' ) );
 		}
 
 		$itemId = (int) $data->item_id;
@@ -293,7 +293,7 @@ class Licensing {
 		}
 
 		if ( $tier === Tier::Free ) {
-			return Result::Err( __( 'Invalid license key', 'wprss' ) );
+			return Result::Err( __( 'Invalid license key', 'wp-rss-aggregator' ) );
 		}
 
 		$license = new License();

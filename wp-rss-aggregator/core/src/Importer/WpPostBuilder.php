@@ -132,7 +132,7 @@ class WpPostBuilder {
 		$allowedImportHtmlTags = self::allowedImportHtmlTags();
 
 		if ( empty( $allowedImportHtmlTags ) ) {
-			return self::savePost( $postData, $wpError );
+			return self::savePost( self::sanitizeContent( $postData ), $wpError );
 		}
 
 		$filter = static function ( $tags, $context ) use ( $allowedImportHtmlTags ) {
@@ -142,10 +142,48 @@ class WpPostBuilder {
 		add_filter( 'wp_kses_allowed_html', $filter, 10, 2 );
 
 		try {
-			return self::savePost( $postData, $wpError );
+			return self::savePost( self::sanitizeContent( $postData ), $wpError );
 		} finally {
 			remove_filter( 'wp_kses_allowed_html', $filter, 10 );
 		}
+	}
+
+	/**
+	 * Runs imported post content through KSES, whatever the current user's capabilities.
+	 *
+	 * WordPress only filters post content on save when the current user lacks
+	 * `unfiltered_html`, so imports run by an admin or from WP-CLI would otherwise
+	 * store feed HTML unfiltered. Tags opted in via `wpra.importer.allowedHtmlTags`
+	 * are kept, since this runs while that filter is attached.
+	 *
+	 * @since 5.7.0
+	 *
+	 * @param array<string,mixed> $postData
+	 * @return array<string,mixed>
+	 */
+	protected static function sanitizeContent( array $postData ): array {
+		if ( ! isset( $postData['post_content'] ) || ! is_string( $postData['post_content'] ) ) {
+			return $postData;
+		}
+
+		/**
+		 * Filters whether imported post content is sanitized with KSES before it is saved.
+		 *
+		 * Returning false restores the previous behaviour, where WordPress applies KSES
+		 * only when the importing user lacks the `unfiltered_html` capability.
+		 *
+		 * @since 5.7.0
+		 *
+		 * @param bool                $sanitize Whether to sanitize the content. Default true.
+		 * @param array<string,mixed> $postData The post data about to be saved.
+		 */
+		if ( false === apply_filters( 'wpra.importer.sanitizeContent', true, $postData ) ) {
+			return $postData;
+		}
+
+		$postData['post_content'] = wp_kses_post( $postData['post_content'] );
+
+		return $postData;
 	}
 
 	/**

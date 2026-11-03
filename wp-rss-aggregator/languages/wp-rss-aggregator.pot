@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP RSS Aggregator 5.6.0\n"
+"Project-Id-Version: WP RSS Aggregator 5.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-rss-aggregator\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-14T13:25:57+00:00\n"
+"POT-Creation-Date: 2026-11-03T08:48:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-rss-aggregator\n"
@@ -64,12 +64,14 @@ msgstr ""
 
 #: core/modules/admin.php:120
 #: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
 #: core/js/dist/admin.js:131
 msgid "Displays"
 msgstr ""
 
 #: core/modules/admin.php:121
 #: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
 msgid "Folders"
 msgstr ""
 
@@ -109,56 +111,57 @@ msgid "Manage Plan"
 msgstr ""
 
 #: core/modules/admin.php:130
-msgid "Logs"
+msgid "Dev tools"
 msgstr ""
 
-#: core/modules/admin.php:302
+#: core/modules/admin.php:303
 #: core/modules/aiHubPromotionalNotice.php:107
+#: core/src/Rpc/RpcServer.php:81
 msgid "Unauthorized"
 msgstr ""
 
-#: core/modules/admin.php:334
+#: core/modules/admin.php:335
 msgid "WordPress cron is disabled on this site."
 msgstr ""
 
 #. translators: %s: Cron help URL.
-#: core/modules/admin.php:340
+#: core/modules/admin.php:341
 #, php-format
 msgid "Aggregator cannot import new items on schedule. If your host runs a server cron job instead, you can safely dismiss this notice. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">How to fix it.</a>"
 msgstr ""
 
-#: core/modules/admin.php:471
+#: core/modules/admin.php:472
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr ""
 
-#: core/modules/admin.php:472
+#: core/modules/admin.php:473
 msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr ""
 
-#: core/modules/admin.php:475
+#: core/modules/admin.php:476
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
 msgstr ""
 
-#: core/modules/admin.php:480
+#: core/modules/admin.php:481
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
 msgstr ""
 
-#: core/modules/admin.php:483
+#: core/modules/admin.php:484
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr ""
 
-#: core/modules/admin.php:490
+#: core/modules/admin.php:491
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr ""
 
-#: core/modules/admin.php:525
+#: core/modules/admin.php:526
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr ""
 
-#: core/modules/admin.php:528
+#: core/modules/admin.php:529
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
 msgstr ""
@@ -291,12 +294,14 @@ msgstr ""
 #: core/modules/debugInfo.php:57
 #: core/js/dist/admin.js:13
 #: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
 msgid "Yes"
 msgstr ""
 
 #: core/modules/debugInfo.php:58
 #: core/js/dist/admin.js:13
 #: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:131
 msgid "No"
 msgstr ""
 
@@ -445,6 +450,7 @@ msgstr ""
 
 #: core/modules/feedItems.php:90
 #: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
 msgid "Source"
 msgstr ""
 
@@ -606,94 +612,95 @@ msgstr ""
 msgid "3rd Party AI integrations"
 msgstr ""
 
-#: core/modules/logger.php:46
+#: core/modules/logger.php:70
 msgctxt "post type general name"
 msgid "Logs"
 msgstr ""
 
-#: core/modules/logger.php:47
+#: core/modules/logger.php:71
 msgctxt "post type singular name"
 msgid "Log"
 msgstr ""
 
-#: core/modules/logger.php:48
+#: core/modules/logger.php:72
 msgctxt "admin menu"
 msgid "Logs"
 msgstr ""
 
-#: core/modules/logger.php:49
+#: core/modules/logger.php:73
 msgctxt "add new on admin bar"
 msgid "Log"
 msgstr ""
 
-#: core/modules/logger.php:50
+#: core/modules/logger.php:74
 msgid "New Log"
 msgstr ""
 
-#: core/modules/logger.php:51
+#: core/modules/logger.php:75
 msgid "Edit Log"
 msgstr ""
 
-#: core/modules/logger.php:52
+#: core/modules/logger.php:76
 msgid "View Log"
 msgstr ""
 
-#: core/modules/logger.php:53
+#: core/modules/logger.php:77
+#: core/js/dist/admin.js:43
 msgid "All Logs"
 msgstr ""
 
-#: core/modules/logger.php:54
+#: core/modules/logger.php:78
 msgid "Search Logs"
 msgstr ""
 
-#: core/modules/logger.php:55
+#: core/modules/logger.php:79
 msgid "Parent Logs:"
 msgstr ""
 
-#: core/modules/logger.php:56
+#: core/modules/logger.php:80
 msgid "No logs found."
 msgstr ""
 
-#: core/modules/logger.php:57
+#: core/modules/logger.php:81
 msgid "No logs found in Trash."
 msgstr ""
 
-#: core/modules/logger.php:64
+#: core/modules/logger.php:88
 msgctxt "post status"
 msgid "Emergency"
 msgstr ""
 
-#: core/modules/logger.php:65
+#: core/modules/logger.php:89
 msgctxt "post status"
 msgid "Alert"
 msgstr ""
 
-#: core/modules/logger.php:66
+#: core/modules/logger.php:90
 msgctxt "post status"
 msgid "Critical"
 msgstr ""
 
-#: core/modules/logger.php:67
+#: core/modules/logger.php:91
 msgctxt "post status"
 msgid "Error"
 msgstr ""
 
-#: core/modules/logger.php:68
+#: core/modules/logger.php:92
 msgctxt "post status"
 msgid "Warning"
 msgstr ""
 
-#: core/modules/logger.php:69
+#: core/modules/logger.php:93
 msgctxt "post status"
 msgid "Notice"
 msgstr ""
 
-#: core/modules/logger.php:70
+#: core/modules/logger.php:94
 msgctxt "post status"
 msgid "Info"
 msgstr ""
 
-#: core/modules/logger.php:71
+#: core/modules/logger.php:95
 msgctxt "post status"
 msgid "Debug"
 msgstr ""
@@ -785,14 +792,70 @@ msgid_plural "%s sources updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/src/Display/DisplaySettings.php:125
+#: core/src/Display/DisplaySettings.php:137
 msgctxt "Default value for the \"Author prefix\" display setting"
 msgid "By "
 msgstr ""
 
-#: core/src/Display/DisplaySettings.php:126
+#: core/src/Display/DisplaySettings.php:138
 msgctxt "Default value for the \"Read more text\" display setting"
 msgid "Read more"
+msgstr ""
+
+#: core/src/Display/LayoutTrait.php:168
+#, php-format
+msgctxt "Time ago format"
+msgid "%s ago"
+msgstr ""
+
+#: core/src/Display/LayoutTrait.php:170
+#, php-format
+msgctxt "Time ago format (future)"
+msgid "%s from now"
+msgstr ""
+
+#: core/src/Display/LayoutTrait.php:260
+msgid "No feed items found."
+msgstr ""
+
+#: core/src/Importer.php:93
+msgid "Reading RSS feed"
+msgstr ""
+
+#: core/src/Importer.php:115
+#, php-format
+msgid "Found %d item in the RSS feed"
+msgid_plural "Found %d items in the RSS feed"
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/src/Importer.php:306
+msgid "The source does not have a URL."
+msgstr ""
+
+#: core/src/Importer.php:338
+msgid "Saving items"
+msgstr ""
+
+#: core/src/Importer.php:527
+#, php-format
+msgctxt "Progress bar"
+msgid "%1$d/%2$d"
+msgstr ""
+
+#: core/src/Importer.php:533
+msgid "Ignoring RSS item with no GUID or permalink."
+msgstr ""
+
+#. translators: 1: item GUID/permalink, 2: error message
+#: core/src/Importer.php:573
+#, php-format
+msgid "Failed to convert RSS item %1$s: %2$s"
+msgstr ""
+
+#: core/src/Importer.php:626
+#, php-format
+msgid "Imported post (#%1$d) \"%2$s\""
 msgstr ""
 
 #: core/src/Importer/RssImageFinder.php:302
@@ -803,18 +866,87 @@ msgstr ""
 msgid "Feed does not have a source URL."
 msgstr ""
 
-#: core/src/Importer/WpPostBuilder.php:277
+#: core/src/Importer/WpPostBuilder.php:315
 #, php-format
 msgid "Failed to download image for post: %s"
 msgstr ""
 
-#: core/src/Importer/WpPostBuilder.php:290
+#: core/src/Importer/WpPostBuilder.php:328
 #, php-format
 msgid "Could not get URL of downloaded image with ID %d"
 msgstr ""
 
+#: core/src/IrPost/IrAuthor.php:332
+msgctxt "The name of the default author"
+msgid "Source Author"
+msgstr ""
+
+#: core/src/IrPost/IrTerm.php:65
+#, php-format
+msgid "Could not get or create parent term: %s"
+msgstr ""
+
+#: core/src/IrPost/IrTerm.php:77
+#, php-format
+msgid "Could not get WordPress term \"%s\"."
+msgstr ""
+
+#: core/src/Licensing.php:129
+msgid "License check failed."
+msgstr ""
+
+#: core/src/Licensing.php:173
+msgid "Your license has been deactivated."
+msgstr ""
+
+#: core/src/Licensing.php:175
+msgid "Your license has expired."
+msgstr ""
+
+#: core/src/Licensing.php:282
+#: core/src/Licensing.php:296
+msgid "Invalid license key"
+msgstr ""
+
 #: core/src/Plugin.php:122
 msgid "Module is not compatible with the installed Aggregator version."
+msgstr ""
+
+#: core/src/Renderer.php:108
+msgid "The display is set to show 0 items."
+msgstr ""
+
+#: core/src/Renderer.php:116
+msgid "Failed to get the posts for this display."
+msgstr ""
+
+#: core/src/Renderer.php:236
+msgid "Invalid display ID."
+msgstr ""
+
+#: core/src/Renderer.php:332
+msgid "Please select a display from the block settings →"
+msgstr ""
+
+#: core/src/Renderer.php:367
+msgid "Older posts"
+msgstr ""
+
+#: core/src/Renderer.php:368
+msgid "Newer posts"
+msgstr ""
+
+#: core/src/Renderer.php:406
+msgid "Previous"
+msgstr ""
+
+#: core/src/Renderer.php:416
+#: core/js/dist/admin.js:137
+msgid "Next"
+msgstr ""
+
+#: core/src/Rpc/Handlers/RpcSiteTransferHandler.php:67
+msgid "You are not allowed to import everything that you chose."
 msgstr ""
 
 #: core/src/Rpc/Handlers/RpcWpHandler.php:98
@@ -837,10 +969,33 @@ msgstr ""
 msgid "Returned an error for the second subscription: HTTP "
 msgstr ""
 
-#: core/src/RssReader/SimplePie/SpRssReader.php:129
-#: core/src/RssReader/SimplePie/SpRssReader.php:163
+#: core/src/RssReader/SimplePie/SpRssReader.php:132
+#: core/src/RssReader/SimplePie/SpRssReader.php:168
 msgctxt "The title to show for found RSS feeds without a name"
 msgid "Unnamed feed"
+msgstr ""
+
+#: core/src/RssReader/SimplePie/SpRssReader.php:450
+msgid "The feed could not be fetched. Kindly check if the feed URL is correct."
+msgstr ""
+
+#: core/src/Source/SourcesTransfer.php:79
+#: core/src/Source/SourcesTransfer.php:154
+msgid "invalid source data."
+msgstr ""
+
+#. translators: 1: position of the source in the file, 2: reason the source was skipped.
+#: core/src/Source/SourcesTransfer.php:85
+#, php-format
+msgid "Source #%1$d skipped: %2$s"
+msgstr ""
+
+#: core/src/Source/SourcesTransfer.php:159
+msgid "missing or invalid feed URL."
+msgstr ""
+
+#: core/src/Source/SourcesTransfer.php:166
+msgid "invalid source settings."
 msgstr ""
 
 #: core/src/Store/DisplaysStore.php:52
@@ -906,6 +1061,7 @@ msgstr ""
 
 #: core/src/Tier.php:22
 #: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:43
 #: core/js/dist/admin.js:131
 msgid "Pro"
 msgstr ""
@@ -920,6 +1076,32 @@ msgstr ""
 #: core/js/dist/admin.js:42
 #: core/js/dist/admin.js:131
 msgid "Unknown"
+msgstr ""
+
+#: core/src/Transfer/SiteTransfer.php:197
+msgid "Folders and displays in this file were not imported, because they need Aggregator Pro or Elite."
+msgstr ""
+
+#: core/src/Transfer/SiteTransfer.php:202
+msgid "Folders and displays were not imported, because they need the sources from the same file."
+msgstr ""
+
+#: core/src/Transfer/SiteTransfer.php:271
+#: core/src/Transfer/SiteTransfer.php:278
+#: core/src/Transfer/SiteTransfer.php:285
+#: core/src/Transfer/SiteTransfer.php:297
+#: core/src/Transfer/SiteTransfer.php:302
+msgid "The file is not a valid Aggregator export file."
+msgstr ""
+
+#: core/src/Transfer/SiteTransfer.php:291
+msgid "This export file was made with an unsupported version of Aggregator."
+msgstr ""
+
+#. translators: %d: maximum number of sources per import.
+#: core/src/Transfer/SiteTransfer.php:311
+#, php-format
+msgid "The file contains too many sources. Import at most %d sources at a time."
 msgstr ""
 
 #: core/src/Utils/Result.php:76
@@ -1302,6 +1484,18 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: core/js/dist/admin.js:42
+msgid "Newest first"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgid "Oldest first"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgid "Items order"
+msgstr ""
+
+#: core/js/dist/admin.js:42
 msgid "Item settings"
 msgstr ""
 
@@ -1467,6 +1661,10 @@ msgstr ""
 
 #: core/js/dist/admin.js:42
 msgid "\"Read more\" text"
+msgstr ""
+
+#: core/js/dist/admin.js:42
+msgid "Place \"Read more\" link on a new line"
 msgstr ""
 
 #: core/js/dist/admin.js:42
@@ -1756,6 +1954,7 @@ msgstr ""
 
 #: core/js/dist/admin.js:42
 #: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:135
 msgid "<span>Need help with your license? <a>Click here</a>.</span>"
 msgstr ""
 
@@ -1870,6 +2069,7 @@ msgid "Create a new display"
 msgstr ""
 
 #: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
 msgid "Search"
 msgstr ""
 
@@ -2141,6 +2341,7 @@ msgid "Source Automations"
 msgstr ""
 
 #: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
 msgid "Global Automations"
 msgstr ""
 
@@ -2165,6 +2366,7 @@ msgid "Advanced Settings"
 msgstr ""
 
 #: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:43
 msgid "Import/Export"
 msgstr ""
 
@@ -2960,14 +3162,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: core/js/dist/admin.js:43
-msgid "Choose file"
-msgstr ""
-
-#: core/js/dist/admin.js:43
-msgid "Import/Export Settings"
-msgstr ""
-
-#: core/js/dist/admin.js:43
 msgid "Delete All Imported Items"
 msgstr ""
 
@@ -3004,35 +3198,6 @@ msgid "If you would like to disable all styles used in this plugin, tick the che
 msgstr ""
 
 #: core/js/dist/admin.js:43
-msgid "Settings imported successfully!"
-msgstr ""
-
-#: core/js/dist/admin.js:43
-#: core/js/dist/admin.js:83
-msgid "Import"
-msgstr ""
-
-#: core/js/dist/admin.js:43
-msgid "Upload an exported settings file to import your settings."
-msgstr ""
-
-#: core/js/dist/admin.js:43
-msgid "Import settings"
-msgstr ""
-
-#: core/js/dist/admin.js:43
-msgid "Export"
-msgstr ""
-
-#: core/js/dist/admin.js:43
-msgid "Download a file that contains all of your settings for WP RSS Aggregator."
-msgstr ""
-
-#: core/js/dist/admin.js:43
-msgid "Export settings"
-msgstr ""
-
-#: core/js/dist/admin.js:43
 msgid "This will erase your current Aggregator v5 setup and restart the migration from scratch using the built-in wizard."
 msgstr ""
 
@@ -3061,6 +3226,22 @@ msgid "Roll back to v4"
 msgstr ""
 
 #: core/js/dist/admin.js:43
+msgid "Running the migration again will <strong>erase all current v5 data</strong> and restart the migration using the built-in migration wizard. Use this if something went wrong with the last migration."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "For WP-CLI Users"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "If you're planning to run migration again using WP-CLI, we recommend erasing all v5 data via WP-CLI. <a>Learn more</a>."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Your original v4 setup is still available. Rolling back will <strong>restore your previous v4 setup</strong>. You can migrate to v5 again at any time."
+msgstr ""
+
+#: core/js/dist/admin.js:43
 msgid "Delete all imported items"
 msgstr ""
 
@@ -3078,6 +3259,14 @@ msgstr ""
 
 #: core/js/dist/admin.js:43
 msgid "Deleting imported posts. Please wait."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Delete all data instantly"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Click the button to the right to delete all imported items and posts immediately."
 msgstr ""
 
 #: core/js/dist/admin.js:43
@@ -3306,6 +3495,230 @@ msgid "Automatically filter and feature trending topics"
 msgstr ""
 
 #: core/js/dist/admin.js:43
+msgid "Choose file"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Folders and displays can be exported and imported with Aggregator Pro and Elite, which keep them linked to their sources on the new site."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Install or update Aggregator Premium to the latest version to export and import folders and displays."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Export"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Download one file with the parts you choose. Folders and displays always include the sources they show. Imported items are not included."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:83
+msgid "Import"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Upload an export file and choose what to import. Settings replace your current settings. Sources, folders and displays are added as new, a folder with the same name is reused, and imported sources start paused. Fallback featured images and fallback authors are not copied, so set them again in each source."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "This file is not an Aggregator export file."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+#, js-format
+msgid "and %d more."
+msgid_plural "and %d more."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/js/dist/admin.js:43
+msgid "Settings imported."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+#, js-format
+msgid "Imported %d source."
+msgid_plural "Imported %d sources."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/js/dist/admin.js:43
+msgid "Imported sources are paused. Activate them from the Sources page when you are ready."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+#, js-format
+msgid "Folders: %1$d created, %2$d already existed."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+#, js-format
+msgid "Imported %d display."
+msgid_plural "Imported %d displays."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/js/dist/admin.js:43
+msgid "New display IDs, for updating shortcodes and blocks:"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+#, js-format
+msgid "%1$s: %2$d is now %3$d"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Today"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Last 24 hours"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Last 3 days"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Last 7 days"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Last 14 days"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Last 30 days"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Emergency"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Alert"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Critical"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Error"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Warning"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Notice"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Info"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Debug"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Filter:"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Status"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Message"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Timestamp"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "No log entries match your filters."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Clear filters"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "No log entries yet."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Log Settings"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Enable logging"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Records what happens when sources are fetched and items are imported. Turn it on while troubleshooting."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Auto delete old logs"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Auto delete logs older than"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "days"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Older logs will be deleted automatically"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Clear log"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Deletes all log entries now. This cannot be undone."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "All Sources"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Clear Filters"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Download Logs (filtered)"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Download Logs"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Clear debug log"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Are you sure you want to delete all debug log entries? This cannot be undone."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Yes, clear the log"
+msgstr ""
+
+#: core/js/dist/admin.js:43
 #: core/js/dist/admin.js:131
 msgid "General"
 msgstr ""
@@ -3323,7 +3736,15 @@ msgid "WP RSS Aggregator creates a custom RSS feed on your site that includes al
 msgstr ""
 
 #: core/js/dist/admin.js:43
-msgid "Global automations"
+msgid "Copy your settings and sources to another site, or keep a backup of them."
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "Debug Logs"
+msgstr ""
+
+#: core/js/dist/admin.js:43
+msgid "View logs for feed imports, automation, and plugin activity."
 msgstr ""
 
 #: core/js/dist/admin.js:43
@@ -3712,6 +4133,22 @@ msgid "*Note*: Enable this option to attempt to import audio files and show the 
 msgstr ""
 
 #: core/js/dist/admin.js:113
+msgid "Remove the matching elements"
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Remove the matching attributes"
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Remove the matching elements, but keep their content"
+msgstr ""
+
+#: core/js/dist/admin.js:113
+msgid "Remove everything except the matching elements"
+msgstr ""
+
+#: core/js/dist/admin.js:113
 msgid "Streamline your imported posts by removing unnecessary elements like ads and social buttons. Need help with CSS Selectors? [Learn more][0]"
 msgstr ""
 
@@ -3747,6 +4184,16 @@ msgstr ""
 
 #: core/js/dist/admin.js:113
 msgid "By enabling this feature, you confirm you have read our <learnMore>Terms & Conditions</learnMore> regarding AI data processing and accept responsibility for compliance in your jurisdiction."
+msgstr ""
+
+#: core/js/dist/admin.js:113
+#: core/js/dist/admin.js:131
+msgid "Short"
+msgstr ""
+
+#: core/js/dist/admin.js:113
+#: core/js/dist/admin.js:131
+msgid "Long"
 msgstr ""
 
 #: core/js/dist/admin.js:113
@@ -3805,16 +4252,6 @@ msgstr ""
 #: core/js/dist/admin.js:113
 #: core/js/dist/admin.js:131
 msgid "Length"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-#: core/js/dist/admin.js:131
-msgid "Short"
-msgstr ""
-
-#: core/js/dist/admin.js:113
-#: core/js/dist/admin.js:131
-msgid "Long"
 msgstr ""
 
 #: core/js/dist/admin.js:113
@@ -4225,6 +4662,56 @@ msgid "Link to enclosure"
 msgstr ""
 
 #: core/js/dist/admin.js:131
+msgctxt "Post format"
+msgid "Standard"
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgctxt "Post format"
+msgid "Link"
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgctxt "Post format"
+msgid "Quote"
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgctxt "Post format"
+msgid "Status"
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgctxt "Post format"
+msgid "Audio"
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgctxt "Post format"
+msgid "Image"
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgctxt "Post format"
+msgid "Video"
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgctxt "Post format"
+msgid "Gallery"
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgctxt "Post format"
+msgid "Aside"
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgctxt "Post format"
+msgid "Chat"
+msgstr ""
+
+#: core/js/dist/admin.js:131
 msgid "Post format"
 msgstr ""
 
@@ -4479,6 +4966,18 @@ msgstr ""
 #, js-format
 msgctxt "Source taxonomy rule name"
 msgid "Rule %d"
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgid "*Note*: This custom text will be added to the title of each and every post imported from this source. Titles are plain text, so any formatting is removed."
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgid "Add custom text before the title"
+msgstr ""
+
+#: core/js/dist/admin.js:131
+msgid "Add custom text after the title"
 msgstr ""
 
 #: core/js/dist/admin.js:131
@@ -5218,6 +5717,10 @@ msgid "This wizard will guide you through the necessary steps to complete your m
 msgstr ""
 
 #: core/js/dist/admin.js:135
+msgid "Large Number of Items Detected"
+msgstr ""
+
+#: core/js/dist/admin.js:135
 msgid "There are over 10,000 imported items on this website. To ensure a smooth and reliable migration to v5, we strongly recommend using the <span>WP-CLI Migration Method</span> (Advanced) instead of this built-in wizard."
 msgstr ""
 
@@ -5258,6 +5761,22 @@ msgid "License activated"
 msgstr ""
 
 #: core/js/dist/admin.js:135
+msgid "<span>Activate your</span><span>Premium plan</span>"
+msgstr ""
+
+#: core/js/dist/admin.js:135
+msgid "<span>Enable your premium features by using the license key available in <a>your account</a>.</span>"
+msgstr ""
+
+#: core/js/dist/admin.js:135
+msgid "<span>You’re on the</span><span>Free plan</span>"
+msgstr ""
+
+#: core/js/dist/admin.js:135
+msgid "<span>Not the right plan? Please <a>upload and activate</a> your Aggregator Premium plugin and restart the migration.</span>"
+msgstr ""
+
+#: core/js/dist/admin.js:135
 msgid "Before we begin, please ensure that you:"
 msgstr ""
 
@@ -5287,6 +5806,10 @@ msgid "If you leave now, your data will not be fully migrated and you may experi
 msgstr ""
 
 #: core/js/dist/admin.js:137
+msgid "STEP "
+msgstr ""
+
+#: core/js/dist/admin.js:137
 msgid "Migration completed"
 msgstr ""
 
@@ -5299,6 +5822,14 @@ msgid "This process could take several minutes. Do not close this page."
 msgstr ""
 
 #: core/js/dist/admin.js:137
+msgid "Migrated"
+msgstr ""
+
+#: core/js/dist/admin.js:137
+msgid "Processing..."
+msgstr ""
+
+#: core/js/dist/admin.js:137
 msgid "Blacklisted"
 msgstr ""
 
@@ -5308,6 +5839,10 @@ msgstr ""
 
 #: core/js/dist/admin.js:137
 msgid "Imported items"
+msgstr ""
+
+#: core/js/dist/admin.js:137
+msgid "After migration is complete, we recommend reviewing your sources and displays to ensure everything is working as expected. If you encounter any issues, please <contactSupportLink>contact our support team</contactSupportLink>."
 msgstr ""
 
 #: core/js/dist/admin.js:137
@@ -5375,6 +5910,10 @@ msgid "Download from Your Account"
 msgstr ""
 
 #: core/js/dist/admin.js:137
+msgid "<span>Next Step: Install and Activate</span><span>Aggregator Premium</span>"
+msgstr ""
+
+#: core/js/dist/admin.js:137
 msgid "Once you've downloaded the Aggregator Premium plugin, <a>install it on your site</a>:"
 msgstr ""
 
@@ -5396,10 +5935,6 @@ msgstr ""
 
 #: core/js/dist/admin.js:137
 msgid "Go to Plugins Page"
-msgstr ""
-
-#: core/js/dist/admin.js:137
-msgid "Next"
 msgstr ""
 
 #: core/js/dist/admin.js:137
@@ -5822,4 +6357,39 @@ msgstr ""
 
 #: core/js/dist/admin.js:137
 msgid "Enter a command"
+msgstr ""
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block title"
+msgid "RSS Aggregator Display"
+msgstr ""
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block description"
+msgid "Display RSS feed content"
+msgstr ""
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "wpra"
+msgstr ""
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "display"
+msgstr ""
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "aggregator"
+msgstr ""
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "rss"
+msgstr ""
+
+#: core/js/blocks/dist/display/block.json
+msgctxt "block keyword"
+msgid "feed"
 msgstr ""

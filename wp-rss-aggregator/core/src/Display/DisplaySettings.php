@@ -7,11 +7,22 @@ use RebelCode\Aggregator\Core\Utils\ArraySerializable;
 
 class DisplaySettings implements ArraySerializable {
 
+	/** @since 5.7.0 Lists items by publication date, newest first. */
+	public const SORT_NEWEST = 'newest';
+	/** @since 5.7.0 Lists items by publication date, oldest first. */
+	public const SORT_OLDEST = 'oldest';
+
 	/** @var list<int> For old v4 shortcodes and blocks */
 	public array $excludeSrcs = array();
 
 	public string $layout = 'list';
 	public int $numItems = 15;
+	/**
+	 * The order in which items are listed: SORT_NEWEST or SORT_OLDEST.
+	 *
+	 * @since 5.7.0
+	 */
+	public string $sortOrder = self::SORT_NEWEST;
 	/** @since 5.5.0 */
 	public string $postStatus = 'any';
 	public string $htmlClass = '';
@@ -60,6 +71,7 @@ class DisplaySettings implements ArraySerializable {
 	public string $excerptEllipsis = '...';
 	public bool $enableReadMore = true;
 	public string $readMoreText;
+	public bool $readMoreNewLine = false;
 
 	// Bullets
 	public bool $enableBullets = true;
@@ -129,6 +141,7 @@ class DisplaySettings implements ArraySerializable {
 
 	/**
 	 * @since 5.5.0 Supports the Display post status setting.
+	 * @since 5.7.0 Supports the Display sort order setting.
 	 *
 	 * @param iterable<string,mixed> $settings
 	 */
@@ -146,6 +159,11 @@ class DisplaySettings implements ArraySerializable {
 					$this->postStatus = is_string( $value ) && $value !== ''
 						? preg_replace( '/[^a-z0-9_\-]/', '', strtolower( $value ) )
 						: 'any';
+					break;
+				case 'sortOrder':
+					$this->sortOrder = self::SORT_OLDEST === $value
+						? self::SORT_OLDEST
+						: self::SORT_NEWEST;
 					break;
 				default:
 					$value = apply_filters( "wpra.display.settings.patch.$key", $value, $this );

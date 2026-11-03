@@ -60,6 +60,14 @@ class SourceSettings implements ArraySerializable {
 	public bool $postContentSingleOnly = false;
 
 	// -------------------------------------
+	// Title settings
+	// -------------------------------------
+	public bool $enablePreTitle = false;
+	public bool $enablePostTitle = false;
+	public string $preTitleTemplate = '';
+	public string $postTitleTemplate = '';
+
+	// -------------------------------------
 	// Excerpt settings
 	// -------------------------------------
 	public bool $enableExcerpt = false;

@@ -86,6 +86,7 @@ class SpRssReader implements RssReader {
 	 * Finds RSS feeds for a URI.
 	 *
 	 * @since 5.2.1 Policy-matched direct feed URLs can short-circuit discovery.
+	 * @since 5.7.0 Results flag whether their title came from the feed.
 	 *
 	 * @param string $uri The URI to inspect.
 	 * @return Result<RssFeedInfo[]>
@@ -96,7 +97,7 @@ class SpRssReader implements RssReader {
 		if ( $this->sourceFetchPolicy->shouldSkipFeedDiscovery( $uri ) && $this->isLikelyDirectFeedUri( $uri ) ) {
 			return Result::Ok(
 				array(
-					new RssFeedInfo( $uri, $uri, 0 ),
+					new RssFeedInfo( $uri, $uri, 0, false ),
 				)
 			);
 		}
@@ -126,10 +127,12 @@ class SpRssReader implements RssReader {
 			$spFeed->init();
 			$spFeed->handle_content_type();
 
-			$title = $spFeed->get_title() ?? _x( 'Unnamed feed', 'The title to show for found RSS feeds without a name', 'wp-rss-aggregator' );
+			$title = $spFeed->get_title();
+			$hasTitle = $this->isUsableTitle( $title );
+			$title = $title ?? _x( 'Unnamed feed', 'The title to show for found RSS feeds without a name', 'wp-rss-aggregator' );
 			$title = Html::decodeEntities( $title );
 			$numItems = $spFeed->get_item_quantity();
-			$results[] = new RssFeedInfo( $title, $feed->url, $numItems );
+			$results[] = new RssFeedInfo( $title, $feed->url, $numItems, $hasTitle );
 		}
 
 		return Result::Ok( $results );
@@ -139,6 +142,7 @@ class SpRssReader implements RssReader {
 	 * Attempts to treat a URI as a direct feed after discovery fails.
 	 *
 	 * @since 5.2.1
+	 * @since 5.7.0 The result flags whether its title came from the feed.
 	 *
 	 * @param string $uri The URI to inspect.
 	 * @return RssFeedInfo|null The direct feed info, or null when not parseable.
@@ -160,9 +164,27 @@ class SpRssReader implements RssReader {
 			return null;
 		}
 
+		$hasTitle = $this->isUsableTitle( $title );
 		$title = $title ?? _x( 'Unnamed feed', 'The title to show for found RSS feeds without a name', 'wp-rss-aggregator' );
 
-		return new RssFeedInfo( Html::decodeEntities( $title ), $uri, $numItems );
+		return new RssFeedInfo( Html::decodeEntities( $title ), $uri, $numItems, $hasTitle );
+	}
+
+	/**
+	 * Checks whether a feed title can be shown as the feed's name.
+	 *
+	 * @since 5.7.0
+	 *
+	 * @param string|null $title The title from SimplePie.
+	 * @return bool True when the title has visible text.
+	 */
+	protected function isUsableTitle( ?string $title ): bool {
+		if ( $title === null ) {
+			return false;
+		}
+
+		// `trim()` keeps non-breaking spaces, which a title made of `&nbsp;` decodes to.
+		return preg_replace( '/[\s\x{00A0}]+/u', '', Html::decodeEntities( $title ) ) !== '';
 	}
 
 	/**
@@ -425,7 +447,7 @@ class SpRssReader implements RssReader {
 			}
 
 			if ( $code === 22 || $code === 6 ) {
-				return __( 'The feed could not be fetched. Kindly check if the feed URL is correct.', 'wprss' );
+				return __( 'The feed could not be fetched. Kindly check if the feed URL is correct.', 'wp-rss-aggregator' );
 			}
 		}
 
