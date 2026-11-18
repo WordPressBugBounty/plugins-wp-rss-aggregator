@@ -66,7 +66,7 @@ trait LayoutTrait {
 
 		return sprintf(
 			'href="%s" class="%s" target="%s" rel="%s"',
-			esc_attr( $href ),
+			esc_url( $href ),
 			esc_attr( $class ),
 			$target,
 			$rel,
@@ -108,7 +108,7 @@ trait LayoutTrait {
 		if ( $this->ds->enableReadMore && $links ) {
 			$url = $this->getItemUrl( $post );
 			$class = $this->ds->readMoreNewLine ? 'more-link more-link-block' : 'more-link';
-			$render_link = $this->renderLink( $this->ds->readMoreText, esc_url( $url ), $class );
+			$render_link = $this->renderLink( $this->ds->readMoreText, $url, $class );
 		}
 
 		return wp_strip_all_tags( $excerpt ) . $render_link;
@@ -241,13 +241,30 @@ trait LayoutTrait {
 			return '';
 		}
 
-		$escapedUrl = esc_attr( $audioUrl );
+		$escapedUrl = esc_url( $audioUrl );
+		if ( '' === $escapedUrl ) {
+			return '';
+		}
 
 		return <<<HTML
             <div class="wpra-feed-audio">
                 <audio preload="none" controls src="{$escapedUrl}"></audio>
             </div>
         HTML;
+	}
+
+	/** Escapes a URL for use inside a CSS url('...') value in a style attribute. */
+	private function cssUrl( string $url ): string {
+		$url = esc_url_raw( html_entity_decode( $url, ENT_QUOTES | ENT_HTML5, 'UTF-8' ) );
+		$url = preg_replace_callback(
+			'/[^A-Za-z0-9\-._~:\/?#@!$&*+,;=%\[\]]/',
+			function ( $m ) {
+				return rawurlencode( $m[0] );
+			},
+			$url
+		);
+
+		return htmlspecialchars( $url, ENT_QUOTES, 'UTF-8', true );
 	}
 
 	private function renderItems( iterable $posts, callable $fn ): string {

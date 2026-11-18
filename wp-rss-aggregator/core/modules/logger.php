@@ -6,7 +6,7 @@ use RebelCode\Aggregator\Core\Rpc\RpcServer;
 use RebelCode\Aggregator\Core\Rpc\RpcClassHandler;
 use RebelCode\Aggregator\Core\Rpc\Handlers\RpcLoggerHandler;
 use RebelCode\Aggregator\Core\Logger\PostLogger;
-use Psr\Log\LogLevel;
+use RebelCode\Aggregator\Core\Vendor\Psr\Log\LogLevel;
 use RebelCode\WpSdk\Wp\CronJob;
 
 wpra()->addModule(

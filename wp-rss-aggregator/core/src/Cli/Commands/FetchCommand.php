@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace RebelCode\Aggregator\Core\Cli\Commands;
 
-use Psr\Log\LogLevel;
+use RebelCode\Aggregator\Core\Vendor\Psr\Log\LogLevel;
 use RebelCode\Aggregator\Core\Cli\BaseCommand;
 use RebelCode\Aggregator\Core\Cli\CliIo;
 use RebelCode\Aggregator\Core\Importer;

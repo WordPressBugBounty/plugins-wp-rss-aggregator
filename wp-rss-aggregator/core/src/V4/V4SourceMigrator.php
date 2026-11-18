@@ -117,6 +117,8 @@ class V4SourceMigrator {
 	/**
 	 * Converts v4 source meta data into a v5 source instance.
 	 *
+	 * @since 5.8.0 Carries the v4 last-import error over to new v5 sources.
+	 *
 	 * @param array<string,mixed> $meta
 	 */
 	public function convert( int $id, string $slug, string $name, array $meta ): Source {
@@ -136,6 +138,14 @@ class V4SourceMigrator {
 		// treats them as "never fetched" and includes them on the next cron tick. See {@see Source::getNextUpdate()}.
 		// Re-running the migration over an existing v5 record (resolved above via `wpra_v5_id`) preserves whatever
 		// `lastUpdate` the importer has already written.
+
+		// A new v5 source keeps the error from the last v4 fetch, so a feed that was already failing still shows as
+		// failed after the migration. An existing v5 record keeps its own error state, which is newer.
+		if ( $src->id === null ) {
+			$v4Error = $meta['wprss_error_last_import'] ?? '';
+			$v4Error = is_string( $v4Error ) ? trim( $v4Error ) : '';
+			$src->lastError = $v4Error !== '' ? $v4Error : null;
+		}
 
 		$state = $meta['wprss_state'] ?? '';
 		$wpSchedule = $meta['wprss_update_interval'] ?? '';

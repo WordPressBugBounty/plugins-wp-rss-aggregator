@@ -45,6 +45,8 @@ class IrPostBuilder {
 		$post->guid = $item->getId() ?? $this->buildGuid( $post->url );
 		$post->guid = apply_filters( 'wpra.importer.post.guid', $post->guid, $item, $src, $post );
 
+		$post->url = esc_url_raw( $post->url );
+
 		$post->type = apply_filters( 'wpra.importer.post.type', 'wprss_feed_item', $item, $src, $post );
 		$post->status = apply_filters( 'wpra.importer.post.status', 'publish', $item, $src, $post );
 		$post->format = apply_filters( 'wpra.importer.post.format', 'standard', $item, $src, $post );
@@ -261,6 +263,7 @@ class IrPostBuilder {
 					$image = $images[ $i ];
 					if ( $image->source === IrImage::FROM_CONTENT ) {
 						$ftImage = $image;
+						break;
 					}
 				}
 				break;
@@ -310,7 +313,7 @@ class IrPostBuilder {
 			ImportedPost::URL => $post->url,
 			ImportedPost::SOURCE => array( $src->id ),
 			ImportedPost::SOURCE_NAME => $item->getFeed()->getSourceName() ?? $src->name,
-			ImportedPost::SOURCE_URL => $item->getFeed()->getSourceUrl() ?? $src->url,
+			ImportedPost::SOURCE_URL => esc_url_raw( $item->getFeed()->getSourceUrl() ?? '' ) ?: esc_url_raw( $src->url ),
 			ImportedPost::IMPORT_DATE => ( new DateTime() )->format( DateTime::ATOM ),
 			ImportedPost::AUDIO_URL => array(),
 			ImportedPost::ENCLOSURE_URL => array(),
@@ -328,8 +331,12 @@ class IrPostBuilder {
 		}
 
 		foreach ( $item->getEnclosures() as $enclosure ) {
-			$url = $enclosure->getUrl();
+			$url = esc_url_raw( $enclosure->getUrl() ?? '' );
 			$type = $enclosure->getType();
+
+			if ( '' === $url ) {
+				continue;
+			}
 
 			if ( stripos( $type, RssEnclosureType::AUDIO ) === 0 ) {
 				$meta[ ImportedPost::AUDIO_URL ][] = $url;
@@ -345,8 +352,12 @@ class IrPostBuilder {
 		$post->meta[ ImportedPost::AUDIO_URL ] = array();
 
 		foreach ( $item->getEnclosures() as $enclosure ) {
-			$url = $enclosure->getUrl();
+			$url = esc_url_raw( $enclosure->getUrl() ?? '' );
 			$type = $enclosure->getType();
+
+			if ( '' === $url ) {
+				continue;
+			}
 
 			if ( stripos( $type, RssEnclosureType::AUDIO ) === 0 ) {
 				$post->meta[ ImportedPost::AUDIO_URL ][] = $url;

@@ -14,6 +14,7 @@ use RebelCode\Aggregator\Core\Utils\Time;
 use RebelCode\Aggregator\Core\Utils\LazyText;
 use RebelCode\Aggregator\Core\Utils\Arrays;
 use RebelCode\Aggregator\Core\Rpc\RpcServer;
+use RebelCode\Aggregator\Core\Rpc\Handlers\RpcCampaignHandler;
 use RebelCode\Aggregator\Core\Licensing\License;
 
 wpra()->addModule(
@@ -111,7 +112,12 @@ wpra()->addModule(
 				$page = new AdminPage( _x( 'Aggregator', 'wp-rss-aggregator' ), fn () => $frame );
 				$menu = new AdminMenu( $page, $slug, __( 'Aggregator', 'wp-rss-aggregator' ), $cap, $icon );
 
-				$bfBadge = Time::isBlackFridayActive() ? '<span class="update-plugins" style="margin-left:5px;">BF Sale</span>' : '';
+				$bfBadge = Time::isBlackFridayActive()
+					? sprintf(
+						'<span class="wpra-bf-pill" style="display:inline-block;margin-left:6px;padding:0 6px;border-radius:12px;background:#F34413;color:#fff;font-size:11px;font-weight:400;line-height:18px;vertical-align:middle;">%s</span>',
+						esc_html__( 'BF Sale', 'wp-rss-aggregator' )
+					)
+					: '';
 
 				if ( $wpra->getState() === State::Normal ) {
 					$menu->items = array(
@@ -123,7 +129,8 @@ wpra()->addModule(
 						AdminSubMenu::forUrl( $subUrl . 'settings', __( 'Settings', 'wp-rss-aggregator' ), $cap ),
 						AdminSubMenu::forUrl( $subUrl . 'help', __( 'Help', 'wp-rss-aggregator' ), $cap ),
 						AdminSubMenu::forUrl( $subUrl . 'tutorials', __( 'Tutorials', 'wp-rss-aggregator' ), $cap ),
-						AdminSubMenu::forUrl( $subUrl . 'upgrade', $licensing->getTier() === Tier::Free ? __( 'Upgrade', 'wp-rss-aggregator' ) . $bfBadge : __( 'Manage Plan', 'wp-rss-aggregator' ), $cap ),
+						AdminSubMenu::forUrl( $subUrl . 'toolkit', __( 'Toolkit', 'wp-rss-aggregator' ), 'install_plugins' ),
+						AdminSubMenu::forUrl( $subUrl . 'upgrade', ( ! $wpra->premiumInstalled || $licensing->getTier() === Tier::Free ) ? __( 'Upgrade', 'wp-rss-aggregator' ) . $bfBadge : __( 'Manage Plan', 'wp-rss-aggregator' ), $cap ),
 					);
 
 					if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
@@ -143,11 +150,30 @@ wpra()->addModule(
 	function ( RpcServer $rpc, Settings $settings, Licensing $licensing ) {
 		$settings->register( 'doUninstall' )->setDefault( false );
 
-		return function () use ( $rpc, $settings, $licensing ) {
+		// The Black Friday deal cards show "Active" for plugins the site already pays for.
+		// Vireo Analytics PRO registers this filter and returns its license state, so it
+		// works whatever folder the plugin was installed in.
+		$isVireoProActive = function (): bool {
+			return (bool) apply_filters( 'vireo_pro_is_active', false );
+		};
+
+		$isSpotlightProActive = function (): bool {
+			if ( ! function_exists( 'sliFreemius' ) ) {
+				return false;
+			}
+
+			$freemius = sliFreemius();
+
+			return is_object( $freemius )
+				&& method_exists( $freemius, 'is_paying_or_trial' )
+				&& $freemius->is_paying_or_trial();
+		};
+
+		return function () use ( $rpc, $settings, $licensing, $isVireoProActive, $isSpotlightProActive ) {
 			$wpra = wpra();
 			$user = wp_get_current_user();
 			$license = $licensing->getLicense();
-			$tier = $licensing->getTier();
+			$tier = $wpra->premiumInstalled ? $licensing->getTier() : Tier::Free;
 			$disabledModules = array_map(
 				function ( array $module ): array {
 					$module['reason'] = LazyText::resolve( $module['reason'] ?? '' );
@@ -258,6 +284,10 @@ wpra()->addModule(
 					'prevVersion' => get_option( 'wprss_prev_update_page_version', '' ),
 					'premiumVersion' => defined( 'WPRA_PREMIUM_VERSION' ) ? WPRA_PREMIUM_VERSION : null,
 					'isBlackFridayActive' => Time::isBlackFridayActive(),
+					'blackFridayEnd' => Time::getBlackFridayEnd(),
+					'isBlackFridayBannerDismissed' => ( new RpcCampaignHandler() )->isBlackFridayBannerDismissed(),
+					'isVireoProActive' => $isVireoProActive(),
+					'isSpotlightProActive' => $isSpotlightProActive(),
 				)
 			);
 

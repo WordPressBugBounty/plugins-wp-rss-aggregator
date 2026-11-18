@@ -54,7 +54,7 @@ class IrImage implements ArraySerializable {
 	 * @param string    $altText The alt text of the image.
 	 * @since 5.5.0 Supports image alt text.
 	 */
-	public function __construct( string $url, string $source, Size $size = null, array $sizes = array(), string $altText = '' ) {
+	public function __construct( string $url, string $source, ?Size $size = null, array $sizes = array(), string $altText = '' ) {
 		$this->url = $url;
 		$this->size = $size;
 		$this->source = $source;

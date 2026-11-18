@@ -12,6 +12,8 @@ use function wp_timezone;
 use Throwable;
 use DateTimeZone;
 use DateTime;
+use DateTimeImmutable;
+use DateTimeInterface;
 
 abstract class Time {
 
@@ -323,6 +325,20 @@ abstract class Time {
 	}
 
 	/**
+	 * Start of the Black Friday campaign, as an ISO 8601 date with a fixed offset.
+	 *
+	 * @since 5.8.0
+	 */
+	public const BLACK_FRIDAY_START = '2026-11-13T00:00:00-07:00';
+
+	/**
+	 * End of the Black Friday campaign (1 December 2026, 11:59:59 PM GMT-7).
+	 *
+	 * @since 5.8.0
+	 */
+	public const BLACK_FRIDAY_END = '2026-12-01T23:59:59-07:00';
+
+	/**
 	 * Get black friday activation status.
 	 *
 	 * @since 5.0.7
@@ -330,17 +346,33 @@ abstract class Time {
 	 * @return bool if black Friday active.
 	 */
 	public static function isBlackFridayActive(): bool {
-		// LA timezone
-		$tz = new DateTimeZone( 'America/Los_Angeles' );
+		return static::isBlackFridayActiveAt( new DateTimeImmutable( 'now' ) );
+	}
 
-		// Current time in LA
-		$now = new DateTime( 'now', $tz );
-
-		// Black Friday 2025 window
-		$start = new DateTime( '2025-11-23 00:00:00', $tz );
-		$end   = new DateTime( '2025-12-01 23:59:59', $tz );
+	/**
+	 * Checks whether the Black Friday campaign is active at a given time.
+	 *
+	 * @since 5.8.0
+	 *
+	 * @param DateTimeInterface $now The time to check.
+	 * @return bool True if the time is inside the campaign window, inclusive.
+	 */
+	public static function isBlackFridayActiveAt( DateTimeInterface $now ): bool {
+		$start = new DateTimeImmutable( self::BLACK_FRIDAY_START );
+		$end = new DateTimeImmutable( self::BLACK_FRIDAY_END );
 
 		return $now >= $start && $now <= $end;
+	}
+
+	/**
+	 * Gets the end of the Black Friday campaign for the admin app countdown.
+	 *
+	 * @since 5.8.0
+	 *
+	 * @return string The end time in ATOM format, with its offset.
+	 */
+	public static function getBlackFridayEnd(): string {
+		return ( new DateTimeImmutable( self::BLACK_FRIDAY_END ) )->format( DATE_ATOM );
 	}
 
 	/**

@@ -104,6 +104,13 @@ wpra()->addModule(
 			function ( string $column, $postId ) use ( $importer ) {
 				switch ( $column ) {
 					case 'wprss-title':
+						// WP's Bulk Edit reads titles from the hidden inline data that the
+						// core Title column prints. That column is replaced above, so print it here.
+						$post = get_post( $postId );
+						if ( $post instanceof \WP_Post ) {
+							get_inline_data( $post );
+						}
+
 						$title = get_the_title( $postId );
 
 						if ( empty( $title ) ) {
@@ -167,7 +174,10 @@ wpra()->addModule(
 
 				$original = get_post_meta( $post->ID, ImportedPost::URL, true );
 				if ( is_string( $original ) && $original !== '' ) {
-					return $original;
+					$safe = esc_url_raw( $original );
+					if ( $safe !== '' ) {
+						return $safe;
+					}
 				}
 
 				return $url;

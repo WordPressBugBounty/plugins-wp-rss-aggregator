@@ -31,7 +31,8 @@ class MinuteSchedule implements Schedule {
 	public function getNext( ?int $prev = null ): int {
 		$prev = $prev ?? time();
 		if ( $this->base >= 0 ) {
-			$base = Time::getStartOfDay( $prev ) + $this->base;
+			// The base is a minute of the hour (0-59), so the first run of the day is at 00:<base>.
+			$base = Time::getStartOfDay( $prev ) + ( ( $this->base % 60 ) * 60 );
 
 			if ( $prev < $base ) {
 				$base -= 86400; // Use yesterday's base if today's comes after prev
@@ -39,13 +40,11 @@ class MinuteSchedule implements Schedule {
 
 			// Calculate how many occurrences should have happened between base
 			// and prev, rounding up.
-			$numOccurences = (int) ceil( ( $prev - $base ) / ( $this->minutes * 3600 ) );
+			$numOccurences = (int) ceil( ( $prev - $base ) / ( $this->minutes * 60 ) );
 
-			return $base + ( $numOccurences * $this->minutes * 3600 );
+			return $base + ( $numOccurences * $this->minutes * 60 );
 		} else {
-			$next = ( $this->base >= 0 )
-			? Time::getStartOfHour( $prev ) + ( $this->base * 60 )
-			: $prev;
+			$next = $prev;
 
 			while ( $next <= $prev ) {
 				$next += ( $this->minutes * 60 );

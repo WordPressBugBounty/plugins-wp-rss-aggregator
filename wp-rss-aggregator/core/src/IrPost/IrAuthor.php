@@ -45,11 +45,15 @@ class IrAuthor {
 	}
 
 	/**
-	 * Finds a matching WordPress user.
+	 * Finds a matching WordPress user, by ID, then email, then username.
 	 *
+	 * @since 5.8.0 The name and email default to the author's own when they are not given.
+	 *
+	 * @param string|null $name  The name to make the username from, or null for the author's name.
+	 * @param string|null $email The email to look up, or null for the author's email.
 	 * @return WP_User|null The matching user, or null if none was found.
 	 */
-	public function findMatchingWpUser( $name = '', $email = '' ): ?WP_User {
+	public function findMatchingWpUser( ?string $name = null, ?string $email = null ): ?WP_User {
 		$user = null;
 
 		if ( $this->id !== null && $this->id > 0 ) {
@@ -204,12 +208,12 @@ class IrAuthor {
 
 	/** Creates an IR author from an RSS author. */
 	public static function fromRssAuthor( RssAuthor $author ): self {
-		return new self( null, $author->getName(), $author->getEmail(), $author->getUri() );
+		return new self( null, $author->getName(), $author->getEmail(), esc_url_raw( $author->getUri() ?? '' ) );
 	}
 
 	/** Creates an IR author from an RSS node. */
 	public static function fromRssNode( RssNode $node ): self {
-		return new self( null, $node->getValue(), $node->getAttr( '', 'email' ), $node->getAttr( '', 'uri' ), );
+		return new self( null, $node->getValue(), $node->getAttr( '', 'email' ), esc_url_raw( $node->getAttr( '', 'uri' ) ?? '' ) );
 	}
 
 	/**

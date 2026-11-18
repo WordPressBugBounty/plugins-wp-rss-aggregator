@@ -171,23 +171,25 @@ class V4ItemMigrator {
 
 		$result = array(
 			ImportedPost::GUID => $meta['wprss_item_guid'] ?? '',
-			ImportedPost::URL => $meta['wprss_item_permalink'] ?? '',
+			ImportedPost::URL => esc_url_raw( (string) ( $meta['wprss_item_permalink'] ?? '' ) ),
 			ImportedPost::SOURCE => $v5SrcId,
 			ImportedPost::SOURCE_NAME => $meta['wprss_item_source_name'] ?? '',
-			ImportedPost::SOURCE_URL => $meta['wprss_item_source_url'] ?? '',
+			ImportedPost::SOURCE_URL => esc_url_raw( (string) ( $meta['wprss_item_source_url'] ?? '' ) ),
 			ImportedPost::IMPORT_DATE => $importDate->format( DateTime::ATOM ),
 			ImportedPost::FT_IMAGE_URL => '',
 			ImportedPost::IS_YT => $meta['wprss_item_is_yt'] ?? '',
 			ImportedPost::YT_VIEWS => 0,
 			ImportedPost::YT_VIDEO_ID => 0,
-			ImportedPost::YT_EMBED_URL => $meta['wprss_item_yt_embed_url'] ?? '',
-			ImportedPost::AUDIO_URL => $meta['wprss_item_audio'] ?? '',
-			ImportedPost::ENCLOSURE_URL => $isFeedItem
-				? ( $meta['wprss_item_enclosure'] ?? '' )
-				: ( $meta['wprss_ftp_enclosure_link'] ?? '' ),
+			ImportedPost::YT_EMBED_URL => esc_url_raw( (string) ( $meta['wprss_item_yt_embed_url'] ?? '' ) ),
+			ImportedPost::AUDIO_URL => esc_url_raw( (string) ( $meta['wprss_item_audio'] ?? '' ) ),
+			ImportedPost::ENCLOSURE_URL => esc_url_raw(
+				(string) ( $isFeedItem
+					? ( $meta['wprss_item_enclosure'] ?? '' )
+					: ( $meta['wprss_ftp_enclosure_link'] ?? '' ) )
+			),
 			ImportedPost::AUTHOR_NAME => $author ? $author->name : '',
 			ImportedPost::AUTHOR_EMAIL => $author ? $author->email : '',
-			ImportedPost::AUTHOR_URL => $author ? $author->link : '',
+			ImportedPost::AUTHOR_URL => $author ? esc_url_raw( (string) $author->link ) : '',
 		);
 
 		return $result;

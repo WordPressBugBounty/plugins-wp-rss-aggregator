@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace RebelCode\Aggregator\Core\Cli;
 
 use DateTime;
+use RebelCode\Aggregator\Core\Source\Schedule;
 use RebelCode\Aggregator\Core\Utils\Arrays;
 
 use RebelCode\Aggregator\Core\Utils\Time;
@@ -88,6 +89,8 @@ class CliTable {
 						$row[ $col ] = implode( ', ', $value );
 					} elseif ( $value instanceof DateTime ) {
 						$row[ $col ] = $value->format( Time::HUMAN_FORMAT );
+					} elseif ( $value instanceof Schedule ) {
+						$row[ $col ] = $value->explain();
 					} else {
 						$row[ $col ] = (string) $value;
 					}

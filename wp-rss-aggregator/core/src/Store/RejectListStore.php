@@ -339,8 +339,8 @@ class RejectListStore {
 			"CREATE TABLE {$this->table} (
                 guid_hash VARCHAR(69) NOT NULL,
                 guid TEXT NOT NULL,
-                notes TEXT DEFAULT '',
-                date DATETIME DEFAULT NOW(),
+                notes TEXT,
+                date DATETIME NULL DEFAULT NULL,
                 PRIMARY KEY  (guid_hash)
             ) {$this->db->charsetCollate};"
 		);

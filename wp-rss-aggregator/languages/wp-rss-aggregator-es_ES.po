@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-03T08:48:45+00:00\n"
-"PO-Revision-Date: 2026-11-03T08:48:45+00:00\n"
+"POT-Creation-Date: 2026-11-18T08:25:19+00:00\n"
+"PO-Revision-Date: 2026-11-18T08:25:19+00:00\n"
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Domain: wp-rss-aggregator\n"
@@ -43,98 +43,92 @@ msgstr "https://rebelcode.com"
 msgid "Aggregator Admin"
 msgstr "Administrador del Agregador"
 
-#: core/modules/admin.php:112
+#: core/modules/admin.php:113
 msgid "Aggregator"
 msgstr "Aggregator"
 
-#: core/modules/admin.php:118
+#: core/modules/admin.php:124
 #: core/js/dist/admin.js:42
-#: core/js/dist/admin.js:43
 msgid "Hub"
 msgstr "Hub"
 
-#: core/modules/admin.php:119
+#: core/modules/admin.php:125
 #: core/js/dist/admin.js:42
-#: core/js/dist/admin.js:43
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 #: core/js/dist/admin.js:137
 msgid "Sources"
 msgstr "Fuentes"
 
-#: core/modules/admin.php:120
+#: core/modules/admin.php:126
 #: core/js/dist/admin.js:42
-#: core/js/dist/admin.js:43
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Displays"
 msgstr "Visualizaciones"
 
-#: core/modules/admin.php:121
+#: core/modules/admin.php:127
 #: core/js/dist/admin.js:42
-#: core/js/dist/admin.js:43
 msgid "Folders"
 msgstr "Carpetas"
 
-#: core/modules/admin.php:122
+#: core/modules/admin.php:128
 #: core/js/dist/admin.js:42
-#: core/js/dist/admin.js:43
-#: core/js/dist/admin.js:83
+#: core/js/dist/admin.js:82
 msgid "Integrations"
 msgstr "Integraciones"
 
-#: core/modules/admin.php:123
+#: core/modules/admin.php:129
 #: core/js/dist/admin.js:42
-#: core/js/dist/admin.js:43
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 #: core/js/dist/admin.js:137
 msgid "Settings"
 msgstr "Ajustes"
 
-#: core/modules/admin.php:124
+#: core/modules/admin.php:130
 #: core/js/dist/admin.js:42
 msgid "Help"
 msgstr "Ayuda"
 
-#: core/modules/admin.php:125
-#: core/js/dist/admin.js:131
+#: core/modules/admin.php:131
+#: core/js/dist/admin.js:130
 msgid "Tutorials"
 msgstr "Tutoriales"
 
-#: core/modules/admin.php:126
+#: core/modules/admin.php:133
 msgid "Manage Plan"
 msgstr "Gestionar Plan"
 
-#: core/modules/admin.php:472
+#: core/modules/admin.php:502
 msgid "One-time only manual update required for Aggregator Premium plugin"
 msgstr "Se requiere una única actualización manual para el plugin Aggregator Premium"
 
-#: core/modules/admin.php:473
+#: core/modules/admin.php:503
 msgid "You’ve successfully updated the free plugin to v5.0.2."
 msgstr "Has actualizado correctamente el plugin gratuito a la v5.0.2."
 
-#: core/modules/admin.php:476
+#: core/modules/admin.php:506
 #, php-format
 msgid "However, we detected that you’re still using Aggregator Premium v%1$s. Due to a configuration issue in v%2$s, premium updates are not being detected."
 msgstr "Sin embargo, hemos detectado que todavía estás usando Aggregator Premium v%1$s. Debido a un problema de configuración en la v%2$s, no se están detectando las actualizaciones premium."
 
-#: core/modules/admin.php:481
+#: core/modules/admin.php:511
 msgid "This has been fixed in Premium v5.0.2, but you’ll need to perform a one-time only manual update of the Premium plugin to restore update checks."
 msgstr "Esto se ha corregido en Premium v5.0.2, pero necesitarás realizar una única actualización manual del plugin Premium para restaurar las actualizaciones automáticas."
 
-#: core/modules/admin.php:484
+#: core/modules/admin.php:514
 #, php-format
 msgid "Your settings and data will remain intact. If you have any questions, please <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contact support</a> for help."
 msgstr "Tus ajustes y datos permanecerán intactos. Si tienes alguna pregunta, por favor <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">contacta con el soporte</a> para obtener ayuda."
 
-#: core/modules/admin.php:491
+#: core/modules/admin.php:521
 msgid "After updating Premium to v5.0.2, premium update checks will resume as normal."
 msgstr "Después de actualizar Premium a la v5.0.2, los chequeos de las actualizaciones premium se reanudarán con normalidad."
 
-#: core/modules/admin.php:526
+#: core/modules/admin.php:556
 #: core/js/dist/admin.js:21
 msgid "Download Premium v5.0.2"
 msgstr "Descargar Premium v5.0.2"
 
-#: core/modules/admin.php:529
+#: core/modules/admin.php:559
 #: core/js/dist/admin.js:21
 msgid "Step-by-step instructions"
 msgstr "Instrucciones paso a paso"
@@ -148,7 +142,7 @@ msgid "Plan"
 msgstr "Plan"
 
 #: core/modules/debugInfo.php:37
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "State"
 msgstr "Estado"
 
@@ -174,15 +168,15 @@ msgstr "Extensión %s"
 
 #: core/modules/debugInfo.php:57
 #: core/js/dist/admin.js:13
-#: core/js/dist/admin.js:43
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:130
 msgid "Yes"
 msgstr "Sí"
 
 #: core/modules/debugInfo.php:58
 #: core/js/dist/admin.js:13
-#: core/js/dist/admin.js:43
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:130
 msgid "No"
 msgstr "No"
 
@@ -319,40 +313,38 @@ msgstr "Un enlace a un elemento del feed"
 
 #: core/modules/feedItems.php:88
 #: core/js/dist/admin.js:42
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Title"
 msgstr "Título"
 
 #: core/modules/feedItems.php:89
 #: core/js/blocks/dist/gutenberg/gutenberg.js:1
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Source Link"
 msgstr "Enlace de la fuente"
 
 #: core/modules/feedItems.php:90
 #: core/js/dist/admin.js:42
-#: core/js/dist/admin.js:43
 msgid "Source"
 msgstr "Fuente"
 
 #: core/modules/feedItems.php:93
 #: core/js/dist/admin.js:42
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Author"
 msgstr "Autor"
 
 #: core/modules/feedItems.php:94
 #: core/js/dist/admin.js:42
-#: core/js/dist/admin.js:43
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Date"
 msgstr "Fecha"
 
-#: core/modules/feedItems.php:110
+#: core/modules/feedItems.php:117
 msgid "(no title)"
 msgstr "(sin título)"
 
-#: core/modules/feedItems.php:120
+#: core/modules/feedItems.php:127
 msgid "No source link"
 msgstr "Sin enlace de fuente"
 
@@ -393,27 +385,27 @@ msgid "Display RSS feeds anywhere on your site and customize them to match your 
 msgstr "Muestra feeds RSS en cualquier lugar de tu sitio web y personalízalos para que coincidan con el diseño de tus páginas."
 
 #: core/modules/licensing.php:60
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "All layout designs"
 msgstr "Todos los diseños de visualizaciones"
 
 #: core/modules/licensing.php:61
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Manual curation"
 msgstr "Curación manual"
 
 #: core/modules/licensing.php:62
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Full customization"
 msgstr "Personalización completa"
 
 #: core/modules/licensing.php:63
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Automatic filtering"
 msgstr "Filtrado automático"
 
 #: core/modules/licensing.php:64
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Source management"
 msgstr "Gestión de fuentes"
 
@@ -428,7 +420,7 @@ msgid "Aggregate RSS feeds as blog posts and publish their excerpts to your blog
 msgstr "Agrega feeds RSS como entradas de blog y publica sus extractos en tu blog o como tipos de publicaciones personalizadas."
 
 #: core/modules/licensing.php:79
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Import as Posts"
 msgstr "Importar como Entradas"
 
@@ -441,7 +433,7 @@ msgid "Add custom content"
 msgstr "Añadir contenido personalizado"
 
 #: core/modules/licensing.php:82
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Import taxonomies"
 msgstr "Importar taxonomías"
 
@@ -457,7 +449,7 @@ msgstr "Cura feeds RSS como Entradas o cualquier tipo de publicación personaliz
 
 #: core/modules/licensing.php:97
 #: core/js/dist/admin.js:21
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Full text import"
 msgstr "Importación de texto completo"
 
@@ -466,7 +458,7 @@ msgid "Include all media"
 msgstr "Incluir todos los medios"
 
 #: core/modules/licensing.php:99
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Custom Mapping"
 msgstr "Mapeo personalizado"
 
@@ -513,7 +505,7 @@ msgid "View Log"
 msgstr "Ver registro"
 
 #: core/modules/logger.php:77
-#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:42
 msgid "All Logs"
 msgstr "Todos los registros"
 
@@ -740,12 +732,12 @@ msgstr "#%d [Falta]"
 msgid "Cannot replace source with no ID"
 msgstr "No se puede reemplazar la fuente sin ID"
 
-#: core/src/Store/WpPostsStore.php:205
+#: core/src/Store/WpPostsStore.php:233
 #, php-format
 msgid "Post #%s does not exist or is not imported by WP RSS Aggregator"
 msgstr "La entrada #%s no existe o no ha sido importada por WP RSS Aggregator"
 
-#: core/src/Store/WpPostsStore.php:597
+#: core/src/Store/WpPostsStore.php:665
 #, php-format
 msgctxt "The recorded note when an imported post is deleted and rejected. %s = post title"
 msgid "Rejected after deletion: %s"
@@ -753,12 +745,13 @@ msgstr "Rechazado después de la eliminación: %s"
 
 #: core/src/Tier.php:16
 #: core/js/dist/admin.js:13
+#: core/js/dist/admin.js:42
 msgid "Free"
 msgstr "Gratis"
 
 #: core/src/Tier.php:18
 #: core/js/dist/admin.js:13
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Basic"
 msgstr "Básico"
 
@@ -769,20 +762,20 @@ msgstr "Plus"
 
 #: core/src/Tier.php:22
 #: core/js/dist/admin.js:13
-#: core/js/dist/admin.js:43
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:42
+#: core/js/dist/admin.js:130
 msgid "Pro"
 msgstr "Pro"
 
 #: core/src/Tier.php:24
 #: core/js/dist/admin.js:13
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Elite"
 msgstr "Élite"
 
 #: core/src/Tier.php:26
 #: core/js/dist/admin.js:42
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "Unknown"
 msgstr "Desconocido"
 
@@ -796,7 +789,7 @@ msgstr "Ocurrió un error desconocido"
 
 #: core/src/V4/V4TemplatesMigrator.php:142
 #: core/src/V4/V4TemplatesMigrator.php:197
-#: core/js/dist/admin.js:83
+#: core/js/dist/admin.js:82
 msgid "Source:"
 msgstr "Fuente:"
 
@@ -822,7 +815,7 @@ msgctxt "%s = plugin name"
 msgid "%1$s requires WordPress version %2$s or higher."
 msgstr "%1$s requiere la versión de WordPress %2$s o superior."
 
-#: core/modules/admin.php:126
+#: core/modules/admin.php:133
 #: core/js/dist/admin.js:21
 #: core/js/dist/admin.js:137
 msgid "Upgrade"
@@ -862,32 +855,32 @@ msgid "Start using it now from the <em>Advanced → AI Rewriting</em> source set
 msgstr "Empieza a usarlo ya desde los ajustes de fuente en <em>Avanzado → Reescritura con IA</em>. Está incluido en tu plan <strong>sin coste adicional.</strong> <a href=\"%1$s\" target=\"_blank\" rel=\"noopener noreferrer\">Más información</a>"
 
 #: core/modules/aiHubPromotionalNotice.php:75
-#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:42
 msgid "Pro and Elite plans can now automatically rewrite imported articles into unique, ready-to-publish pieces, with <strong>no extra setup or charges.</strong>"
 msgstr "Los planes Pro y Elite ya pueden reescribir automáticamente los artículos importados y convertirlos en piezas únicas listas para publicar, <strong>sin configuración adicional ni cargos extra.</strong>"
 
 #: core/modules/aiHubPromotionalNotice.php:73
-#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:42
 msgid "Automatically rewrite imported articles into something new and original. No more duplicate content."
 msgstr "Reescribe automáticamente los artículos importados y conviértelos en contenido nuevo y original. Adiós al contenido duplicado."
 
 #: core/modules/aiHubPromotionalNotice.php:55
-#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:42
 msgid "Aggregator can rewrite the articles from your feeds into original pieces, ready to publish and unique to your site, with <strong>no more duplicate content.</strong>"
 msgstr "Aggregator puede reescribir los artículos de tus feeds y convertirlos en piezas originales, listas para publicar y únicas en tu sitio, <strong>sin más contenido duplicado.</strong>"
 
 #: core/modules/aiHubPromotionalNotice.php:53
-#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:42
 msgid "Want your imported articles to become new, original content?"
 msgstr "¿Quieres que tus artículos importados se conviertan en contenido nuevo y original?"
 
 #: core/modules/aiHubPromotionalNotice.php:37
-#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:42
 msgid "Aggregator’s AI rewrites your feeds’ articles into original pieces. <strong>Eliminate duplicate content</strong> and automatically publish unique pieces on a regular basis."
 msgstr "La IA de Aggregator reescribe los artículos de tus feeds y los convierte en piezas originales. <strong>Elimina el contenido duplicado</strong> y publica automáticamente piezas únicas de forma regular."
 
 #: core/modules/aiHubPromotionalNotice.php:35
-#: core/js/dist/admin.js:43
+#: core/js/dist/admin.js:42
 msgid "Your imported articles can now rewrite themselves into something new."
 msgstr "Tus artículos importados ya pueden reescribirse y convertirse en algo nuevo."
 
@@ -896,7 +889,7 @@ msgid "3rd Party AI integrations"
 msgstr "Integraciones de IA de terceros"
 
 #: core/modules/licensing.php:115
-#: core/js/dist/admin.js:131
+#: core/js/dist/admin.js:130
 msgid "10,000 AI Credits"
 msgstr "10.000 créditos de IA"
 
@@ -991,7 +984,7 @@ msgstr "Visualización de RSS Aggregator"
 msgid "The feed could not be fetched. Kindly check if the feed URL is correct."
 msgstr "No se ha podido obtener el feed. Comprueba si la URL del feed es correcta."
 
-#: core/modules/admin.php:303
+#: core/modules/admin.php:333
 #: core/modules/aiHubPromotionalNotice.php:107
 #: core/src/Rpc/RpcServer.php:81
 msgid "Unauthorized"
@@ -1039,7 +1032,7 @@ msgstr "La comprobación de la licencia ha fallado."
 msgid "Could not get or create parent term: %s"
 msgstr "No se ha podido obtener o crear el término superior: %s"
 
-#: core/src/IrPost/IrAuthor.php:332
+#: core/src/IrPost/IrAuthor.php:336
 msgctxt "The name of the default author"
 msgid "Source Author"
 msgstr "Autor de la fuente"
@@ -1088,7 +1081,7 @@ msgstr "No se ha podido obtener el término de WordPress «%s»."
 msgid "Imported post (#%1$d) \"%2$s\""
 msgstr "Entrada importada (#%1$d) «%2$s»"
 
-#: core/src/Display/LayoutTrait.php:260
+#: core/src/Display/LayoutTrait.php:277
 msgid "No feed items found."
 msgstr "No se encontraron elementos en los feeds."
 
@@ -1101,12 +1094,12 @@ msgid "Newer posts"
 msgstr "Entradas siguientes"
 
 #. translators: %s: Cron help URL.
-#: core/modules/admin.php:341
+#: core/modules/admin.php:371
 #, php-format
 msgid "Aggregator cannot import new items on schedule. If your host runs a server cron job instead, you can safely dismiss this notice. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">How to fix it.</a>"
 msgstr "Aggregator no puede importar nuevos elementos según lo programado. Si tu alojamiento ejecuta una tarea cron del servidor, puedes descartar este aviso sin problema. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">Cómo solucionarlo.</a>"
 
-#: core/modules/admin.php:335
+#: core/modules/admin.php:365
 msgid "WordPress cron is disabled on this site."
 msgstr "WP-Cron está desactivado en este sitio."
 
@@ -1121,7 +1114,7 @@ msgid_plural "Found %d items in the RSS feed"
 msgstr[0] "Se ha encontrado %d elemento en el feed RSS"
 msgstr[1] "Se han encontrado %d elementos en el feed RSS"
 
-#: core/modules/admin.php:130
+#: core/modules/admin.php:137
 msgid "Dev tools"
 msgstr "Herramientas de desarrollo"
 
@@ -1173,3 +1166,49 @@ msgstr "Este archivo de exportación se creó con una versión de Aggregator no 
 #, php-format
 msgid "The file contains too many sources. Import at most %d sources at a time."
 msgstr "El archivo contiene demasiadas fuentes. Importa como máximo %d fuentes a la vez."
+
+#: core/modules/admin.php:132
+#: core/js/dist/admin.js:42
+msgid "Toolkit"
+msgstr "Herramientas"
+
+#: core/modules/admin.php:118
+msgid "BF Sale"
+msgstr "Oferta BF"
+
+#: core/src/RecommendedPlugins.php:38
+msgid "Track your aggregated content alongside the rest of your site."
+msgstr "Haz seguimiento de tu contenido agregado junto con el resto de tu sitio."
+
+#: core/src/RecommendedPlugins.php:39
+msgid "See which feed sources send the most readers to the original articles. Vireo tracks those clicks without cookies and stores the data in your own WordPress database."
+msgstr "Descubre qué fuentes de feeds envían más lectores a los artículos originales. Vireo registra esos clics sin cookies y guarda los datos en tu propia base de datos de WordPress."
+
+#: core/src/RecommendedPlugins.php:50
+msgid "Put your Instagram photos and videos next to your curated feeds."
+msgstr "Muestra tus fotos y vídeos de Instagram junto a tus feeds seleccionados."
+
+#: core/src/RecommendedPlugins.php:51
+msgid "Give readers something fresh to browse alongside your aggregated content. Spotlight brings your latest Instagram posts to your site and automatically keeps the feed up to date."
+msgstr "Ofrece a tus lectores algo nuevo que explorar junto a tu contenido agregado. Spotlight lleva tus últimas publicaciones de Instagram a tu sitio y mantiene el feed actualizado automáticamente."
+
+#: core/src/Rpc/Handlers/RpcRecommendedPluginsHandler.php:80
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr "Lo sentimos, no tienes permiso para instalar plugins en este sitio."
+
+#: core/src/Rpc/Handlers/RpcRecommendedPluginsHandler.php:117
+msgid "Unable to connect to the filesystem. Please confirm your credentials."
+msgstr "No se puede conectar con el sistema de archivos. Confirma tus credenciales."
+
+#: core/src/Rpc/Handlers/RpcRecommendedPluginsHandler.php:142
+msgid "This plugin is not installed."
+msgstr "Este plugin no está instalado."
+
+#: core/src/Rpc/Handlers/RpcRecommendedPluginsHandler.php:146
+msgid "Sorry, you are not allowed to activate this plugin."
+msgstr "Lo sentimos, no tienes permiso para activar este plugin."
+
+#: core/src/Rpc/Handlers/RpcRecommendedPluginsHandler.php:171
+#: core/src/Rpc/Handlers/RpcRecommendedPluginsHandler.php:188
+msgid "Unknown plugin."
+msgstr "Plugin desconocido."

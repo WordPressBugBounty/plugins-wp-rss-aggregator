@@ -33,7 +33,7 @@ class IrTerm {
 	 * @param string|null $label Optional label for the term.
 	 * @param IrTerm|null $parent Optional parent term.
 	 */
-	public function __construct( string $taxonomy, string $slug, ?string $label = null, IrTerm $parent = null ) {
+	public function __construct( string $taxonomy, string $slug, ?string $label = null, ?IrTerm $parent = null ) {
 		$this->taxonomy = $taxonomy;
 		$this->slug = $slug;
 		$this->label = $label;

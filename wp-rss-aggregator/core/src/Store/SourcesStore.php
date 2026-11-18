@@ -416,6 +416,16 @@ class SourcesStore {
 			return Result::Err( __( 'Cannot replace source with no ID', 'wp-rss-aggregator' ) );
 		}
 
+		// The last fetch error belongs to the importer, which writes it with updateLastError().
+		// Sources saved from the admin arrive without it, and REPLACE would wipe it, so I keep
+		// the stored error unless the feed URL changed, which makes the old error stale.
+		if ( $src->lastError === null ) {
+			$stored = $this->getById( $src->id )->getOr( null );
+			if ( $stored !== null && $stored->url === $src->url ) {
+				$src->lastError = $stored->lastError;
+			}
+		}
+
 		$row = $this->sourceToRow( $src );
 
 		try {

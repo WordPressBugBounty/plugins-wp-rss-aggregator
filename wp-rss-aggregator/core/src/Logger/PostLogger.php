@@ -4,8 +4,8 @@ namespace RebelCode\Aggregator\Core\Logger;
 
 use RebelCode\Aggregator\Core\Utils\Result;
 use RebelCode\Aggregator\Core\Database;
-use Psr\Log\LogLevel;
-use Psr\Log\AbstractLogger;
+use RebelCode\Aggregator\Core\Vendor\Psr\Log\LogLevel;
+use RebelCode\Aggregator\Core\Vendor\Psr\Log\AbstractLogger;
 
 class PostLogger extends AbstractLogger {
 
@@ -29,7 +29,7 @@ class PostLogger extends AbstractLogger {
 		$this->enabled = $enabled;
 	}
 
-	public function log( $level, $message, array $context = array() ) {
+	public function log( $level, $message, array $context = array() ): void {
 		if ( ! $this->enabled ) {
 			return;
 		}

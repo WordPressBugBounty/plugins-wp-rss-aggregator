@@ -322,6 +322,10 @@ class RssImageFinder {
 					$image->url = $baseUrl . $image->url;
 				}
 
+				if ( '' === esc_url_raw( $image->url ) ) {
+					continue;
+				}
+
 				$image->url = Uri::modifyQuery(
 					$image->url,
 					function ( array $query ) {

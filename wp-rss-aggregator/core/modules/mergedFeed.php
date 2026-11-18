@@ -12,15 +12,20 @@ wpra()->addModule(
 		$title = $settings->register( 'mergedFeedTitle' )->setDefault( $defaultTitle )->empty( array( '' ) )->get();
 		$numItems = $settings->register( 'mergedFeedNumItems' )->setDefault( 15 )->empty( array( 0 ) )->get();
 
-		$feed = new MergedFeed( $importer->wpPosts, $url, $title, $numItems );
+		$order = $settings->register( 'mergedFeedOrder' )
+			->setDefault( 'desc' )
+			->empty( array( '' ) )
+			->middleware( fn ( $value ) => MergedFeed::normalizeOrder( $value ) )
+			->get();
+
+		$feed = new MergedFeed( $importer->wpPosts, $url, $title, $numItems, $order, $importer->sources );
 
 		add_action(
 			'init',
 			function () use ( $feed, $url ) {
 				add_feed( $url, fn () => $feed->print() );
 
-				$rules = get_option( 'rewrite_rules' );
-				if ( ! is_array( $rules ) || ! isset( $rules[ $url ] ) ) {
+				if ( get_option( 'permalink_structure' ) && ! MergedFeed::rewriteRulesHaveFeed( get_option( 'rewrite_rules' ), $url ) ) {
 					flush_rewrite_rules();
 				}
 			}

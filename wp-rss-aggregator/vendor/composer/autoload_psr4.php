@@ -7,8 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'RebelCode\\WpSdk\\' => array($vendorDir . '/rebelcode/wp-plugin-sdk/src'),
+    'RebelCode\\Aggregator\\Core\\Vendor\\' => array($baseDir . '/core/vendor-prefixed'),
     'RebelCode\\Aggregator\\Core\\' => array($baseDir . '/core/src'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Masterminds\\' => array($vendorDir . '/masterminds/html5/src'),
     'Interop\\Container\\' => array($vendorDir . '/container-interop/service-provider/src'),

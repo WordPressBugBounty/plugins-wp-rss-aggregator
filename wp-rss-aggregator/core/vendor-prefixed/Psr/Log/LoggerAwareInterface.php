@@ -1,6 +1,6 @@
 <?php
 
-namespace Psr\Log;
+namespace RebelCode\Aggregator\Core\Vendor\Psr\Log;
 
 /**
  * Describes a logger-aware instance.

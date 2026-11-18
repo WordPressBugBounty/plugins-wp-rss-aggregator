@@ -18,7 +18,7 @@ use RebelCode\Aggregator\Core\Cli\Commands\ImportCommand;
 use RebelCode\Aggregator\Core\Cli\Commands\FetchCommand;
 use RebelCode\Aggregator\Core\Cli\Commands\FeedCommand;
 use RebelCode\Aggregator\Core\Cli\Commands\DisplayCommand;
-use Psr\Log\LogLevel;
+use RebelCode\Aggregator\Core\Vendor\Psr\Log\LogLevel;
 
 wpra()->addModule(
 	'cli',

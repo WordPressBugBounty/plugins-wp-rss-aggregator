@@ -1,15 +1,15 @@
-=== WP RSS Aggregator - RSS Import, Feed to Post, Autoblogging, AI Content ===
-Contributors: RebelCode, jeangalea, markzahra, Mekku, gabygalea, omidakhavan
+=== WP RSS Aggregator - Import RSS Feeds, Feed to Post, Autoblogging ===
+Contributors: RebelCode, jeangalea, markzahra, gabygalea, omidakhavan
 Plugin URI: https://www.wprssaggregator.com
 Tags: rss aggregator, news feed, autoblogging, feed to post, news aggregator
 Commercial: https://www.wprssaggregator.com/pricing/
 Requires at least: 6.2.2 or higher
 Tested up to: 7.1
 Requires PHP: 7.4.0
-Stable tag: 5.7.0
+Stable tag: 5.8.0
 License: GPLv3
 
-The #1 WordPress RSS aggregator to quickly import RSS feeds, build a news aggregator, and for easy autoblogging.
+Add unlimited RSS feeds, import their items automatically, and show them anywhere on your site with a block or shortcode.
 
 
 == Description ==
@@ -263,6 +263,36 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 
 
 == Changelog ==
+
+= 5.8.0 (2026-11-18) =
+
+**Added**
+- Medium length option for AI TL;DRs.
+- A warning in the source editor when a source's post type changes after it has imported items, with the choice to keep them or delete and re-import them into the new post type.
+- Toolkit page that recommends RebelCode's free plugins and installs them from inside Aggregator.
+- Order setting for the Custom RSS feed, with the newest items first by default.
+- Read-only REST endpoint that lists imported items with their source, for headless sites.
+
+**Changed**
+- Sources whose last update failed now show a failed status in the Sources list, with the error and the time of the next attempt.
+- The Custom RSS feed now only includes published items and is served as a valid Atom feed.
+- The Update strategy description now explains what "Keep items up-to-date" covers.
+- The changelog for versions before 5.0.0 is now on the website.
+
+**Fixed**
+- The Custom RSS feed showed the oldest imported items instead of the newest.
+- The Custom RSS feed showed the content of password-protected items and swapped the published and updated dates.
+- Imported posts were not credited to WordPress users matched by the feed author's email or username.
+- Content cleaning stopped imports on PHP 7.4.
+- "Last image in content" used the first image in the content as the featured image.
+- Sources scheduled every few minutes from a start minute updated about once a day.
+- Feed Items showed as "(no title)" in Bulk Edit.
+- The Upgrade page kept showing the old plan after the premium plugin was deleted.
+- Aggregator crashed sites that also load a newer version of a shared logging library, such as Constant Contact Forms.
+- Database tables could not be created on MySQL older than 5.6.5.
+- The `wp rss source list` command stopped with a fatal error.
+- The Custom RSS feed rewrote the site's permalink rules on every request.
+- Hardened how links from feeds are handled: they're now escaped in displays, Feed to Post templates and the Custom RSS feed, and checked when items are imported.
 
 = 5.7.0 (2026-11-03) =
 
@@ -587,395 +617,4 @@ Our complete Help Center with FAQs, Glossary, and Video Library can be found [he
 - **Deprecated developer hooks from Aggregator v4**:
     - Many custom actions and filters (e.g. wprss_ftp_post_args) have been removed or refactored in v5. Custom code relying on these may no longer function correctly.
 
-= 4.23.12 (2024-07-15) =
-
-**Fixed**
-- Fixed a security vulnerability that allows subscribers to pause feed sources (CVE-2024-6621).
-
-= 4.23.11 (2024-05-28) =
-
-**Fixed**
-- The previous version introduced a bug that omitted the user-agent header from RSS feed requests.
-
-= 4.23.10 (2024-05-20) =
-
-**Fixed**
-- Some feeds were wrongly deemed to be invalid due to how cURL sends the user-agent string.
-
-= 4.23.9 (2024-05-13) =
-
-**Fixed**
-- Fixed a cross-site scripting vulnerability when an admin notice ID is invalid.
-
-= 4.23.8 (2024-04-25) =
-
-**Added**
-- Prepared notices and messages for the upcoming v5.0 update.
-
-**Changed**
-- Better error logging when a feed item fails to get saved.
-
-**Fixed**
-- Compatibility with PHP 8.x versions.
-- Compatibility with the "Widget Options" plugin.
-
-= 4.23.7 (2024-02-28) =
-
-**Fixed**
-- Media thumbnail images without a MIME type were not being properly detected.
-
-= 4.23.6 (2024-01-31) =
-
-**Changed**
-- Error information is suppressed for feeds with local address URLs. This improves the previous fix for CVE-2024-0628.
-
-= 4.23.5 (2024-01-24) =
-
-**Fixed**
-- Error messages no longer reveal information about potentially inaccessible resources. (CVE-2024-0628)
-- JavaScript code in feed item URLs is now properly sanitized and escaped. (CVE-2024-0630)
-- Word trimming did not work correctly when posts had leading whitespace.
-- The Templates page did not load properly on some websites.
-
-= 4.23.4 (2023-11-18) =
-
-**Added**
-- Black Friday offer links.
-
-**Changed**
-- Updated the "More Features" page.
-
-= 4.23.3 (2023-11-01) =
-
-**Changed**
-- Disabled the deactivation poll.
-
-= 4.23.2 (2023-09-29) =
-
-**Added**
-- An important notice regarding the upcoming major update that will require PHP 7.4 or higher.
-
-**Changed**
-- Twig date translation can now be disabled using the `wpra/twig/use_translations` filter.
-
-**Fixed**
-- Some PHP 8 compatibility issues.
-- Corrected how image are searched in the content and excerpt of an item.
-
-= 4.23.1 (2023-04-10) =
-
-**Fixes**
-- Fixed an error in the block that prevented it from being edited and previewed.
-
-= 4.23 (2023-04-06) =
-
-**Added**
-- New users can now sign up to receive a free starter guide.
-- YouTube feeds now provide the video description, which is now imported into feed items.
-
-**Changed**
-- Links to the pricing page for premium plans have been replaced with links to a new "upgrade" page.
-
-**Fixes**
-- Fixed a conflict with some themes and their front-end search capabilities.
-- The on-boarding wizard now correctly shows up for new users only.
-- Sorting feed items by date now works as expected.
-
-= 4.22.4 (2023-02-08) =
-
-**Added**
-- Images in RSS item excerpts are now properly detected.
-- New `wpra/images/file_name` filter to change the filename of imported images.
-
-= 4.22.3 (2023-02-01) =
-
-**Added**
-- New filter to disable the scrolling animation when clicking on pagination links in templates. [See docs](https://kb.wprssaggregator.com/article/861-disable-the-pagination-scroll-effect).
-
-= 4.22.2 (2022-12-19) =
-
-**Changed**
-- Code changes for PHP 8.0 compatibility.
-- Code changes for partial PHP 8.1 compatibility. The plugin still triggers some warnings on PHP 8.1, but should work fine.
-
-**Removed**
-- Removed the Black Friday and Cyber Monday promotion banners.
-- Removed the 2022 feedback survey.
-
-= 4.22.1 (2022-11-23) =
-
-**Added**
-- Promotion for Black Friday and Cyber Monday 2022 deals.
-- Notification for the 2022 feedback survey.
-
-**Fixed**
-- The custom feed was missing the `<published>` date tag.
-
-= 4.22 (2022-08-06) =
-
-**Changed**
-- YouTube embeds in the lightbox now begin playing automatically, if the browser allows it.
-
-= 4.21.1 (2022-07-20) =
-
-**Fixed**
-- An out-of-memory PHP error when importing items.
-
-= 4.21 (2022-07-13) =
-
-**Changed**
-- Updated Twig to v1.42.2, to support PHP 8 or later.
-- Optimized feed item date processing when an item is being imported.
-- Permalink and GUID checks are now done across all feed sources when an item is being imported.
-
-**Fixed**
-- Various PHP 8 errors and deprecations compatibility.
-- The classic editor button was generating incorrect shortcodes.
-
-= 4.20 (2022-01-18) =
-
-**Added**
-- New option to use feed item GUIDs instead of permalinks to detect duplicate items.
-
-**Changed**
-- Small performance improvement when importing feed items.
-
-**Fixed**
-- A warning about `get_headers()` only working with URLs.
-- A warning about iteration over a non-array value.
-- An AJAX XSS vulnerability on the Feed Sources page. Thanks WPScan!
-
-= 4.19.3 (2021-11-24)
-**Fixed**
-- An error during cron schedule filtering.
-- Not all image URLs in enclosure tags were being detected.
-
-= 4.19.2 (2021-10-28)
-**Changed**
-- Cleaned up the code significantly.
-- Consistent permalink normalization between the preview and importing.
-- Some plugin strings were not internationalized.
-- Source information is extracted from feed items more reliably.
-- Audio links in feed items are detected more reliably.
-- Enclosure images in feed items are detected more reliably.
-
-**Fixed**
-- HTML entities caused unique title checks to always fail.
-- Some request data was not filtered and/or sanitized properly.
-- Some plugin-generated content was not properly escaped for use in HTML.
-- URLs added manually to the blacklist are now properly validated.
-- Feed sources and feed items restored from the trash become "draft" since WordPress 5.6.
-
-= 4.19.1 (2021-09-14) =
-
-**Changed**
-- More details are now logged when a fatal error occurs during an import.
-- Using local versions of images and stylesheets.
-
-**Fixed**
-- Importing would sometimes fail when trying to fetch the media:thumbnail image.
-- Some request data was not filtered and/or sanitized properly.
-- Some plugin-generated content was not properly escaped for use in HTML.
-
-= 4.19 (2019-07-06) =
-
-**Added**
-- Support for importing images from `<image>` tags.
-
-**Changed**
-- Exceptions thrown during an import and caught and logged.
-
-= 4.18.2 (2021-04-26) =
-
-**Changed**
-- Audio players no longer preload the audio file. Audio is now loaded only the play button is clicked.
-
-**Fixed**
-- Pagination would sometimes cause the page to scroll upwards.
-- Images were wrongly determined to be from Facebook and were being renamed incorrectly.
-- Invalid cron schedules no longer cause a fatal error.
-- The shortcode icon in the classic editor would sometimes not be shown.
-
-= 4.18.1 (2021-03-15) =
-
-**Added**
-- New filters to change the time limits during image downloads.
-
-**Changed**
-- Using a single store URL for addon license verification.
-- Increased the PHP execution time limits for image downloads.
-
-**Fixed**
-- Licenses for the Templates addon could not be verified.
-
-= 4.18 (2021-03-08) =
-
-**Added**
-- The total import time is now recorded in the debug log.
-
-**Changed**
-- Omitting dev files from the plugin, reducing its size.
-- Redesigned the "More Features" page.
-- Feed items link to the original article when shown without a template and in RSS feeds.
-- Allocating more PHP execution time for image downloads.
-
-**Fixed**
-- Images with HTML entities in the URL resulted in broken images and missing featured images.
-- The code that checks when a feed is saved no longer runs unnecessarily.
-- Fixed styling issues with the "Save" button in the Templates edit page.
-- The max title length option in the "Default" template was being applied in the "Feed Items" page.
-
-= 4.17.10 (2020-12-01) =
-
-**Fixed**
-- After updating the Templates add-on from v0.2, the add-on would be deactivated.
-
-= 4.17.9 (2020-11-25) =
-
-**Changed**
-- Auto image detection is now able to find the feed channel image.
-- SimplePie auto-discovery is turned off when the "Force feed" option is enabled.
-- The Feed Source post type is no longer public.
-- Meta box styling has been updated to match WordPress 5.3's updated styles.
-
-**Fixed**
-- Removed referer header from feed requests, fixed importing for some feeds.
-- Feeds that contain items without titles no longer only import just the first item.
-- Cron jobs are properly added/removed when the plugin is activated/deactivated, respectively.
-- Problems with the default template no longer trigger a fatal error.
-
-= 4.17.8 (2020-10-06) =
-
-**Changed**
-- Disabled SimplePie's HTML sanitization.
-- Updated jQuery code to be compatible with the upcoming update in WordPress.
-- Images without an extension can now be imported.
-- The image importing function now allows the image URL and local path to be changed via filters.
-- Changed how item importing is logged in the debugging log. The log now shows what hooks can reject an item.
-
-**Fixed**
-- WooCommerce Product type dropdown and accompanying options disappear while WP RSS Aggregator is active.
-- Addressed notices about `register_rest_route` being called incorrectly.
-- The "Validate feed" link did not work.
-- Sites on a multi-site network would see an error about a function not existing.
-- Errors would not be properly rendered for non-fatal notices and warnings.
-
-= 4.17.7 (2020-08-12) =
-
-**Added**
-- New HTML classes for pagination buttons.
-
-**Fixed**
-- The featured image when using the Feed to Post add-on was not being saved.
-
-**Changed**
-- FeedBurner feeds no longer need to have "format=xml" at the end of the URL.
-
-= 4.17.6 (2020-07-29) =
-
-**Added**
-- A link in the New/Edit Feed Source page on how to find an RSS feed.
-
-**Changed**
-- The "Force feed" option turns off SSL verification.
-- Improved wording on the Help page.
-- Dates in templates can now be translated.
-- The link to the article on how to find an RSS feed now links to an article from the plugin's knowledge base.
-- The "Unique Titles" feed option can now be set to default to the global setting.
-
-**Fixed**
-- Rewrite rules would always get flushed when plugins tamper with them, such as Polylang Pro.
-- The "Delete All Imported Items" reset option was deleting all posts on the site.
-- Image options would not show up when using Feed to Post to import Feed Items.
-
-= 4.17.5 (2020-04-22) =
-
-**Changed**
-- Now showing a case study of a site using the Pro Plan in the on-boarding wizard.
-- Licenses are now managed by the main site. Child sites do not have access to the licenses page.
-
-**Fixed**
-- The custom feed did not include items imported as posts or other post types.
-
-**Removed**
-- Temporarily disabled the "What's New" page.
-- Removed the integration with Lorem on the "Help & Support" page.
-- Removed the integration with Lorem on the "More Features" page.
-
-= 4.17.4 (2020-03-16) =
-
-**Changed**
-- The default template is now created based on type, not slug.
-
-**Fixed**
-- Templates could not be saved if the request contained extra form data.
-- The default template would be copied multiple times if a post on the site had the "default" slug.
-- Feed item title did not escape HTML entities correctly.
-- Source name and link were sometimes incorrect in the custom feed.
-- Undefined index during error handling.
-- Better error messages when an error occurs.
-
-= 4.17.3 (2020-01-23) =
-
-**Changed**
-- Updated code to fix deprecation warnings on PHP version 7.4 and later.
-- Updated the Twig library to version `1.41.0` to fix deprecation warnings on PHP version 7.4 and later.
-- Updated the default translation files to contain up-to-date text.
-
-**Fixed**
-- Removed a false-positive error from the log.
-- Localization in Twig templates did not work.
-- When revisions are enabled, an error would prevent feed sources from being saved.
-- Translations were being loaded from an invalid path.
-- The default featured image in the New/Edit Feed Source page did not preview after saving the feed source.
-- Missing space between the link `a` tag and the `href` attribute on PHP 7.4
-
-= 4.17.2 (2019-12-19) =
-
-**Added**
-- The error handler now includes the file and line where the error occurred.
-
-**Changed**
-- The obsolete "Link Source" option is now only shown when the Excerpts & Thumbnails add-on is active.
-
-**Fixed**
-- The new "feeds" shortcode parameter only showed feed items for the first 10 feed sources.
-
-= 4.17.1 (2019-12-12) =
-
-**Fixed**
-- The new slug option was appearing on the edit pages for posts of all types.
-
-= 4.17 (2019-12-11) =
-
-**Added**
-- New "Tools" that replaces the "Blacklist", "Import/Export" and "Debugging" pages.
-- New option to control whether items with future dates are scheduled or published with truncated dates.
-- New "feeds" shortcode parameter to select feed sources by their slug names.
-- New "1 week" update interval option to update feeds once every week.
-- The "Edit Feed Source" page now allows the slug to be edited.
-- The "Edit Feed Source" page now shows shortcode snippets.
-
-**Changed**
-- RSS feeds that are invalid due to leading whitespace are now trimmed and may now be imported.
-- Images that have the same URL are now downloaded to the media library only once.
-- Updated some styles to match the new WordPress 5.3 aesthetic.
-- Optimized template saving to be more performant and less error prone.
-- Improved error messages in REST API responses.
-- Removed some log messages.
-- Fatal errors are now always logged.
-- Optimized cron-related functionality.
-- The plugin will no longer register cron schedules that already exist.
-- License-related notices are now only shown to users who have access to the Licenses settings page.
-
-**Fixed**
-- The "Import Source" option did not work.
-- Templates now link imported posts to the local post instead of to the original article.
-- Images with HTML entities in the URL could not be downloaded.
-- Feed items without a PolyLang translation did not show up in templates.
-- PHP notices were triggered when trying to download invalid images.
-- The feed item count in the "Feed Sources" page would show zero when certain add-ons are installed.
-- Removed a warning shown in templates about `reset()` expecting an array.
-- Thumbnails imported by Excerpts & Thumbnails were not shown in templates.
-- Some databases would report the following error during logging: "Column 'date' cannot be null".
-- Unserializing the options for the system info triggered PHP notices.
+For older versions, see the [full changelog](https://www.wprssaggregator.com/changelog/).

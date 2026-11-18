@@ -4,6 +4,8 @@ namespace RebelCode\Aggregator\Core;
 
 use DateTime;
 use RebelCode\Aggregator\Core\AdminUi\Tutorials;
+use RebelCode\Aggregator\Core\Rpc\Handlers\RpcCampaignHandler;
+use RebelCode\Aggregator\Core\Rpc\Handlers\RpcRecommendedPluginsHandler;
 use RebelCode\Aggregator\Core\Rpc\Handlers\RpcRelsHandler;
 use RebelCode\Aggregator\Core\Rpc\Handlers\RpcSettingsHandler;
 use RebelCode\Aggregator\Core\Rpc\Handlers\RpcWpHandler;
@@ -20,8 +22,8 @@ use RebelCode\Aggregator\Core\Utils\Progress;
 
 wpra()->addModule(
 	'rpc',
-	array( 'settings', 'importer', 'renderer', 'licensing' ),
-	function ( Settings $settings, Importer $importer, Renderer $renderer, Licensing $licensing ) {
+	array( 'settings', 'importer', 'renderer', 'licensing', 'recommendedPlugins' ),
+	function ( Settings $settings, Importer $importer, Renderer $renderer, Licensing $licensing, RpcRecommendedPluginsHandler $recommendedPlugins ) {
 		$hydrators = apply_filters(
 			'wpra.rpc.hydrators',
 			array(
@@ -46,6 +48,8 @@ wpra()->addModule(
 				'rels' => new RpcClassHandler( new RpcRelsHandler( $importer, $renderer ), $hydrators ),
 				'wp' => new RpcClassHandler( new RpcWpHandler() ),
 				'license' => new RpcClassHandler( $licensing ),
+				'campaign' => new RpcClassHandler( new RpcCampaignHandler() ),
+				'recommendedPlugins' => new RpcClassHandler( $recommendedPlugins ),
 				'v4' => new RpcFilterHandler( 'wpra.rpc.v4.%s' ),
 			)
 		);

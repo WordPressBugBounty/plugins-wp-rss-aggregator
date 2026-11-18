@@ -4,17 +4,17 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit81d3d9de47f809c4c4209de70b25ba7e
+class ComposerStaticInit8b082c2a99950343e5d2d739006f0dfe
 {
     public static $prefixLengthsPsr4 = array (
         'R' =>
         array (
             'RebelCode\\WpSdk\\' => 16,
+            'RebelCode\\Aggregator\\Core\\Vendor\\' => 33,
             'RebelCode\\Aggregator\\Core\\' => 26,
         ),
         'P' =>
         array (
-            'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
         ),
         'M' =>
@@ -38,13 +38,13 @@ class ComposerStaticInit81d3d9de47f809c4c4209de70b25ba7e
         array (
             0 => __DIR__ . '/..' . '/rebelcode/wp-plugin-sdk/src',
         ),
+        'RebelCode\\Aggregator\\Core\\Vendor\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/core/vendor-prefixed',
+        ),
         'RebelCode\\Aggregator\\Core\\' =>
         array (
             0 => __DIR__ . '/../..' . '/core/src',
-        ),
-        'Psr\\Log\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'Psr\\Container\\' =>
         array (
@@ -154,17 +154,6 @@ class ComposerStaticInit81d3d9de47f809c4c4209de70b25ba7e
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
-        'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
-        'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
-        'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
-        'Psr\\Log\\LoggerAwareInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerAwareInterface.php',
-        'Psr\\Log\\LoggerAwareTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerAwareTrait.php',
-        'Psr\\Log\\LoggerInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerInterface.php',
-        'Psr\\Log\\LoggerTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerTrait.php',
-        'Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/NullLogger.php',
-        'Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/DummyTest.php',
-        'Psr\\Log\\Test\\LoggerInterfaceTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
-        'Psr\\Log\\Test\\TestLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/TestLogger.php',
         'RebelCode\\Aggregator\\Core\\AdminUi\\Tutorials' => __DIR__ . '/../..' . '/core/src/AdminUi/Tutorials.php',
         'RebelCode\\Aggregator\\Core\\Capabilities' => __DIR__ . '/../..' . '/core/src/Capabilities.php',
         'RebelCode\\Aggregator\\Core\\Cli\\BaseCommand' => __DIR__ . '/../..' . '/core/src/Cli/BaseCommand.php',
@@ -213,9 +202,13 @@ class ComposerStaticInit81d3d9de47f809c4c4209de70b25ba7e
         'RebelCode\\Aggregator\\Core\\Logger\\PostLogger' => __DIR__ . '/../..' . '/core/src/Logger/PostLogger.php',
         'RebelCode\\Aggregator\\Core\\MergedFeed' => __DIR__ . '/../..' . '/core/src/MergedFeed.php',
         'RebelCode\\Aggregator\\Core\\Plugin' => __DIR__ . '/../..' . '/core/src/Plugin.php',
+        'RebelCode\\Aggregator\\Core\\RecommendedPlugins' => __DIR__ . '/../..' . '/core/src/RecommendedPlugins.php',
         'RebelCode\\Aggregator\\Core\\RejectedItem' => __DIR__ . '/../..' . '/core/src/RejectedItem.php',
         'RebelCode\\Aggregator\\Core\\Renderer' => __DIR__ . '/../..' . '/core/src/Renderer.php',
+        'RebelCode\\Aggregator\\Core\\Rest\\ItemsFeed' => __DIR__ . '/../..' . '/core/src/Rest/ItemsFeed.php',
+        'RebelCode\\Aggregator\\Core\\Rpc\\Handlers\\RpcCampaignHandler' => __DIR__ . '/../..' . '/core/src/Rpc/Handlers/RpcCampaignHandler.php',
         'RebelCode\\Aggregator\\Core\\Rpc\\Handlers\\RpcLoggerHandler' => __DIR__ . '/../..' . '/core/src/Rpc/Handlers/RpcLoggerHandler.php',
+        'RebelCode\\Aggregator\\Core\\Rpc\\Handlers\\RpcRecommendedPluginsHandler' => __DIR__ . '/../..' . '/core/src/Rpc/Handlers/RpcRecommendedPluginsHandler.php',
         'RebelCode\\Aggregator\\Core\\Rpc\\Handlers\\RpcRelsHandler' => __DIR__ . '/../..' . '/core/src/Rpc/Handlers/RpcRelsHandler.php',
         'RebelCode\\Aggregator\\Core\\Rpc\\Handlers\\RpcSettingsHandler' => __DIR__ . '/../..' . '/core/src/Rpc/Handlers/RpcSettingsHandler.php',
         'RebelCode\\Aggregator\\Core\\Rpc\\Handlers\\RpcSiteTransferHandler' => __DIR__ . '/../..' . '/core/src/Rpc/Handlers/RpcSiteTransferHandler.php',
@@ -299,6 +292,14 @@ class ComposerStaticInit81d3d9de47f809c4c4209de70b25ba7e
         'RebelCode\\Aggregator\\Core\\V4\\V4SettingsMigrator' => __DIR__ . '/../..' . '/core/src/V4/V4SettingsMigrator.php',
         'RebelCode\\Aggregator\\Core\\V4\\V4SourceMigrator' => __DIR__ . '/../..' . '/core/src/V4/V4SourceMigrator.php',
         'RebelCode\\Aggregator\\Core\\V4\\V4TemplatesMigrator' => __DIR__ . '/../..' . '/core/src/V4/V4TemplatesMigrator.php',
+        'RebelCode\\Aggregator\\Core\\Vendor\\Psr\\Log\\AbstractLogger' => __DIR__ . '/../..' . '/core/vendor-prefixed/Psr/Log/AbstractLogger.php',
+        'RebelCode\\Aggregator\\Core\\Vendor\\Psr\\Log\\InvalidArgumentException' => __DIR__ . '/../..' . '/core/vendor-prefixed/Psr/Log/InvalidArgumentException.php',
+        'RebelCode\\Aggregator\\Core\\Vendor\\Psr\\Log\\LogLevel' => __DIR__ . '/../..' . '/core/vendor-prefixed/Psr/Log/LogLevel.php',
+        'RebelCode\\Aggregator\\Core\\Vendor\\Psr\\Log\\LoggerAwareInterface' => __DIR__ . '/../..' . '/core/vendor-prefixed/Psr/Log/LoggerAwareInterface.php',
+        'RebelCode\\Aggregator\\Core\\Vendor\\Psr\\Log\\LoggerAwareTrait' => __DIR__ . '/../..' . '/core/vendor-prefixed/Psr/Log/LoggerAwareTrait.php',
+        'RebelCode\\Aggregator\\Core\\Vendor\\Psr\\Log\\LoggerInterface' => __DIR__ . '/../..' . '/core/vendor-prefixed/Psr/Log/LoggerInterface.php',
+        'RebelCode\\Aggregator\\Core\\Vendor\\Psr\\Log\\LoggerTrait' => __DIR__ . '/../..' . '/core/vendor-prefixed/Psr/Log/LoggerTrait.php',
+        'RebelCode\\Aggregator\\Core\\Vendor\\Psr\\Log\\NullLogger' => __DIR__ . '/../..' . '/core/vendor-prefixed/Psr/Log/NullLogger.php',
         'RebelCode\\WpSdk\\Di\\JsonFileService' => __DIR__ . '/..' . '/rebelcode/wp-plugin-sdk/src/Di/JsonFileService.php',
         'RebelCode\\WpSdk\\Di\\OverrideExtension' => __DIR__ . '/..' . '/rebelcode/wp-plugin-sdk/src/Di/OverrideExtension.php',
         'RebelCode\\WpSdk\\Di\\PluginContainer' => __DIR__ . '/..' . '/rebelcode/wp-plugin-sdk/src/Di/PluginContainer.php',
@@ -351,9 +352,9 @@ class ComposerStaticInit81d3d9de47f809c4c4209de70b25ba7e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit81d3d9de47f809c4c4209de70b25ba7e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit81d3d9de47f809c4c4209de70b25ba7e::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit81d3d9de47f809c4c4209de70b25ba7e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit8b082c2a99950343e5d2d739006f0dfe::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit8b082c2a99950343e5d2d739006f0dfe::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit8b082c2a99950343e5d2d739006f0dfe::$classMap;
 
         }, null, ClassLoader::class);
     }

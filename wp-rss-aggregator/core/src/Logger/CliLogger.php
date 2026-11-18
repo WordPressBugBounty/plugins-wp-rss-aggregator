@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace RebelCode\Aggregator\Core\Logger;
 
-use Psr\Log\LoggerInterface;
-use Psr\Log\LoggerTrait;
-use Psr\Log\LogLevel;
+use RebelCode\Aggregator\Core\Vendor\Psr\Log\LoggerInterface;
+use RebelCode\Aggregator\Core\Vendor\Psr\Log\LoggerTrait;
+use RebelCode\Aggregator\Core\Vendor\Psr\Log\LogLevel;
 use RebelCode\Aggregator\Core\Cli\CliIo;
 use RebelCode\Aggregator\Core\Cli\Colors;
 

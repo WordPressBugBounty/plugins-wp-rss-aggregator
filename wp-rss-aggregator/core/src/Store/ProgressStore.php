@@ -312,7 +312,7 @@ class ProgressStore {
                 id VARCHAR(30) NOT NULL,
                 current INT(10) DEFAULT 0,
                 total INT(10) DEFAULT 0,
-                started DATETIME DEFAULT NOW(),
+                started DATETIME NULL DEFAULT NULL,
                 message VARCHAR(255) DEFAULT '',
                 PRIMARY KEY  (id)
             ) {$this->db->charsetCollate};"
